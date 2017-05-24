@@ -1,0 +1,14 @@
+2017/05/24
+	1st meeting
+	understand the description of iteration 1
+	record questions that we found from the description
+	discuss what we need to do next
+	set up the environment(android studio...)
+	run the "sampleProject" that professor provided
+	arrange the next meeting date
+	all members learn to use github and android studio,
+		and study the "sampleproject" 
+	
+	 
+
+2017/05/26	

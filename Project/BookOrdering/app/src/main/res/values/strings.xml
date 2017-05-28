@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">BookOrdering</string>
+    <string name="CateBut">Category</string>
+    <string name="searching">Searching</string>
+    <string name="searchBut">Search</string>
+
 </resources>

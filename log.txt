@@ -12,3 +12,8 @@
 	 
 
 2017/05/26	
+	2nd meeting
+	decide to build the "searching books" big story
+	discuss the application's interface(GUI)
+	sperate works for next step
+	

@@ -3,5 +3,8 @@
     <string name="CateBut">Category</string>
     <string name="searching">Searching</string>
     <string name="searchBut">Search</string>
+    <string name="titleImg">TitleImageBookOrderingSystem</string>
+    <string name="signupBut">Sign up</string>
+    <string name="signinbut">sign in</string>
 
 </resources>

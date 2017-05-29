@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+    <EditText
+        android:id="@+id/searchText"
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/searching"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/SearchBut"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="41dp"
+        android:onClick="sendSearch"
+        android:text="@string/searchBut"
+        android:layout_above="@+id/CateBut"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/CateBut"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:text="@string/CateBut"
+        android:layout_marginBottom="129dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/SearchBut"
+        android:layout_alignStart="@+id/SearchBut" />
+
+    <Button
+        android:id="@+id/signinBut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/signinbut"
+        android:enabled="false"
+        android:layout_marginTop="19dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:id="@+id/signupBut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/signinBut"
+        android:layout_alignStart="@+id/signinBut"
+        android:layout_below="@+id/signinBut"
+        android:text="@string/signupBut"
+        android:enabled="false"
+        />
+
+</RelativeLayout>

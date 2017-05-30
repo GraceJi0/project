@@ -1,4 +1,4 @@
-package comp3350project.bookorderingsystem;
+package comp3350project.bookorderingsystem.presentation;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

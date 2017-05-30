@@ -1,6 +1,6 @@
-package com.example.dinghanji.a3350_iteration1.application.persistence;
+package comp3350project.bookorderingsystem.persistence;
 
-import com.example.dinghanji.a3350_iteration1.application.objects.Data;
+import comp3350project.bookorderingsystem.objects.Data;
 
 /**
  * Created by dinghanji on 2017-05-29.

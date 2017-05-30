@@ -1,5 +1,6 @@
-package com.example.dinghanji.a3350_iteration1.application.objects;
-import com.example.dinghanji.a3350_iteration1.application.persistence.LinkedList;
+package comp3350project.bookorderingsystem.objects;
+
+import comp3350project.bookorderingsystem.persistence.LinkedList;
 
 /**
  * Created by dinghanji on 2017-05-29.

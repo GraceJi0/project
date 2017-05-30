@@ -1,6 +1,7 @@
-package com.example.dinghanji.a3350_iteration1.application.business;
+package comp3350project.bookorderingsystem.business;
 
-import com.example.dinghanji.a3350_iteration1.application.persistence.DataAccessStub;
+
+import comp3350project.bookorderingsystem.persistence.DataAccessStub;
 
 /**
  * Created by dinghanji on 2017-05-30.

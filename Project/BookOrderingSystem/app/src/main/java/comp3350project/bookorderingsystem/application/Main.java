@@ -1,4 +1,4 @@
-package com.example.dinghanji.a3350_iteration1.application.application;
+package comp3350project.bookorderingsystem.application;
 
 /**
  * Created by dinghanji on 2017-05-26.

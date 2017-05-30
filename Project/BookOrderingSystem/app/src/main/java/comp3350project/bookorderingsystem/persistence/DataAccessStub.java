@@ -81,4 +81,13 @@ public class DataAccessStub
         bookList.delete(newBook);
     }
 
+    public String printAllBooks()
+    {
+        return bookList.printBooks();
+    }
+
+    public String printBooksInCategory(String newCategory)
+    {
+       return bookList.printBooksInCategory(newCategory);
+    }
 }

@@ -14,4 +14,15 @@ public class AccessBook {
     {
         dataAccess = newDataAccess;
     }
+
+    public String printAllBooks()
+    {
+        return dataAccess.printAllBooks();
+    }
+
+    public String printBooksInCategory(String newCategory)
+    {
+        return dataAccess.printBooksInCategory(newCategory);
+    }
+
 }

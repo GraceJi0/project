@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import comp3350project.bookorderingsystem.R;
+
 public class SearchActivity extends AppCompatActivity {
 
 

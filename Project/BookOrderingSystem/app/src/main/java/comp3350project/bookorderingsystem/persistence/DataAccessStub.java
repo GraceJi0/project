@@ -61,6 +61,11 @@ public class DataAccessStub
         addCustomer(new Customer("svbnm"));
     }
 
+    public void close()
+    {
+        System.out.println("Closed database ");
+    }
+
     public void addCustomer(Customer newCustomer)
     {
         customerList.insert(newCustomer);

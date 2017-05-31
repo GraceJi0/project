@@ -23,18 +23,18 @@ public class SearchActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
         TextView textView = (TextView) findViewById(R.id.Searchkey);
-        textView.setTextSize(30);
+        textView.setTextSize(20);
 
         char[]splitMessage = message.toCharArray();
         String output = ""; //the output
-        int MAX_NUM = 10;   //max number of char to display
+        int MAX_NUM = 30;   //max number of char to display
         int i = 0;  //only display first 10 available chars
         while((i<MAX_NUM)&&(i<splitMessage.length))
         {
             output += String.valueOf(splitMessage[i]);
             i++;
         }
-        if(splitMessage.length>10)
+        if(splitMessage.length>MAX_NUM)
             output+= "...";
 
         textView.setText("Searching : "+"\" "+output+" \"");

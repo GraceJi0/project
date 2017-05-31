@@ -8,16 +8,15 @@
     android:paddingRight="16dp">
 
     <EditText
-        android:id="@+id/SearchBox1"
+        android:id="@+id/searchText"
         android:layout_width="500dp"
         android:layout_height="wrap_content"
         android:hint="@string/searching"
+        android:inputType="text"
         android:maxLines="1"
         android:selectAllOnFocus="true"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="sendSearch"
-        />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/SearchBut"
@@ -25,7 +24,7 @@
         android:layout_height="80dp"
         android:onClick="sendSearch"
         android:text="@string/searchBut"
-        android:layout_below="@+id/SearchBox1"
+        android:layout_below="@+id/searchText"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="48dp" />
 

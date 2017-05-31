@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     public void sendSearch(View view) {
         // Do something in response to button
         Intent intent = new Intent(this,SearchActivity.class);
-        EditText editText = (EditText) findViewById(R.id.SearchBox1);
+        EditText editText = (EditText) findViewById(R.id.searchText);
         String message = editText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);

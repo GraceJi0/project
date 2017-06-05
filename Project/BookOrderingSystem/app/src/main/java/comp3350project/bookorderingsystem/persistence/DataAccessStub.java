@@ -23,36 +23,36 @@ public class DataAccessStub
         customerList=new ArrayList<Customer>();
         addBook(new Book("The Orphan's Tale: A Novel", " Pam Jenoff",
                 "A powerful novel of friendship set in a traveling circus during World War II ",
-                10.49,"Fiction"));
+                10.49,"Fiction", 1));
 
         addBook(new Book("The German Girl: A Novel","Armando Lucas Correa",
-                "A stunningly ambitious and beautiful novel.",29.50,"Fiction"));
+                "A stunningly ambitious and beautiful novel.",29.50,"Fiction",2));
 
         addBook(new Book("Ginny Moon: A Novel"," Benjamin Ludwig",
                 "“A brilliant debut.” —Graeme Simsion, New York Times bestselling author of The " +
-                        "Rosie Project",30.45,"Fiction"));
+                        "Rosie Project",30.45,"Fiction", 4));
 
         addBook(new Book("Neonatal Resuscitation"," Gary M Weiner",
                 "Powerful resource for interactive, simulation-based teaching and learning.",
-                82.32,"TextBooks"));
+                82.32,"TextBooks", 5));
 
         addBook(new Book("he Magical Zoo #1"," Dan Jackson","Containing creative illustrations " +
                 "and endless imagination, this book will entertain your child and you.",
-                20.35,"Children & Young Adult"));
+                20.35,"Children & Young Adult", 2));
 
         addBook((new Book("Minecraft Steve Vs Herobrine: Herobrine Attacks!",
                 " Diary Wimpy","Herobrine has kidnapped Felicia, can Minecraft Steve save " +
-                "her in time?",10.86,"Comics & Graphic Novels")));
+                "her in time?",10.86,"Comics & Graphic Novels", 1)));
 
         addBook(new Book("Great Food Fast"," Martha Stewart Living Magazine",
-                " 250 Recipes for Easy, Delicious Meals All Year Long ",22.16,"Magazines"));
+                " 250 Recipes for Easy, Delicious Meals All Year Long ",22.16,"Magazines", 3));
 
         addBook(new Book("Out of Africa","Isak Dinesen",
                 "Selected by the Modern Library as one of the 100 best nonfiction books of " +
-                        "all time\n",23.5,"Non-fiction"));
+                        "all time\n",23.5,"Non-fiction", 4));
 
         addBook(new Book("A Book That Takes Its Time"," Irene Smit, Astrid van der Hulst ",
-                "An Unhurried Adventure in Creative.",26.38,"other"));
+                "An Unhurried Adventure in Creative.",26.38,"other", 1));
         
         customerList=new ArrayList<Customer>();
         addCustomer(new Customer("dmb001"));
@@ -107,24 +107,29 @@ public class DataAccessStub
                 {
                     if(newBook.getBookPrice() >= 0)
                     {
-
-                            if(newBook.getCategory() != null && newBook.getCategory() != "")
-                            {
-                                for (int i = 0; i < bookList.size(); i++)
-                                {
+                        if(newBook.getNumberInStock() >= 0)
+                        {
+                            if (newBook.getCategory() != null && newBook.getCategory() != "") {
+                                for (int i = 0; i < bookList.size(); i++) {
                                     Book check = bookList.get(i);
-                                    if (check.compareName(newBook) == 0)
+                                    if (check.compareName(newBook) == 0)    //if the book already exists
                                     {
-                                        check.setNumberInStock(check.getNumberInStock()+1);
-                                        find = true;
+                                        find = true;    //the book is found
+                                        check.setNumberInStock(check.getNumberInStock() + 1); //increase the number of book in stock by 1
                                     }
                                 }
-                            }
-                            else
-                            {
+                                if (find == false)   //this is a new book
+                                {
+                                    bookList.add(newBook);
+                                }
+                            } else {
                                 System.out.println("add book error: invalid book category");
                             }
-
+                        }
+                        else
+                        {
+                            System.out.println("add book error: number instock cannot less than 0");
+                        }
                     }
                     else
                     {
@@ -139,10 +144,6 @@ public class DataAccessStub
             else
             {
                 System.out.println("add book error: invalid name");
-            }
-            if(find == false)
-            {
-                bookList.add(newBook);
             }
         }
         else

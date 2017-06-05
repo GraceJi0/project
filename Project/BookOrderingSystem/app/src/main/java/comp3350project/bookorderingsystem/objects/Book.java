@@ -14,13 +14,13 @@ public class Book extends Data
     private String category;
     //private bookPicture;
 
-    public Book( String newName, String newBookAuthor, String newInformation, double newPrice, String newCategory)
+    public Book( String newName, String newBookAuthor, String newInformation, double newPrice, String newCategory, int number)
     {
             bookName = newName;
             bookAuthor = newBookAuthor;
             bookInformation = newInformation;
             bookPrice = newPrice;
-            numberInStock = 0;
+            numberInStock = number;
             category = newCategory;
     }
 

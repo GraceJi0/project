@@ -1,10 +1,10 @@
-package comp3350project.bookorderingsystem.application;
+/*package comp3350project.bookorderingsystem.application;
 
 import comp3350project.bookorderingsystem.persistence.DataAccessStub;
 
 /**
  * Created by dinghanji on 2017-05-30.
- */
+
 
 public class Service {
     private static DataAccessStub dataAccessService = null;
@@ -35,4 +35,4 @@ public class Service {
     }
 
 
-}
+}*/

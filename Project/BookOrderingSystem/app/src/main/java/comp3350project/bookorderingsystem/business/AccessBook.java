@@ -7,7 +7,7 @@ import comp3350project.bookorderingsystem.persistence.DataAccessStub;
  * Created by dinghanji on 2017-05-30.
  */
 
-public class AccessBook {
+/*public class AccessBook {
     private DataAccessStub dataAccess;
 
     public AccessBook(DataAccessStub newDataAccess)
@@ -25,4 +25,4 @@ public class AccessBook {
         return dataAccess.printBooksInCategory(newCategory);
     }
 
-}
+}*/

@@ -35,6 +35,15 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="500dp"
+        android:layout_height="600dp"
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/Searchkey"
+        android:layout_alignLeft="@+id/Searchkey"
+        android:layout_alignStart="@+id/Searchkey" />
+
     <TextView
         android:id="@+id/Searchkey"
         android:layout_width="wrap_content"

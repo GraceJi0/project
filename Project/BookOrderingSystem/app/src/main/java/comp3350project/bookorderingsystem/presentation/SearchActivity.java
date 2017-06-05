@@ -3,25 +3,48 @@ package comp3350project.bookorderingsystem.presentation;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.ArrayAdapter;
+import android.view.View;
+import android.view.ViewGroup;
 
+import android.view.MenuItem;
+import android.view.Menu;
+import comp3350project.bookorderingsystem.persistence.DataAccessStub;
+import comp3350project.bookorderingsystem.objects.Book;
 import comp3350project.bookorderingsystem.R;
 
-import android.view.View;
+import java.util.ArrayList;
+
 import android.widget.EditText;
 
 public class SearchActivity extends AppCompatActivity {
+    private DataAccessStub dataAccess;
+    private ArrayList<Book> books;
+    private ArrayAdapter<Book> bookArrayAdapter;
+    private ListView listView;
+    private ArrayList<Book> founds;
+    private String message;
 
     public final static String EXTRA_MESSAGE = "comp3010_group10.bookordering.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        dataAccess=new DataAccessStub();
+        dataAccess.open();
+        books=dataAccess.getBookList();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
         Intent intent = getIntent();
-        String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        searchBook(message);
+        if(founds.size()==0)
+        {
+            String newString="no result about: "+message;
+            message=newString;
+        }
         TextView textView = (TextView) findViewById(R.id.Searchkey);
         textView.setTextSize(20);
 
@@ -36,11 +59,10 @@ public class SearchActivity extends AppCompatActivity {
         }
         if(splitMessage.length>MAX_NUM)
             output+= "...";
-
         textView.setText("Searching : "+"\" "+output+" \"");
-
         ViewGroup layout = (ViewGroup) findViewById(R.id.activity_search);
         //layout.addView(textView);
+
     }
 
     public void sendSearch(View view) {
@@ -51,4 +73,62 @@ public class SearchActivity extends AppCompatActivity {
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
     }
+
+    public void searchBook(String message) {
+        if (message != null && !message.isEmpty()) {
+            int i = 0;
+            founds = new ArrayList<Book>();
+            while (i < books.size()) {
+                if (books.get(i).getName().contains(message)) {
+                    founds.add(books.get(i));
+                }
+                i++;
+            }
+            if(founds.size()!=0)
+            {
+                ArrayAdapter<Book> bookArrayAdapter = new ArrayAdapter<Book>(this, android.R.layout.simple_list_item_2, android.R.id.text1, founds) {
+                    public View getView(int position, View convertView, ViewGroup parent) {
+                        View view = super.getView(position, convertView, parent);
+                        TextView text1 = (TextView) view.findViewById(android.R.id.text1);
+                        TextView text2 = (TextView) view.findViewById(android.R.id.text2);
+                        text1.setText("Book Name: " + founds.get(position).getName());
+                        text2.setText("Author: " + founds.get(position).getBookAuthor() + "       Price: " + founds.get(position).getBookPrice());
+                        return view;
+                    }
+                };
+                listView = (ListView) findViewById(R.id.listview);
+                listView.setAdapter(bookArrayAdapter);
+            }
+            else
+            {
+                ArrayAdapter<Book> bookArrayAdapter = new ArrayAdapter<Book>(this, android.R.layout.simple_list_item_2, android.R.id.text1, books) {
+                    public View getView(int position, View convertView, ViewGroup parent) {
+                        View view = super.getView(position, convertView, parent);
+                        TextView text1 = (TextView) view.findViewById(android.R.id.text1);
+                        TextView text2 = (TextView) view.findViewById(android.R.id.text2);
+                        text1.setText("Book Name: " + books.get(position).getName());
+                        text2.setText("Author: " + books.get(position).getBookAuthor() + "       Price: " + books.get(position).getBookPrice());
+                        return view;
+                    }
+                };
+                listView = (ListView) findViewById(R.id.listview);
+                listView.setAdapter(bookArrayAdapter);
+            }
+        } else {
+            founds = new ArrayList<Book>();
+            ArrayAdapter<Book> bookArrayAdapter = new ArrayAdapter<Book>(this, android.R.layout.simple_list_item_2, android.R.id.text1, books) {
+                public View getView(int position, View convertView, ViewGroup parent) {
+                    View view = super.getView(position, convertView, parent);
+                    TextView text1 = (TextView) view.findViewById(android.R.id.text1);
+                    TextView text2 = (TextView) view.findViewById(android.R.id.text2);
+                    text1.setText("Book Name: " + books.get(position).getName());
+                    text2.setText("Author: " + books.get(position).getBookAuthor() + "       Price: " + books.get(position).getBookPrice());
+                    return view;
+                }
+            };
+            listView = (ListView) findViewById(R.id.listview);
+            listView.setAdapter(bookArrayAdapter);
+        }
+    }
+
 }

@@ -92,6 +92,7 @@ public class DataAccessStub
     {
         return bookList;
     }
+
     public void addBook(Book newBook)
     {
         bookList.add(newBook);

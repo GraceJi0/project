@@ -24,27 +24,60 @@ public class Book extends Data
         category = newCategory;
     }
 
-    public String getName() { return bookName; }
+    public String getName()
+    {
+        return bookName;
+    }
 
-    public void setName(String newName) {bookName = newName;}
+    public void setName(String newName)
+    {
+        bookName = newName;
+    }
 
-    public String getBookAuthor(){return bookAuthor;}
+    public String getBookAuthor()
+    {
+        return bookAuthor;
+    }
 
-    public void setBookAuthor(String newBookAuthor){bookAuthor = newBookAuthor;}
+    public void setBookAuthor(String newBookAuthor)
+    {
+        bookAuthor = newBookAuthor;
+    }
 
-    public String getBookInformation(){return bookInformation;}
+    public String getBookInformation()
+    {
+        return bookInformation;
+    }
 
-    public void setBookInformation(String newBookInformation){bookInformation = newBookInformation;}
+    public void setBookInformation(String newBookInformation)
+    {
+        bookInformation = newBookInformation;
+    }
 
-    public double getBookPrice(){return bookPrice;}
+    public double getBookPrice()
+    {
+        return bookPrice;
+    }
 
-    public void setBookPrice(double newBookPrice){bookPrice = newBookPrice;}
+    public void setBookPrice(double newBookPrice)
+    {
+        bookPrice = newBookPrice;
+    }
 
-    public int getNumberInStock(){return numberInStock;}
+    public int getNumberInStock()
+    {
+        return numberInStock;
+    }
 
-    public void setNumberInStock(int newInStock){newInStock = newInStock;}
+    public void setNumberInStock(int newInStock)
+    {
+        newInStock = newInStock;
+    }
 
-    public String getCategory(){return category;}
+    public String getCategory()
+    {
+        return category;
+    }
 
     public int compareName(Data newData)
     {

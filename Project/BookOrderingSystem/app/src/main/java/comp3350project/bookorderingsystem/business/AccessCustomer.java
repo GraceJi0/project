@@ -28,14 +28,14 @@ public class AccessCustomer
         return newCustomer.getOrderAmount();
     }
 
-    public String printCart(Customer newCustomer)
+    /*public String printCart(Customer newCustomer)
     {
         return newCustomer.printCart();
-    }
+    }*/
 
-    public String printWishList(Customer newCustomer)
+    /*public String printWishList(Customer newCustomer)
     {
         return newCustomer.printWishList();
-    }
+    }*/
 
 }

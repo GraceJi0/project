@@ -14,12 +14,14 @@ public class MainActivity extends AppCompatActivity {
     public final static String EXTRA_MESSAGE = "comp3010_group10.bookordering.MESSAGE";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
 
-    public void sendSearch(View view) {
+    public void sendSearch(View view)
+    {
         // Do something in response to button
         Intent intent = new Intent(this,SearchActivity.class);
         EditText editText = (EditText) findViewById(R.id.searchText);

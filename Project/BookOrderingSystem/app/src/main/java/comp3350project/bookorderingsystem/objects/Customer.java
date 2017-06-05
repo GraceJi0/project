@@ -1,6 +1,6 @@
 package comp3350project.bookorderingsystem.objects;
 
-import comp3350project.bookorderingsystem.persistence.LinkedList;
+import java.util.ArrayList;
 
 /**
  * Created by dinghanji on 2017-05-29.
@@ -9,8 +9,8 @@ import comp3350project.bookorderingsystem.persistence.LinkedList;
 public class Customer extends Data
 {
     private String customerName;
-    private LinkedList customerCart;
-    private LinkedList customerWishList;
+    private ArrayList<Book> customerCart;
+    private ArrayList<Book> customerWishList;
     private String cardNumber;
     private String email;
     private String address;
@@ -18,65 +18,87 @@ public class Customer extends Data
     public Customer(String newName)
     {
         customerName = newName;
-        customerCart = new LinkedList();
-        customerWishList = new LinkedList();
+        customerCart = new ArrayList<Book>();
+        customerWishList = new ArrayList<Book>();
     }
 
-    public String getName(){return customerName;}
-    //public void setCustomerName(){}
+    public String getName()
+    {
+        return customerName;
+    }
 
-    public String getCardNumber(){return cardNumber;}
+    public String getCardNumber()
+    {
+        return cardNumber;
+    }
 
-    public void setCardNumber(String newNumber){cardNumber = newNumber;}
+    public void setCardNumber(String newNumber)
+    {
+        cardNumber = newNumber;
+    }
 
-    public String getEmail(){return email;}
+    public String getEmail()
+    {
+        return email;
+    }
 
-    public void setEmail(String newEmail){email = newEmail;}
+    public void setEmail(String newEmail)
+    {
+        email = newEmail;
+    }
 
-    public String getAddress(){return address;}
+    public String getAddress()
+    {
+        return address;
+    }
 
-    public void setAddress(String newAddress){address = newAddress;}
+    public void setAddress(String newAddress)
+    {
+        address = newAddress;
+    }
 
     public void addToCart(Book newBook)
     {
-        customerCart.insert(newBook);
+        customerCart.add(newBook);
     }
 
     public void deleteFromCart(Book newBook)
     {
-        customerCart.delete(newBook);
+        int index;
+
+        index = customerCart.indexOf(newBook);
+        if (index >= 0)
+        {
+            customerCart.remove(index);
+        }
     }
 
     public void addToWishList(Book newBook)
     {
-        customerWishList.insert(newBook);
+        customerWishList.add(newBook);
     }
 
     public void deleteFromWishList(Book newBook)
     {
-        customerWishList.delete(newBook);
-    }
+        int index;
 
-    public int compareName(Data newData)
-    {
-        return this.getName().compareTo(newData.getName());
+        index = customerWishList.indexOf(newBook);
+        if (index >= 0)
+        {
+            customerWishList.remove(index);
+        }
     }
 
     public double getOrderAmount()
     {
-        double result;
-        result = customerCart.getOrderAmount();
-        return result;
+        double total = 0.0;
+        for(int i = 0; i < customerCart.size(); i++)
+        {
+            total += customerCart.get(i).getBookPrice();
+        }
+        total += total * 0.13;
+        return total;
     }
 
-    public String printCart()
-    {
-        return "\nCart:" + customerCart.printBooks();
-    }
-
-    public String printWishList()
-    {
-        return "\nWishList:" + customerWishList.printBooks();
-    }
 }
 

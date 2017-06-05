@@ -105,11 +105,9 @@ public class DataAccessStub
             {
                 if(newBook.getBookAuthor() != null && newBook.getBookAuthor() != "")
                 {
-                    if(newBook.getBookPrice() > 0)
+                    if(newBook.getBookPrice() >= 0)
                     {
-                        if(newBook.getBookInformation() != null
-                                && newBook.getBookInformation() != "")
-                        {
+
                             if(newBook.getCategory() != null && newBook.getCategory() != "")
                             {
                                 for (int i = 0; i < bookList.size(); i++)
@@ -127,11 +125,7 @@ public class DataAccessStub
                             {
                                 System.out.println("add book error: invalid book category");
                             }
-                        }
-                        else
-                        {
-                            System.out.println("add book error: invalid book information");
-                        }
+
                     }
                     else
                     {

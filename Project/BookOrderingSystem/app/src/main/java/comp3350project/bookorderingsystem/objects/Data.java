@@ -6,5 +6,4 @@ package comp3350project.bookorderingsystem.objects;
 
 public abstract class Data {
     public abstract String getName();
-    public abstract int compareName(Data newData);
 }

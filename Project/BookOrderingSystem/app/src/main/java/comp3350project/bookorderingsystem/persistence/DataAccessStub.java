@@ -54,7 +54,11 @@ public class DataAccessStub
         addBook(new Book("A Book That Takes Its Time"," Irene Smit, Astrid van der Hulst ",
                 "An Unhurried Adventure in Creative.",26.38,"other"));
 
+<<<<<<< HEAD
 
+=======
+        customerList=new ArrayList<Customer>();
+>>>>>>> abb69a4b1530f5b2590211994e87188c1fc1af53
         addCustomer(new Customer("dmb001"));
         addCustomer(new Customer("tyui"));
         addCustomer(new Customer("ghjk"));
@@ -66,7 +70,14 @@ public class DataAccessStub
 
     public void addCustomer(Customer newCustomer)
     {
-        customerList.add(newCustomer);
+        if(newCustomer.getName()!=null && newCustomer.getName()!="")
+        {
+            customerList.add(newCustomer);
+        }
+        else
+        {
+            System.out.println("Customer information error!");
+        }
     }
 
     public void deleteCustomer(Customer newCustomer)

@@ -16,12 +16,12 @@ public class Book extends Data
 
     public Book( String newName, String newBookAuthor, String newInformation, double newPrice, String newCategory)
     {
-        bookName = newName;
-        bookAuthor = newBookAuthor;
-        bookInformation = newInformation;
-        bookPrice = newPrice;
-        numberInStock = 0;
-        category = newCategory;
+            bookName = newName;
+            bookAuthor = newBookAuthor;
+            bookInformation = newInformation;
+            bookPrice = newPrice;
+            numberInStock = 0;
+            category = newCategory;
     }
 
     public String getName()
@@ -31,6 +31,7 @@ public class Book extends Data
 
     public void setName(String newName)
     {
+
         bookName = newName;
     }
 

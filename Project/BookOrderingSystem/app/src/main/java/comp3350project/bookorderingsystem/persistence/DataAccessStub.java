@@ -20,49 +20,48 @@ public class DataAccessStub
     public void open()
     {
         bookList = new ArrayList<Book>();
-        Book book;
-        Customer cusomter;
-        bookList.add(new Book("The Orphan's Tale: A Novel", " Pam Jenoff",
+        customerList=new ArrayList<Customer>();
+        addBook(new Book("The Orphan's Tale: A Novel", " Pam Jenoff",
                 "A powerful novel of friendship set in a traveling circus during World War II ",
                 10.49,"Fiction"));
 
-        bookList.add(new Book("The German Girl: A Novel","Armando Lucas Correa",
+        addBook(new Book("The German Girl: A Novel","Armando Lucas Correa",
                 "A stunningly ambitious and beautiful novel.",29.50,"Fiction"));
 
-        bookList.add(new Book("Ginny Moon: A Novel"," Benjamin Ludwig",
+        addBook(new Book("Ginny Moon: A Novel"," Benjamin Ludwig",
                 "“A brilliant debut.” —Graeme Simsion, New York Times bestselling author of The " +
                         "Rosie Project",30.45,"Fiction"));
 
-        bookList.add(new Book("Neonatal Resuscitation"," Gary M Weiner",
+        addBook(new Book("Neonatal Resuscitation"," Gary M Weiner",
                 "Powerful resource for interactive, simulation-based teaching and learning.",
                 82.32,"TextBooks"));
 
-        bookList.add(new Book("he Magical Zoo #1"," Dan Jackson","Containing creative illustrations " +
+        addBook(new Book("he Magical Zoo #1"," Dan Jackson","Containing creative illustrations " +
                 "and endless imagination, this book will entertain your child and you.",
                 20.35,"Children & Young Adult"));
 
-        bookList.add((new Book("Minecraft Steve Vs Herobrine: Herobrine Attacks!",
+        addBook((new Book("Minecraft Steve Vs Herobrine: Herobrine Attacks!",
                 " Diary Wimpy","Herobrine has kidnapped Felicia, can Minecraft Steve save " +
                 "her in time?",10.86,"Comics & Graphic Novels")));
 
-        bookList.add(new Book("Great Food Fast"," Martha Stewart Living Magazine",
+        addBook(new Book("Great Food Fast"," Martha Stewart Living Magazine",
                 " 250 Recipes for Easy, Delicious Meals All Year Long ",22.16,"Magazines"));
 
-        bookList.add(new Book("Out of Africa","Isak Dinesen",
+        addBook(new Book("Out of Africa","Isak Dinesen",
                 "Selected by the Modern Library as one of the 100 best nonfiction books of " +
                         "all time\n",23.5,"Non-fiction"));
 
-        bookList.add(new Book("A Book That Takes Its Time"," Irene Smit, Astrid van der Hulst ",
+        addBook(new Book("A Book That Takes Its Time"," Irene Smit, Astrid van der Hulst ",
                 "An Unhurried Adventure in Creative.",26.38,"other"));
 
-        customerList=new ArrayList<Customer>();
-        customerList.add(new Customer("dmb001"));
-        customerList.add(new Customer("tyui"));
-        customerList.add(new Customer("ghjk"));
-        customerList.add(new Customer("szxcv"));
-        customerList.add(new Customer("asdf"));
-        customerList.add(new Customer("qwer"));
-        customerList.add(new Customer("svbnm"));
+
+        addCustomer(new Customer("dmb001"));
+        addCustomer(new Customer("tyui"));
+        addCustomer(new Customer("ghjk"));
+        addCustomer(new Customer("szxcv"));
+        addCustomer(new Customer("asdf"));
+        addCustomer(new Customer("qwer"));
+        addCustomer(new Customer("svbnm"));
     }
 
     public void addCustomer(Customer newCustomer)
@@ -79,6 +78,10 @@ public class DataAccessStub
         {
             customerList.remove(index);
         }
+        else
+        {
+            System.out.println("delete customer error: customer not exist");
+        }
     }
 
     public ArrayList<Book>getBookList()
@@ -88,7 +91,64 @@ public class DataAccessStub
 
     public void addBook(Book newBook)
     {
-        bookList.add(newBook);
+        boolean find = false;
+        if(newBook != null)
+        {
+            if(newBook.getName() != null && newBook.getName() != "")
+            {
+                if(newBook.getBookAuthor() != null && newBook.getBookAuthor() != "")
+                {
+                    if(newBook.getBookPrice() > 0)
+                    {
+                        if(newBook.getBookInformation() != null
+                                && newBook.getBookInformation() != "")
+                        {
+                            if(newBook.getCategory() != null && newBook.getCategory() != "")
+                            {
+                                for (int i = 0; i < bookList.size(); i++)
+                                {
+                                    if (bookList.get(i).compareName(newBook) == 0)
+                                    {
+                                        int inStock = 0;
+                                        inStock = bookList.get(i).getNumberInStock();
+                                        bookList.get(i).setNumberInStock(inStock);
+                                        find = true;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                System.out.println("add book error: invalid book category");
+                            }
+                        }
+                        else
+                        {
+                            System.out.println("add book error: invalid book information");
+                        }
+                    }
+                    else
+                    {
+                        System.out.println("add book error: invalid price");
+                    }
+                }
+                else
+                {
+                    System.out.println("add book error: invalid author");
+                }
+            }
+            else
+            {
+                System.out.println("add book error: invalid name");
+            }
+            if(find == false)
+            {
+                bookList.add(newBook);
+            }
+        }
+        else
+        {
+            System.out.println("add book error: invalid book");
+        }
     }
 
     public void deleteBook(Book newBook)
@@ -99,6 +159,10 @@ public class DataAccessStub
         if (index >= 0)
         {
             bookList.remove(index);
+        }
+        else
+        {
+            System.out.println("delete book error: book not exist");
         }
     }
 }

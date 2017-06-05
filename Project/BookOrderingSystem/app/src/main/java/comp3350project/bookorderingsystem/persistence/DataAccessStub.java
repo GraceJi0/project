@@ -112,11 +112,10 @@ public class DataAccessStub
                             {
                                 for (int i = 0; i < bookList.size(); i++)
                                 {
-                                    if (bookList.get(i).compareName(newBook) == 0)
+                                    Book check = bookList.get(i);
+                                    if (check.compareName(newBook) == 0)
                                     {
-                                        int inStock = 0;
-                                        inStock = bookList.get(i).getNumberInStock();
-                                        bookList.get(i).setNumberInStock(inStock+1);
+                                        check.setNumberInStock(check.getNumberInStock()+1);
                                         find = true;
                                     }
                                 }

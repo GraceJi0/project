@@ -118,7 +118,7 @@ public class DataAccessStub
                                     {
                                         int inStock = 0;
                                         inStock = bookList.get(i).getNumberInStock();
-                                        bookList.get(i).setNumberInStock(inStock);
+                                        bookList.get(i).setNumberInStock(inStock+1);
                                         find = true;
                                     }
                                 }

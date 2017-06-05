@@ -56,18 +56,25 @@ public class DataAccessStub
                 "An Unhurried Adventure in Creative.",26.38,"other"));
 
         customerList=new ArrayList<Customer>();
-        customerList.add(new Customer("dmb001"));
-        customerList.add(new Customer("tyui"));
-        customerList.add(new Customer("ghjk"));
-        customerList.add(new Customer("szxcv"));
-        customerList.add(new Customer("asdf"));
-        customerList.add(new Customer("qwer"));
-        customerList.add(new Customer("svbnm"));
+        addCustomer(new Customer("dmb001"));
+        addCustomer(new Customer("tyui"));
+        addCustomer(new Customer("ghjk"));
+        addCustomer(new Customer("szxcv"));
+        addCustomer(new Customer("asdf"));
+        addCustomer(new Customer("qwer"));
+        addCustomer(new Customer("svbnm"));
     }
 
     public void addCustomer(Customer newCustomer)
     {
-        customerList.add(newCustomer);
+        if(newCustomer.getName()!=null && newCustomer.getName()!="")
+        {
+            customerList.add(newCustomer);
+        }
+        else
+        {
+            System.out.println("Customer information error!");
+        }
     }
 
     public void deleteCustomer(Customer newCustomer)

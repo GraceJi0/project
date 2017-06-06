@@ -63,8 +63,7 @@ public class DataAccessStub
 
         addBook(new Book("A Book That Takes Its Time"," Irene Smit, Astrid van der Hulst ",
                 "An Unhurried Adventure in Creative.",26.38,"other", 1));
-        
-        customerList=new ArrayList<Customer>();
+
         addCustomer(new Customer("dmb001"));
         addCustomer(new Customer("tyui"));
         addCustomer(new Customer("ghjk"));

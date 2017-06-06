@@ -4,7 +4,7 @@ package comp3350project.bookorderingsystem.objects;
  * Created by dinghanji on 2017-05-29.
  */
 
-public class Book extends Data
+public class Book
 {
     private String bookName;
     private String bookAuthor;
@@ -80,7 +80,7 @@ public class Book extends Data
         return category;
     }
 
-    public int compareName(Data newData)
+    public int compareName(Book newData)
     {
         return this.getName().compareTo(newData.getName());
     }

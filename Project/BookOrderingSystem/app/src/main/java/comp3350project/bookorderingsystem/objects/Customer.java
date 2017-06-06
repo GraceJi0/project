@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Created by dinghanji on 2017-05-29.
  */
 
-public class Customer extends Data
+public class Customer
 {
     private String customerName;
     private ArrayList<Book> customerCart;

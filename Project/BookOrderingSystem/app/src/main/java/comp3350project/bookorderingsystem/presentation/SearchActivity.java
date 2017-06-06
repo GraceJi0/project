@@ -35,7 +35,7 @@ public class SearchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState)
     {
         dataAccess=new DataAccessStub();
-        dataAccess.open();
+        dataAccess.open("BOS");
         AccessBook  accessBook= new AccessBook(dataAccess);
         books=accessBook.getBookList();
         super.onCreate(savedInstanceState);

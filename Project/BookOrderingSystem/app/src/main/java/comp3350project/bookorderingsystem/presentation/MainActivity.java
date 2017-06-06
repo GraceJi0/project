@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import comp3350project.bookorderingsystem.R;
+import comp3350project.bookorderingsystem.application.Main;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        Main.startUp();
         setContentView(R.layout.activity_main);
     }
 

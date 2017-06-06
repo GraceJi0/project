@@ -40,30 +40,40 @@ public class SearchActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-        searchBook(message);
-        if(founds.size()==0)
-        {
-            String newString="no result about: "+message;
-            message=newString;
-        }
+        String search = message;    //get the name of the book
+        String output = ""; //display the searching result
+        searchBook(search);
+
         TextView textView = (TextView) findViewById(R.id.Searchkey);
         textView.setTextSize(20);
 
-        char[]splitMessage = message.toCharArray();
-        String output = ""; //the output
-        int MAX_NUM = 30;   //max number of char to display
+        String limit = "";   //make only MAX_NUM chars can be view
+        char[] splitMessage = search.toCharArray();
+        int MAX_NUM = 20;   //max number of char to display
         int i = 0;  //only display first 10 available chars
-        while((i<MAX_NUM)&&(i<splitMessage.length))
-        {
-            output += String.valueOf(splitMessage[i]);
+        while ((i < MAX_NUM) && (i < splitMessage.length)) {
+            limit += String.valueOf(splitMessage[i]);
             i++;
         }
-        if(splitMessage.length>MAX_NUM)
-            output+= "...";
-        textView.setText("Searching : "+"\" "+output+" \"");
+        if (splitMessage.length > MAX_NUM)
+            limit += "...";
+
+        if(founds.size()==0)
+        {
+            output="Cannot find:\"";
+            output += limit;
+            output += "\", try:";
+            textView.setText(output);
+        }
+        else
+        {
+            output = "Searching : \"";
+            output += limit;
+            output += "\"";
+            textView.setText(output);
+        }
         ViewGroup layout = (ViewGroup) findViewById(R.id.activity_search);
         //layout.addView(textView);
-
     }
 
     public void sendSearch(View view)
@@ -98,8 +108,8 @@ public class SearchActivity extends AppCompatActivity {
                         View view = super.getView(position, convertView, parent);
                         TextView text1 = (TextView) view.findViewById(android.R.id.text1);
                         TextView text2 = (TextView) view.findViewById(android.R.id.text2);
-                        text1.setText("Book Name: " + founds.get(position).getName());
-                        text2.setText("Author: " + founds.get(position).getBookAuthor() + "       Price: " + founds.get(position).getBookPrice());
+                        text1.setText(founds.get(position).getName());
+                        text2.setText("Author: " + founds.get(position).getBookAuthor() + "         $" + founds.get(position).getBookPrice());
                         return view;
                     }
                 };
@@ -114,8 +124,8 @@ public class SearchActivity extends AppCompatActivity {
                         View view = super.getView(position, convertView, parent);
                         TextView text1 = (TextView) view.findViewById(android.R.id.text1);
                         TextView text2 = (TextView) view.findViewById(android.R.id.text2);
-                        text1.setText("Book Name: " + books.get(position).getName());
-                        text2.setText("Author: " + books.get(position).getBookAuthor() + "       Price: " + books.get(position).getBookPrice());
+                        text1.setText(books.get(position).getName());
+                        text2.setText("Author: " + books.get(position).getBookAuthor() + "         $" + books.get(position).getBookPrice());
                         return view;
                     }
                 };

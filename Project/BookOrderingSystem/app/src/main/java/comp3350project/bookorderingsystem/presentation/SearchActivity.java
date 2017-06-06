@@ -63,14 +63,14 @@ public class SearchActivity extends AppCompatActivity {
 
         if(founds.size()==0)
         {
-            output="Cannot find:\"";
+            output="No result about: \"";
             output += limit;
             output += "\", try:";
             textView.setText(output);
         }
         else
         {
-            output = "Searching : \"";
+            output = "Showing books with: \"";
             output += limit;
             output += "\"";
             textView.setText(output);

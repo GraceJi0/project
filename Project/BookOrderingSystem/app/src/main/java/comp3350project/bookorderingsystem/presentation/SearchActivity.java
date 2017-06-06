@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 
 import android.view.MenuItem;
 import android.view.Menu;
+
+import comp3350project.bookorderingsystem.business.AccessBook;
 import comp3350project.bookorderingsystem.persistence.DataAccessStub;
 import comp3350project.bookorderingsystem.objects.Book;
 import comp3350project.bookorderingsystem.R;
@@ -33,8 +35,9 @@ public class SearchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState)
     {
         dataAccess=new DataAccessStub();
-        dataAccess.open();
-        books=dataAccess.getBookList();
+        dataAccess.open("BOS");
+        AccessBook  accessBook= new AccessBook(dataAccess);
+        books=accessBook.getBookList();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 

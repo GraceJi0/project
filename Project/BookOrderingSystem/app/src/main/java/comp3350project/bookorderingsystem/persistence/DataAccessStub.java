@@ -1,6 +1,8 @@
 package comp3350project.bookorderingsystem.persistence;
 import java.util.ArrayList;
 import java.util.List;
+
+import comp3350project.bookorderingsystem.application.Main;
 import comp3350project.bookorderingsystem.objects.Book;
 import comp3350project.bookorderingsystem.objects.Customer;
 
@@ -12,12 +14,20 @@ public class DataAccessStub
 {
     private ArrayList<Book> bookList;
     private ArrayList<Customer> customerList;
+    private String dbName;
+    private String dbType = "stub";
 
-
-    public DataAccessStub() {
+    public DataAccessStub(String dbName)
+    {
+        this.dbName = dbName;
     }
 
-    public void open()
+    public DataAccessStub()
+    {
+        this(Main.dbName);
+    }
+
+    public void open(String dbName)
     {
         bookList = new ArrayList<Book>();
         customerList=new ArrayList<Customer>();
@@ -53,8 +63,7 @@ public class DataAccessStub
 
         addBook(new Book("A Book That Takes Its Time"," Irene Smit, Astrid van der Hulst ",
                 "An Unhurried Adventure in Creative.",26.38,"other", 1));
-        
-        customerList=new ArrayList<Customer>();
+
         addCustomer(new Customer("dmb001"));
         addCustomer(new Customer("tyui"));
         addCustomer(new Customer("ghjk"));
@@ -62,6 +71,13 @@ public class DataAccessStub
         addCustomer(new Customer("asdf"));
         addCustomer(new Customer("qwer"));
         addCustomer(new Customer("svbnm"));
+
+        System.out.println("Opened " +dbType +" database " +dbName);
+    }
+
+    public void close()
+    {
+        System.out.println("Closed " +dbType +" database " +dbName);
     }
 
     public void addCustomer(Customer newCustomer)

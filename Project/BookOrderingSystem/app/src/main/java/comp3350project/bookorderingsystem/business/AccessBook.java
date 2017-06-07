@@ -24,6 +24,20 @@ public class AccessBook {
     {
         return dataAccess.getBookList();
     }
+
+    public Book searchBook(String newName)
+    {
+        ArrayList<Book> books = dataAccess.getBookList();
+        Book found = null;
+        for(int i = 0; i < books.size();i++)
+        {
+            if(books.get(i).getName().equals(newName))
+            {
+                found = books.get(i);
+            }
+        }
+        return found;
+    }
     /*public String printAllBooks()
     {
         return dataAccess.printAllBooks();

@@ -17,7 +17,7 @@ public class BookTest extends TestCase
 		
 		System.out.println("\nStarting testBook");
 		
-		theBook = new Book("Name", "Author", "Info", 1.0, "free", 1);	//create a new object and check whether it's created successful
+		theBook = new Book("Name", "Author", "Info", 1.0, "free", 1,1);	//create a new object and check whether it's created successful
 		assertNotNull(theBook);
 		assertTrue("Name".equals(theBook.getName()));
 		assertTrue("Author".equals(theBook.getBookAuthor()));

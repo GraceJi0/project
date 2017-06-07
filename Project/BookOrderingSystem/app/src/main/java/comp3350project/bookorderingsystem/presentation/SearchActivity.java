@@ -3,6 +3,7 @@ package comp3350project.bookorderingsystem.presentation;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.ArrayAdapter;
@@ -75,6 +76,35 @@ public class SearchActivity extends AppCompatActivity {
         }
         ViewGroup layout = (ViewGroup) findViewById(R.id.activity_search);
         //layout.addView(textView);
+        ////////////////////
+        if(founds.size() != 0)
+        {
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Book book = founds.get(position);
+                    String bookName = book.getName();
+                    Intent init = new Intent(SearchActivity.this, ViewBookActivity.class);
+                    init.putExtra("message", bookName);
+                    startActivity(init);
+                    //Toast.makeText(SearchActivity.this,bookName,Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+        else
+        {
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Book book = books.get(position);
+                    String bookName = book.getName();
+                    Intent init = new Intent(SearchActivity.this, ViewBookActivity.class);
+                    init.putExtra("message", bookName);
+                    startActivity(init);
+                    //Toast.makeText(SearchActivity.this,bookName,Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 
     public void sendSearch(View view)

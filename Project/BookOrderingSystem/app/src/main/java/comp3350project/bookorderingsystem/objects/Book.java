@@ -91,4 +91,6 @@ public class Book
     {
         return bookName + ", author: " + bookAuthor+", price: "+bookPrice;
     }
+
+    public int getImageID(){return  imageID;}
 }

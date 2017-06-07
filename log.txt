@@ -1,5 +1,8 @@
 
-we choose the GitHub flow, we created 2 branches named “process” and “master”, after a team member finish a task, he/she will transfer to the master branch from “process” after other team member view it. 
+
+we choose the GitHub flow, we created 2 branches named “process” and “master”.
+When we finish a feature, a team member create a pull request and let all other 
+team member to review it before merge to Master branch.
 
 
 2017/05/24
@@ -22,12 +25,14 @@ we choose the GitHub flow, we created 2 branches named “process” and “mast
 	seprate works for next step
 
 2017/05/30
+        3rd meeting
 	discuss issues and tasks:
-	1) find a way to link button on the UI to database
+	1) find out how to display the data in database
 	2) object/business test
 	3) design UI for search result
 
 2017/06/5
+	4th meeting
 	Almost finish iteration 1. Review the requirement to complete.
 	Decide to add book page when click the search result.
 	UI improvement
@@ -36,6 +41,7 @@ we choose the GitHub flow, we created 2 branches named “process” and “mast
 		   2) Have to enter the full book name to get correct search result
 		   3) display wrong book page when we click the book on the search result page.
 2017/06/07
+	5th meeting
 	last meeting before hand in.
 	solution for the database sharing bug: complete the main.java and service.java
 	solution for the search bug: use contain() method.

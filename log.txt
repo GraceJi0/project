@@ -45,5 +45,5 @@ team member to review it before merge to Master branch.
 	last meeting before hand in.
 	solution for the database sharing bug: complete the main.java and service.java
 	solution for the search bug: use contain() method.
-	
+	solution for display wrong book issue: use different book arraylist
 	finish the coding part, readme.txt, log.txt, and architecture sketch.

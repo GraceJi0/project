@@ -6,5 +6,6 @@
     <string name="titleImg">TitleImageBookOrderingSystem</string>
     <string name="signupBut">Sign up</string>
     <string name="signinbut">sign in</string>
+    <string name="defultTextView">TextView</string>
 
 </resources>

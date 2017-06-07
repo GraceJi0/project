@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_search"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -20,7 +21,8 @@
         android:layout_toLeftOf="@+id/SearchBut"
         android:layout_toStartOf="@+id/SearchBut"
         android:layout_marginRight="10dp"
-        android:layout_marginEnd="10dp" />
+        android:layout_marginEnd="10dp"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/SearchBut"
@@ -52,5 +54,6 @@
         android:layout_alignLeft="@+id/searchText"
         android:layout_marginTop="130dp"
         android:maxLines="1"
-        android:text="TextView" />
+        android:text="@string/defultTextView"
+        tools:ignore="RtlHardcoded" />
 </RelativeLayout>

@@ -2,6 +2,7 @@ package comp3350project.bookorderingsystem.persistence;
 import java.util.ArrayList;
 import java.util.List;
 
+import comp3350project.bookorderingsystem.R;
 import comp3350project.bookorderingsystem.application.Main;
 import comp3350project.bookorderingsystem.objects.Book;
 import comp3350project.bookorderingsystem.objects.Customer;
@@ -33,36 +34,36 @@ public class DataAccessStub
         customerList=new ArrayList<Customer>();
         addBook(new Book("The Orphan's Tale: A Novel", " Pam Jenoff",
                 "A powerful novel of friendship set in a traveling circus during World War II ",
-                10.49,"Fiction", 1));
+                10.49,"Fiction", 1, R.drawable.book1));
 
         addBook(new Book("The German Girl: A Novel","Armando Lucas Correa",
-                "A stunningly ambitious and beautiful novel.",29.50,"Fiction",2));
+                "A stunningly ambitious and beautiful novel.",29.50,"Fiction",2, R.drawable.book2));
 
         addBook(new Book("Ginny Moon: A Novel"," Benjamin Ludwig",
                 "“A brilliant debut.” —Graeme Simsion, New York Times bestselling author of The " +
-                        "Rosie Project",30.45,"Fiction", 4));
+                        "Rosie Project",30.45,"Fiction", 4, R.drawable.book3));
 
         addBook(new Book("Neonatal Resuscitation"," Gary M Weiner",
                 "Powerful resource for interactive, simulation-based teaching and learning.",
-                82.32,"TextBooks", 5));
+                82.32,"TextBooks", 5, R.drawable.book4));
 
         addBook(new Book("he Magical Zoo #1"," Dan Jackson","Containing creative illustrations " +
                 "and endless imagination, this book will entertain your child and you.",
-                20.35,"Children & Young Adult", 2));
+                20.35,"Children & Young Adult", 2, R.drawable.book5));
 
         addBook((new Book("Minecraft Steve Vs Herobrine: Herobrine Attacks!",
                 " Diary Wimpy","Herobrine has kidnapped Felicia, can Minecraft Steve save " +
-                "her in time?",10.86,"Comics & Graphic Novels", 1)));
+                "her in time?",10.86,"Comics & Graphic Novels", 1, R.drawable.book6)));
 
         addBook(new Book("Great Food Fast"," Martha Stewart Living Magazine",
-                " 250 Recipes for Easy, Delicious Meals All Year Long ",22.16,"Magazines", 3));
+                " 250 Recipes for Easy, Delicious Meals All Year Long ",22.16,"Magazines", 3, R.drawable.book7));
 
         addBook(new Book("Out of Africa","Isak Dinesen",
                 "Selected by the Modern Library as one of the 100 best nonfiction books of " +
-                        "all time\n",23.5,"Non-fiction", 4));
+                        "all time\n",23.5,"Non-fiction", 4, R.drawable.book8));
 
         addBook(new Book("A Book That Takes Its Time"," Irene Smit, Astrid van der Hulst ",
-                "An Unhurried Adventure in Creative.",26.38,"other", 1));
+                "An Unhurried Adventure in Creative.",26.38,"other", 1, R.drawable.book9));
 
         addCustomer(new Customer("dmb001"));
         addCustomer(new Customer("tyui"));

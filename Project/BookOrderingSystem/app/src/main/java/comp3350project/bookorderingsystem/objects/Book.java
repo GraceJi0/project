@@ -12,9 +12,10 @@ public class Book
     private double bookPrice;
     private int numberInStock;
     private String category;
-    //private bookPicture;
+    private int imageID;
 
-    public Book( String newName, String newBookAuthor, String newInformation, double newPrice, String newCategory, int number)
+    public Book( String newName, String newBookAuthor, String newInformation, double newPrice,
+                 String newCategory, int number,int imageID)
     {
             bookName = newName;
             bookAuthor = newBookAuthor;
@@ -22,6 +23,7 @@ public class Book
             bookPrice = newPrice;
             numberInStock = number;
             category = newCategory;
+            this.imageID = imageID;
     }
 
     public String getName()

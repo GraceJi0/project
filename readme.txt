@@ -62,9 +62,10 @@ ExampleUnitTest.java
 
 
 log.txt locates inside the zip file
+repository location: git@github.com:RedRect/Android_BookOrdering.git
 
-The major feature of our project includes search books by entering keyword, a list of search result that includes the title, author and price for each book. A book page can be accessed by clicking the search result that contain more detail about this book. Customer has option to add this book to cart or wish list.
+The major feature of our project includes search books by entering keyword (locate in the main of the GUI), a list of search result that includes the title, author and price for each book (locate in the search result page). A book page can be accessed by clicking the search result that contain more detail about this book. Customer has option to add this book to cart or wish list (also locate in the book detail page).
 
-GUI locate the folder res/layout/activity_main.xml. 
+
 
 

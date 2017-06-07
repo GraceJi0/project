@@ -1,40 +1,57 @@
-Development tools
--------------------
-The following tools will be used to develop the software; many will be discussed in class.
-
-Java JDK (SE, version 7 or newer)
-Android Studio (version 2.2 or newer)
-Android SDK version 4 (ICS) or newer (comes with Android Studio)
-Subversion/git version control system (integrated with Android Studio, served on CS UNIX)
-HSQLDB database management system (version 1.8 is recommended)
-JUnit testing framework
-a tool for automated acceptance testing (Robotium or Espresso).
-Or you may choose some alternatives to these tools; consult your instructor.
-
-
-Project iterations
-------------------------
-The project will be developed in four iterations:
-
-Iteration 0: project vision statement, big stories, user stories for iteration 1 (no coding).
-Iteration 1: GUI for at least one big user story, model objects and some processing, unit testing for model objects and processing, stub database.
-Iteration 2: replace stub with real SQL database, more stories, integration testing.
-Iteration 3: acceptance testing, more stories, final release.
-
-Project topics
-------------------
-Book ordering System
-
-
-
 *************************************************************************
 README.txt
 
+Project topic: Book ordering System
+
+Group Number: 10
+Team member:
+Ruopu Zhang (7723669)
+Junjie Lin (7780545)
+Dinghan Ji (7797141)
+Xinyu Li (7768642)
+Jianwen Chen (7749375)
 
 xxx.zip file contains our project file and log.txt
-The major source code files of our project includes:
+
+
+Developer tasks:
+
+The big user story we choose to finish in this iteration is “Search a book” and ”View book’s information”.
+
+1. crate basic classes/objects: (1 hr)
+	-Book class
+	-Customer class
+2. create database (4 hr)
+	- make sure to link database so that other class/object can access data
+3. crate business class (access database) (1 hr)
+	-AccessBook class
+	-AccessCustomer class  
+4. design UI 
+	-main page, include search bar, search button, category button, account button, display logo image (3 hr)
+	-search result page, get a list of book from database that contain the keyword (3 hr, can be worked with search activity part)
+	-book detail page, include image, title, author, price, and customer review. (3 hr)
+5. main activity
+	-code part, search method, access data from DB (3 hr)
+	-UI part, search bar, buttons ( 3 hr)
+6. search activity (2 hr)
+	-display search result
+	-another search bar
+	-link search result to the book detail page
+7. view book activity (4 hr)
+	-display book’s detail information 
+	-add image
+	
+8. test of Book class, Customer class, AccessBook class and AccessCustomer class (2 hr)
+
+
+
+
+
+The package major source code files of our project includes:
+
 
 comp3350project.bookorderingsystem folder:
+application folder: Main.java, Service.java
 business folder: AccessBook.java and AccessCustomer.java
 objects folder: Book.java and Customer.java
 persistence folder: DataAccessStub.java

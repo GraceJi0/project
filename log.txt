@@ -1,5 +1,5 @@
 
-we choose the GitHub flow, we created 2 branches named “process” and “master”, after a team member finish a task, he/she will upload to the master branch from “process” after other team member view it. 
+we choose the GitHub flow, we created 2 branches named “process” and “master”, after a team member finish a task, he/she will transfer to the master branch from “process” after other team member view it. 
 
 
 2017/05/24

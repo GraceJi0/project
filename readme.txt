@@ -11,7 +11,7 @@ Dinghan Ji (7797141)
 Xinyu Li (7768642)
 Jianwen Chen (7749375)
 
-xxx.zip file contains our project file and log.txt
+iteration1.zip file contains our project file and log.txt
 
 
 Developer tasks:

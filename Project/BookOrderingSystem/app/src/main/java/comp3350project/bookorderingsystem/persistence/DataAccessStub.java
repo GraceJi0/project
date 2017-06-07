@@ -81,15 +81,24 @@ public class DataAccessStub
         System.out.println("Closed " +dbType +" database " +dbName);
     }
 
-    public void addCustomer(Customer newCustomer)
+    public boolean addCustomer(Customer newCustomer)
     {
-        if(newCustomer.getName()!=null && newCustomer.getName()!="")
+        if(newCustomer != null)
         {
-            customerList.add(newCustomer);
+            if (newCustomer.getName() != null && newCustomer.getName() != "") {
+                customerList.add(newCustomer);
+                return true;
+            }
+            else
+            {
+                System.out.println("add customer error: information error");
+                return false;
+            }
         }
         else
         {
-            System.out.println("Customer information error!");
+            System.out.println("add customer error: invalid customer ");
+            return false;
         }
     }
 
@@ -113,7 +122,7 @@ public class DataAccessStub
         return bookList;
     }
 
-    public void addBook(Book newBook)
+    public boolean addBook(Book newBook)
     {
         boolean find = false;
         if(newBook != null)
@@ -126,7 +135,8 @@ public class DataAccessStub
                     {
                         if(newBook.getNumberInStock() >= 0)
                         {
-                            if (newBook.getCategory() != null && newBook.getCategory() != "") {
+                            if (newBook.getCategory() != null && newBook.getCategory() != "")
+                            {
                                 for (int i = 0; i < bookList.size(); i++) {
                                     Book check = bookList.get(i);
                                     if (check.compareName(newBook) == 0)    //if the book already exists
@@ -139,33 +149,42 @@ public class DataAccessStub
                                 {
                                     bookList.add(newBook);
                                 }
-                            } else {
+                                return true;
+                            }
+                            else
+                            {
                                 System.out.println("add book error: invalid book category");
+                                return false;
                             }
                         }
                         else
                         {
                             System.out.println("add book error: number instock cannot less than 0");
+                            return false;
                         }
                     }
                     else
                     {
                         System.out.println("add book error: invalid price");
+                        return false;
                     }
                 }
                 else
                 {
                     System.out.println("add book error: invalid author");
+                    return false;
                 }
             }
             else
             {
                 System.out.println("add book error: invalid name");
+                return false;
             }
         }
         else
         {
             System.out.println("add book error: invalid book");
+            return false;
         }
     }
 

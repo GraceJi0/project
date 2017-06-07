@@ -40,9 +40,9 @@ public class AccessBook {
         return found;
     }
 
-    public void addBook(Book book)
+    public boolean addBook(Book book)
     {
-        dataAccess.addBook(book);
+        return dataAccess.addBook(book);
     }
 
 

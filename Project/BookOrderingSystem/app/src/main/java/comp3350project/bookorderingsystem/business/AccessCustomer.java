@@ -18,26 +18,14 @@ public class AccessCustomer
         dataAccess = (DataAccessStub) Service.getDataAccess(Main.dbName);
     }
 
-    public Customer getCustomer()
+    public boolean addCustomer(Customer newCustomer)
     {
-        Customer customer = null;
-
-        return customer;
+        return dataAccess.addCustomer(newCustomer);
     }
 
     public double OrderAmount(Customer newCustomer)
     {
         return newCustomer.getOrderAmount();
     }
-
-    /*public String printCart(Customer newCustomer)
-    {
-        return newCustomer.printCart();
-    }*/
-
-    /*public String printWishList(Customer newCustomer)
-    {
-        return newCustomer.printWishList();
-    }*/
 
 }

@@ -15,7 +15,7 @@ public class Book
     private int imageID;
 
     public Book( String newName, String newBookAuthor, String newInformation, double newPrice,
-                 String newCategory, int number,int imageID)
+                 String newCategory, int number, int imageID)
     {
             bookName = newName;
             bookAuthor = newBookAuthor;

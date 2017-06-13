@@ -21,9 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Main.startUp();
         setContentView(R.layout.activity_main);
-        //test code*****************************
         setTestButton();
-        //test code end*************************
     }
 
     /*public void sendSearch(View view)
@@ -69,6 +67,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-
 }

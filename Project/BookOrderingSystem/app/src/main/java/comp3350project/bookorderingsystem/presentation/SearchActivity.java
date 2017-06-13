@@ -87,7 +87,6 @@ public class SearchActivity extends AppCompatActivity {
                     Intent init = new Intent(SearchActivity.this, ViewBookActivity.class);
                     init.putExtra("message", bookName);
                     startActivity(init);
-                    //Toast.makeText(SearchActivity.this,bookName,Toast.LENGTH_SHORT).show();
                 }
             });
         }
@@ -101,7 +100,6 @@ public class SearchActivity extends AppCompatActivity {
                     Intent init = new Intent(SearchActivity.this, ViewBookActivity.class);
                     init.putExtra("message", bookName);
                     startActivity(init);
-                    //Toast.makeText(SearchActivity.this,bookName,Toast.LENGTH_SHORT).show();
                 }
             });
         }

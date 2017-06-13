@@ -62,5 +62,17 @@ public class ManagerMainActivity extends AppCompatActivity
                 startActivity(i);
             }
         });
+
+        Button logOut = (Button)findViewById(R.id.logOutButton);
+        logOut.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent i = new Intent(ManagerMainActivity.this, MainActivity.class);
+                i.putExtra("exit", "exit");
+                startActivity(i);
+            }
+        });
     }
 }

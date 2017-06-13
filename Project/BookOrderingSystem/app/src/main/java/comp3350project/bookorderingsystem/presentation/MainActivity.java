@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import comp3350project.bookorderingsystem.R;
@@ -20,9 +21,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Main.startUp();
         setContentView(R.layout.activity_main);
+        //test code*****************************
+        setTestButton();
+        //test code end*************************
     }
 
-    public void sendSearch(View view)
+    /*public void sendSearch(View view)
     {
         // Do something in response to button
         Intent intent = new Intent(this,SearchActivity.class);
@@ -30,5 +34,41 @@ public class MainActivity extends AppCompatActivity {
         String message = editText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
+    }*/
+
+
+    public void setTestButton()
+    {
+        //test for manager page************************
+        Button testButton = (Button) findViewById(R.id.test);
+        testButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent i = new Intent(MainActivity.this, ManagerMainActivity.class);
+                String account = "dbm001";
+                i.putExtra("name", account);
+                startActivity(i);
+            }
+        });
+        //end test code**********************************
+
+        //set search button
+        Button searchButton = (Button) findViewById(R.id.SearchBut);
+        searchButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(MainActivity.this,SearchActivity.class);
+                EditText editText = (EditText) findViewById(R.id.searchText);
+                String message = editText.getText().toString();
+                intent.putExtra(EXTRA_MESSAGE, message);
+                startActivity(intent);
+            }
+        });
     }
+
+
 }

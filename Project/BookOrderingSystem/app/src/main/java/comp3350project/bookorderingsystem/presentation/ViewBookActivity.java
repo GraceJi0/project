@@ -22,7 +22,8 @@ public class ViewBookActivity extends AppCompatActivity {
     public final static String EXTRA_MESSAGE = "comp3010_group10.bookordering.MESSAGE";
     private Book book;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_book);
         AccessCustomer accessCustomer = new AccessCustomer();

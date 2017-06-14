@@ -61,8 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/searchByManager"
         android:layout_alignStart="@+id/searchByManager"
-        android:layout_below="@+id/searchByManager"
-        android:text="TextView" />
+        android:layout_below="@+id/searchByManager" />
 
     <Button
         android:id="@+id/addBookButton"

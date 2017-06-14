@@ -21,6 +21,7 @@ public class ViewBookActivity extends AppCompatActivity {
 
     public final static String EXTRA_MESSAGE = "comp3010_group10.bookordering.MESSAGE";
     private Book book;
+    private String accountName;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -79,6 +80,7 @@ public class ViewBookActivity extends AppCompatActivity {
             {
                 Toast.makeText(ViewBookActivity.this,"Successfully added to the shopping cart",
                         Toast.LENGTH_SHORT).show();
+
 
             }
         });

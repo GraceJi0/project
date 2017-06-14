@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -27,7 +28,9 @@ import comp3350project.bookorderingsystem.objects.Book;
 
 public class ManagerViewBooksActivity extends AppCompatActivity {
     private String accountName;
-
+    AccessBook accessBook;
+    ListView listView;
+    private ArrayList<Book> booksList;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -37,10 +40,12 @@ public class ManagerViewBooksActivity extends AppCompatActivity {
         Intent intent = getIntent();
         accountName = intent.getStringExtra("name");
 
-        AccessBook accessBook = new AccessBook();
+        accessBook = new AccessBook();
+        booksList = accessBook.getBookList();
 
-        setListView(accessBook.getBookList());
+        setListView(booksList);
         setButton();
+        doSearch();
     }
 
     public void setButton()
@@ -70,21 +75,50 @@ public class ManagerViewBooksActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
     }
 
-    public void setListView(final ArrayList<Book> booksList)
+    public  void doSearch()
+    {
+        Button search = (Button) findViewById(R.id.searchByManagerBut);
+        search.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                EditText searchKeyText = (EditText)findViewById(R.id.searchByManager);
+                String searchKey = searchKeyText.getText().toString();
+                ArrayList<Book> found = accessBook.searchBookContain(searchKey);
+                if(found.size()==0)
+                {
+                    TextView message = (TextView)findViewById(R.id.searchResultText);
+                    message.setText("No result about: "+searchKey+", try");
+                    setListView(booksList);
+                }
+                else
+                {
+                    TextView message = (TextView)findViewById(R.id.searchResultText);
+                    message.setText("Showing books with: "+searchKey);
+                    setListView(found);
+                }
+            }
+        });
+    }
+
+
+    public void setListView(final ArrayList<Book> bookList)
     {
         //set books' listView
         BookAdapter adapter = new BookAdapter(ManagerViewBooksActivity.this,
-                R.layout.book_item,booksList);
-        ListView listView = (ListView) findViewById(R.id.bookList);
+                R.layout.book_item,bookList);
+        listView = (ListView) findViewById(R.id.bookList);
         listView.setAdapter(adapter);
 
         //set bookList clickable
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Book book = booksList.get(position);
+                Book book = bookList.get(position);
                 String bookName = book.getName();
 
                 Intent intent = new Intent(ManagerViewBooksActivity.this, EditBookActivity.class);

@@ -14,7 +14,7 @@ import comp3350project.bookorderingsystem.application.Main;
 public class MainActivity extends AppCompatActivity {
 
     public final static String EXTRA_MESSAGE = "comp3010_group10.bookordering.MESSAGE";
-
+    private String accountName;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {

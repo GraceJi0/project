@@ -40,6 +40,20 @@ public class AccessBook {
         return found;
     }
 
+    public ArrayList<Book> searchBookContain(String newname)
+    {
+        ArrayList<Book> books = dataAccess.getBookList();
+        ArrayList<Book> found = new ArrayList<Book>();
+        for(int i = 0; i < books.size();i++)
+        {
+            if(books.get(i).getName().contains(newname))
+            {
+                found.add(books.get(i));
+            }
+        }
+        return found;
+    }
+
     public boolean addBook(Book book)
     {
         return dataAccess.addBook(book);

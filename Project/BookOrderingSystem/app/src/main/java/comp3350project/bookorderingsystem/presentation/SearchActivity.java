@@ -23,12 +23,12 @@ import java.util.ArrayList;
 import android.widget.EditText;
 
 public class SearchActivity extends AppCompatActivity {
-    private DataAccessStub dataAccess;
     private ArrayList<Book> books;
     private ArrayAdapter<Book> bookArrayAdapter;
     private ListView listView;
     private ArrayList<Book> founds;
     private String message;
+    private String accountName;
 
     public final static String EXTRA_MESSAGE = "comp3010_group10.bookordering.MESSAGE";
 

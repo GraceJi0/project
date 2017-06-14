@@ -56,4 +56,24 @@
         android:maxLines="1"
         android:text="@string/defultTextView"
         tools:ignore="RtlHardcoded" />
+
+    <Button
+        android:id="@+id/logOutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/SearchBut"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:text="log out" />
+
+    <Button
+        android:id="@+id/MyAccountButton"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/SearchBut"
+        android:layout_alignTop="@+id/logOutButton"
+        android:layout_toLeftOf="@+id/logOutButton"
+        android:layout_toStartOf="@+id/logOutButton"
+        android:text="My Account" />
 </RelativeLayout>

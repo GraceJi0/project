@@ -29,12 +29,14 @@ public class ManagerMainActivity extends AppCompatActivity
 
     public void setText()
     {
+        //set text to account's name
         TextView name = (TextView)findViewById(R.id.welcomeManagerText);
         name.setText(accountName);
     }
 
     public void setButton()
     {
+        //set view customer button
         Button viewCustomer = (Button)findViewById(R.id.viewCustomerButton);
         viewCustomer.setOnClickListener(new View.OnClickListener()
         {
@@ -47,6 +49,7 @@ public class ManagerMainActivity extends AppCompatActivity
             }
         });
 
+        //set view book button
         Button viewBook = (Button)findViewById(R.id.viewBookButton);
         viewBook.setOnClickListener(new View.OnClickListener()
         {
@@ -59,6 +62,7 @@ public class ManagerMainActivity extends AppCompatActivity
             }
         });
 
+        //set log out button
         Button logOut = (Button)findViewById(R.id.logOutButton);
         logOut.setOnClickListener(new View.OnClickListener()
         {

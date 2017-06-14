@@ -53,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
         });
         //end test code**********************************
 
+
+
         //assume accountName for customer is "asdf"
         accountName = "asdf";
         //set search button

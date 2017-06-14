@@ -71,17 +71,21 @@ public class ManagerViewBooksActivity extends AppCompatActivity {
 
     public  void doSearch()
     {
+        //set seatch button
         Button search = (Button) findViewById(R.id.searchByManagerBut);
         search.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
+                //get the search key
                 EditText searchKeyText = (EditText)findViewById(R.id.searchByManager);
                 String searchKey = searchKeyText.getText().toString();
+                //search the book
                 ArrayList<Book> found = accessBook.searchBookContain(searchKey);
                 if(found.size()==0)
                 {
+                    //if we didn't find any books
                     TextView message = (TextView)findViewById(R.id.searchResultText);
                     message.setText("No result about: "+searchKey+", try");
                     setListView(booksList);
@@ -112,6 +116,7 @@ public class ManagerViewBooksActivity extends AppCompatActivity {
                 Book book = bookList.get(position);
                 String bookName = book.getName();
 
+                //go to the edit book information page
                 Intent intent = new Intent(ManagerViewBooksActivity.this, EditBookActivity.class);
                 String[] message = {bookName,accountName};
                 intent.putExtra("name and edit", message);

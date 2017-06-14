@@ -35,7 +35,7 @@ public class SearchActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-        AccessBook  accessBook= new AccessBook();
+        AccessBook accessBook= new AccessBook();
         books=accessBook.getBookList();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);

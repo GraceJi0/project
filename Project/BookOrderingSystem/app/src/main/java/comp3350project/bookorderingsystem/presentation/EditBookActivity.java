@@ -20,6 +20,7 @@ import comp3350project.bookorderingsystem.objects.Book;
 
 public class EditBookActivity extends AppCompatActivity
 {
+    private String accountName;
     private Book book;
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -28,7 +29,11 @@ public class EditBookActivity extends AppCompatActivity
         setContentView(R.layout.activity_edit_book);
 
         Intent intent = getIntent();
-        String bookName = intent.getStringExtra("edit");
+        String[] message = intent.getStringArrayExtra("name and edit");
+
+        String bookName = message[0];
+        accountName = message[1];
+
 
         AccessBook accessBook = new AccessBook();
         book = accessBook.searchBook(bookName);
@@ -88,7 +93,7 @@ public class EditBookActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 Intent init = new Intent(EditBookActivity.this, ManagerViewBooksActivity.class);
-                init.putExtra("return", "return");
+                init.putExtra("name", accountName);
                 startActivity(init);
             }
         });

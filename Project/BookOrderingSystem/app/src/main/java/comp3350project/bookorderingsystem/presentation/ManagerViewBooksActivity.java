@@ -34,10 +34,11 @@ public class ManagerViewBooksActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manager_viewbook);
 
-        //Intent intent = getIntent();
-        //accountName = intent.getStringExtra("name");
+        Intent intent = getIntent();
+        accountName = intent.getStringExtra("name");
 
         AccessBook accessBook = new AccessBook();
+
         setListView(accessBook.getBookList());
         setButton();
     }
@@ -52,6 +53,18 @@ public class ManagerViewBooksActivity extends AppCompatActivity {
             {
                 Intent i = new Intent(ManagerViewBooksActivity.this, MainActivity.class);
                 i.putExtra("exit", "exit");
+                startActivity(i);
+            }
+        });
+
+        Button goBack = (Button) findViewById(R.id.goBackButton);
+        goBack.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent i = new Intent(ManagerViewBooksActivity.this, ManagerMainActivity.class);
+                i.putExtra("name", accountName);
                 startActivity(i);
             }
         });
@@ -70,9 +83,11 @@ public class ManagerViewBooksActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Book book = booksList.get(position);
                 String bookName = book.getName();
-                Intent init = new Intent(ManagerViewBooksActivity.this, EditBookActivity.class);
-                init.putExtra("edit", bookName);
-                startActivity(init);
+
+                Intent intent = new Intent(ManagerViewBooksActivity.this, EditBookActivity.class);
+                String[] message = {bookName,accountName};
+                intent.putExtra("name and edit", message);
+                startActivity(intent);
             }
         });
     }

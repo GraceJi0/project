@@ -27,6 +27,9 @@ public class ManagerMainActivity extends AppCompatActivity
 
         Intent intent = getIntent();
         accountName = intent.getStringExtra("name");
+
+        //Intent init = getIntent();
+        //accountName = init.getStringExtra("go back");
         setText();
         setButton();
     }

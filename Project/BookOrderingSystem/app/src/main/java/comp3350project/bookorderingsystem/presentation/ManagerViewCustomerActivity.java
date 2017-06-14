@@ -28,8 +28,8 @@ public class ManagerViewCustomerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manager_viewcustomer);
 
-        //Intent intent = getIntent();
-        //accountName = intent.getStringExtra("name");
+        Intent intent = getIntent();
+        accountName = intent.getStringExtra("name");
 
         AccessCustomer accessCustomer = new AccessCustomer();
         customersList = accessCustomer.getCustomerList();
@@ -48,6 +48,18 @@ public class ManagerViewCustomerActivity extends AppCompatActivity {
             {
                 Intent i = new Intent(ManagerViewCustomerActivity.this, MainActivity.class);
                 i.putExtra("exit", "exit");
+                startActivity(i);
+            }
+        });
+
+        Button goBack = (Button)findViewById(R.id.goBackButton);
+        goBack.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent i = new Intent(ManagerViewCustomerActivity.this, ManagerMainActivity.class);
+                i.putExtra("name", accountName);
                 startActivity(i);
             }
         });

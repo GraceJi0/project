@@ -160,6 +160,6 @@
         android:layout_alignStart="@+id/priceEdixText"
         android:layout_marginLeft="22dp"
         android:layout_marginStart="22dp"
-        android:text="return" />
+        android:text="go back" />
 
 </RelativeLayout>

@@ -63,4 +63,5 @@
         android:layout_alignStart="@+id/searchByManager"
         android:layout_below="@+id/searchByManager"
         android:text="TextView" />
+
 </RelativeLayout>

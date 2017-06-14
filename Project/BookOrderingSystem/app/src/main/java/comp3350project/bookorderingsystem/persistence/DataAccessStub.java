@@ -117,10 +117,12 @@ public class DataAccessStub
         }
     }
 
-    public ArrayList<Book>getBookList()
+    public ArrayList<Book> getBookList()
     {
         return bookList;
     }
+
+    public ArrayList<Customer> getCustomerList(){return customerList;}
 
     public boolean addBook(Book newBook)
     {

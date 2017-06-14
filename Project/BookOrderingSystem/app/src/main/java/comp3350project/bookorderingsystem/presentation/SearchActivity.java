@@ -77,6 +77,7 @@ public class SearchActivity extends AppCompatActivity {
         ViewGroup layout = (ViewGroup) findViewById(R.id.activity_search);
         //layout.addView(textView);
         ////////////////////
+        //set list items to be clickable
         if(founds.size() != 0)
         {
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

@@ -13,12 +13,11 @@ import java.util.List;
 import comp3350project.bookorderingsystem.R;
 import comp3350project.bookorderingsystem.objects.Book;
 
-/**
- * Created by dinghanji on 2017-06-13.
- */
 
 //*******************************************************
 //override adapter class for display books' information in listView
+//include book's name, author and price
+//the view for each book is book_item.xml
 //*********************************************************
 public class BookAdapter extends ArrayAdapter<Book>
 {

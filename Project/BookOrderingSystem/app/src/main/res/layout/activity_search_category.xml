@@ -129,5 +129,15 @@
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/otherBut"
         android:layout_marginBottom="17dp"
-        android:text="go back " />
+        android:text="go back" />
+
+    <Button
+        android:id="@+id/allBut"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textBookBut"
+        android:layout_alignEnd="@+id/otherBut"
+        android:layout_alignRight="@+id/otherBut"
+        android:text="all" />
 </RelativeLayout>

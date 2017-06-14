@@ -18,7 +18,7 @@ import comp3350project.bookorderingsystem.objects.Book;
 public class SearchCategoryActivity extends AppCompatActivity {
     private String accountName;
     private ListView listView;
-
+    private ArrayList<Book> bookList;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -29,7 +29,7 @@ public class SearchCategoryActivity extends AppCompatActivity {
         accountName = intent.getStringExtra("name");
 
         AccessBook accessBook = new AccessBook();
-        ArrayList<Book> bookList = accessBook.getBookList();
+        bookList = accessBook.getBookList();
         setListView(bookList);
         setButton(accessBook);
     }
@@ -104,6 +104,16 @@ public class SearchCategoryActivity extends AppCompatActivity {
             public void onClick(View v)
             {
                 setListView(accessBook.searchBookCategory("other"));
+            }
+        });
+
+        Button allBooks = (Button)findViewById(R.id.allBut);
+        allBooks.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                setListView(bookList);
             }
         });
     }

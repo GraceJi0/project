@@ -64,4 +64,14 @@
         android:layout_below="@+id/searchByManager"
         android:text="TextView" />
 
+    <Button
+        android:id="@+id/addBookButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/searchByManager"
+        android:layout_alignEnd="@+id/searchByManager"
+        android:layout_alignRight="@+id/searchByManager"
+        android:text="ADD A NEW BOOK" />
+
 </RelativeLayout>

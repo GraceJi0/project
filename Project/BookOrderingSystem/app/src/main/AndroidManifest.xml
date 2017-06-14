@@ -25,6 +25,7 @@
         <activity android:name=".presentation.ManagerMainActivity"></activity>
         <activity android:name=".presentation.ManagerViewBooksActivity"></activity>
         <activity android:name=".presentation.ManagerViewCustomerActivity"></activity>
+        <activity android:name=".presentation.EditBookActivity"></activity>
     </application>
 
 </manifest>

@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -26,7 +27,7 @@ import comp3350project.bookorderingsystem.objects.Book;
 
 public class ManagerViewBooksActivity extends AppCompatActivity {
     private String accountName;
-    private List<Book> booksList = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -37,9 +38,7 @@ public class ManagerViewBooksActivity extends AppCompatActivity {
         //accountName = intent.getStringExtra("name");
 
         AccessBook accessBook = new AccessBook();
-        booksList = accessBook.getBookList();
-
-        setListView();
+        setListView(accessBook.getBookList());
         setButton();
     }
 
@@ -58,13 +57,26 @@ public class ManagerViewBooksActivity extends AppCompatActivity {
         });
     }
 
-    public void setListView()
+    public void setListView(final ArrayList<Book> booksList)
     {
         BookAdapter adapter = new BookAdapter(ManagerViewBooksActivity.this,
                 R.layout.book_item,booksList);
         ListView listView = (ListView) findViewById(R.id.bookList);
         listView.setAdapter(adapter);
+
+        //set bookList clickable
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Book book = booksList.get(position);
+                String bookName = book.getName();
+                Intent init = new Intent(ManagerViewBooksActivity.this, EditBookActivity.class);
+                init.putExtra("edit", bookName);
+                startActivity(init);
+            }
+        });
     }
+
 }
 
 

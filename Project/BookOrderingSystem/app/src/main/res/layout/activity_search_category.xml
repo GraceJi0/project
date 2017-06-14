@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/logOutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginTop="19dp"
+        android:text="log out" />
+
+    <Button
+        android:id="@+id/myAccountButton"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/logOutButton"
+        android:layout_toLeftOf="@+id/logOutButton"
+        android:layout_toStartOf="@+id/logOutButton"
+        android:text="my account" />
+
+    <Button
+        android:id="@+id/cartButton"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/myAccountButton"
+        android:layout_toLeftOf="@+id/myAccountButton"
+        android:layout_toStartOf="@+id/myAccountButton"
+        android:text="cart" />
+
+    <Button
+        android:id="@+id/fictionBut"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/nonFictionBut"
+        android:layout_alignBottom="@+id/nonFictionBut"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="36dp"
+        android:layout_marginStart="36dp"
+        android:text="fiction" />
+
+    <Button
+        android:id="@+id/textBookBut"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextBooks"
+        android:layout_alignBaseline="@+id/nonFictionBut"
+        android:layout_alignBottom="@+id/nonFictionBut"
+        android:layout_toRightOf="@+id/otherBut"
+        android:layout_toEndOf="@+id/otherBut" />
+
+    <Button
+        android:id="@+id/nonFictionBut"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="39dp"
+        android:text="Non-fiction"
+        android:layout_below="@+id/cartButton"
+        android:layout_toLeftOf="@+id/goBackButton"
+        android:layout_toStartOf="@+id/goBackButton" />
+
+    <Button
+        android:id="@+id/magazinebut"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Magazines"
+        android:layout_alignBaseline="@+id/textBookBut"
+        android:layout_alignBottom="@+id/textBookBut"
+        android:layout_alignRight="@+id/logOutButton"
+        android:layout_alignEnd="@+id/logOutButton" />
+
+    <Button
+        android:id="@+id/otherBut"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textBookBut"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="21dp"
+        android:text="other" />
+
+    <Button
+        android:id="@+id/childrenbBut"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/otherBut"
+        android:layout_alignBottom="@+id/otherBut"
+        android:layout_alignLeft="@+id/fictionBut"
+        android:layout_alignStart="@+id/fictionBut"
+        android:text="Children and Young Adult" />
+
+    <Button
+        android:id="@+id/comicsBut"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignBottom="@+id/otherBut"
+        android:layout_alignEnd="@+id/magazinebut"
+        android:layout_alignRight="@+id/magazinebut"
+        android:text="Comics and Graphic Novels" />
+
+    <ListView
+        android:id="@+id/booklist"
+        android:layout_width="540dp"
+        android:layout_height="480dp"
+        android:layout_alignLeft="@+id/childrenbBut"
+        android:layout_alignStart="@+id/childrenbBut"
+        android:layout_below="@+id/otherBut"
+        android:layout_marginTop="31dp" />
+
+    <Button
+        android:id="@+id/goBackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/otherBut"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/otherBut"
+        android:layout_marginBottom="17dp"
+        android:text="go back " />
+</RelativeLayout>

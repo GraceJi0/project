@@ -19,8 +19,8 @@ import comp3350project.bookorderingsystem.objects.Book;
 
 public class ManagerViewBooksActivity extends AppCompatActivity {
     private String accountName;
-    AccessBook accessBook;
-    ListView listView;
+    private AccessBook accessBook;
+    private ListView listView;
     private ArrayList<Book> booksList;
     @Override
     protected void onCreate(Bundle savedInstanceState)

@@ -10,10 +10,6 @@ import android.widget.TextView;
 import comp3350project.bookorderingsystem.R;
 import comp3350project.bookorderingsystem.application.Main;
 
-/**
- * Created by dinghanji on 2017-06-13.
- */
-
 public class ManagerMainActivity extends AppCompatActivity
 {
 

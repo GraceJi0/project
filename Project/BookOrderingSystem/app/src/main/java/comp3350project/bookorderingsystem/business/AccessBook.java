@@ -54,6 +54,20 @@ public class AccessBook {
         return found;
     }
 
+    public ArrayList<Book> searchBookCategory(String newCategory)
+    {
+        ArrayList<Book> books = dataAccess.getBookList();
+        ArrayList<Book> founds = new ArrayList<Book>();
+        for(int i=0; i< books.size(); i++)
+        {
+            if(books.get(i).getCategory().equals(newCategory))
+            {
+                founds.add(books.get(i));
+            }
+        }
+        return founds;
+    }
+
     public boolean addBook(Book book)
     {
         return dataAccess.addBook(book);

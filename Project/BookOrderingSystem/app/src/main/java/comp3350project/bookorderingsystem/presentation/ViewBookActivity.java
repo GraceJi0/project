@@ -11,7 +11,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import comp3350project.bookorderingsystem.R;
-import comp3350project.bookorderingsystem.application.Main;
 import comp3350project.bookorderingsystem.business.AccessBook;
 import comp3350project.bookorderingsystem.business.AccessCustomer;
 import comp3350project.bookorderingsystem.objects.Book;
@@ -27,9 +26,15 @@ public class ViewBookActivity extends AppCompatActivity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_book);
+
         AccessCustomer accessCustomer = new AccessCustomer();
+
         Intent intent = getIntent();
-        String bookName = intent.getStringExtra("message");
+        String[] message = intent.getStringArrayExtra("view");
+        String bookName = message[0];
+        accountName = message[1];
+        //String bookName = intent.getStringExtra("message");
+
         AccessBook accessBook = new AccessBook();
         book = accessBook.searchBook(bookName);
         setAllText(bookName);

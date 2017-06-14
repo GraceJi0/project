@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Main.startUp();
         setContentView(R.layout.activity_main);
-        setTestButton();
+        setButton();
     }
 
     /*public void sendSearch(View view)
@@ -35,8 +35,9 @@ public class MainActivity extends AppCompatActivity {
     }*/
 
 
-    public void setTestButton()
+    public void setButton()
     {
+
         //test for manager page************************
         Button testButton = (Button) findViewById(R.id.test);
         testButton.setOnClickListener(new View.OnClickListener()
@@ -52,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
         });
         //end test code**********************************
 
+        //assume accountName for customer is "asdf"
+        accountName = "asdf";
         //set search button
         Button searchButton = (Button) findViewById(R.id.SearchBut);
         searchButton.setOnClickListener(new View.OnClickListener()
@@ -61,9 +64,24 @@ public class MainActivity extends AppCompatActivity {
             {
                 Intent intent = new Intent(MainActivity.this,SearchActivity.class);
                 EditText editText = (EditText) findViewById(R.id.searchText);
-                String message = editText.getText().toString();
-                intent.putExtra(EXTRA_MESSAGE, message);
+                String word = editText.getText().toString();
+                String[] message = {word,accountName};
+                //intent.putExtra(EXTRA_MESSAGE, message);
+                intent.putExtra("search",message);
                 startActivity(intent);
+            }
+        });
+
+        //set category button
+        Button category = (Button) findViewById(R.id.CateBut);
+        category.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent init = new Intent(MainActivity.this,SearchCategoryActivity.class);
+                init.putExtra("name", accountName);
+                startActivity(init);
             }
         });
     }

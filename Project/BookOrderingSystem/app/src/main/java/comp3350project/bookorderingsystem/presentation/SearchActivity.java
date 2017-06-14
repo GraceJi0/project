@@ -27,7 +27,7 @@ public class SearchActivity extends AppCompatActivity {
     private ArrayAdapter<Book> bookArrayAdapter;
     private ListView listView;
     private ArrayList<Book> founds;
-    private String message;
+    //private String message;
     private String accountName;
 
     public final static String EXTRA_MESSAGE = "comp3010_group10.bookordering.MESSAGE";
@@ -41,8 +41,11 @@ public class SearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search);
 
         Intent intent = getIntent();
-        message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-        String search = message;    //get the name of the book
+        String[] message = intent.getStringArrayExtra("search");
+        String search = message[0];
+        accountName = message[1];
+        //message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        //String search = message;    //get the name of the book
         String output = ""; //display the searching result
         searchBook(search);
 
@@ -86,7 +89,9 @@ public class SearchActivity extends AppCompatActivity {
                     Book book = founds.get(position);
                     String bookName = book.getName();
                     Intent init = new Intent(SearchActivity.this, ViewBookActivity.class);
-                    init.putExtra("message", bookName);
+                    String[] message = {bookName, accountName};
+                    init.putExtra("view",message);
+                    //init.putExtra("message", bookName);
                     startActivity(init);
                 }
             });
@@ -99,7 +104,9 @@ public class SearchActivity extends AppCompatActivity {
                     Book book = books.get(position);
                     String bookName = book.getName();
                     Intent init = new Intent(SearchActivity.this, ViewBookActivity.class);
-                    init.putExtra("message", bookName);
+                    String[] message = {bookName, accountName};
+                    init.putExtra("view",message);
+                    //init.putExtra("message", bookName);
                     startActivity(init);
                 }
             });

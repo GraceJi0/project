@@ -14,9 +14,6 @@ import comp3350project.bookorderingsystem.R;
 import comp3350project.bookorderingsystem.business.AccessCustomer;
 import comp3350project.bookorderingsystem.objects.Customer;
 
-/**
- * Created by dinghanji on 2017-06-13.
- */
 
 public class ManagerViewCustomerActivity extends AppCompatActivity {
 

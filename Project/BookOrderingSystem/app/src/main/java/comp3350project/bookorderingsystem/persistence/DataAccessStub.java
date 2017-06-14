@@ -47,13 +47,13 @@ public class DataAccessStub
                 "Powerful resource for interactive, simulation-based teaching and learning.",
                 82.32,"TextBooks", 5, R.drawable.book4));
 
-        addBook(new Book("he Magical Zoo #1"," Dan Jackson","Containing creative illustrations " +
+        addBook(new Book("The Magical Zoo #1"," Dan Jackson","Containing creative illustrations " +
                 "and endless imagination, this book will entertain your child and you.",
-                20.35,"Children & Young Adult", 2, R.drawable.book5));
+                20.35,"Children and Young Adult", 2, R.drawable.book5));
 
         addBook((new Book("Minecraft Steve Vs Herobrine: Herobrine Attacks!",
                 " Diary Wimpy","Herobrine has kidnapped Felicia, can Minecraft Steve save " +
-                "her in time?",10.86,"Comics & Graphic Novels", 1, R.drawable.book6)));
+                "her in time?",10.86,"Comics and Graphic Novels", 1, R.drawable.book6)));
 
         addBook(new Book("Great Food Fast"," Martha Stewart Living Magazine",
                 " 250 Recipes for Easy, Delicious Meals All Year Long ",22.16,"Magazines", 3, R.drawable.book7));
@@ -190,7 +190,7 @@ public class DataAccessStub
         }
     }
 
-    public void deleteBook(Book newBook)
+    /*public void deleteBook(Book newBook)
     {
         int index;
 
@@ -203,5 +203,5 @@ public class DataAccessStub
         {
             System.out.println("delete book error: book not exist");
         }
-    }
+    }*/
 }

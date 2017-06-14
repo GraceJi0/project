@@ -45,6 +45,7 @@ public class ManagerViewBooksActivity extends AppCompatActivity {
 
     public void setButton()
     {
+        //set log out button, click then return to manager main page
         Button logOut = (Button)findViewById(R.id.logOutButton);
         logOut.setOnClickListener(new View.OnClickListener()
         {
@@ -57,6 +58,7 @@ public class ManagerViewBooksActivity extends AppCompatActivity {
             }
         });
 
+        //set go back button
         Button goBack = (Button) findViewById(R.id.goBackButton);
         goBack.setOnClickListener(new View.OnClickListener()
         {
@@ -72,6 +74,7 @@ public class ManagerViewBooksActivity extends AppCompatActivity {
 
     public void setListView(final ArrayList<Book> booksList)
     {
+        //set books' listView
         BookAdapter adapter = new BookAdapter(ManagerViewBooksActivity.this,
                 R.layout.book_item,booksList);
         ListView listView = (ListView) findViewById(R.id.bookList);

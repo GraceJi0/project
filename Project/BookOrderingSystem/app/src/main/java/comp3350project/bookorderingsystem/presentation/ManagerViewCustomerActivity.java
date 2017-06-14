@@ -40,6 +40,7 @@ public class ManagerViewCustomerActivity extends AppCompatActivity {
 
     public void setButton()
     {
+        //set log out button
         Button logOut = (Button)findViewById(R.id.logOutButton);
         logOut.setOnClickListener(new View.OnClickListener()
         {
@@ -52,6 +53,7 @@ public class ManagerViewCustomerActivity extends AppCompatActivity {
             }
         });
 
+        //set go back button
         Button goBack = (Button)findViewById(R.id.goBackButton);
         goBack.setOnClickListener(new View.OnClickListener()
         {
@@ -67,6 +69,7 @@ public class ManagerViewCustomerActivity extends AppCompatActivity {
 
     public void setListView(AccessCustomer accessCustomer)
     {
+        //set customers' listView
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                 ManagerViewCustomerActivity.this, android.R.layout.simple_list_item_1,
                 accessCustomer.getCustomerAccount());

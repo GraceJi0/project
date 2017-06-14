@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import comp3350project.bookorderingsystem.R;
 import comp3350project.bookorderingsystem.application.Main;
@@ -28,8 +27,6 @@ public class ManagerMainActivity extends AppCompatActivity
         Intent intent = getIntent();
         accountName = intent.getStringExtra("name");
 
-        //Intent init = getIntent();
-        //accountName = init.getStringExtra("go back");
         setText();
         setButton();
     }

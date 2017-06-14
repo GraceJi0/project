@@ -43,6 +43,7 @@ public class EditBookActivity extends AppCompatActivity
 
     public void editBookInformation()
     {
+        //set book's all information
         EditText name = (EditText) findViewById(R.id.nameEditText);
         name.setText(book.getName());
 
@@ -63,6 +64,7 @@ public class EditBookActivity extends AppCompatActivity
 
     public void setImageView()
     {
+        //set book image
         ImageView iv= (ImageView)findViewById(R.id.bookPicture);
         iv.setImageResource(book.getImageID());
     }
@@ -70,6 +72,7 @@ public class EditBookActivity extends AppCompatActivity
     public void setButton(final EditText name, final EditText author, final EditText price,
                           final EditText description, final EditText inStock )
     {
+        //set save button
         Button save = (Button)findViewById(R.id.saveButton);
         save.setOnClickListener(new View.OnClickListener()
         {
@@ -86,6 +89,7 @@ public class EditBookActivity extends AppCompatActivity
             }
         });
 
+        //set go back button, send back account name information
         Button returnBut = (Button)findViewById(R.id.returnButton);
         returnBut.setOnClickListener(new View.OnClickListener()
         {

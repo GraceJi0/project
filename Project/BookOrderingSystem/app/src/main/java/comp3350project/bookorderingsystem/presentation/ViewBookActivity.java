@@ -21,13 +21,14 @@ public class ViewBookActivity extends AppCompatActivity {
     public final static String EXTRA_MESSAGE = "comp3010_group10.bookordering.MESSAGE";
     private Book book;
     private String accountName;
+    AccessCustomer accessCustomer;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_book);
 
-        AccessCustomer accessCustomer = new AccessCustomer();
+        accessCustomer = new AccessCustomer();
 
         Intent intent = getIntent();
         String[] message = intent.getStringArrayExtra("view");
@@ -83,10 +84,11 @@ public class ViewBookActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
+                //set toast
                 Toast.makeText(ViewBookActivity.this,"Successfully added to the shopping cart",
                         Toast.LENGTH_SHORT).show();
-
-
+                //add to customer's cart
+                accessCustomer.addToCart(accountName, book);
             }
         });
 
@@ -96,9 +98,24 @@ public class ViewBookActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
+                //set toast
                 Toast.makeText(ViewBookActivity.this, "Successfully added to the wish list",
                         Toast.LENGTH_SHORT).show();
+                //add to customer's wish list
+                accessCustomer.addToWishList(accountName, book);
             }
         });
+
+        Button myAccount = (Button)findViewById(R.id.myAccountButton);
+        myAccount.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(ViewBookActivity.this, MyAccountActivity.class);
+                intent.putExtra("name",accountName);
+            }
+        });
+
     }
 }

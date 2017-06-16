@@ -27,6 +27,8 @@
         <activity android:name=".presentation.ManagerViewCustomerActivity"></activity>
         <activity android:name=".presentation.EditBookActivity"></activity>
         <activity android:name=".presentation.SearchCategoryActivity"></activity>
+
+        <activity android:name=".presentation.MyAccountActivity"></activity>
     </application>
 
 </manifest>

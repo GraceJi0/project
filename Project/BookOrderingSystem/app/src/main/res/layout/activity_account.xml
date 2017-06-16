@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/logOutButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="27dp"
+                android:layout_marginRight="27dp"
+                android:layout_marginTop="18dp"
+                android:text="log out" />
+
+            <Button
+                android:id="@+id/editInformationBut"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="edit personal infromation"
+                android:layout_below="@+id/accountText"
+                android:layout_alignLeft="@+id/accountText"
+                android:layout_alignStart="@+id/accountText"
+                android:layout_alignRight="@+id/logOutButton"
+                android:layout_alignEnd="@+id/logOutButton" />
+
+            <Button
+                android:id="@+id/cartBut"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="view my cart"
+                android:layout_below="@+id/editInformationBut"
+                android:layout_alignLeft="@+id/editInformationBut"
+                android:layout_alignStart="@+id/editInformationBut"
+                android:layout_toLeftOf="@+id/logOutButton"
+                android:layout_toStartOf="@+id/logOutButton" />
+
+            <TextView
+                android:id="@+id/accountText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="39dp"
+                android:layout_marginStart="39dp"
+                android:text="TextView"
+                android:textSize="40dp"
+                android:layout_alignBottom="@+id/logOutButton"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+    <ListView
+        android:id="@+id/cartList"
+        android:layout_width="530dp"
+        android:layout_height="240dp"
+        android:layout_alignLeft="@+id/cartBut"
+        android:layout_alignStart="@+id/cartBut"
+        android:layout_below="@+id/cartBut" />
+
+    <Button
+        android:id="@+id/wishListBut"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/cartList"
+        android:layout_alignStart="@+id/cartList"
+        android:layout_below="@+id/cartList"
+        android:layout_marginTop="24dp"
+        android:text="view my wish list"
+        android:layout_toLeftOf="@+id/delete2But"
+        android:layout_toStartOf="@+id/delete2But" />
+
+    <ListView
+        android:id="@+id/wishList"
+        android:layout_width="530dp"
+        android:layout_height="240dp"
+        android:layout_alignLeft="@+id/wishListBut"
+        android:layout_alignStart="@+id/wishListBut"
+        android:layout_below="@+id/wishListBut" />
+
+    <Button
+        android:id="@+id/delete1But"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/cartList"
+        android:layout_alignEnd="@+id/cartList"
+        android:layout_alignRight="@+id/cartList"
+        android:text="delete" />
+
+    <Button
+        android:id="@+id/delete2But"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/wishList"
+        android:layout_alignLeft="@+id/delete1But"
+        android:layout_alignStart="@+id/delete1But"
+        android:text="delete" />
+
+    <Button
+        android:id="@+id/goBackBut"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/wishList"
+        android:layout_centerHorizontal="true"
+        android:text="go back" />
+</RelativeLayout>
+

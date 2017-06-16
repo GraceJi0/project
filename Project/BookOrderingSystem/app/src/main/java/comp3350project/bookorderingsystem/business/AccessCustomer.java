@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import comp3350project.bookorderingsystem.application.Main;
 import comp3350project.bookorderingsystem.application.Service;
+import comp3350project.bookorderingsystem.objects.Book;
 import comp3350project.bookorderingsystem.objects.Customer;
 import comp3350project.bookorderingsystem.persistence.DataAccessStub;
 
@@ -41,5 +42,45 @@ public class AccessCustomer
             allCustomerAccount[i] = customerList.get(i).getName();
         }
         return  allCustomerAccount;
+    }
+
+    public void addToCart(String customerName, Book book)
+    {
+        ArrayList<Customer> customerList = getCustomerList();
+        int index = 0;
+        Customer customer = null;
+        while(index < customerList.size())
+        {
+            customer = customerList.get(index);
+            if(customer.getName().equals(customerName))
+            {
+                customer.addToCart(book);
+                break;
+            }
+            else
+            {
+                index++;
+            }
+        }
+    }
+
+    public void addToWishList(String customerName, Book book)
+    {
+        ArrayList<Customer> customerList = getCustomerList();
+        int index = 0;
+        Customer customer = null;
+        while(index < customerList.size())
+        {
+            customer = customerList.get(index);
+            if(customer.getName().equals(customerName))
+            {
+                customer.addToWishList(book);
+                break;
+            }
+            else
+            {
+                index++;
+            }
+        }
     }
 }

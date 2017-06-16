@@ -24,17 +24,18 @@ public class SearchCategoryActivity extends AppCompatActivity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_category);
-        //setTestButton();
+
         Intent intent = getIntent();
         accountName = intent.getStringExtra("name");
 
         AccessBook accessBook = new AccessBook();
         bookList = accessBook.getBookList();
         setListView(bookList);
-        setButton(accessBook);
+        setCategoryButton(accessBook);
+        setAccountButton();
     }
 
-    public void setButton(final AccessBook accessBook)
+    public void setCategoryButton(final AccessBook accessBook)
     {
         //set fiction button
         Button fiction = (Button)findViewById(R.id.fictionBut);
@@ -136,6 +137,21 @@ public class SearchCategoryActivity extends AppCompatActivity {
                 String[] message = {bookName, accountName};
                 intent.putExtra("view", message);
                 startActivity(intent);
+            }
+        });
+    }
+
+    public void setAccountButton()
+    {
+        Button myAccount = (Button)findViewById(R.id.myAccountButton);
+        myAccount.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent init = new Intent(SearchCategoryActivity.this, MyAccountActivity.class);
+                init.putExtra("name",accountName);
+                startActivity(init);
             }
         });
     }

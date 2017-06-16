@@ -161,13 +161,4 @@
         android:layout_toStartOf="@+id/myAccountButton"
         android:text="cart" />
 
-    <Button
-        android:id="@+id/goBackButton"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="go back "
-        android:layout_below="@+id/reviewButton"
-        android:layout_centerHorizontal="true" />
-
 </RelativeLayout>

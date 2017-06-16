@@ -90,7 +90,7 @@ public class SearchActivity extends AppCompatActivity {
                     String bookName = book.getName();
                     Intent init = new Intent(SearchActivity.this, ViewBookActivity.class);
                     String[] message = {bookName, accountName};
-                    init.putExtra("view",message);
+                    init.putExtra("name and view",message);
                     //init.putExtra("message", bookName);
                     startActivity(init);
                 }
@@ -105,7 +105,7 @@ public class SearchActivity extends AppCompatActivity {
                     String bookName = book.getName();
                     Intent init = new Intent(SearchActivity.this, ViewBookActivity.class);
                     String[] message = {bookName, accountName};
-                    init.putExtra("view",message);
+                    init.putExtra("name and view",message);
                     //init.putExtra("message", bookName);
                     startActivity(init);
                 }

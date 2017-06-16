@@ -57,6 +57,10 @@ public class Customer
         address = newAddress;
     }
 
+    public ArrayList<Book> getCart(){return customerCart;}
+
+    public ArrayList<Book> getWishList(){return customerWishList;}
+
     public void addToCart(Book newBook)
     {
         customerCart.add(newBook);
@@ -75,7 +79,19 @@ public class Customer
 
     public void addToWishList(Book newBook)
     {
-        customerWishList.add(newBook);
+        boolean found = false;
+        for(int i = 0; i < customerWishList.size(); i++)
+        {
+            if(customerWishList.get(i).getName().equals(newBook.getName()))
+            {
+                //if there is duplicate
+                found = true;
+            }
+        }
+        if(found == false)
+        {
+            customerWishList.add(newBook);
+        }
     }
 
     public void deleteFromWishList(Book newBook)

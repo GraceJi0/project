@@ -83,4 +83,44 @@ public class AccessCustomer
             }
         }
     }
+
+    public ArrayList<Book> getCustomerCart(String customerName)
+    {
+        ArrayList<Customer> customerList = getCustomerList();
+        int index = 0;
+        Customer customer = null;
+        while(index < customerList.size())
+        {
+            customer = customerList.get(index);
+            if(customer.getName().equals(customerName))
+            {
+                break;
+            }
+            else
+            {
+                index++;
+            }
+        }
+        return customer.getCart();
+    }
+
+    public ArrayList<Book> getCustomerWishList(String customerName)
+    {
+        ArrayList<Customer> customerList = getCustomerList();
+        int index = 0;
+        Customer customer = null;
+        while(index < customerList.size())
+        {
+            customer = customerList.get(index);
+            if(customer.getName().equals(customerName))
+            {
+                break;
+            }
+            else
+            {
+                index++;
+            }
+        }
+        return customer.getWishList();
+    }
 }

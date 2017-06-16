@@ -105,13 +105,5 @@
         android:layout_alignStart="@+id/delete1But"
         android:text="delete" />
 
-    <Button
-        android:id="@+id/goBackBut"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/wishList"
-        android:layout_centerHorizontal="true"
-        android:text="go back" />
 </RelativeLayout>
 

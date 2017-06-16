@@ -135,7 +135,7 @@ public class SearchCategoryActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(SearchCategoryActivity.this, ViewBookActivity.class);
                 String[] message = {bookName, accountName};
-                intent.putExtra("view", message);
+                intent.putExtra("name and view", message);
                 startActivity(intent);
             }
         });

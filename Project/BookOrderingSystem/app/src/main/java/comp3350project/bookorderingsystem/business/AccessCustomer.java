@@ -64,6 +64,26 @@ public class AccessCustomer
         }
     }
 
+    public void deleteFromCart(String customerName, Book newBook)
+    {
+        ArrayList<Customer> customerList = getCustomerList();
+        int index = 0;
+        Customer customer = null;
+        while(index < customerList.size())
+        {
+            customer = customerList.get(index);
+            if(customer.getName().equals(customerName))
+            {
+                customer.deleteFromCart(newBook);
+                break;
+            }
+            else
+            {
+                index++;
+            }
+        }
+    }
+
     public void addToWishList(String customerName, Book book)
     {
         ArrayList<Customer> customerList = getCustomerList();

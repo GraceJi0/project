@@ -5,9 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import comp3350project.bookorderingsystem.R;
@@ -19,22 +21,36 @@ import comp3350project.bookorderingsystem.objects.Book;
 
 public class BookWithCheckboxAdapter extends ArrayAdapter<Book>{
     private int resourceId;
-
+    private ArrayList<Book> selected;
     public BookWithCheckboxAdapter(Context context, int textViewResourceId, List<Book> objects)
     {
         super(context, textViewResourceId,objects);
         resourceId = textViewResourceId;
+        selected = new ArrayList<Book>();
     }
+
+
 
     @Override
     public View getView(int position, View converView, ViewGroup parent)
     {
-        Book book = getItem(position);
+        final Book book = getItem(position);
         View view = LayoutInflater.from(getContext()).inflate(resourceId,parent,false);
         ImageView bookImage = (ImageView) view.findViewById(R.id.bookImageView);
         TextView bookName = (TextView) view.findViewById(R.id.bookNameText);
         TextView bookAuthor = (TextView) view.findViewById(R.id.bookAuthorText);
         TextView bookPrice = (TextView) view.findViewById(R.id.bookPriceText);
+        CheckBox select = (CheckBox) view.findViewById(R.id.listSelect);
+        select.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                if(((CheckBox)v).isChecked())
+                {
+                    selected.add(book);
+                }
+            }
+        });
         bookImage.setImageResource(book.getImageID());
         bookName.setText(book.getName());
         bookAuthor.setText("by: "+book.getBookAuthor());
@@ -42,9 +58,8 @@ public class BookWithCheckboxAdapter extends ArrayAdapter<Book>{
         return view;
     }
 
-    public String[] getSelectedBooks(int size)
+    public ArrayList<Book> getSelectedBooks()
     {
-        String[] books = new String[size];
-        return books;
+        return selected;
     }
 }

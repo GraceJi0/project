@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -25,6 +26,7 @@ public class MyAccountActivity extends AppCompatActivity
     private ArrayList<Book> bookList;
     private ListView cartListView;
     private ListView wishListListView;
+    private AccessCustomer accessCustomer;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -34,7 +36,7 @@ public class MyAccountActivity extends AppCompatActivity
         Intent intent = getIntent();
         accountName = intent.getStringExtra("name");
 
-        AccessCustomer accessCustomer = new AccessCustomer();
+        accessCustomer = new AccessCustomer();
         setTextView();
         setCartListView(cartListView, accessCustomer.getCustomerCart(accountName));
         setWishListListView(wishListListView, accessCustomer.getCustomerWishList(accountName));
@@ -49,10 +51,11 @@ public class MyAccountActivity extends AppCompatActivity
     public void setCartListView(ListView listView, final ArrayList<Book> bookList)
     {
         //set books' listView
-        BookAdapter adapter = new BookAdapter(MyAccountActivity.this,
-                R.layout.book_item,bookList);
+        BookWithCheckboxAdapter adapter = new BookWithCheckboxAdapter(MyAccountActivity.this,
+                R.layout.booklist_item,bookList);
         listView = (ListView) findViewById(R.id.cartList);
         listView.setAdapter(adapter);
+        setCartDeleteButton( adapter);
 
         //set bookList clickable
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -91,6 +94,24 @@ public class MyAccountActivity extends AppCompatActivity
                 String[] message = {bookName, accountName};
                 i.putExtra("name and view", message);
                 startActivity(i);
+            }
+        });
+    }
+
+    public void setCartDeleteButton(final BookWithCheckboxAdapter adapter)
+    {
+        Button deleteCart = (Button)findViewById(R.id.delete1But);
+        deleteCart.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                ArrayList<Book> selected = adapter.getSelectedBooks();
+                for(int i = 0; i < selected.size();i++)
+                {
+                    accessCustomer.deleteFromCart(accountName,selected.get(i));
+                }
+                setCartListView(cartListView, accessCustomer.getCustomerCart(accountName));
             }
         });
     }

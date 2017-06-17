@@ -1,0 +1,31 @@
+CREATE SCHEMA PUBLIC AUTHORIZATION DBA
+
+/*-------------------------------------------create database*/
+create memory table book(name varchar(100) primary key, auhthor varchar(50), info varchar(500), price float, category varchar(50), numberinstock int, pictureid int)	//the book
+create memory table customer(name varchar(20) primary key)	//the customer
+
+CREATE USER SA PASSWORD ""
+GRANT DBA TO SA
+SET WRITE_DELAY 20
+SET SCHEMA PUBLIC
+
+/*-------------------------------------------insert books*/
+insert into book values('The Orphan''s Tale: A Novel', ' Pam Jenoff', 'A powerful novel of friendship set in a traveling circus during World War II ', 10.49, 'Fiction', 1, 1)
+insert into book values('The German Girl: A Novel', 'Armando Lucas Correa', 'A stunningly ambitious and beautiful novel.', 29.50, 'Fiction', 2, 2)
+insert into book values('Ginny Moon: A Novel', 'Benjamin Ludwig', '"A brilliant debut." —Graeme Simsion, New York Times bestselling author of The Rosie Project', 30.45, 'Fiction', 4, 3)
+insert into book values('Neonatal Resuscitation', 'Gary M Weiner', 'Powerful resource for interactive, simulation-based teaching and learning.', 82.32, 'TextBooks', 5, 4)
+insert into book values('The Magical Zoo #1', 'Dan Jackson', 'Containing creative illustrations and endless imagination, this book will entertain your child and you.' , 20.35, 'Children and Young Adult', 2, 5)
+insert into book values('Minecraft Steve Vs Herobrine: Herobrine Attacks!', 'Diary Wimpy', 'Herobrine has kidnapped Felicia, can Minecraft Steve save her in time?', 10.86, 'Comics and Graphic Novels', 1, 6)
+insert into book values('Great Food Fast', 'Martha Stewart Living Magazine', '250 Recipes for Easy, Delicious Meals All Year Long', 22.16, 'Magazines', 3, 7)
+insert into book values('Out of Africa', 'Isak Dinesen', 'Selected by the Modern Library as one of the 100 best nonfiction books of all time', 23.5, 'Non-fiction', 4, 8)
+insert into book values('A Book That Takes Its Time', 'Irene Smit, Astrid van der Hulst', 'An Unhurried Adventure in Creative.', 26.38, 'other', 1, 9)
+
+
+/*--------------------------------------------insert customer*/
+insert into customer values('dmb001')
+insert into customer values('tyui')
+insert into customer values('ghjk')
+insert into customer values('szxcv')
+insert into customer values('asdf')
+insert into customer values('qwer')
+insert into customer values('svbnm')

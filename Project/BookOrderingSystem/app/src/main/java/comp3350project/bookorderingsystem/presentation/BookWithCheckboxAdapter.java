@@ -37,6 +37,7 @@ public class BookWithCheckboxAdapter extends ArrayAdapter<Book>{
     public View getView(int position, View converView, ViewGroup parent)
     {
         final Book book = getItem(position);
+        //check ++;
         View view = LayoutInflater.from(getContext()).inflate(resourceId,parent,false);
         ImageView bookImage = (ImageView) view.findViewById(R.id.bookImageView);
         TextView bookName = (TextView) view.findViewById(R.id.bookNameText);
@@ -45,12 +46,15 @@ public class BookWithCheckboxAdapter extends ArrayAdapter<Book>{
         CheckBox select = (CheckBox) view.findViewById(R.id.listSelect);
         select.setOnClickListener(new View.OnClickListener()
         {
+
             @Override
             public void onClick(View v) {
+                check = check * -1;
                 if(((CheckBox)v).isChecked())
                 {
-                    check = check * -1;
-                    if(check == 1) {
+
+
+                    if(check == -1) {
                         selected.add(book);
                     }
                     else

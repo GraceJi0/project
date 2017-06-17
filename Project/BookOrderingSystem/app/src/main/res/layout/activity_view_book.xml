@@ -59,6 +59,7 @@
         tools:ignore="HardcodedText,SpUsage" />
 
     <Button
+        android:textColor="@color/colorPrimary"
         android:id="@+id/addToCartButton"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
@@ -74,6 +75,7 @@
         android:layout_alignEnd="@+id/logOutButton" />
 
     <Button
+        android:textColor="@color/colorPrimary"
         android:id="@+id/addWishListButton"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
@@ -121,6 +123,7 @@
         android:layout_alignParentStart="true" />
 
     <Button
+        android:textColor="@color/colorPrimary"
         android:id="@+id/reviewButton"
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="wrap_content"
@@ -142,6 +145,7 @@
         android:text="log out" />
 
     <Button
+        android:textColor="@color/colorPrimary"
         android:id="@+id/myAccountButton"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
@@ -152,6 +156,7 @@
         android:text="my account" />
 
     <Button
+        android:textColor="@color/colorPrimary"
         android:id="@+id/cartButton"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"

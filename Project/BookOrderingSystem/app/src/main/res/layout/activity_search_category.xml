@@ -15,6 +15,7 @@
         android:text="log out" />
 
     <Button
+        android:textColor="@color/colorPrimary"
         android:id="@+id/myAccountButton"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
@@ -25,6 +26,7 @@
         android:text="my account" />
 
     <Button
+        android:textColor="@color/colorPrimary"
         android:id="@+id/cartButton"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
@@ -35,6 +37,7 @@
         android:text="cart" />
 
     <Button
+        android:textColor="@color/colorPrimary"
         android:id="@+id/fictionBut"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
@@ -48,6 +51,7 @@
         android:text="fiction" />
 
     <Button
+        android:textColor="@color/colorPrimary"
         android:id="@+id/textBookBut"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
@@ -59,6 +63,7 @@
         android:layout_toEndOf="@+id/otherBut" />
 
     <Button
+        android:textColor="@color/colorPrimary"
         android:id="@+id/nonFictionBut"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
@@ -70,6 +75,7 @@
         android:layout_toStartOf="@+id/goBackButton" />
 
     <Button
+        android:textColor="@color/colorPrimary"
         android:id="@+id/magazinebut"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
@@ -81,6 +87,7 @@
         android:layout_alignEnd="@+id/logOutButton" />
 
     <Button
+        android:textColor="@color/colorPrimary"
         android:id="@+id/otherBut"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
@@ -91,6 +98,7 @@
         android:text="other" />
 
     <Button
+        android:textColor="@color/colorPrimary"
         android:id="@+id/childrenbBut"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
@@ -102,6 +110,7 @@
         android:text="Children and Young Adult" />
 
     <Button
+        android:textColor="@color/colorPrimary"
         android:id="@+id/comicsBut"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
@@ -122,6 +131,7 @@
         android:layout_marginTop="31dp" />
 
     <Button
+        android:textColor="@color/colorPrimary"
         android:id="@+id/goBackButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -132,6 +142,7 @@
         android:text="go back" />
 
     <Button
+        android:textColor="@color/colorPrimary"
         android:id="@+id/allBut"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"

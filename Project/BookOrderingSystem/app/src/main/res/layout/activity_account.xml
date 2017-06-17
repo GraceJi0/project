@@ -19,6 +19,7 @@
                 android:text="log out" />
 
             <Button
+                android:textColor="@color/colorPrimary"
                 android:id="@+id/editInformationBut"
                 style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="wrap_content"
@@ -32,6 +33,7 @@
                 android:layout_alignEnd="@+id/logOutButton" />
 
             <Button
+                android:textColor="@color/colorPrimary"
                 android:id="@+id/cartBut"
                 style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="wrap_content"
@@ -65,6 +67,7 @@
         android:layout_below="@+id/cartBut" />
 
     <Button
+        android:textColor="@color/colorPrimary"
         android:id="@+id/wishListBut"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
@@ -86,6 +89,7 @@
         android:layout_below="@+id/wishListBut" />
 
     <Button
+        android:textColor="@color/colorPrimary"
         android:id="@+id/delete1But"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
@@ -96,6 +100,7 @@
         android:text="delete" />
 
     <Button
+        android:textColor="@color/colorPrimary"
         android:id="@+id/delete2But"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"

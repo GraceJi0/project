@@ -46,6 +46,7 @@
         android:inputType="textPersonName" />
 
     <Button
+        android:textColor="@color/colorPrimary"
         android:id="@+id/searchByManagerBut"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
@@ -64,6 +65,7 @@
         android:layout_below="@+id/searchByManager" />
 
     <Button
+        android:textColor="@color/colorPrimary"
         android:id="@+id/addBookButton"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"

@@ -51,7 +51,7 @@ public class ManagerViewCustomerActivity extends AppCompatActivity {
         });
 
         //set go back button
-        Button goBack = (Button)findViewById(R.id.goBackButton);
+        /*Button goBack = (Button)findViewById(R.id.goBackButton);
         goBack.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -61,7 +61,7 @@ public class ManagerViewCustomerActivity extends AppCompatActivity {
                 i.putExtra("name", accountName);
                 startActivity(i);
             }
-        });
+        });*/
     }
 
     public void setListView(AccessCustomer accessCustomer)

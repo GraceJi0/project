@@ -46,15 +46,13 @@ public class BookWithCheckboxAdapter extends ArrayAdapter<Book>{
         CheckBox select = (CheckBox) view.findViewById(R.id.listSelect);
         select.setOnClickListener(new View.OnClickListener()
         {
-
             @Override
             public void onClick(View v) {
-                check = check * -1;
+
                 if(((CheckBox)v).isChecked())
                 {
-
-
-                    if(check == -1) {
+                    check = check * -1;
+                    if(check == 1) {
                         selected.add(book);
                     }
                     else

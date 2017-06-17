@@ -68,11 +68,11 @@
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="39dp"
+        android:layout_marginTop="45dp"
         android:text="Non-fiction"
         android:layout_below="@+id/cartButton"
-        android:layout_toLeftOf="@+id/goBackButton"
-        android:layout_toStartOf="@+id/goBackButton" />
+        android:layout_alignLeft="@+id/fictionBut"
+        android:layout_alignStart="@+id/fictionBut" />
 
     <Button
         android:textColor="@color/colorPrimary"
@@ -132,23 +132,12 @@
 
     <Button
         android:textColor="@color/colorPrimary"
-        android:id="@+id/goBackButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/otherBut"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/otherBut"
-        android:layout_marginBottom="17dp"
-        android:text="go back" />
-
-    <Button
-        android:textColor="@color/colorPrimary"
         android:id="@+id/allBut"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textBookBut"
-        android:layout_alignEnd="@+id/otherBut"
-        android:layout_alignRight="@+id/otherBut"
-        android:text="all" />
+        android:text="all"
+        android:layout_above="@+id/otherBut"
+        android:layout_toLeftOf="@+id/cartButton"
+        android:layout_toStartOf="@+id/cartButton" />
 </RelativeLayout>

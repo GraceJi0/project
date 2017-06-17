@@ -25,14 +25,11 @@ import android.widget.EditText;
 
 public class SearchActivity extends AppCompatActivity {
     private ArrayList<Book> books;
-    //private ArrayAdapter<Book> bookArrayAdapter;
     private ListView listView;
-    private ArrayList<Book> founds;
-    //private String message;
     private String accountName;
     private AccessBook accessBook;
 
-    public final static String EXTRA_MESSAGE = "comp3010_group10.bookordering.MESSAGE";
+    //public final static String EXTRA_MESSAGE = "comp3010_group10.bookordering.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -46,11 +43,8 @@ public class SearchActivity extends AppCompatActivity {
         String[] message = intent.getStringArrayExtra("search");
         String search = message[0];
         accountName = message[1];
-        //listView = (ListView)findViewById(R.id.searchResultList);
         doSearch(search);
         setButton();
-        //setListView(books);
-
     }
 
     public void doSearch(String searchKey)
@@ -106,19 +100,9 @@ public class SearchActivity extends AppCompatActivity {
                 //go to the edit book information page
                 Intent intent = new Intent(SearchActivity.this, ViewBookActivity.class);
                 String[] message = {bookName,accountName};
-                intent.putExtra("name and edit", message);
+                intent.putExtra("name and view", message);
                 startActivity(intent);
             }
         });
     }
-
-    /*public void sendSearch(View view)
-    {
-        // Do something in response to button
-        Intent intent = new Intent(this,SearchActivity.class);
-        EditText editText = (EditText) findViewById(R.id.searchText);
-        String message = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
-    }*/
 }

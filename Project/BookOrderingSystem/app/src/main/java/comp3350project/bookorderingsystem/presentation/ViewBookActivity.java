@@ -4,6 +4,7 @@ package comp3350project.bookorderingsystem.presentation;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -30,11 +31,13 @@ public class ViewBookActivity extends AppCompatActivity {
 
         accessCustomer = new AccessCustomer();
 
+        // Log.d("--------------","*********");
         Intent intent = getIntent();
         String[] message = intent.getStringArrayExtra("name and view");
         String bookName = message[0];
         accountName = message[1];
         //String bookName = intent.getStringExtra("message");
+
 
         AccessBook accessBook = new AccessBook();
         book = accessBook.searchBook(bookName);

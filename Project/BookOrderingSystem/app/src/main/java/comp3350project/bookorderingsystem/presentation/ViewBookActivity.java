@@ -112,8 +112,10 @@ public class ViewBookActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
+                Log.d("-------------","***************");
                 Intent intent = new Intent(ViewBookActivity.this, MyAccountActivity.class);
                 intent.putExtra("name",accountName);
+                startActivity(intent);
             }
         });
 

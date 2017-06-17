@@ -84,13 +84,14 @@ public class EditBookActivity extends AppCompatActivity
                 book.setBookPrice(Double.parseDouble(price.getText().toString()));
                 book.setBookInformation(description.getText().toString());
                 book.setNumberInStock(Integer.parseInt(inStock.getText().toString()));
+                editBookInformation();
                 Toast.makeText(EditBookActivity.this,"Successfully saved",
                         Toast.LENGTH_SHORT).show();
             }
         });
 
         //set go back button, send back account name information
-        Button returnBut = (Button)findViewById(R.id.returnButton);
+        /*Button returnBut = (Button)findViewById(R.id.returnButton);
         returnBut.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -100,7 +101,7 @@ public class EditBookActivity extends AppCompatActivity
                 init.putExtra("name", accountName);
                 startActivity(init);
             }
-        });
+        });*/
     }
 
 

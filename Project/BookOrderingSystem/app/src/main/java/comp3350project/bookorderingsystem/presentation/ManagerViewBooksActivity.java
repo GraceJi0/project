@@ -1,8 +1,10 @@
 package comp3350project.bookorderingsystem.presentation;
 
 import android.content.Intent;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -39,6 +41,13 @@ public class ManagerViewBooksActivity extends AppCompatActivity {
         doSearch();
     }
 
+    @Override
+    protected void onStart()
+    {
+        super.onStart();
+        setListView(booksList);
+    }
+
     public void setButton()
     {
         //set log out button, click then return to manager main page
@@ -55,7 +64,7 @@ public class ManagerViewBooksActivity extends AppCompatActivity {
         });
 
         //set go back button
-        Button goBack = (Button) findViewById(R.id.goBackButton);
+        /*Button goBack = (Button) findViewById(R.id.goBackButton);
         goBack.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -65,7 +74,7 @@ public class ManagerViewBooksActivity extends AppCompatActivity {
                 i.putExtra("name", accountName);
                 startActivity(i);
             }
-        });
+        });*/
 
     }
 

@@ -42,6 +42,14 @@ public class MyAccountActivity extends AppCompatActivity
         setWishListListView(wishListListView, accessCustomer.getCustomerWishList(accountName));
     }
 
+    @Override
+    protected void onStart()
+    {
+        super.onStart();
+        setCartListView(cartListView,accessCustomer.getCustomerCart(accountName));
+        setWishListListView(wishListListView,accessCustomer.getCustomerWishList(accountName));
+    }
+
     public void setTextView()
     {
         TextView account = (TextView)findViewById(R.id.accountText);

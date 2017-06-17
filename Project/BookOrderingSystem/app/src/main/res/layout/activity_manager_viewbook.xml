@@ -73,14 +73,4 @@
         android:layout_alignRight="@+id/searchByManager"
         android:text="ADD A NEW BOOK" />
 
-    <Button
-        android:id="@+id/goBackButton"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="52dp"
-        android:text="go back" />
-
 </RelativeLayout>

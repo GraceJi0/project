@@ -22,11 +22,13 @@ import comp3350project.bookorderingsystem.objects.Book;
 public class BookWithCheckboxAdapter extends ArrayAdapter<Book>{
     private int resourceId;
     private ArrayList<Book> selected;
+    int check;
     public BookWithCheckboxAdapter(Context context, int textViewResourceId, List<Book> objects)
     {
         super(context, textViewResourceId,objects);
         resourceId = textViewResourceId;
         selected = new ArrayList<Book>();
+        check = -1;
     }
 
 
@@ -47,7 +49,14 @@ public class BookWithCheckboxAdapter extends ArrayAdapter<Book>{
             public void onClick(View v) {
                 if(((CheckBox)v).isChecked())
                 {
-                    selected.add(book);
+                    check = check * -1;
+                    if(check == 1) {
+                        selected.add(book);
+                    }
+                    else
+                    {
+                        deleteFromSelected(book);
+                    }
                 }
             }
         });
@@ -61,5 +70,16 @@ public class BookWithCheckboxAdapter extends ArrayAdapter<Book>{
     public ArrayList<Book> getSelectedBooks()
     {
         return selected;
+    }
+
+    public void deleteFromSelected(Book book)
+    {
+        for(int i = 0; i < selected.size();i++)
+        {
+            if(selected.get(i).getName().equals(book.getName()))
+            {
+                selected.remove(i);
+            }
+        }
     }
 }

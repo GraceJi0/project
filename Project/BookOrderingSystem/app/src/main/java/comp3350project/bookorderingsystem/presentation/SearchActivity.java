@@ -44,7 +44,8 @@ public class SearchActivity extends AppCompatActivity {
         String search = message[0];
         accountName = message[1];
         doSearch(search);
-        setButton();
+        setSearchButton();
+        setMyAccountButton();
     }
 
     public void doSearch(String searchKey)
@@ -64,7 +65,7 @@ public class SearchActivity extends AppCompatActivity {
             setListView(found);
         }
     }
-    public  void setButton()
+    public  void setSearchButton()
     {
         //set seatch button
         final Button search = (Button) findViewById(R.id.SearchBut);
@@ -101,6 +102,21 @@ public class SearchActivity extends AppCompatActivity {
                 Intent intent = new Intent(SearchActivity.this, ViewBookActivity.class);
                 String[] message = {bookName,accountName};
                 intent.putExtra("name and view", message);
+                startActivity(intent);
+            }
+        });
+    }
+
+    public void setMyAccountButton()
+    {
+        Button myAccount = (Button) findViewById(R.id.MyAccountButton);
+        myAccount.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(SearchActivity.this, MyAccountActivity.class);
+                intent.putExtra("name",accountName );
                 startActivity(intent);
             }
         });

@@ -20,7 +20,7 @@
         android:layout_marginRight="15dp"
         android:layout_marginEnd="15dp"
         tools:ignore="HardcodedText"
-        android:layout_above="@+id/listview"
+        android:layout_above="@+id/searchResultList"
         android:layout_toLeftOf="@+id/SearchBut"
         android:layout_toStartOf="@+id/SearchBut" />
 
@@ -40,7 +40,7 @@
         android:text="@string/searchBut" />
 
     <ListView
-        android:id="@+id/listview"
+        android:id="@+id/searchResultList"
         android:layout_width="500dp"
         android:layout_height="550dp"
         android:layout_alignLeft="@+id/Searchkey"

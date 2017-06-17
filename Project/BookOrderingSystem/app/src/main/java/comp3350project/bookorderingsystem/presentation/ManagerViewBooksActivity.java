@@ -62,20 +62,6 @@ public class ManagerViewBooksActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
-        //set go back button
-        /*Button goBack = (Button) findViewById(R.id.goBackButton);
-        goBack.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                Intent i = new Intent(ManagerViewBooksActivity.this, ManagerMainActivity.class);
-                i.putExtra("name", accountName);
-                startActivity(i);
-            }
-        });*/
-
     }
 
     public  void doSearch()

@@ -31,13 +31,10 @@ public class ViewBookActivity extends AppCompatActivity {
 
         accessCustomer = new AccessCustomer();
 
-        // Log.d("--------------","*********");
         Intent intent = getIntent();
         String[] message = intent.getStringArrayExtra("name and view");
         String bookName = message[0];
         accountName = message[1];
-        //String bookName = intent.getStringExtra("message");
-
 
         AccessBook accessBook = new AccessBook();
         book = accessBook.searchBook(bookName);

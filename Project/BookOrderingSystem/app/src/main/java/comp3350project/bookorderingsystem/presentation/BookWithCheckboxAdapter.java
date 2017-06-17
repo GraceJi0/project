@@ -1,6 +1,7 @@
 package comp3350project.bookorderingsystem.presentation;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,13 +23,11 @@ import comp3350project.bookorderingsystem.objects.Book;
 public class BookWithCheckboxAdapter extends ArrayAdapter<Book>{
     private int resourceId;
     private ArrayList<Book> selected;
-    int check;
     public BookWithCheckboxAdapter(Context context, int textViewResourceId, List<Book> objects)
     {
         super(context, textViewResourceId,objects);
         resourceId = textViewResourceId;
         selected = new ArrayList<Book>();
-        check = -1;
     }
 
 
@@ -37,7 +36,6 @@ public class BookWithCheckboxAdapter extends ArrayAdapter<Book>{
     public View getView(int position, View converView, ViewGroup parent)
     {
         final Book book = getItem(position);
-        //check ++;
         View view = LayoutInflater.from(getContext()).inflate(resourceId,parent,false);
         ImageView bookImage = (ImageView) view.findViewById(R.id.bookImageView);
         TextView bookName = (TextView) view.findViewById(R.id.bookNameText);
@@ -51,14 +49,11 @@ public class BookWithCheckboxAdapter extends ArrayAdapter<Book>{
 
                 if(((CheckBox)v).isChecked())
                 {
-                    check = check * -1;
-                    if(check == 1) {
-                        selected.add(book);
-                    }
-                    else
-                    {
-                        deleteFromSelected(book);
-                    }
+                    selected.add(book);
+                }
+                else
+                {
+                    deleteFromSelected(book);
                 }
             }
         });

@@ -47,7 +47,7 @@ public class AddBookActivity extends AppCompatActivity {
 
 
         final EditText price = (EditText)findViewById(R.id.priceEditText);
-        price.setText("0.0");
+        //price.setText("0.0");
         final double bookPrice= Double.parseDouble(price.getText().toString());
 
 
@@ -55,7 +55,7 @@ public class AddBookActivity extends AppCompatActivity {
         final String bookDescription = description.getText().toString();
 
         final EditText inStock = (EditText)findViewById(R.id.inStockEditText);
-        inStock.setText("0");
+        //inStock.setText("0");
         final int bookInStock = Integer.parseInt(inStock.getText().toString());
 
         final EditText category = (EditText)findViewById(R.id.categoryEditText);
@@ -67,8 +67,9 @@ public class AddBookActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-               accessBook.addBook(new Book( bookName, bookAuthor, bookDescription, bookPrice, bookCategory,
-                bookInStock, R.drawable.noimage));
+                Book book = new Book( bookName, bookAuthor, bookDescription, bookPrice, bookCategory,
+                        bookInStock, R.drawable.noimage);
+               accessBook.addBook(book);
                 Toast.makeText(AddBookActivity.this, "Successfully saved",
                         Toast.LENGTH_SHORT).show();
             }

@@ -82,6 +82,8 @@ public class Book
         return category;
     }
 
+    public void setCategory(String newCategory){category = newCategory;}
+
     public int compareName(Book newData)
     {
         return this.getName().compareTo(newData.getName());

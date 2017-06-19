@@ -29,6 +29,7 @@
         <activity android:name=".presentation.SearchCategoryActivity"></activity>
 
         <activity android:name=".presentation.MyAccountActivity"></activity>
+        <activity android:name=".presentation.AddBookActivity"></activity>
     </application>
 
 </manifest>

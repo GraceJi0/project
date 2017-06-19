@@ -38,7 +38,7 @@ public class ManagerViewCustomerActivity extends AppCompatActivity {
     public void setButton()
     {
         //set log out button
-        Button logOut = (Button)findViewById(R.id.logOutButton);
+        /*Button logOut = (Button)findViewById(R.id.logOutButton);
         logOut.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -46,19 +46,6 @@ public class ManagerViewCustomerActivity extends AppCompatActivity {
             {
                 Intent i = new Intent(ManagerViewCustomerActivity.this, MainActivity.class);
                 i.putExtra("exit", "exit");
-                startActivity(i);
-            }
-        });
-
-        //set go back button
-        /*Button goBack = (Button)findViewById(R.id.goBackButton);
-        goBack.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                Intent i = new Intent(ManagerViewCustomerActivity.this, ManagerMainActivity.class);
-                i.putExtra("name", accountName);
                 startActivity(i);
             }
         });*/

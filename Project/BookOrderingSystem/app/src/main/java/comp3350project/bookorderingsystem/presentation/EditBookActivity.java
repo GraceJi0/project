@@ -59,7 +59,10 @@ public class EditBookActivity extends AppCompatActivity
         EditText inStock = (EditText) findViewById(R.id.inStockEditText);
         inStock.setText(Integer.toString(book.getNumberInStock()));
 
-        setButton(name, author,price, description, inStock);
+        EditText category = (EditText) findViewById(R.id.categoryEditText);
+        category.setText(book.getCategory());
+
+        setButton(name, author,price, description, inStock,category);
     }
 
     public void setImageView()
@@ -70,7 +73,7 @@ public class EditBookActivity extends AppCompatActivity
     }
 
     public void setButton(final EditText name, final EditText author, final EditText price,
-                          final EditText description, final EditText inStock )
+                          final EditText description, final EditText inStock,final EditText category )
     {
         //set save button
         Button save = (Button)findViewById(R.id.saveButton);
@@ -84,6 +87,7 @@ public class EditBookActivity extends AppCompatActivity
                 book.setBookPrice(Double.parseDouble(price.getText().toString()));
                 book.setBookInformation(description.getText().toString());
                 book.setNumberInStock(Integer.parseInt(inStock.getText().toString()));
+                book.setCategory(category.getText().toString());
                 editBookInformation();
                 Toast.makeText(EditBookActivity.this,"Successfully saved",
                         Toast.LENGTH_SHORT).show();

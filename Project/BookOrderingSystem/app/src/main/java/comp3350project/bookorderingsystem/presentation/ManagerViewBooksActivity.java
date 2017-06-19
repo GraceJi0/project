@@ -45,20 +45,21 @@ public class ManagerViewBooksActivity extends AppCompatActivity {
     protected void onStart()
     {
         super.onStart();
+        accessBook = new AccessBook();
+        booksList = accessBook.getBookList();
         setListView(booksList);
     }
 
     public void setButton()
     {
-        //set log out button, click then return to manager main page
-        Button logOut = (Button)findViewById(R.id.logOutButton);
-        logOut.setOnClickListener(new View.OnClickListener()
+        Button addBook = (Button)findViewById(R.id.addBookButton);
+        addBook.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                Intent i = new Intent(ManagerViewBooksActivity.this, MainActivity.class);
-                i.putExtra("exit", "exit");
+                Intent i = new Intent(ManagerViewBooksActivity.this, AddBookActivity.class);
+                i.putExtra("name", accountName);
                 startActivity(i);
             }
         });

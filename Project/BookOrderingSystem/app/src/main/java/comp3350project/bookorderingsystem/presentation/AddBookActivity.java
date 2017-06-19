@@ -33,40 +33,36 @@ public class AddBookActivity extends AppCompatActivity {
 
         accessBook = new AccessBook();
 
-        saveInformation();
+        setBookInformation();
     }
 
-    public void saveInformation()
-    {
+    public void setBookInformation() {
 
-        final EditText name = (EditText)findViewById(R.id.nameEditText);
-        final String bookName = name.getText().toString();
-
-        final EditText author = (EditText)findViewById(R.id.authorEditText);
-        final String bookAuthor = author.getText().toString();
-
-
-        final EditText price = (EditText)findViewById(R.id.priceEditText);
+         EditText name = (EditText) findViewById(R.id.nameEditText);
+         EditText author = (EditText) findViewById(R.id.authorEditText);
+         EditText price = (EditText) findViewById(R.id.priceEditText);
         //price.setText("0.0");
-        final double bookPrice= Double.parseDouble(price.getText().toString());
-
-
-        final EditText description = (EditText)findViewById(R.id.decriptionEditText);
-        final String bookDescription = description.getText().toString();
-
-        final EditText inStock = (EditText)findViewById(R.id.inStockEditText);
+         EditText description = (EditText) findViewById(R.id.decriptionEditText);
+         EditText inStock = (EditText) findViewById(R.id.inStockEditText);
         //inStock.setText("0");
-        final int bookInStock = Integer.parseInt(inStock.getText().toString());
-
-        final EditText category = (EditText)findViewById(R.id.categoryEditText);
-        final String bookCategory = category.getText().toString();
-
+         EditText category = (EditText) findViewById(R.id.categoryEditText);
+        saveInformation(name, author, price, description, inStock, category);
+    }
+    public void saveInformation(final EditText name, final EditText author, final EditText price,
+                                final EditText description, final EditText inStock, final EditText category)
+    {
 
         Button save = (Button) findViewById(R.id.saveNewButton);
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
+                String bookName = name.getText().toString();
+                String bookAuthor = author.getText().toString();
+                double bookPrice = Double.parseDouble(price.getText().toString());
+                String bookDescription = description.getText().toString();
+                int bookInStock = Integer.parseInt(inStock.getText().toString());
+                String bookCategory = category.getText().toString();
                 Book book = new Book( bookName, bookAuthor, bookDescription, bookPrice, bookCategory,
                         bookInStock, R.drawable.noimage);
                accessBook.addBook(book);

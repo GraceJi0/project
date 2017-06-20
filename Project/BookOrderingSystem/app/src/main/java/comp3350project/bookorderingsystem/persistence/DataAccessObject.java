@@ -25,11 +25,13 @@ public class DataAccessObject implements DataAccess
 
 	private ArrayList<Book> bookList;
 	private ArrayList<Customer> customerList;
-	//private ArrayList<SC> scs;
 
 	private String cmdString;
 	private int updateCount;
-	//private String result;
+
+	private boolean result;
+	private String warn;  //for storing the warn if there is any
+
 	private static String EOF = "  ";
 
 	public DataAccessObject(String dbName)
@@ -50,41 +52,6 @@ public class DataAccessObject implements DataAccess
 			st1 = c1.createStatement();
 			st2 = c1.createStatement();
 			st3 = c1.createStatement();
-
-			/*** Alternate setups for different DB engines, just given as examples. Don't use them. ***/
-			
-			/*
-			 * // Setup for SQLite. Note that this is undocumented and is not guaranteed to work.
-			 * // See also: https://github.com/SQLDroid/SQLDroid
-			 * dbType = "SQLite";
-			 * Class.forName("SQLite.JDBCDriver").newInstance();
-			 * url = "jdbc:sqlite:" + dbPath;
-			 * c1 = DriverManager.getConnection(url);     
-			 * 
-			 * ... create statements
-			 */
-
-			/*** The following two work on desktop builds: ***/
-
-			/*
-			 * // Setup for Access
-			 * dbType = "Access";
-			 * Class.forName("sun.jdbc.odbc.JdbcOdbcDriver").newInstance();
-			 * url = "jdbc:odbc:SC";
-			 * c1 = DriverManager.getConnection(url,"userid","userpassword");
-			 * 
-			 * ... create statements
-			 */
-
-			/*
-			 * //Setup for MySQL
-			 * dbType = "MySQL";
-			 * Class.forName("com.mysql.jdbc.Driver");
-			 * url = "jdbc:mysql://localhost/database01";
-			 * c1 = DriverManager.getConnection(url, "root", "");
-			 * 
-			 * ... create statements
-			 */
 		}
 		catch (Exception e)
 		{
@@ -108,34 +75,75 @@ public class DataAccessObject implements DataAccess
 		System.out.println("Closed " +dbType +" database " +dbName);
 	}
 
-	boolean addCustomer(Customer newCustomer)
+	public boolean addCustomer(Customer newCustomer)
 	{
 		String values;
-		boolean result = null;	//return true when added successful
-		
+
+		warn = null;
 		try
-		{	
+		{
 			values = "'"+newCustomer.getName()+"', '', '', -1, '', ''";  //initial customer card number to be -1(no number)
 			cmdString = "Insert into customer " +" Values(" +values +")";
 			updateCount = st1.executeUpdate(cmdString);
 			result = true;
+			warn = checkWarning(st1, updateCount);
 		}
 		catch (Exception e)
 		{
+			warn = processSQLError(e);
 			result = false;
 		}
 		return result;
 	}
 
-    void deleteCustomer(Customer newCustomer);
+	public boolean updateCustomer(Customer theCustomer)
+	{
+		String values;
+		String where;
 
-    ArrayList<Book> getBookList();
+		warn = null;
+		try
+		{
+			// Should check for empty values and not update them... do it later
+			/*
+				%%%%%%%%%%%%%%%%%the update command!!!!!!!!!!!!!!
+			*/
+			updateCount = st1.executeUpdate(cmdString);
+			warn = checkWarning(st1, updateCount);
+		}
+		catch(Exception e)
+		{
+			warn = processSQLError(e);
+		}
+		return result;
+	}
 
-    boolean addBook(Book newBook)
+    public boolean deleteCustomer(Customer theCustomer)
+	{
+		String values;
+
+		warn = null;
+		try
+		{
+			values = theCustomer.getName();
+			cmdString = "Delete from customer where customer=" +values;
+			updateCount = st1.executeUpdate(cmdString);
+			result = true;
+			warn = checkWarning(st1, updateCount);
+		}
+		catch (Exception e)
+		{
+			warn = processSQLError(e);
+			result = false;
+		}
+		return result;
+	}
+
+    public boolean addBook(Book newBook)
     {
     	String values;
-		boolean result;
-		
+
+		warn = null;
 		try
 		{
 			values = "'"+newBook.getName()
@@ -147,12 +155,69 @@ public class DataAccessObject implements DataAccess
 			         +", " +newBook.getImageID();
 			cmdString = "Insert into book " +" Values(" +values +")";
 			updateCount = st1.executeUpdate(cmdString);
-			result = true; // checkWarning(st1, updateCount);
+			warn = checkWarning(st1, updateCount);
+			result = true;
 		}
 		catch (Exception e)
 		{
+			warn = processSQLError(e);
 			result = false;
 		}
+		return result;
+	}
+
+	public boolean deleteBook(Book theBook)
+	{
+		String values;
+
+		warn = null;
+		try
+		{
+			values = theBook.getName();
+			cmdString = "Delete from book where name=" +values;
+			updateCount = st1.executeUpdate(cmdString);
+			warn = checkWarning(st1, updateCount);
+		}
+		catch (Exception e)
+		{
+			warn = processSQLError(e);
+			result = false;
+		}
+		return result;
+	}
+
+
+	public String checkWarning(Statement st, int updateCount)
+	{
+		String result;
+
+		result = null;
+		try
+		{
+			SQLWarning warning = st.getWarnings();
+			if (warning != null)
+			{
+				result = warning.getMessage();
+			}
+		}
+		catch (Exception e)
+		{
+			result = processSQLError(e);
+		}
+		if (updateCount != 1)
+		{
+			result = "Tuple not inserted correctly.";
+		}
+		return result;
+	}
+
+	public String processSQLError(Exception e)
+	{
+		String result = "*** SQL Error: " + e.getMessage();
+
+		// Remember, this will NOT be seen by the user!
+		e.printStackTrace();
+
 		return result;
 	}
 }

@@ -17,7 +17,7 @@ public class CustomerTest extends TestCase
 
 		System.out.println("\nStarting testCustomer");
 
-		theCus = new Customer("3350");
+		theCus = new Customer("3350", "default");
 		assertNotNull(theCus);
 		assertTrue("3350".equals(theCus.getName()));
 

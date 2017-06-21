@@ -99,7 +99,7 @@ public class DataAccessObject implements DataAccess
 			while(rs2.next())
 			{
 				String name = rs2.getString("name");
-				Customer theCustomer = new Customer(name,);
+				Customer theCustomer = new Customer(name,"default");	///////////////////////////////////////////////////password not set
 
 				try
 				{
@@ -173,7 +173,7 @@ public class DataAccessObject implements DataAccess
 			warn = null;
 			try
 			{
-				values = "'" + newCustomer.getName() + "', '', '', '', '', ''";  //initial customer card number to be -1(no number)
+				values = "'" + newCustomer.getName() + "', '', '', '', '', '', ''";  //initial customer card number to be -1(no number)
 				cmdString = "Insert into customer " + " Values(" + values + ")";
 				updateCount = st1.executeUpdate(cmdString);
 				result = true;
@@ -209,7 +209,7 @@ public class DataAccessObject implements DataAccess
 				{
 					values += (", address ='" + theCustomer.getAddress() + "'");
 				}
-
+				//////////////////////////////////////////////////////////////////////////////////////////////////update the password
 				cmdString = "update customer " + "set" + values + " " + where;
 				updateCount = st1.executeUpdate(cmdString);
 				warn = checkWarning(st1, updateCount);
@@ -328,7 +328,9 @@ public class DataAccessObject implements DataAccess
 						+ "', " + newBook.getNumberInStock()
 						+ ", " + newBook.getImageID();
 				cmdString = "Insert into book " + " Values(" + values + ")";
+				System.out.println((st1 == null));//////////////////////////////////////////////////////
 				updateCount = st1.executeUpdate(cmdString);
+				//System.out.println(cmdString);/////////////////////////////////////////////////////////
 				warn = checkWarning(st1, updateCount);
 				result = true;
 			} catch (Exception e) {

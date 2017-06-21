@@ -31,13 +31,13 @@ public class AccessCustomerTest extends TestCase {
 
     public boolean EmptyCustomer()  //should return false
     {
-        tmp = new Customer("");
+        tmp = new Customer("", "");
         return testAccess.addCustomer(tmp);
     }
 
     public boolean TrueCustomer()   //should return true
     {
-        tmp = new Customer("Customer");
+        tmp = new Customer("Customer", "");
         return testAccess.addCustomer(tmp);
     }
 }

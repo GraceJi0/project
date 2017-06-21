@@ -30,7 +30,7 @@ public class SignInActivity extends AppCompatActivity {
             public void onClick(View view)
             {
                 AlertDialog.Builder loginBuilder=new AlertDialog.Builder(SignInActivity.this);
-                View signinView=getLayoutInflater().inflate(R.layout.activityt_signin,null);
+                View signinView=getLayoutInflater().inflate(R.layout.activity_signin,null);
                 final EditText signinAccount=(EditText) signinView.findViewById(R.id.signin_account);
                 final EditText signinPassword=(EditText) signinView.findViewById(R.id.signin_password);
                 Button signinButton=(Button) signinView.findViewById(R.id.signin_button);

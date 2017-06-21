@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setButton();
         signIn();
+        signUp();
     }
 
     /*public void sendSearch(View view)
@@ -37,6 +38,52 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }*/
 
+
+    public void signUp()
+    {
+        Button showSignUp=(Button)findViewById(R.id.signupBut);
+        showSignUp.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View view)
+            {
+                AlertDialog.Builder logupBuilder=new AlertDialog.Builder(MainActivity.this);
+                View signupView=getLayoutInflater().inflate(R.layout.activity_signup,null);
+                final EditText signupAccount=(EditText) signupView.findViewById(R.id.signup_account);
+                final EditText signupPassword=(EditText) signupView.findViewById(R.id.signup_password);
+                final EditText signupRetypePassword=(EditText) signupView.findViewById(R.id.signup_retype_password);
+                Button signupButton=(Button) signupView.findViewById(R.id.signup_button);
+
+                signupButton.setOnClickListener(new View.OnClickListener()
+                {
+                    public void onClick(View view)
+                    {
+                        if(signupAccount.getText().toString().isEmpty() || signupPassword.getText().toString().isEmpty())
+                        {
+                            Toast.makeText(MainActivity.this,
+                                    "please fill account or password",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                        else if(signupRetypePassword.getText().toString().compareTo(signupPassword.getText().toString())!=0)
+                        {
+                            Toast.makeText(MainActivity.this,
+                                    "please ensure passwords are same",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                        {
+                            Toast.makeText(MainActivity.this,
+                                    "Sign up successful",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+                logupBuilder.setView(signupView);
+                AlertDialog dialog=logupBuilder.create();
+                dialog.show();
+            }
+        });
+    }
+
    public void signIn()
    {
        Button showSignIn=(Button)findViewById(R.id.signinBut);
@@ -45,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
            public void onClick(View view)
            {
                AlertDialog.Builder loginBuilder=new AlertDialog.Builder(MainActivity.this);
-               View signinView=getLayoutInflater().inflate(R.layout.activityt_signin,null);
+               View signinView=getLayoutInflater().inflate(R.layout.activity_signin,null);
                final EditText signinAccount=(EditText) signinView.findViewById(R.id.signin_account);
                final EditText signinPassword=(EditText) signinView.findViewById(R.id.signin_password);
                Button signinButton=(Button) signinView.findViewById(R.id.signin_button);

@@ -41,11 +41,11 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="31dp"
         android:text="Author:"
         android:layout_below="@+id/nameEditText"
-        android:layout_alignLeft="@+id/editTitle"
-        android:layout_alignStart="@+id/editTitle" />
+        android:layout_alignLeft="@+id/nameEditText"
+        android:layout_alignStart="@+id/nameEditText" />
 
     <EditText
         android:id="@+id/authorEditText"

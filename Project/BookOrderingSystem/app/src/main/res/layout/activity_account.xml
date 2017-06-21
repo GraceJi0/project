@@ -18,35 +18,7 @@
                 android:layout_marginTop="18dp"
                 android:text="log out" />
 
-            <Button
-                android:textColor="@color/colorPrimary"
-                android:id="@+id/editInformationBut"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="edit personal infromation"
-                android:layout_below="@+id/accountText"
-                android:layout_alignLeft="@+id/accountText"
-                android:layout_alignStart="@+id/accountText"
-                android:layout_alignRight="@+id/logOutButton"
-                android:layout_alignEnd="@+id/logOutButton" />
-
-            <Button
-                android:textColor="@color/colorPrimary"
-                android:id="@+id/cartBut"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="view my cart"
-                android:layout_below="@+id/editInformationBut"
-                android:layout_alignLeft="@+id/editInformationBut"
-                android:layout_alignStart="@+id/editInformationBut"
-                android:layout_toLeftOf="@+id/logOutButton"
-                android:layout_toStartOf="@+id/logOutButton" />
-
-            <TextView
+    <TextView
                 android:id="@+id/accountText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -62,31 +34,18 @@
         android:id="@+id/cartList"
         android:layout_width="530dp"
         android:layout_height="240dp"
-        android:layout_alignLeft="@+id/cartBut"
-        android:layout_alignStart="@+id/cartBut"
-        android:layout_below="@+id/cartBut" />
-
-    <Button
-        android:textColor="@color/colorPrimary"
-        android:id="@+id/wishListBut"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/cartList"
-        android:layout_alignStart="@+id/cartList"
-        android:layout_below="@+id/cartList"
-        android:layout_marginTop="24dp"
-        android:text="view my wish list"
-        android:layout_toLeftOf="@+id/delete2But"
-        android:layout_toStartOf="@+id/delete2But" />
+        android:layout_below="@+id/delete1But"
+        android:layout_alignRight="@+id/logOutButton"
+        android:layout_alignEnd="@+id/logOutButton" />
 
     <ListView
         android:id="@+id/wishList"
         android:layout_width="530dp"
         android:layout_height="240dp"
-        android:layout_alignLeft="@+id/wishListBut"
-        android:layout_alignStart="@+id/wishListBut"
-        android:layout_below="@+id/wishListBut" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/cartList"
+        android:layout_alignStart="@+id/cartList"
+        android:layout_marginBottom="60dp" />
 
     <Button
         android:textColor="@color/colorPrimary"
@@ -94,10 +53,11 @@
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/cartList"
-        android:layout_alignEnd="@+id/cartList"
+        android:text="delete"
+        android:layout_marginTop="69dp"
+        android:layout_below="@+id/logOutButton"
         android:layout_alignRight="@+id/cartList"
-        android:text="delete" />
+        android:layout_alignEnd="@+id/cartList" />
 
     <Button
         android:textColor="@color/colorPrimary"
@@ -109,6 +69,26 @@
         android:layout_alignLeft="@+id/delete1But"
         android:layout_alignStart="@+id/delete1But"
         android:text="delete" />
+
+    <TextView
+        android:textSize="40dp"
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View My Cart"
+        android:layout_above="@+id/cartList"
+        android:layout_alignLeft="@+id/cartList"
+        android:layout_alignStart="@+id/cartList" />
+
+    <TextView
+        android:textSize="40dp"
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View My Wish List"
+        android:layout_above="@+id/wishList"
+        android:layout_alignLeft="@+id/wishList"
+        android:layout_alignStart="@+id/wishList" />
 
 </RelativeLayout>
 

@@ -38,16 +38,16 @@ public class MyAccountActivity extends AppCompatActivity
 
         accessCustomer = new AccessCustomer();
         setTextView();
-        setCartListView(cartListView, accessCustomer.getCustomerCart(accountName));
-        setWishListListView(wishListListView, accessCustomer.getCustomerWishList(accountName));
+        setCartListView(accessCustomer.getCustomerCart(accountName));
+        setWishListListView(accessCustomer.getCustomerWishList(accountName));
     }
 
     @Override
     protected void onStart()
     {
         super.onStart();
-        setCartListView(cartListView,accessCustomer.getCustomerCart(accountName));
-        setWishListListView(wishListListView,accessCustomer.getCustomerWishList(accountName));
+        setCartListView(accessCustomer.getCustomerCart(accountName));
+        setWishListListView(accessCustomer.getCustomerWishList(accountName));
     }
 
     public void setTextView()
@@ -56,17 +56,17 @@ public class MyAccountActivity extends AppCompatActivity
         account.setText(accountName);
     }
 
-    public void setCartListView(ListView listView, final ArrayList<Book> bookList)
+    public void setCartListView(final ArrayList<Book> bookList)
     {
         //set books' listView
         BookWithCheckboxAdapter adapter = new BookWithCheckboxAdapter(MyAccountActivity.this,
                 R.layout.booklist_item,bookList);
-        listView = (ListView) findViewById(R.id.cartList);
-        listView.setAdapter(adapter);
+        cartListView = (ListView) findViewById(R.id.cartList);
+        cartListView.setAdapter(adapter);
         setCartDeleteButton( adapter);
 
         //set bookList clickable
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        cartListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Book book = bookList.get(position);
@@ -81,16 +81,16 @@ public class MyAccountActivity extends AppCompatActivity
         });
     }
 
-    public void setWishListListView(ListView listView, final ArrayList<Book> bookList)
+    public void setWishListListView(final ArrayList<Book> bookList)
     {
         //set books' listView
-        BookAdapter adapter = new BookAdapter(MyAccountActivity.this,
-                R.layout.book_item,bookList);
-        listView = (ListView) findViewById(R.id.wishList);
-        listView.setAdapter(adapter);
-
+        BookWithCheckboxAdapter adapter = new BookWithCheckboxAdapter(MyAccountActivity.this,
+                R.layout.booklist_item,bookList);
+        wishListListView = (ListView) findViewById(R.id.wishList);
+        wishListListView.setAdapter(adapter);
+        setWishListListDeleteButton(adapter);
         //set bookList clickable
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        wishListListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Book book = bookList.get(position);
@@ -119,7 +119,25 @@ public class MyAccountActivity extends AppCompatActivity
                 {
                     accessCustomer.deleteFromCart(accountName,selected.get(i));
                 }
-                setCartListView(cartListView, accessCustomer.getCustomerCart(accountName));
+                setCartListView(accessCustomer.getCustomerCart(accountName));
+            }
+        });
+    }
+
+    public void setWishListListDeleteButton(final BookWithCheckboxAdapter adapter)
+    {
+        Button deleteWishList = (Button)findViewById(R.id.delete2But);
+        deleteWishList.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                ArrayList<Book> selected = adapter.getSelectedBooks();
+                for(int i = 0; i < selected.size();i++)
+                {
+                    accessCustomer.deleteFromWishList(accountName,selected.get(i));
+                }
+                setCartListView(accessCustomer.getCustomerWishList(accountName));
             }
         });
     }

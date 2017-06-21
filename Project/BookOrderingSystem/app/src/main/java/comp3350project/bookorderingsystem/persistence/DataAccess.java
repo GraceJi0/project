@@ -14,10 +14,20 @@ public interface DataAccess
 
 	void close();
 
+    ArrayList<Customer> getCustomerList();
+
     boolean addCustomer(Customer newCustomer);
 
-    boolean deleteCustomer(Customer newCustomer);
+    boolean updateCustomer(Customer theCustomer);
+
+    boolean deleteCustomer(Customer theCustomer);
+
+    ArrayList<Book> getBookList();
 
     boolean addBook(Book newBook);
+
+    boolean updateBook(Book theBook);
+
+    boolean deleteBook(Book theBook);
 
 }

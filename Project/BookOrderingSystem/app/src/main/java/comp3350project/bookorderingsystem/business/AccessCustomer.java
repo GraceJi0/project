@@ -1,5 +1,7 @@
 package comp3350project.bookorderingsystem.business;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 import comp3350project.bookorderingsystem.application.Main;
@@ -162,5 +164,29 @@ public class AccessCustomer
             }
         }
         return customer.getWishList();
+    }
+
+    public int verifyCustomer(String accountName,String accountPassword)
+    {
+        int verify = -1;
+        Customer customer = null;
+        ArrayList<Customer> customers = getCustomerList();
+        int index = 0;
+       while(index < customers.size())
+        {
+            customer = customers.get(index);
+            if(customer.getName().equals(accountName))
+            {
+                verify = 0;
+                if(customer.getPassword().equals(accountPassword))
+                {
+                    verify = 1;
+                    break;
+                }
+            }
+            //Log.d("------",customer.getName());
+            index++;
+        }
+        return verify;
     }
 }

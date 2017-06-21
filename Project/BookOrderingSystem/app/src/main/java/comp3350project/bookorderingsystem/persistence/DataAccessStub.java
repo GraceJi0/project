@@ -191,19 +191,4 @@ public class DataAccessStub
             return false;
         }
     }
-
-    /*public void deleteBook(Book newBook)
-    {
-        int index;
-
-        index = bookList.indexOf(newBook);
-        if (index >= 0)
-        {
-            bookList.remove(index);
-        }
-        else
-        {
-            System.out.println("delete book error: book not exist");
-        }
-    }*/
 }

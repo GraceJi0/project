@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,31 +13,39 @@ import android.widget.Toast;
 
 import comp3350project.bookorderingsystem.R;
 import comp3350project.bookorderingsystem.application.Main;
+import comp3350project.bookorderingsystem.business.AccessCustomer;
 
 public class MainActivity extends AppCompatActivity {
 
-    public final static String EXTRA_MESSAGE = "comp3010_group10.bookordering.MESSAGE";
     private String accountName;
+    private AccessCustomer accessCustomer;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         Main.startUp();
         setContentView(R.layout.activity_main);
+        accessCustomer = new AccessCustomer();
         setButton();
         signIn();
         signUp();
     }
 
-    /*public void sendSearch(View view)
+    @Override
+    protected void onResume()
     {
-        // Do something in response to button
-        Intent intent = new Intent(this,SearchActivity.class);
-        EditText editText = (EditText) findViewById(R.id.searchText);
-        String message = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
-    }*/
+        super.onResume();
+        Log.d("------","onResume");
+        if(accountName!= null) {
+            if (accountName.substring(0, 2).equals("dmb"))
+            {
+                Intent init = new Intent(MainActivity.this,
+                        ManagerMainActivity.class);
+                init.putExtra("name", accountName);
+                startActivity(init);
+            }
+        }
+    }
 
 
     public void signUp()
@@ -91,30 +100,48 @@ public class MainActivity extends AppCompatActivity {
        {
            public void onClick(View view)
            {
-               AlertDialog.Builder loginBuilder=new AlertDialog.Builder(MainActivity.this);
-               View signinView=getLayoutInflater().inflate(R.layout.activity_signin,null);
+               final AlertDialog.Builder loginBuilder = new AlertDialog.Builder(MainActivity.this);
+               View signinView = getLayoutInflater().inflate(R.layout.activity_signin,null);
                final EditText signinAccount=(EditText) signinView.findViewById(R.id.signin_account);
                final EditText signinPassword=(EditText) signinView.findViewById(R.id.signin_password);
-               Button signinButton=(Button) signinView.findViewById(R.id.signin_button);
+                   Button signinButton = (Button) signinView.findViewById(R.id.signin_button);
 
-               signinButton.setOnClickListener(new View.OnClickListener()
-               {
-                   public void onClick(View view)
-                   {
-                       if(!signinAccount.getText().toString().isEmpty() && !signinPassword.getText().toString().isEmpty())
+                   signinButton.setOnClickListener(new View.OnClickListener() {
+                       public void onClick(View view)
                        {
-                           Toast.makeText(MainActivity.this,
-                                   "Login successful",
-                                   Toast.LENGTH_SHORT).show();
+                           if (!signinAccount.getText().toString().isEmpty() &&
+                                   !signinPassword.getText().toString().isEmpty())
+                           {
+                               String account = signinAccount.getText().toString();
+                               String password = signinPassword.getText().toString();
+                               int verify = accessCustomer.verifyCustomer(account,password);
+                               if(verify == 1)
+                               {
+                                   accountName = account;
+                                   Toast.makeText(MainActivity.this, "Login successful",
+                                           Toast.LENGTH_SHORT).show();
+                                   //close the dialog
+                               }
+                               else
+                               {
+                                   if(verify == -1)
+                                   {
+                                       Toast.makeText(MainActivity.this, "account doesn't exist",
+                                               Toast.LENGTH_SHORT).show();
+                                   }
+                                   else
+                                   {
+                                       Toast.makeText(MainActivity.this, "incorrect password",
+                                               Toast.LENGTH_SHORT).show();
+                                   }
+                               }
+                           } else {
+                               Toast.makeText(MainActivity.this,
+                                       "please fill account or password",
+                                       Toast.LENGTH_SHORT).show();
+                           }
                        }
-                       else
-                       {
-                           Toast.makeText(MainActivity.this,
-                                   "please fill account or password",
-                                   Toast.LENGTH_SHORT).show();
-                       }
-                   }
-               });
+                   });
                loginBuilder.setView(signinView);
                AlertDialog dialog=loginBuilder.create();
                dialog.show();
@@ -142,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         //assume accountName for customer is "asdf"
-        accountName = "asdf";
+        //accountName = "asdf";
         //set search button
         Button searchButton = (Button) findViewById(R.id.SearchBut);
         searchButton.setOnClickListener(new View.OnClickListener()

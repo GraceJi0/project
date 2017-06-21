@@ -137,7 +137,7 @@ public class MyAccountActivity extends AppCompatActivity
                 {
                     accessCustomer.deleteFromWishList(accountName,selected.get(i));
                 }
-                setCartListView(accessCustomer.getCustomerWishList(accountName));
+                setWishListListView(accessCustomer.getCustomerWishList(accountName));
             }
         });
     }

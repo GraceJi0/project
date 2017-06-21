@@ -11,13 +11,15 @@ public class Customer
     private String customerName;
     private ArrayList<Book> customerCart;
     private ArrayList<Book> customerWishList;
+    private String password;
     private String cardNumber;
     private String email;
     private String address;
 
-    public Customer(String newName)
+    public Customer(String newName,String newPassword)
     {
         customerName = newName;
+        password = newPassword;
         customerCart = new ArrayList<Book>();
         customerWishList = new ArrayList<Book>();
     }

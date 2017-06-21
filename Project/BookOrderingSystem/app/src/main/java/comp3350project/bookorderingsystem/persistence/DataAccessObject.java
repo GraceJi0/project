@@ -99,7 +99,7 @@ public class DataAccessObject implements DataAccess
 			while(rs2.next())
 			{
 				String name = rs2.getString("name");
-				Customer theCustomer = new Customer(name);
+				Customer theCustomer = new Customer(name,);
 
 				try
 				{

@@ -65,13 +65,13 @@ public class DataAccessStub
         addBook(new Book("A Book That Takes Its Time"," Irene Smit, Astrid van der Hulst ",
                 "An Unhurried Adventure in Creative.",26.38,"other", 1, R.drawable.book9));
 
-        addCustomer(new Customer("dmb001"));
-        addCustomer(new Customer("tyui"));
-        addCustomer(new Customer("ghjk"));
-        addCustomer(new Customer("szxcv"));
-        addCustomer(new Customer("asdf"));
-        addCustomer(new Customer("qwer"));
-        addCustomer(new Customer("svbnm"));
+        addCustomer(new Customer("dmb001","0000"));
+        addCustomer(new Customer("tyui","1111"));
+        addCustomer(new Customer("ghjk","2222"));
+        addCustomer(new Customer("szxcv","3333"));
+        addCustomer(new Customer("asdf","1234"));
+        addCustomer(new Customer("qwer","4444"));
+        addCustomer(new Customer("svbnm","5555"));
 
         System.out.println("Opened " +dbType +" database " +dbName);
     }

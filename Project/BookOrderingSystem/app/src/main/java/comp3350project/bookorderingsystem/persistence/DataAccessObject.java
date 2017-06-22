@@ -210,7 +210,11 @@ public class DataAccessObject implements DataAccess
 					values += (", address ='" + theCustomer.getAddress() + "'");
 				}
 				//////////////////////////////////////////////////////////////////////////////////////////////////update the password
-				cmdString = "update customer " + "set" + values + " " + where;
+				if(theCustomer.getPassword()!="")
+				{
+					values+=(", password='" + theCustomer.getPassword() + "'");
+				}
+				cmdString = "UPDATE customer\n " + "SET" + values + " \n WHERE" + where;
 				updateCount = st1.executeUpdate(cmdString);
 				warn = checkWarning(st1, updateCount);
 			}

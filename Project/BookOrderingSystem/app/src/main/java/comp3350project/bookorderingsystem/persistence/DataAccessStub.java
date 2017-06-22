@@ -71,8 +71,8 @@ public class DataAccessStub
         addCustomer(new Customer("szxcv","3333"));
         addCustomer(new Customer("asdf","1234"));
         addCustomer(new Customer("qwer","4444"));
+        addCustomer(new Customer("1","1"));
         addCustomer(new Customer("svbnm","5555"));
-
         System.out.println("Opened " +dbType +" database " +dbName);
     }
 

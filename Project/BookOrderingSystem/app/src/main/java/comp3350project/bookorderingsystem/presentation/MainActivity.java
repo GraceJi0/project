@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
 
     private String accountName;
     private AccessCustomer accessCustomer;
+    private AlertDialog Logindialog;
+    private AlertDialog Signupdialog;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -80,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                         else
                         {
+                            Signupdialog.dismiss();
                             Toast.makeText(MainActivity.this,
                                     "Sign up successful",
                                     Toast.LENGTH_SHORT).show();
@@ -87,8 +90,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
                 logupBuilder.setView(signupView);
-                AlertDialog dialog=logupBuilder.create();
-                dialog.show();
+                Signupdialog=logupBuilder.create();
+                Signupdialog.show();
             }
         });
     }
@@ -104,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
                View signinView = getLayoutInflater().inflate(R.layout.activity_signin,null);
                final EditText signinAccount=(EditText) signinView.findViewById(R.id.signin_account);
                final EditText signinPassword=(EditText) signinView.findViewById(R.id.signin_password);
-                   Button signinButton = (Button) signinView.findViewById(R.id.signin_button);
+               Button signinButton = (Button) signinView.findViewById(R.id.signin_button);
 
                    signinButton.setOnClickListener(new View.OnClickListener() {
                        public void onClick(View view)
@@ -117,9 +120,11 @@ public class MainActivity extends AppCompatActivity {
                                int verify = accessCustomer.verifyCustomer(account,password);
                                if(verify == 1)
                                {
+                                   Logindialog.dismiss();
                                    accountName = account;
                                    Toast.makeText(MainActivity.this, "Login successful",
                                            Toast.LENGTH_SHORT).show();
+
                                    //close the dialog
                                }
                                else
@@ -143,8 +148,8 @@ public class MainActivity extends AppCompatActivity {
                        }
                    });
                loginBuilder.setView(signinView);
-               AlertDialog dialog=loginBuilder.create();
-               dialog.show();
+               Logindialog=loginBuilder.create();
+               Logindialog.show();
            }
        });
    }

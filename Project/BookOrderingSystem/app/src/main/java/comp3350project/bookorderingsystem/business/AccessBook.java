@@ -14,9 +14,11 @@ import comp3350project.bookorderingsystem.persistence.DataAccessStub;
 
 public class AccessBook {
     private DataAccessStub dataAccess;
+    //private DataAccess dataAccess;///////////////////////////////////////////////////////////////
 
     public AccessBook()
     {
+        //dataAccess = (DataAccess) Service.getDataAccess(Main.dbName);////////////////////////////////////
         dataAccess = (DataAccessStub) Service.getDataAccess(Main.dbName);
     }
 

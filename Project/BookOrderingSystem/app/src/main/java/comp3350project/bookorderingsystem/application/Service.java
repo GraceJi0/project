@@ -10,18 +10,22 @@ import comp3350project.bookorderingsystem.persistence.DataAccessObject;
 
 public class Service {
     private static DataAccessStub dataAccessService = null;
+    //private static DataAccess dataAccessService = null;///////////////////////////////////////
 
     public static DataAccessStub createDataAccess(String dbName)
+    //public static DataAccess createDataAccess(String dbName)//////////////////////////////////////////////
     {
         if(dataAccessService == null)
         {
             dataAccessService = new DataAccessStub(dbName);
+            //dataAccessService = new DataAccessObject(dbName);/////////////////////////////
             dataAccessService.open(Main.dbName);
         }
         return dataAccessService;
     }
 
     public static DataAccessStub getDataAccess(String dbName)
+    //public static DataAccess getDataAccess(String dbName)///////////////////////////////////////////
     {
         if (dataAccessService == null)
         {

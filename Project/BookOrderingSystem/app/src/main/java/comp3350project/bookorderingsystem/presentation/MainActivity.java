@@ -132,9 +132,10 @@ public class MainActivity extends AppCompatActivity {
                                    accountName = account;
                                    Toast.makeText(MainActivity.this, "Login successful",
                                            Toast.LENGTH_SHORT).show();
-                                   if(accountName.substring(0,3).equals("dmb"))
-                                   {
-                                       managerLogin();
+                                   if(accountName.length() >= 3) {
+                                       if (accountName.substring(0, 3).equals("dmb")) {
+                                           managerLogin();
+                                       }
                                    }
                                }
                                else

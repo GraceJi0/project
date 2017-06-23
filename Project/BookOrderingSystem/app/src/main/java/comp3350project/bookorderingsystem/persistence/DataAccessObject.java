@@ -11,9 +11,11 @@ import java.sql.DatabaseMetaData;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.media.Image;
 import comp3350project.bookorderingsystem.R;
 import comp3350project.bookorderingsystem.objects.Book;
 import comp3350project.bookorderingsystem.objects.Customer;
+import comp3350project.bookorderingsystem.objects.Picture;
 
 public class DataAccessObject implements DataAccess
 {
@@ -39,6 +41,8 @@ public class DataAccessObject implements DataAccess
 		this.dbName = dbName;
 	}
 
+	private ArrayList<Picture>ImageList;
+
 	public void open(String dbPath)
 	{
 		String url;
@@ -52,6 +56,11 @@ public class DataAccessObject implements DataAccess
 			st1 = c1.createStatement();
 			st2 = c1.createStatement();
 			st3 = c1.createStatement();
+
+			bookList = new ArrayList<Book>();
+			customerList = new ArrayList<Customer>();
+			ImageList = new ArrayList<Picture>();
+			initialImageList();
 		}
 		catch (Exception e)
 		{
@@ -75,10 +84,25 @@ public class DataAccessObject implements DataAccess
 		System.out.println("Closed " +dbType +" database " +dbName);
 	}
 
+	public void initialImageList()
+	{
+		ImageList.add(new Picture(1, R.drawable.book1));
+		ImageList.add(new Picture(2, R.drawable.book2));
+		ImageList.add(new Picture(3, R.drawable.book3));
+		ImageList.add(new Picture(4, R.drawable.book4));
+		ImageList.add(new Picture(5, R.drawable.book5));
+		ImageList.add(new Picture(6, R.drawable.book6));
+		ImageList.add(new Picture(7, R.drawable.book7));
+		ImageList.add(new Picture(8, R.drawable.book8));
+		ImageList.add(new Picture(9, R.drawable.book9));
+	}
+
 	public ArrayList<Customer> getCustomerList()
 	{
-		ArrayList<String> customerCart = null;
-		ArrayList<String> customerWishList = null;  //initialize to null
+		customerList.clear();
+
+		ArrayList<String> customerCart = new ArrayList<String>();
+		ArrayList<String> customerWishList = new ArrayList<String>();  //initialize to null
 
 		try
 		{
@@ -93,9 +117,13 @@ public class DataAccessObject implements DataAccess
 		{
 			while(rs2.next())
 			{
-				String name = rs2.getString("name");
-				Customer theCustomer = new Customer(name,"default");	///////////////////////////////////////////////////password not set
+				String name = rs2.getString("name");  //name of the customer
+				String pwd = rs2.getString("password");  //password
 
+				Customer theCustomer = new Customer(name, pwd);  //a customer is find and ready to store
+
+				customerList.add(theCustomer);
+				/*	//the wishlist and the cart
 				try
 				{
 					cmdString = ("select wishlist from customer where name ='"+name+"'");  //get the wishlist (title of the books)
@@ -130,8 +158,7 @@ public class DataAccessObject implements DataAccess
 				catch(Exception e)
 				{
 					warn = processSQLError(e);
-				}
-
+				}*/
 			}
 		}
 		catch(Exception e)
@@ -244,6 +271,7 @@ public class DataAccessObject implements DataAccess
 	}
 
 	public ArrayList<Book> getBookList() {
+		bookList.clear();
 		try
 		{
 			cmdString = "select * from book";
@@ -264,8 +292,18 @@ public class DataAccessObject implements DataAccess
 				double price = rs2.getDouble("price");
 				String category = rs2.getString("category");
 				int instock = rs2.getInt("numberinstock");
-				int pic = rs2.getInt("pictureid");
-				Book theBook = new Book(name, author, info, price, category, instock, pic);
+				int pid = rs2.getInt("pictureid");	//the picture id
+
+				int picture = R.drawable.noimage;	//try to get the picture, but assume not found at the beginning
+
+				for(int i=0;i<ImageList.size();i++){
+					if(ImageList.get(i).getPID() == pid){
+						picture = ImageList.get(i).getPicture();
+						break;
+					}
+				}
+
+				Book theBook = new Book(name, author, info, price, category, instock, picture);
 				bookList.add(theBook);
 			}
 		}

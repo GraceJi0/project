@@ -34,4 +34,10 @@ public class Main
         else
             return dbPathName;
     }
+
+    public static void setDBPathName(String pathName)
+    {
+        System.out.println("Setting DB path to: " + pathName);
+        dbPathName = pathName;
+    }
 }

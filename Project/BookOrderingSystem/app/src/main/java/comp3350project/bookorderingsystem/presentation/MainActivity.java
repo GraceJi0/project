@@ -167,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
     {
 
         //test for manager page************************
-        Button testButton = (Button) findViewById(R.id.test);
+        /*Button testButton = (Button) findViewById(R.id.test);
         testButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -178,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
                 i.putExtra("name", account);
                 startActivity(i);
             }
-        });
+        });*/
         //end test code**********************************
 
 

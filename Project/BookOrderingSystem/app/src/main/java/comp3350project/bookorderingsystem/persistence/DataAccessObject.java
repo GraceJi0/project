@@ -174,7 +174,7 @@ public class DataAccessObject implements DataAccess
 		{
 			if (theCustomer.getName() != null) {
 				String name = theCustomer.getName();  //get the name
-				if ((name != "") && (name != " ")) {
+				if ((!name.equals("")) && (!name.equals(" "))) {
 					return true;
 				}
 				else
@@ -219,20 +219,20 @@ public class DataAccessObject implements DataAccess
 
 			warn = null;
 			try {
-				if (theCustomer.getCardNumber() != "")
+				if (!theCustomer.getCardNumber().equals(""))
 				{
 					values += ("cardnumber ='" + theCustomer.getCardNumber() + "'");  //the number
 				}
-				if (theCustomer.getEmail() != "")
+				if (!theCustomer.getEmail().equals(""))
 				{
 					values += (", email ='" + theCustomer.getEmail() + "'");
 				}
-				if(theCustomer.getAddress() != "")
+				if(!theCustomer.getAddress().equals(""))
 				{
 					values += (", address ='" + theCustomer.getAddress() + "'");
 				}
 				//////////////////////////////////////////////////////////////////////////////////////////////////update the password
-				if(theCustomer.getPassword()!="")
+				if(!theCustomer.getPassword().equals(""))
 				{
 					values+=(", password='" + theCustomer.getPassword() + "'");
 				}
@@ -318,15 +318,15 @@ public class DataAccessObject implements DataAccess
 	{
 		if(theBook != null)
 		{
-			if ((theBook.getName() != null) && (theBook.getName() != ""))
+			if ((theBook.getName() != null) && (!theBook.getName().equals("")))
 			{
-				if ((theBook.getBookAuthor() != null) && (theBook.getBookAuthor() != ""))
+				if ((theBook.getBookAuthor() != null) && (!theBook.getBookAuthor().equals("")))
 				{
 					if (theBook.getBookPrice() >= 0)
 					{
 						if (theBook.getNumberInStock() >= 0)
 						{
-							if ((theBook.getCategory() != null) && (theBook.getCategory() != ""))
+							if ((theBook.getCategory() != null) && (!theBook.getCategory().equals("")))
 							{
 								return true;
 							}
@@ -394,7 +394,7 @@ public class DataAccessObject implements DataAccess
 				{
 					values += ("price =" + theBook.getBookPrice());  //the number
 				}
-				if(theBook.getBookInformation()!= "")
+				if(!theBook.getBookInformation().equals(""))
 				{
 					values += (", info ='" + theBook.getBookInformation() + "'");
 				}
@@ -402,7 +402,7 @@ public class DataAccessObject implements DataAccess
 				{
 					values += (", numberinstock =" + theBook.getNumberInStock());
 				}
-				if(theBook.getCategory()!= "")
+				if(!theBook.getCategory().equals(""))
 				{
 					values += (", category ='" + theBook.getCategory() + "'");
 				}

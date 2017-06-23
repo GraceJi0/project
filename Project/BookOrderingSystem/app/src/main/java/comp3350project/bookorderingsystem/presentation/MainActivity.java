@@ -115,11 +115,11 @@ public class MainActivity extends AppCompatActivity {
                    signinButton.setOnClickListener(new View.OnClickListener() {
                        public void onClick(View view)
                        {
-                           if(signinAccount.getText().toString().compareTo("1")==0 &&signinPassword.getText().toString().compareTo("1")==0 )
+                           /*if(signinAccount.getText().toString().compareTo("1")==0 &&signinPassword.getText().toString().compareTo("1")==0 )
                            {
                                managerLogin();
-                           }
-                           else if (!signinAccount.getText().toString().isEmpty() &&
+                           }*/
+                           if (!signinAccount.getText().toString().isEmpty() &&
                                    !signinPassword.getText().toString().isEmpty())
                            {
                                String account = signinAccount.getText().toString();
@@ -127,12 +127,15 @@ public class MainActivity extends AppCompatActivity {
                                int verify = accessCustomer.verifyCustomer(account,password);
                                if(verify == 1)
                                {
+                                   //close the dialog
                                    Logindialog.dismiss();
                                    accountName = account;
                                    Toast.makeText(MainActivity.this, "Login successful",
                                            Toast.LENGTH_SHORT).show();
-
-                                   //close the dialog
+                                   if(accountName.substring(0,3).equals("dmb"))
+                                   {
+                                       managerLogin();
+                                   }
                                }
                                else
                                {

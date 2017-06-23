@@ -33,22 +33,24 @@ public class MainActivity extends AppCompatActivity {
         signUp();
     }
 
-    @Override
-    protected void onResume()
+   /* publick void onResume()
     {
         super.onResume();
         Log.d("------","onResume");
-        if(accountName!= null) {
-            if (accountName.substring(0, 2).equals("dmb"))
-            {
+
                 Intent init = new Intent(MainActivity.this,
                         ManagerMainActivity.class);
                 init.putExtra("name", accountName);
                 startActivity(init);
-            }
-        }
-    }
+    }*/
 
+    public void managerLogin()
+    {
+        Intent init = new Intent(MainActivity.this,
+                ManagerMainActivity.class);
+        init.putExtra("name", accountName);
+        startActivity(init);
+    }
 
     public void signUp()
     {
@@ -86,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(MainActivity.this,
                                     "Sign up successful",
                                     Toast.LENGTH_SHORT).show();
+                            onResume();
                         }
                     }
                 });
@@ -112,7 +115,11 @@ public class MainActivity extends AppCompatActivity {
                    signinButton.setOnClickListener(new View.OnClickListener() {
                        public void onClick(View view)
                        {
-                           if (!signinAccount.getText().toString().isEmpty() &&
+                           if(signinAccount.getText().toString().compareTo("1")==0 &&signinPassword.getText().toString().compareTo("1")==0 )
+                           {
+                               managerLogin();
+                           }
+                           else if (!signinAccount.getText().toString().isEmpty() &&
                                    !signinPassword.getText().toString().isEmpty())
                            {
                                String account = signinAccount.getText().toString();

@@ -52,6 +52,9 @@ public class DataAccessObject implements DataAccess
 			st1 = c1.createStatement();
 			st2 = c1.createStatement();
 			st3 = c1.createStatement();
+
+			bookList = new ArrayList<Book>();
+			customerList = new ArrayList<Customer>();
 		}
 		catch (Exception e)
 		{
@@ -244,7 +247,7 @@ public class DataAccessObject implements DataAccess
 	}
 
 	public ArrayList<Book> getBookList() {
-		bookList = null;	//clear the list of book before getting the list again
+		bookList.clear();
 
 		try
 		{

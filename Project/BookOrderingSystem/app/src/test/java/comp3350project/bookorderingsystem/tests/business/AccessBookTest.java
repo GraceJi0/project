@@ -2,25 +2,38 @@ package comp3350project.bookorderingsystem.tests.business;
 
 import junit.framework.TestCase;
 
+import comp3350project.bookorderingsystem.application.Service;
+import comp3350project.bookorderingsystem.application.Main;
+
 import comp3350project.bookorderingsystem.business.AccessBook;
 import comp3350project.bookorderingsystem.objects.Book;
+
+import comp3350project.bookorderingsystem.persistence.DataAccessStub;
 
 public class AccessBookTest extends TestCase
 {
     Book tmp;    //the temp book
     AccessBook testAccess;
 
+    private static String dbName = Main.dbName;
+
     public AccessBookTest(String arg0)
     {
         super(arg0);
-        tmp = null;
-        testAccess = new AccessBook();
     }
 
 
-    public void testAccessBook()
+    public void test1()
     {
+
+        Service.closeDataAccess();
+
         System.out.println("\nStarting testAccessBook");
+
+        Service.createDataAccess(new DataAccessStub());
+
+        testAccess = new AccessBook();
+
         assertTrue(!NullBook());
         assertTrue(!NullBookName());
         assertTrue(!EmptyBookName());
@@ -31,6 +44,9 @@ public class AccessBookTest extends TestCase
         assertTrue(!EmptyCategory());
         assertTrue(!InvalidNumberInstock());
         assertTrue(TrueBook());
+
+        Service.closeDataAccess();
+
         System.out.println("Finished testAccessBook");
     }
 

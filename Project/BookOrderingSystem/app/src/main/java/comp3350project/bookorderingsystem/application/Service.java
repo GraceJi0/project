@@ -8,7 +8,8 @@ import comp3350project.bookorderingsystem.persistence.DataAccessObject;
  * Created by dinghanji on 2017-05-30.
 */
 
-public class Service {
+public class Service
+{
     private static DataAccessStub dataAccessService = null;
     //private static DataAccess dataAccessService = null;///////////////////////////////////////
 
@@ -19,13 +20,24 @@ public class Service {
         {
             dataAccessService = new DataAccessStub(dbName);
             //dataAccessService = new DataAccessObject(dbName);/////////////////////////////
-            dataAccessService.open(Main.dbName);
+            dataAccessService.open(Main.getDBPathName());
         }
         return dataAccessService;
     }
 
-    public static DataAccessStub getDataAccess(String dbName)
-    //public static DataAccess getDataAccess(String dbName)///////////////////////////////////////////
+    public static DataAccessStub createDataAccess(DataAccessStub alternateDataAccessService)
+    //public static DataAccessStub createDataAccess(DataAccess alternateDataAccessService)
+    {
+        if (dataAccessService == null)
+        {
+            dataAccessService = alternateDataAccessService;
+            dataAccessService.open(Main.getDBPathName());
+        }
+        return dataAccessService;
+    }      //!!!!!!don't delete it! this is for the testing
+
+    //public static DataAccessStub getDataAccess(String dbName)
+    public static DataAccess getDataAccess(String dbName)///////////////////////////////////////////
     {
         if (dataAccessService == null)
         {

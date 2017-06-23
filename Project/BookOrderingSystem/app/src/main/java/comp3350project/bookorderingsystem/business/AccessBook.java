@@ -18,7 +18,7 @@ public class AccessBook {
 
     public AccessBook()
     {
-        //dataAccess = (DataAccess) Service.getDataAccess(Main.dbName);////////////////////////////////////
+        //dataAccess = Service.getDataAccess(Main.dbName);////////////////////////////////////
         dataAccess = (DataAccessStub) Service.getDataAccess(Main.dbName);
     }
 

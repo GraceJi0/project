@@ -1,4 +1,5 @@
 package comp3350project.bookorderingsystem.persistence;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,12 +12,13 @@ import comp3350project.bookorderingsystem.objects.Customer;
  * Created by dinghanji on 2017-05-29.
  */
 
-public class DataAccessStub
+public class DataAccessStub implements DataAccess
 {
-    private ArrayList<Book> bookList;
-    private ArrayList<Customer> customerList;
     private String dbName;
     private String dbType = "stub";
+
+    private ArrayList<Book> bookList;
+    private ArrayList<Customer> customerList;
 
     public DataAccessStub(String dbName)
     {
@@ -32,6 +34,7 @@ public class DataAccessStub
     {
         bookList = new ArrayList<Book>();
         customerList=new ArrayList<Customer>();
+
         addBook(new Book("The Orphan's Tale: A Novel", " Pam Jenoff",
                 "A powerful novel of friendship set in a traveling circus during World War II ",
                 10.49,"Fiction", 1, R.drawable.book1));
@@ -81,6 +84,10 @@ public class DataAccessStub
         System.out.println("Closed " +dbType +" database " +dbName);
     }
 
+    public ArrayList<Customer> getCustomerList(){
+        return customerList;
+    }
+
     public boolean addCustomer(Customer newCustomer)
     {
         if(newCustomer != null)
@@ -102,7 +109,12 @@ public class DataAccessStub
         }
     }
 
-    public void deleteCustomer(Customer newCustomer)
+    public boolean updateCustomer(Customer theCustomer)
+    {
+        return true;///////////////////////////////////////////////////
+    }
+
+    public boolean deleteCustomer(Customer newCustomer)
     {
         int index;
 
@@ -110,20 +122,19 @@ public class DataAccessStub
         if (index >= 0)
         {
             customerList.remove(index);
+            return true;
         }
         else
         {
             System.out.println("delete customer error: customer not exist");
+            return false;
         }
     }
+
 
     public ArrayList<Book> getBookList()
     {
         return bookList;
-    }
-
-    public ArrayList<Customer> getCustomerList(){
-        return customerList;
     }
 
     public boolean addBook(Book newBook)
@@ -190,5 +201,15 @@ public class DataAccessStub
             System.out.println("add book error: invalid book");
             return false;
         }
+    }
+
+    public boolean updateBook(Book theBook)
+    {
+        return true;
+    }
+
+    public boolean deleteBook(Book theBook)
+    {
+        return true;
     }
 }

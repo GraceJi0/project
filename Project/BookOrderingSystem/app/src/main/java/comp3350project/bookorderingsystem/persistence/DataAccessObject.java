@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import comp3350project.bookorderingsystem.R;
-import comp3350project.bookorderingsystem.application.Main;
 import comp3350project.bookorderingsystem.objects.Book;
 import comp3350project.bookorderingsystem.objects.Customer;
 
@@ -38,10 +37,6 @@ public class DataAccessObject implements DataAccess
 	public DataAccessObject(String dbName)
 	{
 		this.dbName = dbName;
-	}
-	public DataAccessObject()
-	{
-		this(Main.dbName);
 	}
 
 	public void open(String dbPath)

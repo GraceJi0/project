@@ -29,3 +29,5 @@ insert into customer values('asdf', '1234', '', '', '', '', '')
 insert into customer values('qwer', '4444', '', '', '', '', '')
 insert into customer values('1', '1', '', '', '', '', '')
 insert into customer values('svbnm', '5555', '', '', '', '', '')
+
+INSERT INTO CUSTOMER VALUES('SQL', 'YES', '', '', '', '', '')

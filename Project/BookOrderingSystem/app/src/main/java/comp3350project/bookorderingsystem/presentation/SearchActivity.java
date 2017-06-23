@@ -51,7 +51,7 @@ public class SearchActivity extends AppCompatActivity {
     public void doSearch(String searchKey)
     {
         ArrayList<Book> found = accessBook.searchBookContain(searchKey);
-        if(found.size()==0)
+        if((found == null)||(found.size()==0))
         {
             //if we didn't find any books
             TextView message = (TextView)findViewById(R.id.Searchkey);

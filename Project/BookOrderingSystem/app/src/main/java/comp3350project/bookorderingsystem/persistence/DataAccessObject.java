@@ -244,6 +244,8 @@ public class DataAccessObject implements DataAccess
 	}
 
 	public ArrayList<Book> getBookList() {
+		bookList = null;	//clear the list of book before getting the list again
+
 		try
 		{
 			cmdString = "select * from book";

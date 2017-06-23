@@ -31,11 +31,12 @@ public class AccessBook {
     {
         ArrayList<Book> books = dataAccess.getBookList();
         Book found = null;
-        for(int i = 0; i < books.size();i++)
+        if(books!=null)
         {
-            if(books.get(i).getName().equals(newName))
-            {
-                found = books.get(i);
+            for (int i = 0; i < books.size(); i++) {
+                if (books.get(i).getName().equals(newName)) {
+                    found = books.get(i);
+                }
             }
         }
         return found;
@@ -45,11 +46,12 @@ public class AccessBook {
     {
         ArrayList<Book> books = dataAccess.getBookList();
         ArrayList<Book> found = new ArrayList<Book>();
-        for(int i = 0; i < books.size();i++)
+        if(books!=null)
         {
-            if(books.get(i).getName().contains(newname))
-            {
-                found.add(books.get(i));
+            for (int i = 0; i < books.size(); i++) {
+                if (books.get(i).getName().contains(newname)) {
+                    found.add(books.get(i));
+                }
             }
         }
         return found;

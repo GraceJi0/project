@@ -172,7 +172,7 @@ public class DataAccessObject implements DataAccess
 	{
 		if(theCustomer != null)  //customer cannot be null
 		{
-			if (theCustomer.getName() != null) {
+			if (!theCustomer.getName().equals("")) {
 				String name = theCustomer.getName();  //get the name
 				if ((!name.equals("")) && (!name.equals(" "))) {
 					return true;
@@ -187,7 +187,7 @@ public class DataAccessObject implements DataAccess
 			return false;
 	}
 
-	public boolean addCustomer(Customer newCustomer) {
+	public boolean addCustomer(Customer newCustomer) {//tested, no problem
 		if (validCustomer(newCustomer)) //add only when the customer is valid
 		{
 			String values;
@@ -195,7 +195,7 @@ public class DataAccessObject implements DataAccess
 			warn = null;
 			try
 			{
-				values = "'" + newCustomer.getName() + "', '', '', '', '', '', ''";  //initial customer card number to be -1(no number)
+				values = "'" + newCustomer.getName() + "', '" +newCustomer.getPassword()+"', '', '', '', '', ''";  //initial customer card number to be -1(no number)
 				cmdString = "Insert into customer " + " Values(" + values + ")";
 				updateCount = st1.executeUpdate(cmdString);
 				result = true;
@@ -349,7 +349,7 @@ public class DataAccessObject implements DataAccess
 			return false;
 	}
 
-    public boolean addBook(Book newBook)
+    public boolean addBook(Book newBook)//tested, no problem
     {
 		if(validBook(newBook))
 		{
@@ -385,7 +385,7 @@ public class DataAccessObject implements DataAccess
 		if(validBook(theBook))
 		{
 			String values = "";
-			String where = ("name ='"+theBook.getName()+ "'");
+			String where = ("name ='"+theBook.getName()+ ";");
 
 			warn = null;
 			try
@@ -406,11 +406,14 @@ public class DataAccessObject implements DataAccess
 				{
 					values += (", category ='" + theBook.getCategory() + "'");
 				}
-				cmdString = "update book " + "set" + values + " " + where;
+
+				cmdString = "UPDATE book\n " + "SET " + values + " \n WHERE" + where;
 				updateCount = st1.executeUpdate(cmdString);
 				warn = checkWarning(st1, updateCount);
+				result=true;
 			} catch (Exception e) {
 				warn = processSQLError(e);
+				result=false;
 			}
 		}
 		else

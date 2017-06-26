@@ -27,6 +27,7 @@ import android.widget.Toast;
 import comp3350project.bookorderingsystem.R;
 import comp3350project.bookorderingsystem.application.Main;
 import comp3350project.bookorderingsystem.business.AccessCustomer;
+import comp3350project.bookorderingsystem.objects.Customer;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -105,6 +106,8 @@ public class MainActivity extends AppCompatActivity {
                                     "Sign up successful",
                                     Toast.LENGTH_SHORT).show();
                             onResume();
+                            Customer newCus=new Customer(signupAccount.getText().toString(),signupPassword.getText().toString());
+                            accessCustomer.addCustomer(newCus);
                         }
                     }
                 });

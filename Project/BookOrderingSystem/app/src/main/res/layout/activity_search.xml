@@ -86,5 +86,15 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/MyAccountButton"
         android:layout_toStartOf="@+id/MyAccountButton"
-        android:text="cart" />
+        android:text="cart"
+        android:layout_toLeftOf="@+id/MyAccountButton" />
+
+    <Spinner
+        android:id="@+id/selectSort"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/searchResultList"
+        android:layout_alignRight="@+id/searchResultList"
+        android:layout_alignTop="@+id/Searchkey"
+        android:textAlignment="viewStart" />
 </RelativeLayout>

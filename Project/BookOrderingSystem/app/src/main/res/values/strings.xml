@@ -9,4 +9,13 @@
     <string name="defultTextView">TextView</string>
     <string name="login">login</string>
 
+        <string-array name="sortArray">
+            <item> Sort</item>
+            <item>Name Up</item>
+            <item>Name Down</item>
+            <item>Price Low</item>
+            <item>Price High</item>
+
+        </string-array>
+
 </resources>

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.ArrayAdapter;
 import android.view.View;
@@ -22,6 +23,7 @@ import comp3350project.bookorderingsystem.R;
 import java.util.ArrayList;
 
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class SearchActivity extends AppCompatActivity {
     private ArrayList<Book> books;
@@ -46,6 +48,30 @@ public class SearchActivity extends AppCompatActivity {
         doSearch(search);
         setSearchButton();
         setMyAccountButton();
+
+        Spinner spinner = (Spinner) findViewById(R.id.selectSort);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.sortArray, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getBaseContext(),parent.getItemAtPosition(position)+" selected",Toast.LENGTH_LONG).show();
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
     public void doSearch(String searchKey)
@@ -82,6 +108,8 @@ public class SearchActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
     public void setListView(final ArrayList<Book> bookList)
     {

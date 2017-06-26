@@ -1,6 +1,7 @@
 package comp3350project.bookorderingsystem.business;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import comp3350project.bookorderingsystem.application.Main;
 import comp3350project.bookorderingsystem.application.Service;
@@ -55,6 +56,29 @@ public class AccessBook {
             }
         }
         return found;
+    }
+
+    public ArrayList<Book> sortBookByNameUp(String byThis)
+    {
+        //to sort the book list
+        
+        ArrayList<Book> books = dataAccess.getBookList();
+        ArrayList<Book> sort = new ArrayList<Book>();
+        //String alOrder = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwSsYyZz";
+        if (books!=null)
+        {
+            if(byThis.equals("Name Up"))
+            {
+
+
+            }
+
+
+        }
+
+
+
+        return sort;
     }
 
     public ArrayList<Book> searchBookCategory(String newCategory)

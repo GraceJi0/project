@@ -11,8 +11,8 @@
 
         <string-array name="sortArray">
             <item> Sort</item>
-            <item>Name Up</item>
-            <item>Name Down</item>
+            <item>BookName</item>
+            <item>AuthorName</item>
             <item>Price Low</item>
             <item>Price High</item>
 

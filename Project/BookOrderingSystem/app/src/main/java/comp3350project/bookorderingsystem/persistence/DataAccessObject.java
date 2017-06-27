@@ -382,25 +382,37 @@ public class DataAccessObject implements DataAccess
 		return result;
 	}
 
-	public boolean updateBook(Book theBook)
+	public boolean updateBook(Book old, Book theBook)
 	{
-		System.out.println("in updateBook in the object#####################################################################");
-
-		AccessBook getOld = new AccessBook();
-		Book old = getOld.searchBook(theBook.getName());
-
 		if(validBook(theBook))
 		{
 			String values = "";
-			String where = ("name ='"+theBook.getName()+ "';");
+			String where = ("name ='"+old.getName()+ "';");
 			int pre = 0;
 
 			warn = null;
 			try
 			{
-
+				if(!theBook.getName().equals(old.getName()))
+				{
+					values += ("name='" + theBook.getName() + "'");
+					pre = 1;
+				}
+				if(!theBook.getBookAuthor().equals(old.getBookAuthor()))
+				{
+					if(pre == 1)
+					{
+						values += ", ";
+					}
+					values += ("author='" + theBook.getBookAuthor() + "'");
+					pre = 1;
+				}
 				if (theBook.getBookPrice() != old.getBookPrice())
 				{
+					if(pre == 1)
+					{
+						values += ", ";
+					}
 					values += ("price=" + theBook.getBookPrice());  //the number
 					pre = 1;
 				}

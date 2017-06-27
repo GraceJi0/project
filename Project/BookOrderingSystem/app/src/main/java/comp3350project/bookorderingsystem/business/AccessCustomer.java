@@ -17,13 +17,13 @@ import comp3350project.bookorderingsystem.persistence.DataAccessStub;
 
 public class AccessCustomer
 {
-    private DataAccessStub dataAccess;
-    //private DataAccess dataAccess;////////////////////////////////////////////////////////////////////
+    //private DataAccessStub dataAccess;
+    private DataAccess dataAccess;////////////////////////////////////////////////////////////////////
 
     public AccessCustomer()
     {
-        dataAccess = (DataAccessStub) Service.getDataAccess(Main.dbName);
-        //dataAccess = (DataAccess) Service.getDataAccess(Main.dbName);/////////////////////////////////////////////////
+        //dataAccess = (DataAccessStub) Service.getDataAccess(Main.dbName);
+        dataAccess = (DataAccess) Service.getDataAccess(Main.dbName);/////////////////////////////////////////////////
     }
 
     public boolean addCustomer(Customer newCustomer)

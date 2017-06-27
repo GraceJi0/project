@@ -36,11 +36,14 @@ public class EditBookActivity extends AppCompatActivity
         accountName = message[1];
 
 
-        AccessBook accessBook = new AccessBook();
+        accessBook = new AccessBook();
+
         book = accessBook.searchBook(bookName);
+
         editBookInformation();
-        accessBook.editBook(book);
         setImageView();
+
+        //accessBook.editBook(book);
     }
 
     public void editBookInformation()
@@ -90,6 +93,9 @@ public class EditBookActivity extends AppCompatActivity
                 book.setBookInformation(description.getText().toString());
                 book.setNumberInStock(Integer.parseInt(inStock.getText().toString()));
                 book.setCategory(category.getText().toString());
+
+                accessBook.editBook(book);
+
                 editBookInformation();
                 Toast.makeText(EditBookActivity.this,"Successfully saved",
                         Toast.LENGTH_SHORT).show();

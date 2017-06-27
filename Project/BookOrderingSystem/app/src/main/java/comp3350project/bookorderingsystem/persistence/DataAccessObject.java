@@ -17,6 +17,8 @@ import comp3350project.bookorderingsystem.objects.Book;
 import comp3350project.bookorderingsystem.objects.Customer;
 import comp3350project.bookorderingsystem.objects.Picture;
 
+import comp3350project.bookorderingsystem.business.AccessBook;
+
 public class DataAccessObject implements DataAccess
 {
 	private Statement st1, st2, st3;
@@ -382,32 +384,57 @@ public class DataAccessObject implements DataAccess
 
 	public boolean updateBook(Book theBook)
 	{
+		System.out.println("in updateBook in the object#####################################################################");
+
+		AccessBook getOld = new AccessBook();
+		Book old = getOld.searchBook(theBook.getName());
+
 		if(validBook(theBook))
 		{
 			String values = "";
-			String where = ("name ='"+theBook.getName()+ ";");
+			String where = ("name ='"+theBook.getName()+ "';");
+			int pre = 0;
 
 			warn = null;
 			try
 			{
-				if (theBook.getBookPrice() != -1)
-				{
-					values += ("price =" + theBook.getBookPrice());  //the number
-				}
-				if(!theBook.getBookInformation().equals(""))
-				{
-					values += (", info ='" + theBook.getBookInformation() + "'");
-				}
-				if(theBook.getNumberInStock()!= -1)
-				{
-					values += (", numberinstock =" + theBook.getNumberInStock());
-				}
-				if(!theBook.getCategory().equals(""))
-				{
-					values += (", category ='" + theBook.getCategory() + "'");
-				}
 
-				cmdString = "UPDATE book\n " + "SET " + values + " \n WHERE" + where;
+				if (theBook.getBookPrice() != old.getBookPrice())
+				{
+					values += ("price=" + theBook.getBookPrice());  //the number
+					pre = 1;
+				}
+				if(!theBook.getBookInformation().equals(old.getBookInformation()))
+				{
+					if(pre == 1)
+					{
+						values += ", ";
+					}
+					values += ("info='" + theBook.getBookInformation() + "'");
+					pre = 1;
+				}
+				if(theBook.getNumberInStock()!= old.getNumberInStock())
+				{
+					if(pre == 1)
+					{
+						values += ", ";
+					}
+					values += ("numberinstock=" + theBook.getNumberInStock());
+					pre = 1;
+				}
+				if(!theBook.getCategory().equals(old.getCategory()))
+				{
+					if(pre == 1)
+					{
+						values += ", ";
+					}
+					values += ("category ='" + theBook.getCategory() + "'");
+					pre = 1;
+				}
+				cmdString = "UPDATE book\n " + "SET " + values + " \n WHERE " + where;
+
+				System.out.println(cmdString + "in DataAccessObject###################################################################");
+
 				updateCount = st1.executeUpdate(cmdString);
 				warn = checkWarning(st1, updateCount);
 				result=true;

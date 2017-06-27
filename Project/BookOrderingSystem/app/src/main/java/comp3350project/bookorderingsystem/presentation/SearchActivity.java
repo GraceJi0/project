@@ -3,6 +3,7 @@ package comp3350project.bookorderingsystem.presentation;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
@@ -63,16 +64,15 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 ArrayList<Book> found = accessBook.sortBookByNameUp(parent.getItemAtPosition(position).toString());
-                System.out.println("something!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
                 Toast.makeText(getBaseContext(),parent.getItemAtPosition(position)+" selected",Toast.LENGTH_LONG).show();
 
-                //System.out.println("-----------------------------&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&@@@@@@@@@@@@@@@@"+parent.getItemAtPosition(position).toString());
 
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                System.out.println("Nothing~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`");
+                Log.d("Nothing~~~~~~~~~`","here");
             }
         });
     }

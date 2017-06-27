@@ -1,5 +1,8 @@
 package comp3350project.bookorderingsystem.business;
 
+import android.util.IntProperty;
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -65,13 +68,19 @@ public class AccessBook {
         
         ArrayList<Book> books = dataAccess.getBookList();
         ArrayList<Book> sort = new ArrayList<Book>();
-        //String alOrder = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwSsYyZz";
-        System.out.print("aaaaaaaaaaaaaaaaaaaaaaa");
+        ArrayList<Integer> temp = new ArrayList<Integer>();
+
+        Log.d("aaaaaa","----------");
         if (books!=null)
         {
-            if(byThis.equals("Name Up")||byThis.equals("Name Down"))
+            if(byThis.equals("BookName"))
             {
-                System.out.print("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
+               Log.d("bbbbbbbbbb","!!!!!!!!!1");
+
+                for(int i=0; i< books.size(); i++) {
+
+                    temp.add(books.get(i).compareName(books.get(0)));
+                }
 
             }
 

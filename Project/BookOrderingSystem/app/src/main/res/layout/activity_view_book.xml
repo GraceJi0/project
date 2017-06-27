@@ -145,15 +145,4 @@
         android:layout_toStartOf="@+id/logOutButton"
         android:text="my account" />
 
-    <Button
-        android:textColor="@color/colorPrimary"
-        android:id="@+id/cartButton"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/myAccountButton"
-        android:layout_toLeftOf="@+id/myAccountButton"
-        android:layout_toStartOf="@+id/myAccountButton"
-        android:text="cart" />
-
 </RelativeLayout>

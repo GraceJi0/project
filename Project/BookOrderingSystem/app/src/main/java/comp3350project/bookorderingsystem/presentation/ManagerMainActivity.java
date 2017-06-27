@@ -70,7 +70,7 @@ public class ManagerMainActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 Intent i = new Intent(ManagerMainActivity.this, MainActivity.class);
-                i.putExtra("exit", "exit");
+                i.putExtra("name", "");
                 startActivity(i);
             }
         });

@@ -123,16 +123,6 @@
         android:layout_alignParentStart="true" />
 
     <Button
-        android:textColor="@color/colorPrimary"
-        android:id="@+id/reviewButton"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/addWishListButton"
-        android:layout_centerHorizontal="true"
-        android:text="----------review----------" />
-
-    <Button
         android:id="@+id/logOutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

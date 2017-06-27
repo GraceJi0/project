@@ -20,6 +20,7 @@ import comp3350project.bookorderingsystem.objects.Book;
 
 public class EditBookActivity extends AppCompatActivity
 {
+    private AccessBook accessBook;
     private String accountName;
     private Book book;
     @Override
@@ -38,6 +39,7 @@ public class EditBookActivity extends AppCompatActivity
         AccessBook accessBook = new AccessBook();
         book = accessBook.searchBook(bookName);
         editBookInformation();
+        accessBook.editBook(book);
         setImageView();
     }
 

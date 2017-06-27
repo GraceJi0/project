@@ -7,6 +7,7 @@ import comp3350project.bookorderingsystem.application.Main;
 import comp3350project.bookorderingsystem.application.Service;
 import comp3350project.bookorderingsystem.objects.Book;
 import comp3350project.bookorderingsystem.persistence.DataAccess;
+import comp3350project.bookorderingsystem.persistence.DataAccessObject;
 import comp3350project.bookorderingsystem.persistence.DataAccessStub;
 
 /**
@@ -101,7 +102,14 @@ public class AccessBook {
         return dataAccess.addBook(book);
     }
 
-
+    public void editBook(Book book)
+    {
+        Book temp = searchBook(book.getName());
+        if (temp!=null)
+        {
+            dataAccess.updateBook(book);
+        }
+    }
 
     /*public String printAllBooks()
     {

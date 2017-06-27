@@ -74,7 +74,7 @@ public class Book
 
     public void setNumberInStock(int newInStock)
     {
-        newInStock = newInStock;
+        numberInStock = newInStock;
     }
 
     public String getCategory()

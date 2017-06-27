@@ -62,14 +62,17 @@ public class SearchActivity extends AppCompatActivity {
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                ArrayList<Book> found = accessBook.sortBookByNameUp(parent.getItemAtPosition(position).toString());
+                System.out.println("something!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
                 Toast.makeText(getBaseContext(),parent.getItemAtPosition(position)+" selected",Toast.LENGTH_LONG).show();
 
+                //System.out.println("-----------------------------&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&@@@@@@@@@@@@@@@@"+parent.getItemAtPosition(position).toString());
 
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
+                System.out.println("Nothing~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`");
             }
         });
     }

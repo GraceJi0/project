@@ -65,11 +65,12 @@ public class AccessBook {
         ArrayList<Book> books = dataAccess.getBookList();
         ArrayList<Book> sort = new ArrayList<Book>();
         //String alOrder = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwSsYyZz";
+        System.out.print("aaaaaaaaaaaaaaaaaaaaaaa");
         if (books!=null)
         {
-            if(byThis.equals("Name Up"))
+            if(byThis.equals("Name Up")||byThis.equals("Name Down"))
             {
-
+                System.out.print("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
 
             }
 

@@ -102,14 +102,14 @@ public class AccessBook {
         return dataAccess.addBook(book);
     }
 
-    public void editBook(Book book)
+    public void editBook(Book old, Book book)
     {
         if(book != null)
         {
-            Book temp = searchBook(book.getName());
+            Book temp = searchBook(old.getName());
             if (temp != null)
             {
-                dataAccess.updateBook(book);
+                dataAccess.updateBook(old, book);
             }
         }
     }

@@ -22,6 +22,8 @@ public class EditBookActivity extends AppCompatActivity
 {
     private AccessBook accessBook;
     private String accountName;
+
+    private Book old;    //the backup for the old book
     private Book book;
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -37,6 +39,8 @@ public class EditBookActivity extends AppCompatActivity
 
 
         accessBook = new AccessBook();
+
+        old = accessBook.searchBook(bookName); //get the book for back up
 
         book = accessBook.searchBook(bookName);
 
@@ -94,7 +98,7 @@ public class EditBookActivity extends AppCompatActivity
                 book.setNumberInStock(Integer.parseInt(inStock.getText().toString()));
                 book.setCategory(category.getText().toString());
 
-                accessBook.editBook(book);
+                accessBook.editBook(old, book);
 
                 editBookInformation();
                 Toast.makeText(EditBookActivity.this,"Successfully saved",

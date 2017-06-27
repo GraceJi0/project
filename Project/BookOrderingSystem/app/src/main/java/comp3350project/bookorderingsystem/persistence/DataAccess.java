@@ -26,7 +26,7 @@ public interface DataAccess
 
     boolean addBook(Book newBook);
 
-    boolean updateBook(Book theBook);
+    boolean updateBook(Book theOld,Book theBook);
 
     boolean deleteBook(Book theBook);
 

@@ -203,7 +203,7 @@ public class DataAccessStub implements DataAccess
         }
     }
 
-    public boolean updateBook(Book theBook)
+    public boolean updateBook(Book old, Book theBook)
     {
         return true;
     }

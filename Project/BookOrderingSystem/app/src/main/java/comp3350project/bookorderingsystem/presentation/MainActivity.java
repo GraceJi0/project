@@ -39,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
     private Button showSignIn;
     private Button showLogOut;
     private Button showMyAccount;
+    private Button searchButton;
+    private Button category;
+    private EditText search;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -48,28 +51,23 @@ public class MainActivity extends AppCompatActivity {
         Main.startUp();
         setContentView(R.layout.activity_main);
         accessCustomer = new AccessCustomer();
-        activeButton();
-        checkLogStatus();
         setButton();
+        checkLogStatus();
         signIn();
         signUp();
         logOut();
         MyAccount();
     }
 
-    public void activeButton()
-    {
-        showLogOut=(Button)findViewById(R.id.logOutButton2);
-        showMyAccount=(Button)findViewById(R.id.MyAccountButton2);
-        showSignUp=(Button)findViewById(R.id.signupBut);
-        showSignIn=(Button)findViewById(R.id.signinBut);
-    }
     public void checkLogStatus()
     {
         if(accountName.compareTo("")==0)
         {
             showLogOut.setVisibility(View.GONE);
             showMyAccount.setVisibility(View.GONE);
+            search.setVisibility(View.GONE);
+            category.setVisibility(View.GONE);
+            searchButton.setVisibility(View.GONE);
             showSignUp.setVisibility(View.VISIBLE);
             showSignIn.setVisibility(View.VISIBLE);
         }
@@ -77,6 +75,9 @@ public class MainActivity extends AppCompatActivity {
         {
             showLogOut.setVisibility(View.VISIBLE);
             showMyAccount.setVisibility(View.VISIBLE);
+            search.setVisibility(View.VISIBLE);
+            category.setVisibility(View.VISIBLE);
+            searchButton.setVisibility(View.VISIBLE);
             showSignUp.setVisibility(View.GONE);
             showSignIn.setVisibility(View.GONE);
         }
@@ -267,7 +268,7 @@ public class MainActivity extends AppCompatActivity {
         //assume accountName for customer is "asdf"
         //accountName = "asdf";
         //set search button
-        Button searchButton = (Button) findViewById(R.id.SearchBut);
+        searchButton = (Button) findViewById(R.id.SearchBut);
         searchButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -282,9 +283,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        search=(EditText)findViewById(R.id.searchText);
+        showLogOut=(Button)findViewById(R.id.logOutButton2);
+        showMyAccount=(Button)findViewById(R.id.MyAccountButton2);
+        showSignUp=(Button)findViewById(R.id.signupBut);
+        showSignIn=(Button)findViewById(R.id.signinBut);
 
         //set category button
-        Button category = (Button) findViewById(R.id.CateBut);
+        category = (Button) findViewById(R.id.CateBut);
         category.setOnClickListener(new View.OnClickListener()
         {
             @Override

@@ -31,7 +31,6 @@ public class SearchActivity extends AppCompatActivity {
     private ListView listView;
     private String accountName;
     private AccessBook accessBook;
-
     //public final static String EXTRA_MESSAGE = "comp3010_group10.bookordering.MESSAGE";
 
     @Override
@@ -49,6 +48,7 @@ public class SearchActivity extends AppCompatActivity {
         doSearch(search);
         setSearchButton();
         setMyAccountButton();
+        logOut();
 
         Spinner spinner = (Spinner) findViewById(R.id.selectSort);
         // Create an ArrayAdapter using the string array and a default spinner layout
@@ -73,6 +73,24 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 Log.d("Nothing~~~~~~~~~`","here");
+            }
+        });
+    }
+
+    public void logOut()
+    {
+        Button showLogOut=(Button)findViewById(R.id.logOutButton);
+        showLogOut.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View view)
+            {
+                accountName="";;
+                Intent intent = new Intent(SearchActivity.this, MainActivity.class);
+                intent.putExtra("name",accountName );
+                startActivity(intent);
+                Toast.makeText(SearchActivity.this,
+                        "Log out successful",
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }

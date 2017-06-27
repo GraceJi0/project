@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -33,6 +34,25 @@ public class SearchCategoryActivity extends AppCompatActivity {
         setListView(bookList);
         setCategoryButton(accessBook);
         setAccountButton();
+        logOut();
+    }
+
+    public void logOut()
+    {
+        Button showLogOut=(Button)findViewById(R.id.logOutButton);
+        showLogOut.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View view)
+            {
+                accountName="";;
+                Intent intent = new Intent(SearchCategoryActivity.this, MainActivity.class);
+                intent.putExtra("name",accountName );
+                startActivity(intent);
+                Toast.makeText(SearchCategoryActivity.this,
+                        "Log out successful",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     public void setCategoryButton(final AccessBook accessBook)

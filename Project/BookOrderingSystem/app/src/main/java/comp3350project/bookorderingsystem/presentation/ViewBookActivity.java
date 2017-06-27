@@ -40,8 +40,26 @@ public class ViewBookActivity extends AppCompatActivity {
         book = accessBook.searchBook(bookName);
         setAllText(bookName);
         setAllButton();
+        logOut();
 
     }
+
+    public void logOut() {
+        Button showLogOut = (Button) findViewById(R.id.logOutButton);
+        showLogOut.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                accountName = "";
+                ;
+                Intent intent = new Intent(ViewBookActivity.this, MainActivity.class);
+                intent.putExtra("name", accountName);
+                startActivity(intent);
+                Toast.makeText(ViewBookActivity.this,
+                        "Log out successful",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
     public void setAllText(String bookName)
     {
         TextView name = (TextView)findViewById(R.id.bookNameText);

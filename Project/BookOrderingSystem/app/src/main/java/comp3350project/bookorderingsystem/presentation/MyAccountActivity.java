@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -40,6 +41,7 @@ public class MyAccountActivity extends AppCompatActivity
         setTextView();
         setCartListView(accessCustomer.getCustomerCart(accountName));
         setWishListListView(accessCustomer.getCustomerWishList(accountName));
+        logOut();
     }
 
     @Override
@@ -55,7 +57,23 @@ public class MyAccountActivity extends AppCompatActivity
         TextView account = (TextView)findViewById(R.id.accountText);
         account.setText(accountName);
     }
-
+    public void logOut()
+    {
+        Button showLogOut=(Button)findViewById(R.id.logOutButton);
+        showLogOut.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View view)
+            {
+                accountName="";;
+                Intent intent = new Intent(MyAccountActivity.this, MainActivity.class);
+                intent.putExtra("name",accountName );
+                startActivity(intent);
+                Toast.makeText(MyAccountActivity.this,
+                        "Log out successful",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
     public void setCartListView(final ArrayList<Book> bookList)
     {
         //set books' listView

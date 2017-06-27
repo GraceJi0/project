@@ -4,6 +4,9 @@ CREATE SCHEMA PUBLIC AUTHORIZATION DBA
 create memory table book(name varchar(100) not null primary key, author varchar(50) not null, info varchar(500), price float, category varchar(50), numberinstock int, pictureid int)
 create memory table customer(name varchar(20) not null primary key, password varchar(30), cart varchar(100), wishlist varchar(100), cardnumber varchar(20), email varchar(50), address varchar(100))
 
+create memory table wishlist(customer varchar(20), book varchar(100))
+create memory table cart(customer varchar(20), book varchar(100))
+
 CREATE USER SA PASSWORD ""
 GRANT DBA TO SA
 SET WRITE_DELAY 20

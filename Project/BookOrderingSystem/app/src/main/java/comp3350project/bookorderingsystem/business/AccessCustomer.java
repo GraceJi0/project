@@ -60,6 +60,7 @@ public class AccessCustomer
             if(customer.getName().equals(customerName))
             {
                 customer.addToCart(book);
+                dataAccess.addToCart(customer, book); //update the database
                 break;
             }
             else
@@ -69,7 +70,7 @@ public class AccessCustomer
         }
     }
 
-    public void deleteFromCart(String customerName, Book newBook)
+    public void deleteFromCart(String customerName, Book book)
     {
         ArrayList<Customer> customerList = getCustomerList();
         int index = 0;
@@ -79,7 +80,8 @@ public class AccessCustomer
             customer = customerList.get(index);
             if(customer.getName().equals(customerName))
             {
-                customer.deleteFromCart(newBook);
+                customer.deleteFromCart(book);
+                dataAccess.deleteFromCart(customer, book);
                 break;
             }
             else
@@ -89,7 +91,7 @@ public class AccessCustomer
         }
     }
 
-    public void deleteFromWishList(String customerName, Book newBook)
+    public void deleteFromWishList(String customerName, Book book)
     {
         ArrayList<Customer> customerList = getCustomerList();
         int index = 0;
@@ -99,7 +101,8 @@ public class AccessCustomer
             customer = customerList.get(index);
             if(customer.getName().equals(customerName))
             {
-                customer.deleteFromWishList(newBook);
+                customer.deleteFromWishList(book);
+                dataAccess.deleteFromWishList(customer, book);
                 break;
             }
             else
@@ -120,6 +123,7 @@ public class AccessCustomer
             if(customer.getName().equals(customerName))
             {
                 customer.addToWishList(book);
+                dataAccess.addToWishList(customer, book); //update the database
                 break;
             }
             else

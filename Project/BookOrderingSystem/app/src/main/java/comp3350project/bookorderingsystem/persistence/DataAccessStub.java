@@ -88,6 +88,26 @@ public class DataAccessStub implements DataAccess
         return customerList;
     }
 
+    public boolean addToCart(Customer customerName, Book bookName)
+    {
+        return true;
+    }
+
+    public boolean deleteFromCart(Customer customer, Book book)
+    {
+        return true;
+    }
+
+    public boolean addToWishList(Customer customer, Book book)
+    {
+        return true;
+    }
+
+    public boolean deleteFromWishList(Customer customer, Book book)
+    {
+        return true;
+    }
+
     public boolean addCustomer(Customer newCustomer)
     {
         if(newCustomer != null)

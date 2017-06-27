@@ -102,9 +102,10 @@ public class DataAccessObject implements DataAccess
 	public ArrayList<Customer> getCustomerList()
 	{
 		customerList.clear();
+		AccessBook getBook = new AccessBook();
 
-		ArrayList<String> customerCart = new ArrayList<String>();
-		ArrayList<String> customerWishList = new ArrayList<String>();  //initialize to null
+		ArrayList<Book> customerCart = new ArrayList<Book>();
+		ArrayList<Book> customerWishList = new ArrayList<Book>();  //initialize to null
 
 		try
 		{
@@ -124,43 +125,57 @@ public class DataAccessObject implements DataAccess
 
 				Customer theCustomer = new Customer(name, pwd);  //a customer is find and ready to store
 
-				customerList.add(theCustomer);
-				/*	//the wishlist and the cart
+				String cardnumber = rs2.getString("cardnumber");
+				if(cardnumber != "")
+					theCustomer.setCardNumber(cardnumber);
+
+				String email = rs2.getString("email");
+				if(email != "")
+					theCustomer.setEmail(email);
+
+				String address = rs2.getString("address");
+				if(address != "")
+					theCustomer.setAddress(address);
+
+					//the wishlist and the cart
+
 				try
 				{
-					cmdString = ("select wishlist from customer where name ='"+name+"'");  //get the wishlist (title of the books)
+					cmdString = ("select * from wishlist where customer ='"+name+"'");  //get the wishlist
 					rs3 = st2.executeQuery(cmdString);
-					while(rs3.next())  //get the wishlist (the book name)
+					while (rs3.next())  //get the wishlist (the book name)
 					{
-						customerWishList.add(rs3.getString("wishlist"));//////////////////////////////////////////////////////////
-					}
-
-					try
-					{
-						cmdString = ("select cart from customer where name ='"+name+"'");  //get the cart
-						rs3 = st2.executeQuery(cmdString);
-						while (rs3.next())  //get the wishlist (the book name)
+						Book theBook = getBook.searchBook(rs3.getString("book"));
+						if(theBook!=null)
 						{
-							customerCart.add(rs3.getString("cart"));/////////////////////////////////////////////////////////////
+							theCustomer.addToWishList(theBook);
 						}
-
-						String cardnumber = rs2.getString("cardnumber");
-						String email = rs2.getString("email");
-						String address = rs2.getString("address");
-						theCustomer.setCardNumber(cardnumber);
-						theCustomer.setEmail(email);
-						theCustomer.setAddress(address);
-						customerList.add(theCustomer);
-					}
-					catch(Exception e)
-					{
-						warn = processSQLError(e);
 					}
 				}
 				catch(Exception e)
 				{
 					warn = processSQLError(e);
-				}*/
+				}
+
+				try
+				{
+					cmdString = ("select * from cart where customer ='"+name+"'");  //get the cart
+					rs3 = st2.executeQuery(cmdString);
+					while (rs3.next())  //get the cart (the book name)
+					{
+						Book theBook = getBook.searchBook(rs3.getString("book"));
+						if(theBook!=null)
+						{
+							theCustomer.addToCart(theBook);
+						}
+					}
+				}
+				catch(Exception e)
+				{
+					warn = processSQLError(e);
+				}
+
+				customerList.add(theCustomer);
 			}
 		}
 		catch(Exception e)
@@ -168,6 +183,118 @@ public class DataAccessObject implements DataAccess
 			warn = processSQLError(e);
 		}
 		return customerList;
+	}
+
+	public boolean addToCart(Customer customer, Book book)
+	{
+		if (validCustomer(customer)) //add only when the customer is valid
+		{
+			if (validBook(book)) {
+				String values;
+
+				warn = null;
+				try
+				{
+					values = "'" + customer.getName() + "', '" + book.getName() + "'";  //assign the book to customer cart
+					cmdString = "Insert into cart " + " Values(" + values + ")";
+					updateCount = st1.executeUpdate(cmdString);
+					result = true;
+					warn = checkWarning(st1, updateCount);
+				} catch (Exception e) {
+					warn = processSQLError(e);
+					result = false;
+				}
+			}
+			else
+				result = false;
+		}
+		else
+			result = false;
+		return result;
+	}
+
+	public boolean deleteFromCart(Customer customer, Book book)
+	{
+		if (validCustomer(customer))
+		{
+			if (validBook(book)) {
+				String where;
+
+				warn = null;
+				try
+				{
+					where = "where customer='" + customer.getName() + "' and book='" + book.getName() + "'";
+					cmdString = "delete from cart " + where;
+					updateCount = st1.executeUpdate(cmdString);
+					result = true;
+					warn = checkWarning(st1, updateCount);
+				} catch (Exception e) {
+					warn = processSQLError(e);
+					result = false;
+				}
+			}
+			else
+				result = false;
+		}
+		else
+			result = false;
+		return result;
+	}
+
+	public boolean addToWishList(Customer customer, Book book)
+	{
+		if (validCustomer(customer)) //add only when the customer is valid
+		{
+			if (validBook(book)) {
+				String values;
+
+				warn = null;
+				try
+				{
+					values = "'" + customer.getName() + "', '" + book.getName() + "'";  //assign the book to customer cart
+					cmdString = "Insert into wishlist " + " Values(" + values + ")";
+					updateCount = st1.executeUpdate(cmdString);
+					result = true;
+					warn = checkWarning(st1, updateCount);
+				} catch (Exception e) {
+					warn = processSQLError(e);
+					result = false;
+				}
+			}
+			else
+				result = false;
+		}
+		else
+			result = false;
+		return result;
+	}
+
+	public boolean deleteFromWishList(Customer customer, Book book)
+	{
+		if (validCustomer(customer))
+		{
+			if (validBook(book)) {
+				String where;
+
+				warn = null;
+				try
+				{
+					where = "where customer='" + customer.getName() + "' and book='" + book.getName() + "'";
+					cmdString = "delete from wishlist " + where;
+					updateCount = st1.executeUpdate(cmdString);
+					result = true;
+					warn = checkWarning(st1, updateCount);
+				} catch (Exception e) {
+					warn = processSQLError(e);
+					result = false;
+				}
+			}
+			else
+				result = false;
+		}
+		else
+			result = false;
+		return result;
 	}
 
 	public boolean validCustomer(Customer theCustomer)
@@ -387,7 +514,7 @@ public class DataAccessObject implements DataAccess
 		if(validBook(theBook))
 		{
 			String values = "";
-			String where = ("name ='"+old.getName()+ "';");
+			String where = ("name='"+old.getName()+ "';");
 			int pre = 0;
 
 			warn = null;

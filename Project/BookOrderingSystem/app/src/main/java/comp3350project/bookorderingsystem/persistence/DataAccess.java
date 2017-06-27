@@ -16,6 +16,12 @@ public interface DataAccess
 
     ArrayList<Customer> getCustomerList();
 
+    boolean addToCart(Customer customer, Book book);
+    boolean deleteFromCart(Customer customer, Book book);
+
+    boolean addToWishList(Customer customer, Book book);
+    boolean deleteFromWishList(Customer customer, Book book);
+
     boolean addCustomer(Customer newCustomer);
 
     boolean updateCustomer(Customer theCustomer);
@@ -26,7 +32,7 @@ public interface DataAccess
 
     boolean addBook(Book newBook);
 
-    boolean updateBook(Book theOld,Book theBook);
+    boolean updateBook(Book old,Book theBook);  //old represents the object contains old data, theBook object contains the new data
 
     boolean deleteBook(Book theBook);
 

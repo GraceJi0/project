@@ -31,25 +31,56 @@ import comp3350project.bookorderingsystem.objects.Customer;
 
 public class MainActivity extends AppCompatActivity {
 
-    private String accountName;
+    private String accountName="";
     private AccessCustomer accessCustomer;
     private AlertDialog Logindialog;
     private AlertDialog Signupdialog;
+    private Button showSignUp;
+    private Button showSignIn;
+    private Button showLogOut;
+    private Button showMyAccount;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-
         copyDatabaseToDevice();
 
         Main.startUp();
         setContentView(R.layout.activity_main);
         accessCustomer = new AccessCustomer();
+        activeButton();
+        checkLogStatus();
         setButton();
         signIn();
         signUp();
+        logOut();
+        MyAccount();
     }
 
+    public void activeButton()
+    {
+        showLogOut=(Button)findViewById(R.id.logOutButton2);
+        showMyAccount=(Button)findViewById(R.id.MyAccountButton2);
+        showSignUp=(Button)findViewById(R.id.signupBut);
+        showSignIn=(Button)findViewById(R.id.signinBut);
+    }
+    public void checkLogStatus()
+    {
+        if(accountName.compareTo("")==0)
+        {
+            showLogOut.setVisibility(View.GONE);
+            showMyAccount.setVisibility(View.GONE);
+            showSignUp.setVisibility(View.VISIBLE);
+            showSignIn.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            showLogOut.setVisibility(View.VISIBLE);
+            showMyAccount.setVisibility(View.VISIBLE);
+            showSignUp.setVisibility(View.GONE);
+            showSignIn.setVisibility(View.GONE);
+        }
+    }
    /* publick void onResume()
     {
         super.onResume();
@@ -61,6 +92,35 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(init);
     }*/
 
+    public void logOut()
+    {
+        showLogOut.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View view)
+            {
+                accountName="";
+                checkLogStatus();
+                Toast.makeText(MainActivity.this,
+                        "Log out successful",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void MyAccount()
+    {
+        showMyAccount.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(MainActivity.this, MyAccountActivity.class);
+                intent.putExtra("name",accountName );
+                startActivity(intent);
+            }
+        });
+    }
+
     public void managerLogin()
     {
         Intent init = new Intent(MainActivity.this,
@@ -71,7 +131,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void signUp()
     {
-        Button showSignUp=(Button)findViewById(R.id.signupBut);
         showSignUp.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View view)
@@ -108,6 +167,8 @@ public class MainActivity extends AppCompatActivity {
                             onResume();
                             Customer newCus=new Customer(signupAccount.getText().toString(),signupPassword.getText().toString());
                             accessCustomer.addCustomer(newCus);
+                            accountName=signupAccount.getText().toString();
+                            checkLogStatus();
                         }
                     }
                 });
@@ -120,7 +181,6 @@ public class MainActivity extends AppCompatActivity {
 
    public void signIn()
    {
-       Button showSignIn=(Button)findViewById(R.id.signinBut);
        showSignIn.setOnClickListener(new View.OnClickListener()
        {
            public void onClick(View view)
@@ -151,6 +211,7 @@ public class MainActivity extends AppCompatActivity {
                                    accountName = account;
                                    Toast.makeText(MainActivity.this, "Login successful",
                                            Toast.LENGTH_SHORT).show();
+                                   checkLogStatus();
                                    if(accountName.length() >= 3) {
                                        if (accountName.substring(0, 3).equals("dmb")) {
                                            managerLogin();

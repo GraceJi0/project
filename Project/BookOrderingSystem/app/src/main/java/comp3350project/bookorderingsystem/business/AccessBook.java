@@ -15,13 +15,13 @@ import comp3350project.bookorderingsystem.persistence.DataAccessStub;
  */
 
 public class AccessBook {
-    private DataAccessStub dataAccess;
-    //private DataAccess dataAccess;///////////////////////////////////////////////////////////////
+    //private DataAccessStub dataAccess;
+    private DataAccess dataAccess;///////////////////////////////////////////////////////////////
 
     public AccessBook()
     {
-        //dataAccess = Service.getDataAccess(Main.dbName);////////////////////////////////////
-        dataAccess = (DataAccessStub) Service.getDataAccess(Main.dbName);
+        dataAccess = Service.getDataAccess(Main.dbName);////////////////////////////////////
+        //dataAccess = (DataAccessStub) Service.getDataAccess(Main.dbName);
     }
 
     public ArrayList<Book> getBookList()
@@ -103,10 +103,13 @@ public class AccessBook {
 
     public void editBook(Book book)
     {
-        Book temp = searchBook(book.getName());
-        if (temp!=null)
+        if(book != null)
         {
-            dataAccess.updateBook(book);
+            Book temp = searchBook(book.getName());
+            if (temp != null)
+            {
+                dataAccess.updateBook(book);
+            }
         }
     }
 

@@ -3,7 +3,7 @@ package comp3350project.bookorderingsystem.business;
 import android.util.Log;
 
 import java.util.ArrayList;
-
+import java.util.List;
 import comp3350project.bookorderingsystem.application.Main;
 import comp3350project.bookorderingsystem.application.Service;
 import comp3350project.bookorderingsystem.objects.Book;
@@ -31,7 +31,7 @@ public class AccessCustomer
         return dataAccess.addCustomer(newCustomer);
     }
 
-    public ArrayList<Customer> getCustomerList(){return dataAccess.getCustomerList();}
+    public List<Customer> getCustomerList(){return dataAccess.getCustomerList();}
 
     public double OrderAmount(Customer newCustomer)
     {
@@ -41,7 +41,7 @@ public class AccessCustomer
     public boolean checkAccount(String account)
     {
         boolean result=false;
-        ArrayList<Customer> customerList = getCustomerList();
+        List<Customer> customerList = getCustomerList();
         for(int i=0;i<customerList.size();i++)
         {
             if(customerList.get(i).getName().compareTo(account)==0)
@@ -54,7 +54,7 @@ public class AccessCustomer
 
     public String[] getCustomerAccount()
     {
-        ArrayList<Customer> customerList = getCustomerList();
+        List<Customer> customerList = getCustomerList();
         String[] allCustomerAccount = new String[customerList.size()];
         for(int i = 0; i < customerList.size(); i++)
         {
@@ -65,7 +65,7 @@ public class AccessCustomer
 
     public void addToCart(String customerName, Book book)
     {
-        ArrayList<Customer> customerList = getCustomerList();
+        List<Customer> customerList = getCustomerList();
         int index = 0;
         Customer customer = null;
         while(index < customerList.size())
@@ -86,7 +86,7 @@ public class AccessCustomer
 
     public void deleteFromCart(String customerName, Book book)
     {
-        ArrayList<Customer> customerList = getCustomerList();
+        List<Customer> customerList = getCustomerList();
         int index = 0;
         Customer customer = null;
         while(index < customerList.size())
@@ -107,7 +107,7 @@ public class AccessCustomer
 
     public void deleteFromWishList(String customerName, Book book)
     {
-        ArrayList<Customer> customerList = getCustomerList();
+        List<Customer> customerList = getCustomerList();
         int index = 0;
         Customer customer = null;
         while(index < customerList.size())
@@ -128,7 +128,7 @@ public class AccessCustomer
 
     public void addToWishList(String customerName, Book book)
     {
-        ArrayList<Customer> customerList = getCustomerList();
+        List<Customer> customerList = getCustomerList();
         int index = 0;
         Customer customer = null;
         while(index < customerList.size())
@@ -149,7 +149,7 @@ public class AccessCustomer
 
     public ArrayList<Book> getCustomerCart(String customerName)
     {
-        ArrayList<Customer> customerList = getCustomerList();
+        List<Customer> customerList = getCustomerList();
         int index = 0;
         Customer customer = null;
         while(index < customerList.size())
@@ -169,7 +169,7 @@ public class AccessCustomer
 
     public ArrayList<Book> getCustomerWishList(String customerName)
     {
-        ArrayList<Customer> customerList = getCustomerList();
+        List<Customer> customerList = getCustomerList();
         int index = 0;
         Customer customer = null;
         while(index < customerList.size())
@@ -191,7 +191,7 @@ public class AccessCustomer
     {
         int verify = -1;
         Customer customer = null;
-        ArrayList<Customer> customers = getCustomerList();
+        List<Customer> customers = getCustomerList();
         int index = 0;
        while(index < customers.size())
         {

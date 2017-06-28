@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import java.util.List;
 import java.util.ArrayList;
 
 import comp3350project.bookorderingsystem.R;
@@ -24,7 +24,7 @@ public class ManagerViewBooksActivity extends AppCompatActivity {
     private String accountName;
     private AccessBook accessBook;
     private ListView listView;
-    private ArrayList<Book> booksList;
+    private List<Book> booksList;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -97,7 +97,7 @@ public class ManagerViewBooksActivity extends AppCompatActivity {
                 EditText searchKeyText = (EditText)findViewById(R.id.searchByManager);
                 String searchKey = searchKeyText.getText().toString();
                 //search the book
-                ArrayList<Book> found = accessBook.searchBookContain(searchKey);
+                List<Book> found = accessBook.searchBookContain(searchKey);
                 if(found.size()==0)
                 {
                     //if we didn't find any books
@@ -116,7 +116,7 @@ public class ManagerViewBooksActivity extends AppCompatActivity {
     }
 
 
-    public void setListView(final ArrayList<Book> bookList)
+    public void setListView(final List<Book> bookList)
     {
         //set books' listView
         BookAdapter adapter = new BookAdapter(ManagerViewBooksActivity.this,

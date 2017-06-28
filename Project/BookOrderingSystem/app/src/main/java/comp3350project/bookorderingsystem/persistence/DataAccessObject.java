@@ -46,7 +46,7 @@ public class DataAccessObject implements DataAccess
 		this.dbName = dbName;
 	}
 
-	private ArrayList<Picture>ImageList;
+
 
 	public void open(String dbPath)
 	{
@@ -64,8 +64,7 @@ public class DataAccessObject implements DataAccess
 			st2 = c1.createStatement();
 			st3 = c1.createStatement();
 
-			ImageList = new ArrayList<Picture>();
-			initialImageList();
+
 		}
 		catch (Exception e)
 		{
@@ -89,7 +88,7 @@ public class DataAccessObject implements DataAccess
 		System.out.println("Closed " +dbType +" database " +dbName);
 	}
 
-	public void initialImageList()
+	/*public void initialImageList()
 	{
 		BookPersistence.initialImageList(ImageList);
 //		ImageList.add(new Picture(1, R.drawable.book1));
@@ -101,9 +100,9 @@ public class DataAccessObject implements DataAccess
 //		ImageList.add(new Picture(7, R.drawable.book7));
 //		ImageList.add(new Picture(8, R.drawable.book8));
 //		ImageList.add(new Picture(9, R.drawable.book9));
-	}
+	}*/
 
-	public ArrayList<Customer> getCustomerList()
+	public List<Customer> getCustomerList()
 	{
 		return CustomerPersistence.getCustomerList(cmdString, st1, rs2, warn);
 //		ArrayList<Customer> customerList = new ArrayList<Customer>();   //initialize a new list to store the customers
@@ -249,7 +248,7 @@ public class DataAccessObject implements DataAccess
 //		return result;
 	}
 
-	public ArrayList<Book> getWishList(Customer theCustomer)
+	public List<Book> getWishList(Customer theCustomer)
 	{
 		return CustomerPersistence.getWishList(theCustomer, cmdString, st2, rs3, warn);
 //		ArrayList<Book> theList = new ArrayList<Book>();
@@ -436,9 +435,9 @@ public class DataAccessObject implements DataAccess
 		return result;
 	}*/
 
-	public ArrayList<Book> getBookList()
+	public List<Book> getBookList()
 	{
-		return BookPersistence.getBookList(cmdString, st3, rs5, ImageList, warn);
+		return BookPersistence.getBookList(cmdString, st3, rs5, warn);
 //		ArrayList<Book> bookList;
 //		bookList = new ArrayList<Book>();
 //

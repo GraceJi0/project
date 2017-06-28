@@ -8,7 +8,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
-
+import java.util.List;
 import java.util.ArrayList;
 
 import comp3350project.bookorderingsystem.R;
@@ -19,7 +19,7 @@ import comp3350project.bookorderingsystem.objects.Book;
 public class SearchCategoryActivity extends AppCompatActivity {
     private String accountName;
     private ListView listView;
-    private ArrayList<Book> bookList;
+    private List<Book> bookList;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -139,7 +139,7 @@ public class SearchCategoryActivity extends AppCompatActivity {
         });
     }
 
-    public void setListView(final ArrayList<Book> booksList)
+    public void setListView(final List<Book> booksList)
     {
         BookAdapter adapter = new BookAdapter(SearchCategoryActivity.this,
                 R.layout.book_item,booksList);

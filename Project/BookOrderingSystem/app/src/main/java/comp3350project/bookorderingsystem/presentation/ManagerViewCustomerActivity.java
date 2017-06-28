@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
-
+import java.util.List;
 import java.util.ArrayList;
 
 import comp3350project.bookorderingsystem.R;
@@ -18,7 +18,7 @@ import comp3350project.bookorderingsystem.objects.Customer;
 
 public class ManagerViewCustomerActivity extends AppCompatActivity {
 
-    private ArrayList<Customer> customersList;
+    private List<Customer> customersList;
     private String accountName;
     @Override
     protected void onCreate(Bundle savedInstanceState)

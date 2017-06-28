@@ -14,7 +14,7 @@ public interface DataAccess
 
 	void close();
 
-    ArrayList<Customer> getCustomerList();
+    List<Customer> getCustomerList();
 
     boolean addToCart(Customer customer, Book book);
     boolean deleteFromCart(Customer customer, Book book);
@@ -28,7 +28,7 @@ public interface DataAccess
 
     boolean deleteCustomer(Customer theCustomer);*/
 
-    ArrayList<Book> getBookList();
+    List<Book> getBookList();
 
     boolean addBook(Book newBook);
 

@@ -20,10 +20,18 @@ import comp3350project.bookorderingsystem.objects.Picture;
  */
 
 public class bookPersistenceHSQL {
-   public bookPersistenceHSQL(){}
-    public ArrayList<Book> getBookList(String cmdString, Statement st3, ResultSet rs5, ArrayList<Picture>ImageList, String warn )
+
+    private List<Picture> ImageList;
+
+   public bookPersistenceHSQL()
+   {
+       ImageList = new ArrayList<Picture>();
+       initialImageList();
+   }
+
+    public List<Book> getBookList(String cmdString, Statement st3, ResultSet rs5, String warn )
     {
-        ArrayList<Book> bookList;
+        List<Book> bookList;
         bookList = new ArrayList<Book>();
 
         try
@@ -212,8 +220,9 @@ public class bookPersistenceHSQL {
         return result;
     }
 
-    public void initialImageList(ArrayList<Picture>ImageList)
+    public void initialImageList()
     {
+
         ImageList.add(new Picture(1, R.drawable.book1));
         ImageList.add(new Picture(2, R.drawable.book2));
         ImageList.add(new Picture(3, R.drawable.book3));

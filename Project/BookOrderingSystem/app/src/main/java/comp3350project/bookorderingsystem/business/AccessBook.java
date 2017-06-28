@@ -5,7 +5,7 @@ import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
+import java.util.List;
 import comp3350project.bookorderingsystem.application.Main;
 import comp3350project.bookorderingsystem.application.Service;
 import comp3350project.bookorderingsystem.objects.Book;
@@ -27,14 +27,14 @@ public class AccessBook {
         //dataAccess = (DataAccessStub) Service.getDataAccess(Main.dbName);
     }
 
-    public ArrayList<Book> getBookList()
+    public List<Book> getBookList()
     {
         return dataAccess.getBookList();
     }
 
     public Book searchBook(String newName)
     {
-        ArrayList<Book> books = dataAccess.getBookList();
+        List<Book> books = dataAccess.getBookList();
         Book found = null;
         if(books!=null)
         {
@@ -47,9 +47,9 @@ public class AccessBook {
         return found;
     }
 
-    public ArrayList<Book> searchBookContain(String newname)
+    public List<Book> searchBookContain(String newname)
     {
-        ArrayList<Book> books = dataAccess.getBookList();
+        List<Book> books = dataAccess.getBookList();
         ArrayList<Book> found = new ArrayList<Book>();
         if(books!=null)
         {
@@ -62,11 +62,11 @@ public class AccessBook {
         return found;
     }
 
-    public ArrayList<Book> sortBookByNameUp(String byThis)
+    public List<Book> sortBookByNameUp(String byThis)
     {
         //to sort the book list
         
-        ArrayList<Book> books = dataAccess.getBookList();
+        List<Book> books = dataAccess.getBookList();
         ArrayList<Book> sort = new ArrayList<Book>();
         ArrayList<Integer> temp = new ArrayList<Integer>();
 
@@ -92,9 +92,9 @@ public class AccessBook {
         return sort;
     }
 
-    public ArrayList<Book> searchBookCategory(String newCategory)
+    public List<Book> searchBookCategory(String newCategory)
     {
-        ArrayList<Book> books = dataAccess.getBookList();
+        List<Book> books = dataAccess.getBookList();
         ArrayList<Book> founds = new ArrayList<Book>();
         for(int i=0; i< books.size(); i++)
         {

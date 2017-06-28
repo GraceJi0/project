@@ -25,9 +25,9 @@ import comp3350project.bookorderingsystem.business.AccessBook;
 
 public class customerPersistenceHSQL {
     public customerPersistenceHSQL() {}
-    public ArrayList<Customer> getCustomerList(String cmdString, Statement st1, ResultSet rs2, String warn )
+    public List<Customer> getCustomerList(String cmdString, Statement st1, ResultSet rs2, String warn )
     {
-        ArrayList<Customer> customerList = new ArrayList<Customer>();   //initialize a new list to store the customers
+        ArrayList<Customer>customerList = new ArrayList<Customer>();   //initialize a new list to store the customers
         ArrayList<Book>wishlist = new ArrayList<Book>();   //the wish list of one customer
         ArrayList<Book>cart = new ArrayList<Book>();   //the cart of one customer
 
@@ -47,15 +47,15 @@ public class customerPersistenceHSQL {
                 Customer theCustomer = new Customer(name, pwd);  //a customer is find and ready to store
 
                 String cardnumber = rs2.getString("cardnumber");
-                if(cardnumber != "")
+                if(cardnumber.equals(""))
                     theCustomer.setCardNumber(cardnumber);
 
                 String email = rs2.getString("email");
-                if(email != "")
+                if(email.equals(""))
                     theCustomer.setEmail(email);
 
                 String address = rs2.getString("address");
-                if(address != "")
+                if(address.equals(""))
                     theCustomer.setAddress(address);
 
                 //the wishlist and the cart

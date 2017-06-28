@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.ArrayAdapter;
 import android.view.View;
 import android.view.ViewGroup;
-
+import java.util.List;
 import android.view.MenuItem;
 import android.view.Menu;
 
@@ -27,7 +27,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class SearchActivity extends AppCompatActivity {
-    private ArrayList<Book> books;
+    private List<Book> books;
     private ListView listView;
     private String accountName;
     private AccessBook accessBook;
@@ -63,7 +63,7 @@ public class SearchActivity extends AppCompatActivity {
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                ArrayList<Book> found = accessBook.sortBookByNameUp(parent.getItemAtPosition(position).toString());
+                List<Book> found = accessBook.sortBookByNameUp(parent.getItemAtPosition(position).toString());
 
                 Toast.makeText(getBaseContext(),parent.getItemAtPosition(position)+" selected",Toast.LENGTH_LONG).show();
 
@@ -97,7 +97,7 @@ public class SearchActivity extends AppCompatActivity {
 
     public void doSearch(String searchKey)
     {
-        ArrayList<Book> found = accessBook.searchBookContain(searchKey);
+        List<Book> found = accessBook.searchBookContain(searchKey);
         if((found == null)||(found.size()==0))
         {
             //if we didn't find any books
@@ -132,7 +132,7 @@ public class SearchActivity extends AppCompatActivity {
 
 
 
-    public void setListView(final ArrayList<Book> bookList)
+    public void setListView(final List<Book> bookList)
     {
         //set books' listView
         BookAdapter adapter = new BookAdapter(SearchActivity.this,

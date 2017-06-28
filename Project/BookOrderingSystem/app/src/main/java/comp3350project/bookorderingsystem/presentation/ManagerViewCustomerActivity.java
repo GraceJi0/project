@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -32,23 +33,25 @@ public class ManagerViewCustomerActivity extends AppCompatActivity {
         customersList = accessCustomer.getCustomerList();
 
         setListView(accessCustomer);
-        setButton();
+        logOut();
     }
 
-    public void setButton()
+    public void logOut()
     {
-        //set log out button
-        /*Button logOut = (Button)findViewById(R.id.logOutButton);
-        logOut.setOnClickListener(new View.OnClickListener()
+        Button showLogOut=(Button)findViewById(R.id.logOutButton);
+        showLogOut.setOnClickListener(new View.OnClickListener()
         {
-            @Override
-            public void onClick(View v)
+            public void onClick(View view)
             {
-                Intent i = new Intent(ManagerViewCustomerActivity.this, MainActivity.class);
-                i.putExtra("exit", "exit");
-                startActivity(i);
+                accountName="";;
+                Intent intent = new Intent(ManagerViewCustomerActivity.this, MainActivity.class);
+                intent.putExtra("name",accountName );
+                startActivity(intent);
+                Toast.makeText(ManagerViewCustomerActivity.this,
+                        "Log out successful",
+                        Toast.LENGTH_SHORT).show();
             }
-        });*/
+        });
     }
 
     public void setListView(AccessCustomer accessCustomer)

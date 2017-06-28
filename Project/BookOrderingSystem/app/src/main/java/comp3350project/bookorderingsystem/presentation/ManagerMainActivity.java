@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import comp3350project.bookorderingsystem.R;
 import comp3350project.bookorderingsystem.application.Main;
@@ -25,6 +26,7 @@ public class ManagerMainActivity extends AppCompatActivity
 
         setText();
         setButton();
+        logOut();
     }
 
     public void setText()
@@ -61,17 +63,22 @@ public class ManagerMainActivity extends AppCompatActivity
                 startActivity(i);
             }
         });
+    }
 
-        //set log out button
-        Button logOut = (Button)findViewById(R.id.logOutButton);
-        logOut.setOnClickListener(new View.OnClickListener()
+    public void logOut()
+    {
+        Button showLogOut=(Button)findViewById(R.id.logOutButton);
+        showLogOut.setOnClickListener(new View.OnClickListener()
         {
-            @Override
-            public void onClick(View v)
+            public void onClick(View view)
             {
-                Intent i = new Intent(ManagerMainActivity.this, MainActivity.class);
-                i.putExtra("name", "");
-                startActivity(i);
+                accountName="";;
+                Intent intent = new Intent(ManagerMainActivity.this, MainActivity.class);
+                intent.putExtra("name",accountName );
+                startActivity(intent);
+                Toast.makeText(ManagerMainActivity.this,
+                        "Log out successful",
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }

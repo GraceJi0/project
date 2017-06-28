@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -39,6 +40,7 @@ public class ManagerViewBooksActivity extends AppCompatActivity {
         setListView(booksList);
         setButton();
         doSearch();
+        logOut();
     }
 
     @Override
@@ -50,6 +52,23 @@ public class ManagerViewBooksActivity extends AppCompatActivity {
         setListView(booksList);
     }
 
+    public void logOut()
+    {
+        Button showLogOut=(Button)findViewById(R.id.logOutButton);
+        showLogOut.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View view)
+            {
+                accountName="";;
+                Intent intent = new Intent(ManagerViewBooksActivity.this, MainActivity.class);
+                intent.putExtra("name",accountName );
+                startActivity(intent);
+                Toast.makeText(ManagerViewBooksActivity.this,
+                        "Log out successful",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
     public void setButton()
     {
         Button addBook = (Button)findViewById(R.id.addBookButton);

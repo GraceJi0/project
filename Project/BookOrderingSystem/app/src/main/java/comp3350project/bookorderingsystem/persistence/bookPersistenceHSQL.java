@@ -19,8 +19,8 @@ import comp3350project.bookorderingsystem.objects.Picture;
  * Created by rico on 2017-06-28.
  */
 
-public class bookPersistence {
-   public bookPersistence(){}
+public class bookPersistenceHSQL {
+   public bookPersistenceHSQL(){}
     public ArrayList<Book> getBookList(String cmdString, Statement st3, ResultSet rs5, ArrayList<Picture>ImageList, String warn )
     {
         ArrayList<Book> bookList;

@@ -18,14 +18,14 @@ import comp3350project.bookorderingsystem.objects.Book;
 import comp3350project.bookorderingsystem.objects.Customer;
 import comp3350project.bookorderingsystem.objects.Picture;
 
-import comp3350project.bookorderingsystem.persistence.bookPersistence;
-import comp3350project.bookorderingsystem.persistence.customerPersistence;
+import comp3350project.bookorderingsystem.persistence.bookPersistenceHSQL;
+import comp3350project.bookorderingsystem.persistence.customerPersistenceHSQL;
 import comp3350project.bookorderingsystem.business.AccessBook;
 
 public class DataAccessObject implements DataAccess
 {
-	private bookPersistence BookPersistence;
-	private customerPersistence CustomerPersistence;
+	private bookPersistenceHSQL BookPersistence;
+	private customerPersistenceHSQL CustomerPersistence;
 
 	private Statement st1, st2, st3;
 	private Connection c1;
@@ -51,8 +51,8 @@ public class DataAccessObject implements DataAccess
 	public void open(String dbPath)
 	{
 		String url;
-		BookPersistence=new bookPersistence();
-		CustomerPersistence=new customerPersistence();
+		BookPersistence=new bookPersistenceHSQL();
+		CustomerPersistence=new customerPersistenceHSQL();
 		try
 		{
 			// Setup for HSQL

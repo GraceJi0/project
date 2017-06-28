@@ -23,8 +23,8 @@ import comp3350project.bookorderingsystem.business.AccessBook;
  * Created by rico on 2017-06-28.
  */
 
-public class customerPersistence {
-    public customerPersistence() {}
+public class customerPersistenceHSQL {
+    public customerPersistenceHSQL() {}
     public ArrayList<Customer> getCustomerList(String cmdString, Statement st1, ResultSet rs2, String warn )
     {
         ArrayList<Customer> customerList = new ArrayList<Customer>();   //initialize a new list to store the customers

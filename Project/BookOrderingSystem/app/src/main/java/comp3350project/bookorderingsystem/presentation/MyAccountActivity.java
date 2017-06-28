@@ -13,13 +13,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import comp3350project.bookorderingsystem.R;
-import comp3350project.bookorderingsystem.business.AccessBook;
 import comp3350project.bookorderingsystem.business.AccessCustomer;
 import comp3350project.bookorderingsystem.objects.Book;
 
-/**
- * Created by dinghanji on 2017-06-15.
- */
 
 public class MyAccountActivity extends AppCompatActivity
 {
@@ -57,6 +53,7 @@ public class MyAccountActivity extends AppCompatActivity
         TextView account = (TextView)findViewById(R.id.accountText);
         account.setText(accountName);
     }
+
     public void logOut()
     {
         Button showLogOut=(Button)findViewById(R.id.logOutButton);
@@ -74,6 +71,7 @@ public class MyAccountActivity extends AppCompatActivity
             }
         });
     }
+    
     public void setCartListView(final ArrayList<Book> bookList)
     {
         //set books' listView

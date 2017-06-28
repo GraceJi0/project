@@ -31,7 +31,11 @@ public class AddBookActivity extends AppCompatActivity {
         setBookInformation();
     }
 
-    public void setBookInformation() {
+    /*****************************************
+     * set the book information for new book
+     *****************************************/
+    public void setBookInformation()
+    {
 
          EditText name = (EditText) findViewById(R.id.nameEditText);
          EditText author = (EditText) findViewById(R.id.authorEditText);
@@ -41,6 +45,11 @@ public class AddBookActivity extends AppCompatActivity {
          EditText category = (EditText) findViewById(R.id.categoryEditText);
         saveInformation(name, author, price, description, inStock, category);
     }
+
+
+    /*****************************************
+     * when we click the save button, save the book's information in database
+     *****************************************/
     public void saveInformation(final EditText name, final EditText author, final EditText price,
                                 final EditText description, final EditText inStock, final EditText category)
     {

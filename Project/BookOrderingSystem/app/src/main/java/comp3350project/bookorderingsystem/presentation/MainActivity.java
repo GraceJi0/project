@@ -5,21 +5,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -87,6 +80,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /*******************************************************
+     set the log out button
+     ********************************************************/
     public void logOut()
     {
         showLogOut.setOnClickListener(new View.OnClickListener()
@@ -102,6 +98,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /*******************************************************
+     set the my account button, when click the button, go
+     to the my account page
+     ********************************************************/
     public void MyAccount()
     {
         showMyAccount.setOnClickListener(new View.OnClickListener()
@@ -116,6 +116,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /*******************************************************
+     when user log in with a manager account, go to the manager
+     main page
+     ********************************************************/
     public void managerLogin()
     {
         Intent init = new Intent(MainActivity.this,
@@ -124,6 +128,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(init);
     }
 
+
+    /*******************************************************
+     when user sign up, save the account's information to database
+     ********************************************************/
     public void signUp()
     {
         showSignUp.setOnClickListener(new View.OnClickListener()
@@ -180,6 +188,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /*******************************************************
+     when user sign in, check if the account information match the account in database,
+     ********************************************************/
    public void signIn()
    {
        showSignIn.setOnClickListener(new View.OnClickListener()
@@ -241,29 +252,13 @@ public class MainActivity extends AppCompatActivity {
            }
        });
    }
+
+    /*******************************************************
+     *when user click search button, to the the search page.
+     * when user click category button, go to the search by category page.
+     ********************************************************/
     public void setButton()
     {
-
-        //test for manager page************************
-        /*Button testButton = (Button) findViewById(R.id.test);
-        testButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                Intent i = new Intent(MainActivity.this, ManagerMainActivity.class);
-                String account = "dbm001";
-                i.putExtra("name", account);
-                startActivity(i);
-            }
-        });*/
-        //end test code**********************************
-
-
-
-        //assume accountName for customer is "asdf"
-        //accountName = "asdf";
-        //set search button
         searchButton = (Button) findViewById(R.id.SearchBut);
         searchButton.setOnClickListener(new View.OnClickListener()
         {
@@ -274,7 +269,6 @@ public class MainActivity extends AppCompatActivity {
                 EditText editText = (EditText) findViewById(R.id.searchText);
                 String word = editText.getText().toString();
                 String[] message = {word,accountName};
-                //intent.putExtra(EXTRA_MESSAGE, message);
                 intent.putExtra("search",message);
                 startActivity(intent);
             }

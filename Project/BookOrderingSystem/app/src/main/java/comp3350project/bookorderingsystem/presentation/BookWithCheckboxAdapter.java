@@ -1,7 +1,6 @@
 package comp3350project.bookorderingsystem.presentation;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,11 +15,12 @@ import java.util.List;
 import comp3350project.bookorderingsystem.R;
 import comp3350project.bookorderingsystem.objects.Book;
 
-/**
- * Created by dinghanji on 2017-06-15.
- */
-
-public class BookWithCheckboxAdapter extends ArrayAdapter<Book>{
+//*******************************************************
+//override adapter class for display books' information with a check box in listView
+//the view for each book is booklist_item.xml
+//*********************************************************
+public class BookWithCheckboxAdapter extends ArrayAdapter<Book>
+{
     private int resourceId;
     private ArrayList<Book> selected;
     public BookWithCheckboxAdapter(Context context, int textViewResourceId, List<Book> objects)
@@ -31,7 +31,11 @@ public class BookWithCheckboxAdapter extends ArrayAdapter<Book>{
     }
 
 
-
+    /*******************************************************
+     *overriden the getView method
+     *when user click the check box of a book, add the book to the selected book list,
+     * so we can delete them together.
+    ********************************************************/
     @Override
     public View getView(int position, View converView, ViewGroup parent)
     {
@@ -64,11 +68,17 @@ public class BookWithCheckboxAdapter extends ArrayAdapter<Book>{
         return view;
     }
 
+    /*******************************************************
+     *get the book list that we want to delete
+     ********************************************************/
     public ArrayList<Book> getSelectedBooks()
     {
         return selected;
     }
 
+    /*******************************************************
+     *delete a book from the selected book list
+     ********************************************************/
     public void deleteFromSelected(Book book)
     {
         for(int i = 0; i < selected.size();i++)

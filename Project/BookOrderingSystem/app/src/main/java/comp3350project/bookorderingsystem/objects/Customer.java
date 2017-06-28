@@ -1,10 +1,7 @@
 package comp3350project.bookorderingsystem.objects;
 
 import java.util.ArrayList;
-
-/**
- * Created by dinghanji on 2017-05-29.
- */
+import java.util.List;
 
 public class Customer
 {
@@ -29,19 +26,9 @@ public class Customer
         return customerName;
     }
 
-    public String getCardNumber()
-    {
-        return cardNumber;
-    }
-
     public void setCardNumber(String newNumber)
     {
         cardNumber = newNumber;
-    }
-
-    public String getEmail()
-    {
-        return email;
     }
 
     public String getPassword() {return password;}
@@ -51,19 +38,14 @@ public class Customer
         email = newEmail;
     }
 
-    public String getAddress()
-    {
-        return address;
-    }
-
     public void setAddress(String newAddress)
     {
         address = newAddress;
     }
 
-    public ArrayList<Book> getCart(){return customerCart;}
+    public List<Book> getCart(){return customerCart;}
 
-    public ArrayList<Book> getWishList(){return customerWishList;}
+    public List<Book> getWishList(){return customerWishList;}
 
     public void setCart(ArrayList<Book> theList)
     {
@@ -75,6 +57,9 @@ public class Customer
         customerCart.add(newBook);
     }
 
+    /*******************************
+     * delete the given book from customer's cart
+     ******************************/
     public void deleteFromCart(Book newBook)
     {
         int index;
@@ -86,11 +71,17 @@ public class Customer
         }
     }
 
+    /*******************************
+     * set the customer's wish list
+     ******************************/
     public void setWishList(ArrayList<Book> theList)
     {
         customerWishList = new ArrayList<>(theList);
     }
 
+    /*******************************
+     * add the given book to customer's wish list
+     ******************************/
     public void addToWishList(Book newBook)
     {
         boolean found = false;
@@ -108,6 +99,9 @@ public class Customer
         }
     }
 
+    /*******************************
+     * delete the given book from customer's wish list
+     ******************************/
     public void deleteFromWishList(Book newBook)
     {
         int index;
@@ -117,17 +111,6 @@ public class Customer
         {
             customerWishList.remove(index);
         }
-    }
-
-    public double getOrderAmount()
-    {
-        double total = 0.0;
-        for(int i = 0; i < customerCart.size(); i++)
-        {
-            total += customerCart.get(i).getBookPrice();
-        }
-        total += total * 0.13;
-        return total;
     }
 
 }

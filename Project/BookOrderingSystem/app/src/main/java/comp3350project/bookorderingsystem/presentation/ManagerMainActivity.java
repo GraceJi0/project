@@ -9,7 +9,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import comp3350project.bookorderingsystem.R;
-import comp3350project.bookorderingsystem.application.Main;
 
 public class ManagerMainActivity extends AppCompatActivity
 {
@@ -29,6 +28,9 @@ public class ManagerMainActivity extends AppCompatActivity
         logOut();
     }
 
+    /*******************************************************
+     //set text to account's name
+     ********************************************************/
     public void setText()
     {
         //set text to account's name
@@ -36,6 +38,10 @@ public class ManagerMainActivity extends AppCompatActivity
         name.setText(accountName);
     }
 
+    /*******************************************************
+     when manager click view customer button, go to the view customer page
+     when manager click view book button, go to the view book page
+     ********************************************************/
     public void setButton()
     {
         //set view customer button
@@ -65,6 +71,9 @@ public class ManagerMainActivity extends AppCompatActivity
         });
     }
 
+    /*******************************************************
+     //set log out button
+     ********************************************************/
     public void logOut()
     {
         Button showLogOut=(Button)findViewById(R.id.logOutButton);

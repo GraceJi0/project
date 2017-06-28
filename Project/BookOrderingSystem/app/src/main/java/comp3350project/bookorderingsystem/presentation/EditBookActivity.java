@@ -7,16 +7,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import comp3350project.bookorderingsystem.R;
 import comp3350project.bookorderingsystem.business.AccessBook;
 import comp3350project.bookorderingsystem.objects.Book;
 
-/**
- * Created by dinghanji on 2017-06-13.
- */
 
 public class EditBookActivity extends AppCompatActivity
 {
@@ -47,12 +43,13 @@ public class EditBookActivity extends AppCompatActivity
         editBookInformation();
         setImageView();
 
-        //accessBook.editBook(book);
     }
 
+    /*******************************************************
+     set book's all information
+     ********************************************************/
     public void editBookInformation()
     {
-        //set book's all information
         EditText name = (EditText) findViewById(R.id.nameEditText);
         name.setText(book.getName());
 
@@ -74,6 +71,9 @@ public class EditBookActivity extends AppCompatActivity
         setButton(name, author,price, description, inStock,category);
     }
 
+    /*******************************************************
+     set book's picture
+     ********************************************************/
     public void setImageView()
     {
         //set book image
@@ -81,6 +81,9 @@ public class EditBookActivity extends AppCompatActivity
         iv.setImageResource(book.getImageID());
     }
 
+    /*******************************************************
+     when we click the save button, save all information for the current book
+     ********************************************************/
     public void setButton(final EditText name, final EditText author, final EditText price,
                           final EditText description, final EditText inStock,final EditText category )
     {
@@ -106,18 +109,6 @@ public class EditBookActivity extends AppCompatActivity
             }
         });
 
-        //set go back button, send back account name information
-        /*Button returnBut = (Button)findViewById(R.id.returnButton);
-        returnBut.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                Intent init = new Intent(EditBookActivity.this, ManagerViewBooksActivity.class);
-                init.putExtra("name", accountName);
-                startActivity(init);
-            }
-        });*/
     }
 
 

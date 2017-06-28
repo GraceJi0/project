@@ -4,22 +4,20 @@ package comp3350project.bookorderingsystem.presentation;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import comp3350project.bookorderingsystem.R;
 import comp3350project.bookorderingsystem.business.AccessBook;
 import comp3350project.bookorderingsystem.business.AccessCustomer;
 import comp3350project.bookorderingsystem.objects.Book;
 
-/*when click on an item in the search list, look for the detail information of this book.*/
-public class ViewBookActivity extends AppCompatActivity {
 
-    public final static String EXTRA_MESSAGE = "comp3010_group10.bookordering.MESSAGE";
+public class ViewBookActivity extends AppCompatActivity
+{
+
     private Book book;
     private String accountName;
     AccessCustomer accessCustomer;
@@ -41,9 +39,11 @@ public class ViewBookActivity extends AppCompatActivity {
         setAllText(bookName);
         setAllButton();
         logOut();
-
     }
 
+    /*******************************************************
+     set the log out button
+     ********************************************************/
     public void logOut() {
         Button showLogOut = (Button) findViewById(R.id.logOutButton);
         showLogOut.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +60,9 @@ public class ViewBookActivity extends AppCompatActivity {
         });
     }
 
+    /*******************************************************
+     display the book's information
+     ********************************************************/
     public void setAllText(String bookName)
     {
         TextView name = (TextView)findViewById(R.id.bookNameText);
@@ -94,6 +97,9 @@ public class ViewBookActivity extends AppCompatActivity {
 
     }
 
+    /*******************************************************
+     allow a customer to add the current book to cart or wish list
+     ********************************************************/
     public void setAllButton()
     {
         Button addCart = (Button)findViewById(R.id.addToCartButton);

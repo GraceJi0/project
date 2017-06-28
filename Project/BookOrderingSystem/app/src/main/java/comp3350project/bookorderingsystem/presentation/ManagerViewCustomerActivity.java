@@ -36,6 +36,9 @@ public class ManagerViewCustomerActivity extends AppCompatActivity {
         logOut();
     }
 
+    /*******************************************************
+     set log out button
+     ********************************************************/
     public void logOut()
     {
         Button showLogOut=(Button)findViewById(R.id.logOutButton);
@@ -54,6 +57,9 @@ public class ManagerViewCustomerActivity extends AppCompatActivity {
         });
     }
 
+    /*******************************************************
+     set listView for the give customer list
+     ********************************************************/
     public void setListView(AccessCustomer accessCustomer)
     {
         //set customers' listView

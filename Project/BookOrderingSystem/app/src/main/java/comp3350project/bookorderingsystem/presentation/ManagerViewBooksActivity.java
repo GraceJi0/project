@@ -1,10 +1,8 @@
 package comp3350project.bookorderingsystem.presentation;
 
 import android.content.Intent;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -52,6 +50,9 @@ public class ManagerViewBooksActivity extends AppCompatActivity {
         setListView(booksList);
     }
 
+    /*******************************************************
+     set log out button
+     ********************************************************/
     public void logOut()
     {
         Button showLogOut=(Button)findViewById(R.id.logOutButton);
@@ -69,6 +70,10 @@ public class ManagerViewBooksActivity extends AppCompatActivity {
             }
         });
     }
+
+    /*******************************************************
+     set add book button
+     ********************************************************/
     public void setButton()
     {
         Button addBook = (Button)findViewById(R.id.addBookButton);
@@ -84,6 +89,9 @@ public class ManagerViewBooksActivity extends AppCompatActivity {
         });
     }
 
+    /*******************************************************
+     allow the manager to search the book by name
+     ********************************************************/
     public  void doSearch()
     {
         //set seatch button
@@ -116,7 +124,14 @@ public class ManagerViewBooksActivity extends AppCompatActivity {
     }
 
 
+<<<<<<< HEAD
     public void setListView(final List<Book> bookList)
+=======
+    /*******************************************************
+     set the listView for the given book list.
+     ********************************************************/
+    public void setListView(final ArrayList<Book> bookList)
+>>>>>>> fa387a19406f7f2c37c4e28665cda06bf5e2089a
     {
         //set books' listView
         BookAdapter adapter = new BookAdapter(ManagerViewBooksActivity.this,

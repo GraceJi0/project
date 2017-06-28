@@ -9,17 +9,13 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
+import java.util.List;
 
 import comp3350project.bookorderingsystem.R;
-import comp3350project.bookorderingsystem.business.AccessBook;
 import comp3350project.bookorderingsystem.business.AccessCustomer;
 import comp3350project.bookorderingsystem.objects.Book;
 
-/**
- * Created by dinghanji on 2017-06-15.
- */
 
 public class MyAccountActivity extends AppCompatActivity
 {
@@ -57,6 +53,10 @@ public class MyAccountActivity extends AppCompatActivity
         TextView account = (TextView)findViewById(R.id.accountText);
         account.setText(accountName);
     }
+
+    /*******************************************************
+     set log out button
+     ********************************************************/
     public void logOut()
     {
         Button showLogOut=(Button)findViewById(R.id.logOutButton);
@@ -74,7 +74,11 @@ public class MyAccountActivity extends AppCompatActivity
             }
         });
     }
-    public void setCartListView(final ArrayList<Book> bookList)
+
+    /*******************************************************
+     set the cart listView for the given book list
+     ********************************************************/
+    public void setCartListView(final List<Book> bookList)
     {
         //set books' listView
         BookWithCheckboxAdapter adapter = new BookWithCheckboxAdapter(MyAccountActivity.this,
@@ -99,7 +103,10 @@ public class MyAccountActivity extends AppCompatActivity
         });
     }
 
-    public void setWishListListView(final ArrayList<Book> bookList)
+    /*******************************************************
+     set the wish list listView for the given book list
+     ********************************************************/
+    public void setWishListListView(final List<Book> bookList)
     {
         //set books' listView
         BookWithCheckboxAdapter adapter = new BookWithCheckboxAdapter(MyAccountActivity.this,
@@ -124,6 +131,9 @@ public class MyAccountActivity extends AppCompatActivity
         });
     }
 
+    /*******************************************************
+     when click on delete button, delete from the customer's cart
+     ********************************************************/
     public void setCartDeleteButton(final BookWithCheckboxAdapter adapter)
     {
         Button deleteCart = (Button)findViewById(R.id.delete1But);
@@ -142,6 +152,9 @@ public class MyAccountActivity extends AppCompatActivity
         });
     }
 
+    /*******************************************************
+     when click on delete button, delete from the customer's wish list
+     ********************************************************/
     public void setWishListListDeleteButton(final BookWithCheckboxAdapter adapter)
     {
         Button deleteWishList = (Button)findViewById(R.id.delete2But);

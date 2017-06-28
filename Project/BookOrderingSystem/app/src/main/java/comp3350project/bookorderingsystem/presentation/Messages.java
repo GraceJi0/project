@@ -5,6 +5,9 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import comp3350project.bookorderingsystem.R;
 
+/*******************************************************
+ set the sign in and sign up alert dialog
+ ********************************************************/
 public class Messages {
     public static void fatalError(final Activity owner, String message) {
         AlertDialog alertDialog = new AlertDialog.Builder(owner).create();

@@ -14,7 +14,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class AccessCustomerTest{
+public class TestAccessCustomer{
     Customer tmp;
     AccessCustomer testAccess;
 

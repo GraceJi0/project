@@ -13,7 +13,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class AccessBookTest
+public class TestAccessBook
 {
     Book tmp;    //the temp book
     AccessBook testAccess;

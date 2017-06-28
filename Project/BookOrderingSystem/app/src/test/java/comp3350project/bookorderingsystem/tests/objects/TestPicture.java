@@ -9,7 +9,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class PictureTest
+public class TestPicture
 {
     @Before
     public void setUp()

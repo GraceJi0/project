@@ -8,10 +8,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
-<<<<<<< HEAD
 import java.util.List;
-=======
->>>>>>> fa387a19406f7f2c37c4e28665cda06bf5e2089a
 import java.util.ArrayList;
 import comp3350project.bookorderingsystem.R;
 import comp3350project.bookorderingsystem.business.AccessBook;
@@ -147,14 +144,11 @@ public class SearchCategoryActivity extends AppCompatActivity {
         });
     }
 
-<<<<<<< HEAD
-    public void setListView(final List<Book> booksList)
-=======
+
     /*******************************************************
      set the list view for the given book list
      ********************************************************/
-    public void setListView(final ArrayList<Book> booksList)
->>>>>>> fa387a19406f7f2c37c4e28665cda06bf5e2089a
+    public void setListView(final List<Book> booksList)
     {
         BookAdapter adapter = new BookAdapter(SearchCategoryActivity.this,
                 R.layout.book_item,booksList);

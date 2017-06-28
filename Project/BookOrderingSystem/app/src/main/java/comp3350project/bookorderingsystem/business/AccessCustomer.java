@@ -1,29 +1,19 @@
 package comp3350project.bookorderingsystem.business;
 
-import android.util.Log;
-
-import java.util.ArrayList;
 import java.util.List;
 import comp3350project.bookorderingsystem.application.Main;
 import comp3350project.bookorderingsystem.application.Service;
 import comp3350project.bookorderingsystem.objects.Book;
 import comp3350project.bookorderingsystem.objects.Customer;
 import comp3350project.bookorderingsystem.persistence.DataAccess;
-import comp3350project.bookorderingsystem.persistence.DataAccessStub;
-
-/**
- * Created by dinghanji on 2017-05-29.
- */
 
 public class AccessCustomer
 {
-    //private DataAccessStub dataAccess;
-    private DataAccess dataAccess;////////////////////////////////////////////////////////////////////
+    private DataAccess dataAccess;
 
     public AccessCustomer()
     {
-        //dataAccess = (DataAccessStub) Service.getDataAccess(Main.dbName);
-        dataAccess = (DataAccess) Service.getDataAccess(Main.dbName);/////////////////////////////////////////////////
+        dataAccess = (DataAccess) Service.getDataAccess(Main.dbName);
     }
 
     public boolean addCustomer(Customer newCustomer)
@@ -33,10 +23,6 @@ public class AccessCustomer
 
     public List<Customer> getCustomerList(){return dataAccess.getCustomerList();}
 
-    public double OrderAmount(Customer newCustomer)
-    {
-        return newCustomer.getOrderAmount();
-    }
 
     public boolean checkAccount(String account)
     {
@@ -147,7 +133,7 @@ public class AccessCustomer
         }
     }
 
-    public ArrayList<Book> getCustomerCart(String customerName)
+    public List<Book> getCustomerCart(String customerName)
     {
         List<Customer> customerList = getCustomerList();
         int index = 0;
@@ -167,7 +153,7 @@ public class AccessCustomer
         return customer.getCart();
     }
 
-    public ArrayList<Book> getCustomerWishList(String customerName)
+    public List<Book> getCustomerWishList(String customerName)
     {
         List<Customer> customerList = getCustomerList();
         int index = 0;
@@ -205,7 +191,6 @@ public class AccessCustomer
                     break;
                 }
             }
-            //Log.d("------",customer.getName());
             index++;
         }
         return verify;

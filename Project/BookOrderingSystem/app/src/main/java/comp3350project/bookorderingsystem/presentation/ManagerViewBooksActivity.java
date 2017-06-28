@@ -124,14 +124,10 @@ public class ManagerViewBooksActivity extends AppCompatActivity {
     }
 
 
-<<<<<<< HEAD
-    public void setListView(final List<Book> bookList)
-=======
     /*******************************************************
      set the listView for the given book list.
      ********************************************************/
-    public void setListView(final ArrayList<Book> bookList)
->>>>>>> fa387a19406f7f2c37c4e28665cda06bf5e2089a
+    public void setListView(final List<Book> bookList)
     {
         //set books' listView
         BookAdapter adapter = new BookAdapter(ManagerViewBooksActivity.this,

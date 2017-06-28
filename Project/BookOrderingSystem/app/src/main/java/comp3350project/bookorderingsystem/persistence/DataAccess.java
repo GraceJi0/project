@@ -24,9 +24,9 @@ public interface DataAccess
 
     boolean addCustomer(Customer newCustomer);
 
-    boolean updateCustomer(Customer theCustomer);
+   /* boolean updateCustomer(Customer theCustomer);
 
-    boolean deleteCustomer(Customer theCustomer);
+    boolean deleteCustomer(Customer theCustomer);*/
 
     ArrayList<Book> getBookList();
 
@@ -34,6 +34,6 @@ public interface DataAccess
 
     boolean updateBook(Book old,Book theBook);  //old represents the object contains old data, theBook object contains the new data
 
-    boolean deleteBook(Book theBook);
+   /* boolean deleteBook(Book theBook);*/
 
 }

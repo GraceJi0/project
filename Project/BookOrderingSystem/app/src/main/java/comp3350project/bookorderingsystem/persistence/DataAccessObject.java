@@ -2,6 +2,7 @@ package comp3350project.bookorderingsystem.persistence;
 
 import android.app.ExpandableListActivity;
 
+import java.sql.Array;
 import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -35,9 +36,6 @@ public class DataAccessObject implements DataAccess
 
 	private static String EOF = "  ";
 
-	private ArrayList<Book> bookList;
-	private ArrayList<Customer> customerList;
-
 	public DataAccessObject(String dbName)
 	{
 		this.dbName = dbName;
@@ -59,8 +57,6 @@ public class DataAccessObject implements DataAccess
 			st2 = c1.createStatement();
 			st3 = c1.createStatement();
 
-			bookList = new ArrayList<Book>();
-			customerList = new ArrayList<Customer>();
 			ImageList = new ArrayList<Picture>();
 			initialImageList();
 		}
@@ -101,27 +97,22 @@ public class DataAccessObject implements DataAccess
 
 	public ArrayList<Customer> getCustomerList()
 	{
-		customerList.clear();
-		AccessBook getBook = new AccessBook();
-
-		ArrayList<Book> customerCart = new ArrayList<Book>();
-		ArrayList<Book> customerWishList = new ArrayList<Book>();  //initialize to null
+		ArrayList<Customer> customerList = new ArrayList<Customer>();   //initialize a new list to store the customers
+		ArrayList<Book>wishlist = new ArrayList<Book>();   //the wish list of one customer
+		ArrayList<Book>cart = new ArrayList<Book>();   //the cart of one customer
 
 		try
 		{
 			cmdString = "select * from customer";
 			rs2 = st1.executeQuery(cmdString);
-		}
-		catch (Exception e)
-		{
-			warn = processSQLError(e);
-		}
-		try
-		{
+
+			System.out.println("%%%%%%trying to get the customer list");
 			while(rs2.next())
 			{
 				String name = rs2.getString("name");  //name of the customer
 				String pwd = rs2.getString("password");  //password
+
+				System.out.println("in the getCustomerList, name now is: "+name);
 
 				Customer theCustomer = new Customer(name, pwd);  //a customer is find and ready to store
 
@@ -139,41 +130,11 @@ public class DataAccessObject implements DataAccess
 
 					//the wishlist and the cart
 
-				try
-				{
-					cmdString = ("select * from wishlist where customer ='"+name+"'");  //get the wishlist
-					rs3 = st2.executeQuery(cmdString);
-					while (rs3.next())  //get the wishlist (the book name)
-					{
-						Book theBook = getBook.searchBook(rs3.getString("book"));
-						if(theBook!=null)
-						{
-							theCustomer.addToWishList(theBook);
-						}
-					}
-				}
-				catch(Exception e)
-				{
-					warn = processSQLError(e);
-				}
+				wishlist = getWishList(theCustomer);
+				theCustomer.setWishList(wishlist);
 
-				try
-				{
-					cmdString = ("select * from cart where customer ='"+name+"'");  //get the cart
-					rs3 = st2.executeQuery(cmdString);
-					while (rs3.next())  //get the cart (the book name)
-					{
-						Book theBook = getBook.searchBook(rs3.getString("book"));
-						if(theBook!=null)
-						{
-							theCustomer.addToCart(theBook);
-						}
-					}
-				}
-				catch(Exception e)
-				{
-					warn = processSQLError(e);
-				}
+				cart = getCart(theCustomer);
+				theCustomer.setCart(cart);
 
 				customerList.add(theCustomer);
 			}
@@ -183,6 +144,32 @@ public class DataAccessObject implements DataAccess
 			warn = processSQLError(e);
 		}
 		return customerList;
+	}
+
+	public ArrayList<Book> getCart(Customer theCustomer)
+	{
+		ArrayList<Book> theList = new ArrayList<Book>();
+		AccessBook getBook = new AccessBook();
+		String name = theCustomer.getName();
+
+		try
+		{
+			cmdString = ("select * from cart where customerName='"+name+"'");  //get the cart
+			rs3 = st2.executeQuery(cmdString);
+			while (rs3.next())  //get the cart (the book name)
+			{
+				Book theBook = getBook.searchBook(rs3.getString("bookName"));
+				if(theBook!=null)
+				{
+					theList.add(theBook);
+				}
+			}
+		}
+		catch(Exception e)
+		{
+			warn = processSQLError(e);
+		}
+		return theList;
 	}
 
 	public boolean addToCart(Customer customer, Book book)
@@ -196,10 +183,20 @@ public class DataAccessObject implements DataAccess
 				try
 				{
 					values = "'" + customer.getName() + "', '" + book.getName() + "'";  //assign the book to customer cart
-					cmdString = "Insert into cart " + " Values(" + values + ")";
+					cmdString = "insert into cart " + "values(" + values + ")";
 					updateCount = st1.executeUpdate(cmdString);
 					result = true;
 					warn = checkWarning(st1, updateCount);
+
+
+					cmdString = "select * from customer";
+					rs2 = st1.executeQuery(cmdString);
+					System.out.println("######################################now is "+customer.getName());
+					while(rs2.next())
+					{
+						System.out.println(rs2.getString("name"));
+					}
+
 				} catch (Exception e) {
 					warn = processSQLError(e);
 					result = false;
@@ -223,7 +220,7 @@ public class DataAccessObject implements DataAccess
 				warn = null;
 				try
 				{
-					where = "where customer='" + customer.getName() + "' and book='" + book.getName() + "'";
+					where = "where customerName='" + customer.getName() + "' and bookName='" + book.getName() + "'";
 					cmdString = "delete from cart " + where;
 					updateCount = st1.executeUpdate(cmdString);
 					result = true;
@@ -241,6 +238,31 @@ public class DataAccessObject implements DataAccess
 		return result;
 	}
 
+	public ArrayList<Book> getWishList(Customer theCustomer)
+	{
+		ArrayList<Book> theList = new ArrayList<Book>();
+		AccessBook getBook = new AccessBook();
+		String name = theCustomer.getName();
+		try
+		{
+			cmdString = ("select * from wishlist where customerName='"+name+"'");  //get the wishlist
+			rs3 = st2.executeQuery(cmdString);
+			while (rs3.next())  //get the wishlist (the book name)
+			{
+				Book theBook = getBook.searchBook(rs3.getString("bookName"));
+				if(theBook!=null)
+				{
+					theList.add(theBook);
+				}
+			}
+		}
+		catch(Exception e)
+		{
+			warn = processSQLError(e);
+		}
+		return theList;
+	}
+
 	public boolean addToWishList(Customer customer, Book book)
 	{
 		if (validCustomer(customer)) //add only when the customer is valid
@@ -252,7 +274,7 @@ public class DataAccessObject implements DataAccess
 				try
 				{
 					values = "'" + customer.getName() + "', '" + book.getName() + "'";  //assign the book to customer cart
-					cmdString = "Insert into wishlist " + " Values(" + values + ")";
+					cmdString = "insert into wishlist " + "values(" + values + ")";
 					updateCount = st1.executeUpdate(cmdString);
 					result = true;
 					warn = checkWarning(st1, updateCount);
@@ -279,7 +301,7 @@ public class DataAccessObject implements DataAccess
 				warn = null;
 				try
 				{
-					where = "where customer='" + customer.getName() + "' and book='" + book.getName() + "'";
+					where = "where customerName='" + customer.getName() + "' and bookName='" + book.getName() + "'";
 					cmdString = "delete from wishlist " + where;
 					updateCount = st1.executeUpdate(cmdString);
 					result = true;
@@ -301,22 +323,21 @@ public class DataAccessObject implements DataAccess
 	{
 		if(theCustomer != null)  //customer cannot be null
 		{
-			if (!theCustomer.getName().equals("")) {
-				String name = theCustomer.getName();  //get the name
-				if ((!name.equals("")) && (!name.equals(" "))) {
-					return true;
-				}
-				else
-					return false;  //the name cannot be empty
+			String name = theCustomer.getName();  //get the name
+			if ((!name.equals("")) && (!name.equals(" ")))
+			{
+				return true;
 			}
 			else
-				return false;  //null name, considered invalid
+				return false;  //the name cannot be empty
 		}
 		else
 			return false;
 	}
 
-	public boolean addCustomer(Customer newCustomer) {//tested, no problem
+	public boolean addCustomer(Customer newCustomer)
+	{
+		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$adding customer, name: "+newCustomer.getName());
 		if (validCustomer(newCustomer)) //add only when the customer is valid
 		{
 			String values;
@@ -324,8 +345,8 @@ public class DataAccessObject implements DataAccess
 			warn = null;
 			try
 			{
-				values = "'" + newCustomer.getName() + "', '" +newCustomer.getPassword()+"', '', '', '', '', ''";  //initial customer card number to be -1(no number)
-				cmdString = "Insert into customer " + " Values(" + values + ")";
+				values = "'" + newCustomer.getName() + "', '" +newCustomer.getPassword()+"', '', '', ''";  //initial customer card number to be -1(no number)
+				cmdString = "insert into customer " + " values(" + values + ")";
 				updateCount = st1.executeUpdate(cmdString);
 				result = true;
 				warn = checkWarning(st1, updateCount);
@@ -339,6 +360,7 @@ public class DataAccessObject implements DataAccess
 		return result;
 	}
 
+	/*
 	public boolean updateCustomer(Customer theCustomer)
 	{
 		if(validCustomer(theCustomer))
@@ -397,14 +419,17 @@ public class DataAccessObject implements DataAccess
 			result = false;
 		}
 		return result;
-	}
+	}*/
 
-	public ArrayList<Book> getBookList() {
-		bookList.clear();
+	public ArrayList<Book> getBookList()
+	{
+		ArrayList<Book> bookList;
+		bookList = new ArrayList<Book>();
+
 		try
 		{
 			cmdString = "select * from book";
-			rs2 = st1.executeQuery(cmdString);
+			rs5 = st3.executeQuery(cmdString);
 		}
 		catch (Exception e)
 		{
@@ -413,15 +438,15 @@ public class DataAccessObject implements DataAccess
 
 		try
 		{
-			while(rs2.next())
+			while(rs5.next())
 			{
-				String name = rs2.getString("name");
-				String author = rs2.getString("author");
-				String info = rs2.getString("info");
-				double price = rs2.getDouble("price");
-				String category = rs2.getString("category");
-				int instock = rs2.getInt("numberinstock");
-				int pid = rs2.getInt("pictureid");	//the picture id
+				String name = rs5.getString("name");
+				String author = rs5.getString("author");
+				String info = rs5.getString("info");
+				double price = rs5.getDouble("price");
+				String category = rs5.getString("category");
+				int instock = rs5.getInt("numberinstock");
+				int pid = rs5.getInt("pictureid");	//the picture id
 
 				int picture = R.drawable.noimage;	//try to get the picture, but assume not found at the beginning
 
@@ -586,7 +611,7 @@ public class DataAccessObject implements DataAccess
 			result = false;
 		return result;
 	}
-
+/*
 	public boolean deleteBook(Book theBook)
 	{
 		String values;
@@ -606,7 +631,7 @@ public class DataAccessObject implements DataAccess
 		}
 		return result;
 	}
-
+*/
 
 	public String checkWarning(Statement st, int updateCount)
 	{

@@ -128,7 +128,7 @@ public class DataAccessStub implements DataAccess
             return false;
         }
     }
-
+/*
     public boolean updateCustomer(Customer theCustomer)
     {
         return true;///////////////////////////////////////////////////
@@ -149,7 +149,7 @@ public class DataAccessStub implements DataAccess
             System.out.println("delete customer error: customer not exist");
             return false;
         }
-    }
+    }*/
 
 
     public ArrayList<Book> getBookList()
@@ -228,8 +228,8 @@ public class DataAccessStub implements DataAccess
         return true;
     }
 
-    public boolean deleteBook(Book theBook)
+   /* public boolean deleteBook(Book theBook)
     {
         return true;
-    }
+    }*/
 }

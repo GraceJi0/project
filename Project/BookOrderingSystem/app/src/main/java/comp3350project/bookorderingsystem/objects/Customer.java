@@ -65,6 +65,11 @@ public class Customer
 
     public ArrayList<Book> getWishList(){return customerWishList;}
 
+    public void setCart(ArrayList<Book> theList)
+    {
+        customerCart = new ArrayList<>(theList);
+    }
+
     public void addToCart(Book newBook)
     {
         customerCart.add(newBook);
@@ -79,6 +84,11 @@ public class Customer
         {
             customerCart.remove(index);
         }
+    }
+
+    public void setWishList(ArrayList<Book> theList)
+    {
+        customerWishList = new ArrayList<>(theList);
     }
 
     public void addToWishList(Book newBook)

@@ -2,10 +2,10 @@ CREATE SCHEMA PUBLIC AUTHORIZATION DBA
 
 /*create new tables*/
 create memory table book(name varchar(100) not null primary key, author varchar(50) not null, info varchar(500), price float, category varchar(50), numberinstock int, pictureid int)
-create memory table customer(name varchar(20) not null primary key, password varchar(30), cart varchar(100), wishlist varchar(100), cardnumber varchar(20), email varchar(50), address varchar(100))
+create memory table customer(name varchar(20) not null primary key, password varchar(30), cardnumber varchar(20), email varchar(50), address varchar(100))
 
-create memory table wishlist(customer varchar(20), book varchar(100))
-create memory table cart(customer varchar(20), book varchar(100))
+create memory table wishlist(customerName varchar(20), bookName varchar(100))
+create memory table cart(customerName varchar(20), bookName varchar(100))
 
 CREATE USER SA PASSWORD ""
 GRANT DBA TO SA
@@ -13,7 +13,7 @@ SET WRITE_DELAY 20
 SET SCHEMA PUBLIC
 
 /*insert data for books into the database*/
-insert into book values('The Orphan''s Tale: A Novel', ' Pam Jenoff', 'A powerful novel of friendship set in a traveling circus during World War II ', 10.49, 'Fiction', 1, 1)
+/*insert into book values('The Orphan''s Tale: A Novel', ' Pam Jenoff', 'A powerful novel of friendship set in a traveling circus during World War II ', 10.49, 'Fiction', 1, 1)hide this*/
 insert into book values('The German Girl: A Novel', 'Armando Lucas Correa', 'A stunningly ambitious and beautiful novel.', 29.50, 'Fiction', 2, 2)
 insert into book values('Ginny Moon: A Novel', 'Benjamin Ludwig', '"A brilliant debut." —Graeme Simsion, New York Times bestselling author of The Rosie Project', 30.45, 'Fiction', 4, 3)
 insert into book values('Neonatal Resuscitation', 'Gary M Weiner', 'Powerful resource for interactive, simulation-based teaching and learning.', 82.32, 'TextBooks', 5, 4)
@@ -24,13 +24,13 @@ insert into book values('Out of Africa', 'Isak Dinesen', 'Selected by the Modern
 insert into book values('A Book That Takes Its Time', 'Irene Smit, Astrid van der Hulst', 'An Unhurried Adventure in Creative.', 26.38, 'other', 1, 9)
 
 /*--------------------------------------------insert customer*/
-insert into customer values('dmb001', '0000', '', '', '', '', '')
-insert into customer values('tyui', '1111', '', '', '', '', '')
-insert into customer values('ghjk', '2222', '', '', '', '', '')
-insert into customer values('szxcv', '3333', '', '', '', '', '')
-insert into customer values('asdf', '1234', '', '', '', '', '')
-insert into customer values('qwer', '4444', '', '', '', '', '')
-insert into customer values('1', '1', '', '', '', '', '')
-insert into customer values('svbnm', '5555', '', '', '', '', '')
+insert into customer values('dmb001', '0000', '', '', '')
+insert into customer values('tyui', '1111', '', '', '')
+insert into customer values('ghjk', '2222', '', '', '')
+insert into customer values('szxcv', '3333', '', '', '')
+insert into customer values('asdf', '1234', '', '', '')
+insert into customer values('qwer', '4444', '', '', '')
+insert into customer values('1', '1', '', '', '')
+insert into customer values('svbnm', '5555', '', '', '')
 
-INSERT INTO CUSTOMER VALUES('SQL', 'YES', '', '', '', '', '')
+insert into customer values('SQL', 'YES', '', '', '')

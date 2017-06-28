@@ -10,6 +10,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
+import java.util.List;
+
 import comp3350project.bookorderingsystem.R;
 import comp3350project.bookorderingsystem.business.AccessCustomer;
 import comp3350project.bookorderingsystem.objects.Book;
@@ -76,7 +78,7 @@ public class MyAccountActivity extends AppCompatActivity
     /*******************************************************
      set the cart listView for the given book list
      ********************************************************/
-    public void setCartListView(final ArrayList<Book> bookList)
+    public void setCartListView(final List<Book> bookList)
     {
         //set books' listView
         BookWithCheckboxAdapter adapter = new BookWithCheckboxAdapter(MyAccountActivity.this,
@@ -104,7 +106,7 @@ public class MyAccountActivity extends AppCompatActivity
     /*******************************************************
      set the wish list listView for the given book list
      ********************************************************/
-    public void setWishListListView(final ArrayList<Book> bookList)
+    public void setWishListListView(final List<Book> bookList)
     {
         //set books' listView
         BookWithCheckboxAdapter adapter = new BookWithCheckboxAdapter(MyAccountActivity.this,

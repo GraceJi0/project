@@ -1,6 +1,7 @@
 package comp3350project.bookorderingsystem.business;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import comp3350project.bookorderingsystem.application.Main;
 import comp3350project.bookorderingsystem.application.Service;
@@ -163,7 +164,7 @@ public class AccessCustomer
     /*******************************
      * get the customer's cart by the given customer name
      ******************************/
-    public ArrayList<Book> getCustomerCart(String customerName)
+    public List<Book> getCustomerCart(String customerName)
     {
         ArrayList<Customer> customerList = getCustomerList();
         int index = 0;
@@ -186,7 +187,7 @@ public class AccessCustomer
     /*******************************
      * get the customer's wish list by the given customer name
      ******************************/
-    public ArrayList<Book> getCustomerWishList(String customerName)
+    public List<Book> getCustomerWishList(String customerName)
     {
         ArrayList<Customer> customerList = getCustomerList();
         int index = 0;

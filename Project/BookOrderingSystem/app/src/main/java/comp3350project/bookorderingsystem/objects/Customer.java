@@ -1,6 +1,7 @@
 package comp3350project.bookorderingsystem.objects;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Customer
 {
@@ -42,9 +43,9 @@ public class Customer
         address = newAddress;
     }
 
-    public ArrayList<Book> getCart(){return customerCart;}
+    public List<Book> getCart(){return customerCart;}
 
-    public ArrayList<Book> getWishList(){return customerWishList;}
+    public List<Book> getWishList(){return customerWishList;}
 
     public void setCart(ArrayList<Book> theList)
     {

@@ -159,6 +159,12 @@ public class MainActivity extends AppCompatActivity {
                                     "please ensure passwords are same",
                                     Toast.LENGTH_SHORT).show();
                         }
+                        else if(accessCustomer.checkAccount(signupAccount.getText().toString()))
+                        {
+                            Toast.makeText(MainActivity.this,
+                                    "Account already exist",
+                                    Toast.LENGTH_SHORT).show();
+                        }
                         else
                         {
                             Signupdialog.dismiss();

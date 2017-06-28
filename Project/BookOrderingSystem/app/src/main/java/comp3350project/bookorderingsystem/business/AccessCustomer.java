@@ -38,6 +38,20 @@ public class AccessCustomer
         return newCustomer.getOrderAmount();
     }
 
+    public boolean checkAccount(String account)
+    {
+        boolean result=false;
+        ArrayList<Customer> customerList = getCustomerList();
+        for(int i=0;i<customerList.size();i++)
+        {
+            if(customerList.get(i).getName().compareTo(account)==0)
+            {
+                result=true;
+            }
+        }
+        return result;
+    }
+
     public String[] getCustomerAccount()
     {
         ArrayList<Customer> customerList = getCustomerList();

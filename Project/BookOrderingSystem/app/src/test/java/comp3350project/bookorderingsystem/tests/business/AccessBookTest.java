@@ -1,7 +1,5 @@
 package comp3350project.bookorderingsystem.tests.business;
 
-import junit.framework.TestCase;
-
 import comp3350project.bookorderingsystem.application.Service;
 import comp3350project.bookorderingsystem.application.Main;
 
@@ -10,20 +8,26 @@ import comp3350project.bookorderingsystem.objects.Book;
 
 import comp3350project.bookorderingsystem.persistence.DataAccessStub;
 
-public class AccessBookTest extends TestCase
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+public class AccessBookTest
 {
     Book tmp;    //the temp book
     AccessBook testAccess;
 
     private static String dbName = Main.dbName;
 
-    public AccessBookTest(String arg0)
+    @Before
+    public void setUp()
     {
-        super(arg0);
+
     }
 
-
-    public void test1()
+    @Test
+    public void testAccessBook()
     {
 
         Service.closeDataAccess();

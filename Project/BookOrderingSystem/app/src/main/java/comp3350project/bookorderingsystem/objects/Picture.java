@@ -19,4 +19,9 @@ public class Picture{
     {
         return picture;
     }
+
+    public void setPicture(int picture)
+    {
+        this.picture = picture;
+    }
 }

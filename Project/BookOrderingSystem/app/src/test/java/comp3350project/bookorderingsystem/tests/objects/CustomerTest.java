@@ -1,16 +1,21 @@
 package comp3350project.bookorderingsystem.tests.objects;
 
-import junit.framework.TestCase;
-
 import comp3350project.bookorderingsystem.objects.Customer;
 
-public class CustomerTest extends TestCase
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+public class CustomerTest
 {
-	public CustomerTest(String arg0)
+	@Before
+	public void setUp()
 	{
-		super(arg0);
+
 	}
 
+	@Test
 	public void testCustomer()
 	{
 		Customer theCus;

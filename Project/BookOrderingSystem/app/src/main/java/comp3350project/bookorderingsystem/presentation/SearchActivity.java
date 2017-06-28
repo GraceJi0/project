@@ -3,8 +3,11 @@ package comp3350project.bookorderingsystem.presentation;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.ArrayAdapter;
 import android.view.View;
@@ -21,165 +24,168 @@ import comp3350project.bookorderingsystem.R;
 import java.util.ArrayList;
 
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class SearchActivity extends AppCompatActivity {
-    private DataAccessStub dataAccess;
     private ArrayList<Book> books;
-    private ArrayAdapter<Book> bookArrayAdapter;
     private ListView listView;
-    private ArrayList<Book> founds;
-    private String message;
+    private String accountName;
+    private AccessBook accessBook;
 
-    public final static String EXTRA_MESSAGE = "comp3010_group10.bookordering.MESSAGE";
-
+    private  String search;
+    //public final static String EXTRA_MESSAGE = "comp3010_group10.bookordering.MESSAGE";
+    ArrayList<Book> found;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-        AccessBook  accessBook= new AccessBook();
-        books=accessBook.getBookList();
+        accessBook= new AccessBook();
+        books = accessBook.getBookList();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
         Intent intent = getIntent();
-        message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-        String search = message;    //get the name of the book
-        String output = ""; //display the searching result
-        searchBook(search);
+        String[] message = intent.getStringArrayExtra("search");
+        search = message[0];
+        accountName = message[1];
 
-        TextView textView = (TextView) findViewById(R.id.Searchkey);
-        textView.setTextSize(20);
+        found = doSearch(search);
+        setSearchButton();
+        setMyAccountButton();
+        logOut();
+        sortList();
 
-        String limit = "";   //make only MAX_NUM chars can be view
-        char[] splitMessage = search.toCharArray();
-        int MAX_NUM = 20;   //max number of char to display
-        int i = 0;  //only display first 10 available chars
-        while ((i < MAX_NUM) && (i < splitMessage.length)) {
-            limit += String.valueOf(splitMessage[i]);
-            i++;
-        }
-        if (splitMessage.length > MAX_NUM)
-            limit += "...";
 
-        if(founds.size()==0)
+    }
+
+    public void sortList(){
+
+        Spinner spinner = (Spinner) findViewById(R.id.selectSort);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.sortArray, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinner.setAdapter(adapter);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                // = doSearch(search);
+                Log.d("The search is ",search);
+                ArrayList<Book> sorted= accessBook.sortBookBy(parent.getItemAtPosition(position).toString(),found);
+
+                Toast.makeText(getBaseContext(),parent.getItemAtPosition(position)+" selected",Toast.LENGTH_LONG).show();
+
+                setListView(sorted);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                Log.d("Nothing~~~~~~~~~`","here");
+            }
+        });
+    }
+
+    public void logOut()
+    {
+        Button showLogOut=(Button)findViewById(R.id.logOutButton);
+        showLogOut.setOnClickListener(new View.OnClickListener()
         {
-            output="No result about: \"";
-            output += limit;
-            output += "\", try:";
-            textView.setText(output);
+            public void onClick(View view)
+            {
+                accountName="";;
+                Intent intent = new Intent(SearchActivity.this, MainActivity.class);
+                intent.putExtra("name",accountName );
+                startActivity(intent);
+                Toast.makeText(SearchActivity.this,
+                        "Log out successful",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public ArrayList<Book> doSearch(String searchKey)
+    {
+        ArrayList<Book> found = accessBook.searchBookContain(searchKey);
+        Log.d("do the search now","right now\n");
+        if((found == null)||(found.size()==0))
+        {
+            //if we didn't find any books
+            TextView message = (TextView)findViewById(R.id.Searchkey);
+            message.setText("No result about: "+searchKey+", try");
+            //books = accessBook.sortBookBy(parent.getItemAtPosition(position).toString());
+            //sortList();
+            setListView(books);
+
+            return books;
         }
         else
         {
-            output = "Showing books with: \"";
-            output += limit;
-            output += "\"";
-            textView.setText(output);
+            TextView message = (TextView)findViewById(R.id.Searchkey);
+            message.setText("Showing books with: "+searchKey);
+            setListView(found);
+           // sortList();
         }
-        ViewGroup layout = (ViewGroup) findViewById(R.id.activity_search);
-        //layout.addView(textView);
-        ////////////////////
-        if(founds.size() != 0)
-        {
-            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Book book = founds.get(position);
-                    String bookName = book.getName();
-                    Intent init = new Intent(SearchActivity.this, ViewBookActivity.class);
-                    init.putExtra("message", bookName);
-                    startActivity(init);
-                    //Toast.makeText(SearchActivity.this,bookName,Toast.LENGTH_SHORT).show();
-                }
-            });
-        }
-        else
-        {
-            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Book book = books.get(position);
-                    String bookName = book.getName();
-                    Intent init = new Intent(SearchActivity.this, ViewBookActivity.class);
-                    init.putExtra("message", bookName);
-                    startActivity(init);
-                    //Toast.makeText(SearchActivity.this,bookName,Toast.LENGTH_SHORT).show();
-                }
-            });
-        }
+        return found;
     }
-
-    public void sendSearch(View view)
+    public  void setSearchButton()
     {
-        // Do something in response to button
-        Intent intent = new Intent(this,SearchActivity.class);
-        EditText editText = (EditText) findViewById(R.id.searchText);
-        String message = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
-    }
-
-    public void searchBook(String message)
-    {
-        if (message != null && !message.isEmpty())
+        //set seatch button
+        final Button search = (Button) findViewById(R.id.SearchBut);
+        search.setOnClickListener(new View.OnClickListener()
         {
-            int i = 0;
-            founds = new ArrayList<Book>();
-            while (i < books.size())
+            @Override
+            public void onClick(View v)
             {
-                if (books.get(i).getName().contains(message))
-                {
-                    founds.add(books.get(i));
-                }
-                i++;
+                //get the search key
+                    EditText searchKeyText = (EditText) findViewById(R.id.searchText);
+                    String searchKey = searchKeyText.getText().toString();
+                //search the book
+                doSearch(searchKey);
             }
-            if(founds.size()!=0)
-            {
-                ArrayAdapter<Book> bookArrayAdapter = new ArrayAdapter<Book>(this, android.R.layout.simple_list_item_2, android.R.id.text1, founds) {
-                    public View getView(int position, View convertView, ViewGroup parent)
-                    {
-                        View view = super.getView(position, convertView, parent);
-                        TextView text1 = (TextView) view.findViewById(android.R.id.text1);
-                        TextView text2 = (TextView) view.findViewById(android.R.id.text2);
-                        text1.setText(founds.get(position).getName());
-                        text2.setText("Author: " + founds.get(position).getBookAuthor() + "         $" + founds.get(position).getBookPrice());
-                        return view;
-                    }
-                };
-                listView = (ListView) findViewById(R.id.listview);
-                listView.setAdapter(bookArrayAdapter);
-            }
-            else
-            {
-                ArrayAdapter<Book> bookArrayAdapter = new ArrayAdapter<Book>(this, android.R.layout.simple_list_item_2, android.R.id.text1, books) {
-                    public View getView(int position, View convertView, ViewGroup parent)
-                    {
-                        View view = super.getView(position, convertView, parent);
-                        TextView text1 = (TextView) view.findViewById(android.R.id.text1);
-                        TextView text2 = (TextView) view.findViewById(android.R.id.text2);
-                        text1.setText(books.get(position).getName());
-                        text2.setText("Author: " + books.get(position).getBookAuthor() + "         $" + books.get(position).getBookPrice());
-                        return view;
-                    }
-                };
-                listView = (ListView) findViewById(R.id.listview);
-                listView.setAdapter(bookArrayAdapter);
-            }
-        } else
-            {
-            founds = new ArrayList<Book>();
-            ArrayAdapter<Book> bookArrayAdapter = new ArrayAdapter<Book>(this, android.R.layout.simple_list_item_2, android.R.id.text1, books) {
-                public View getView(int position, View convertView, ViewGroup parent)
-                {
-                    View view = super.getView(position, convertView, parent);
-                    TextView text1 = (TextView) view.findViewById(android.R.id.text1);
-                    TextView text2 = (TextView) view.findViewById(android.R.id.text2);
-                    text1.setText("Book Name: " + books.get(position).getName());
-                    text2.setText("Author: " + books.get(position).getBookAuthor() + "       Price: " + books.get(position).getBookPrice());
-                    return view;
-                }
-            };
-            listView = (ListView) findViewById(R.id.listview);
-            listView.setAdapter(bookArrayAdapter);
-        }
+        });
     }
 
+
+
+    public void setListView(final ArrayList<Book> bookList)
+    {
+        //set books' listView
+        BookAdapter adapter = new BookAdapter(SearchActivity.this,
+                R.layout.book_item,bookList);
+        listView = (ListView) findViewById(R.id.searchResultList);
+        listView.setAdapter(adapter);
+        Log.d("seting List view ","works");
+        //set bookList clickable
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Book book = bookList.get(position);
+                String bookName = book.getName();
+
+                //go to the edit book information page
+                Intent intent = new Intent(SearchActivity.this, ViewBookActivity.class);
+                String[] message = {bookName,accountName};
+                intent.putExtra("name and view", message);
+                startActivity(intent);
+            }
+        });
+    }
+
+    public void setMyAccountButton()
+    {
+        Button myAccount = (Button) findViewById(R.id.MyAccountButton);
+        myAccount.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(SearchActivity.this, MyAccountActivity.class);
+                intent.putExtra("name",accountName );
+                startActivity(intent);
+            }
+        });
+    }
 }

@@ -4,6 +4,7 @@ package comp3350project.bookorderingsystem.presentation;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -11,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import comp3350project.bookorderingsystem.R;
-import comp3350project.bookorderingsystem.application.Main;
 import comp3350project.bookorderingsystem.business.AccessBook;
 import comp3350project.bookorderingsystem.business.AccessCustomer;
 import comp3350project.bookorderingsystem.objects.Book;
@@ -21,19 +21,45 @@ public class ViewBookActivity extends AppCompatActivity {
 
     public final static String EXTRA_MESSAGE = "comp3010_group10.bookordering.MESSAGE";
     private Book book;
+    private String accountName;
+    AccessCustomer accessCustomer;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_book);
-        AccessCustomer accessCustomer = new AccessCustomer();
+
+        accessCustomer = new AccessCustomer();
+
         Intent intent = getIntent();
-        String bookName = intent.getStringExtra("message");
+        String[] message = intent.getStringArrayExtra("name and view");
+        String bookName = message[0];
+        accountName = message[1];
+
         AccessBook accessBook = new AccessBook();
         book = accessBook.searchBook(bookName);
         setAllText(bookName);
         setAllButton();
+        logOut();
 
     }
+
+    public void logOut() {
+        Button showLogOut = (Button) findViewById(R.id.logOutButton);
+        showLogOut.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                accountName = "";
+                ;
+                Intent intent = new Intent(ViewBookActivity.this, MainActivity.class);
+                intent.putExtra("name", accountName);
+                startActivity(intent);
+                Toast.makeText(ViewBookActivity.this,
+                        "Log out successful",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
     public void setAllText(String bookName)
     {
         TextView name = (TextView)findViewById(R.id.bookNameText);
@@ -76,9 +102,11 @@ public class ViewBookActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
+                //set toast
                 Toast.makeText(ViewBookActivity.this,"Successfully added to the shopping cart",
                         Toast.LENGTH_SHORT).show();
-
+                //add to customer's cart
+                accessCustomer.addToCart(accountName, book);
             }
         });
 
@@ -88,9 +116,25 @@ public class ViewBookActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
+                //set toast
                 Toast.makeText(ViewBookActivity.this, "Successfully added to the wish list",
                         Toast.LENGTH_SHORT).show();
+                //add to customer's wish list
+                accessCustomer.addToWishList(accountName, book);
             }
         });
+
+        Button myAccount = (Button)findViewById(R.id.myAccountButton);
+        myAccount.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(ViewBookActivity.this, MyAccountActivity.class);
+                intent.putExtra("name",accountName);
+                startActivity(intent);
+            }
+        });
+
     }
 }

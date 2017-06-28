@@ -7,6 +7,7 @@ package comp3350project.bookorderingsystem.application;
 public class Main
 {
     public static final String dbName = "BOS";
+    private static String dbPathName = "database/BOS";
 
     public static void main(String[] args)
     {
@@ -24,5 +25,19 @@ public class Main
     public static void shutDown()
     {
         Service.closeDataAccess();
+    }
+
+    public static String getDBPathName()
+    {
+        if(dbPathName == null)
+            return dbName;
+        else
+            return dbPathName;
+    }
+
+    public static void setDBPathName(String pathName)
+    {
+        System.out.println("Setting DB path to: " + pathName);
+        dbPathName = pathName;
     }
 }

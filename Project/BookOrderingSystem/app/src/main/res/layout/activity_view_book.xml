@@ -4,127 +4,145 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <Spinner
-        android:id="@+id/menu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
     <TextView
         android:id="@+id/priceText"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textColor="#FFC20D10"
-        android:textSize="50dp"
+        android:textSize="30dp"
+        tools:ignore="HardcodedText,SpUsage"
         android:layout_alignBaseline="@+id/priceText2"
         android:layout_alignBottom="@+id/priceText2"
-        android:layout_toRightOf="@+id/addWishListButton"
-        android:layout_toEndOf="@+id/addWishListButton"
-        tools:ignore="HardcodedText,SpUsage" />
+        android:layout_toRightOf="@+id/priceText2"
+        android:layout_toEndOf="@+id/priceText2"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp" />
 
     <TextView
         android:id="@+id/inStockText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="113dp"
-        android:layout_marginStart="113dp"
         android:text="TextView"
         android:textSize="20dp"
-        android:layout_alignBaseline="@+id/addToCartButton"
-        android:layout_alignBottom="@+id/addToCartButton"
-        android:layout_toRightOf="@+id/addWishListButton"
-        android:layout_toEndOf="@+id/addWishListButton"
-        tools:ignore="HardcodedText,SpUsage" />
+        tools:ignore="HardcodedText,SpUsage"
+        android:layout_alignBaseline="@+id/priceText"
+        android:layout_alignBottom="@+id/priceText"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="61dp"
+        android:layout_marginEnd="61dp" />
 
     <TextView
         android:id="@+id/bookNameText"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/addToCartButton"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/addToCartButton"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="70dp"
         android:text="TextView"
         android:textColor="#FF000000"
-        android:textSize="40dp"
-        tools:ignore="HardcodedText,SpUsage" />
+        android:textSize="35dp"
+        tools:ignore="HardcodedText,SpUsage"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/priceText2"
+        android:layout_alignStart="@+id/priceText2" />
 
     <TextView
         android:id="@+id/authorText"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/bookNameText"
         android:layout_alignStart="@+id/bookNameText"
         android:layout_below="@+id/bookNameText"
         android:layout_marginTop="11dp"
         android:text="TextView"
-        android:textSize="30dp"
+        android:textSize="25dp"
         tools:ignore="HardcodedText,SpUsage" />
 
     <Button
+        android:textColor="@color/colorPrimary"
         android:id="@+id/addToCartButton"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/addWishListButton"
+        android:text="add to cart"
+        tools:ignore="HardcodedText"
+        android:layout_below="@+id/priceText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="14dp"
-        android:layout_marginLeft="48dp"
-        android:layout_marginStart="48dp"
-        android:text="add to cart"
-        tools:ignore="HardcodedText" />
+        android:layout_marginLeft="38dp"
+        android:layout_marginStart="38dp"
+        android:layout_alignRight="@+id/logOutButton"
+        android:layout_alignEnd="@+id/logOutButton" />
 
     <Button
+        android:textColor="@color/colorPrimary"
         android:id="@+id/addWishListButton"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/addToCartButton"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/addToCartButton"
-        android:layout_marginBottom="60dp"
         android:text="add to wish list"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"
+        android:layout_below="@+id/addToCartButton"
+        android:layout_alignRight="@+id/addToCartButton"
+        android:layout_alignEnd="@+id/addToCartButton"
+        android:layout_toEndOf="@+id/bookNameText"
+        android:layout_alignLeft="@+id/addToCartButton"
+        android:layout_alignStart="@+id/addToCartButton" />
 
     <TextView
         android:id="@+id/priceText2"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="price:"
-        android:textSize="35dp"
-        android:layout_above="@+id/addToCartButton"
+        android:textSize="30dp"
+        tools:ignore="HardcodedText,SpUsage"
+        android:layout_below="@+id/picture"
         android:layout_alignLeft="@+id/addToCartButton"
         android:layout_alignStart="@+id/addToCartButton"
-        android:layout_marginBottom="25dp"
-        tools:ignore="HardcodedText,SpUsage" />
+        android:layout_marginTop="22dp" />
 
     <TextView
         android:id="@+id/informationText"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/authorText"
         android:layout_alignStart="@+id/authorText"
         android:layout_below="@+id/authorText"
         android:layout_marginTop="15dp"
         android:text="TextView"
-        android:textSize="20dp"
         tools:ignore="HardcodedText,SpUsage" />
 
     <ImageView
         android:id="@+id/picture"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_above="@+id/priceText2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="33dp"
-        android:layout_toEndOf="@+id/addToCartButton"
+        android:layout_height="250dp"
         app:srcCompat="@drawable/book7"
-        tools:ignore="ContentDescription" />
+        tools:ignore="ContentDescription"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/logOutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginTop="18dp"
+        android:text="log out" />
+
+    <Button
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/myAccountButton"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/logOutButton"
+        android:layout_toStartOf="@+id/logOutButton"
+        android:text="my account"
+        android:layout_alignTop="@+id/logOutButton" />
+
 </RelativeLayout>

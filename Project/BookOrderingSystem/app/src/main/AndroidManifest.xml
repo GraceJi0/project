@@ -22,6 +22,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".presentation.ViewBookActivity"></activity>
+        <activity android:name=".presentation.ManagerMainActivity"></activity>
+        <activity android:name=".presentation.ManagerViewBooksActivity"></activity>
+        <activity android:name=".presentation.ManagerViewCustomerActivity"></activity>
+        <activity android:name=".presentation.EditBookActivity"></activity>
+        <activity android:name=".presentation.SearchCategoryActivity"></activity>
+
+        <activity android:name=".presentation.MyAccountActivity"></activity>
+        <activity android:name=".presentation.AddBookActivity"></activity>
     </application>
 
 </manifest>

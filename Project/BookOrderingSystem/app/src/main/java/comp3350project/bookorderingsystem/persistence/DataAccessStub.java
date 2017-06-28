@@ -1,4 +1,5 @@
 package comp3350project.bookorderingsystem.persistence;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,12 +12,13 @@ import comp3350project.bookorderingsystem.objects.Customer;
  * Created by dinghanji on 2017-05-29.
  */
 
-public class DataAccessStub
+public class DataAccessStub implements DataAccess
 {
-    private ArrayList<Book> bookList;
-    private ArrayList<Customer> customerList;
     private String dbName;
     private String dbType = "stub";
+
+    private ArrayList<Book> bookList;
+    private ArrayList<Customer> customerList;
 
     public DataAccessStub(String dbName)
     {
@@ -32,6 +34,7 @@ public class DataAccessStub
     {
         bookList = new ArrayList<Book>();
         customerList=new ArrayList<Customer>();
+
         addBook(new Book("The Orphan's Tale: A Novel", " Pam Jenoff",
                 "A powerful novel of friendship set in a traveling circus during World War II ",
                 10.49,"Fiction", 1, R.drawable.book1));
@@ -47,13 +50,13 @@ public class DataAccessStub
                 "Powerful resource for interactive, simulation-based teaching and learning.",
                 82.32,"TextBooks", 5, R.drawable.book4));
 
-        addBook(new Book("he Magical Zoo #1"," Dan Jackson","Containing creative illustrations " +
+        addBook(new Book("The Magical Zoo #1"," Dan Jackson","Containing creative illustrations " +
                 "and endless imagination, this book will entertain your child and you.",
-                20.35,"Children & Young Adult", 2, R.drawable.book5));
+                20.35,"Children and Young Adult", 2, R.drawable.book5));
 
         addBook((new Book("Minecraft Steve Vs Herobrine: Herobrine Attacks!",
                 " Diary Wimpy","Herobrine has kidnapped Felicia, can Minecraft Steve save " +
-                "her in time?",10.86,"Comics & Graphic Novels", 1, R.drawable.book6)));
+                "her in time?",10.86,"Comics and Graphic Novels", 1, R.drawable.book6)));
 
         addBook(new Book("Great Food Fast"," Martha Stewart Living Magazine",
                 " 250 Recipes for Easy, Delicious Meals All Year Long ",22.16,"Magazines", 3, R.drawable.book7));
@@ -65,20 +68,44 @@ public class DataAccessStub
         addBook(new Book("A Book That Takes Its Time"," Irene Smit, Astrid van der Hulst ",
                 "An Unhurried Adventure in Creative.",26.38,"other", 1, R.drawable.book9));
 
-        addCustomer(new Customer("dmb001"));
-        addCustomer(new Customer("tyui"));
-        addCustomer(new Customer("ghjk"));
-        addCustomer(new Customer("szxcv"));
-        addCustomer(new Customer("asdf"));
-        addCustomer(new Customer("qwer"));
-        addCustomer(new Customer("svbnm"));
-
+        addCustomer(new Customer("dmb001","0000"));
+        addCustomer(new Customer("tyui","1111"));
+        addCustomer(new Customer("ghjk","2222"));
+        addCustomer(new Customer("szxcv","3333"));
+        addCustomer(new Customer("asdf","1234"));
+        addCustomer(new Customer("qwer","4444"));
+        addCustomer(new Customer("1","1"));
+        addCustomer(new Customer("svbnm","5555"));
         System.out.println("Opened " +dbType +" database " +dbName);
     }
 
     public void close()
     {
         System.out.println("Closed " +dbType +" database " +dbName);
+    }
+
+    public ArrayList<Customer> getCustomerList(){
+        return customerList;
+    }
+
+    public boolean addToCart(Customer customerName, Book bookName)
+    {
+        return true;
+    }
+
+    public boolean deleteFromCart(Customer customer, Book book)
+    {
+        return true;
+    }
+
+    public boolean addToWishList(Customer customer, Book book)
+    {
+        return true;
+    }
+
+    public boolean deleteFromWishList(Customer customer, Book book)
+    {
+        return true;
     }
 
     public boolean addCustomer(Customer newCustomer)
@@ -101,8 +128,13 @@ public class DataAccessStub
             return false;
         }
     }
+/*
+    public boolean updateCustomer(Customer theCustomer)
+    {
+        return true;///////////////////////////////////////////////////
+    }
 
-    public void deleteCustomer(Customer newCustomer)
+    public boolean deleteCustomer(Customer newCustomer)
     {
         int index;
 
@@ -110,14 +142,17 @@ public class DataAccessStub
         if (index >= 0)
         {
             customerList.remove(index);
+            return true;
         }
         else
         {
             System.out.println("delete customer error: customer not exist");
+            return false;
         }
-    }
+    }*/
 
-    public ArrayList<Book>getBookList()
+
+    public ArrayList<Book> getBookList()
     {
         return bookList;
     }
@@ -188,18 +223,13 @@ public class DataAccessStub
         }
     }
 
-    public void deleteBook(Book newBook)
+    public boolean updateBook(Book old, Book theBook)
     {
-        int index;
-
-        index = bookList.indexOf(newBook);
-        if (index >= 0)
-        {
-            bookList.remove(index);
-        }
-        else
-        {
-            System.out.println("delete book error: book not exist");
-        }
+        return true;
     }
+
+   /* public boolean deleteBook(Book theBook)
+    {
+        return true;
+    }*/
 }

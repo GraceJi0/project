@@ -10,8 +10,8 @@ public class Book
     private String bookAuthor;
     private String bookInformation;
     private double bookPrice;
-    private int numberInStock;
     private String category;
+    private int numberInStock;
     private int imageID;
 
     public Book( String newName, String newBookAuthor, String newInformation, double newPrice,
@@ -74,13 +74,15 @@ public class Book
 
     public void setNumberInStock(int newInStock)
     {
-        newInStock = newInStock;
+        numberInStock = newInStock;
     }
 
     public String getCategory()
     {
         return category;
     }
+
+    public void setCategory(String newCategory){category = newCategory;}
 
     public int compareName(Book newData)
     {

@@ -16,15 +16,16 @@
         android:maxLines="1"
         android:ems="10"
         android:hint="Search"
-        android:layout_marginBottom="39dp"
-        android:layout_alignBottom="@+id/Searchkey"
+        android:layout_marginBottom="22dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginEnd="15dp"
+        tools:ignore="HardcodedText"
+        android:layout_above="@+id/searchResultList"
         android:layout_toLeftOf="@+id/SearchBut"
-        android:layout_toStartOf="@+id/SearchBut"
-        android:layout_marginRight="10dp"
-        android:layout_marginEnd="10dp"
-        tools:ignore="HardcodedText" />
+        android:layout_toStartOf="@+id/SearchBut" />
 
     <Button
+        android:textColor="@color/colorPrimary"
         android:id="@+id/SearchBut"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="80dp"
@@ -39,13 +40,13 @@
         android:text="@string/searchBut" />
 
     <ListView
-        android:id="@+id/listview"
+        android:id="@+id/searchResultList"
         android:layout_width="500dp"
-        android:layout_height="600dp"
-        android:layout_marginTop="31dp"
-        android:layout_below="@+id/Searchkey"
+        android:layout_height="550dp"
         android:layout_alignLeft="@+id/Searchkey"
-        android:layout_alignStart="@+id/Searchkey" />
+        android:layout_alignStart="@+id/Searchkey"
+        android:layout_below="@+id/Searchkey"
+        android:layout_marginTop="31dp" />
 
     <TextView
         android:id="@+id/Searchkey"
@@ -56,4 +57,34 @@
         android:maxLines="1"
         android:text="@string/defultTextView"
         tools:ignore="RtlHardcoded" />
+
+    <Button
+        android:id="@+id/logOutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="log out"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="15dp" />
+
+    <Button
+        android:id="@+id/MyAccountButton"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="My Account"
+        android:layout_alignBaseline="@+id/logOutButton"
+        android:layout_alignBottom="@+id/logOutButton"
+        android:layout_toLeftOf="@+id/logOutButton"
+        android:layout_toStartOf="@+id/logOutButton" />
+
+    <Spinner
+        android:id="@+id/selectSort"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/searchResultList"
+        android:layout_alignRight="@+id/searchResultList"
+        android:layout_alignTop="@+id/Searchkey"
+        android:textAlignment="viewStart" />
 </RelativeLayout>

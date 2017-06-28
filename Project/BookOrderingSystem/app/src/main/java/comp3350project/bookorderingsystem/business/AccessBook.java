@@ -1,37 +1,32 @@
 package comp3350project.bookorderingsystem.business;
 
-import android.util.IntProperty;
-import android.util.Log;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import comp3350project.bookorderingsystem.application.Main;
 import comp3350project.bookorderingsystem.application.Service;
 import comp3350project.bookorderingsystem.objects.Book;
 import comp3350project.bookorderingsystem.persistence.DataAccess;
-import comp3350project.bookorderingsystem.persistence.DataAccessObject;
-import comp3350project.bookorderingsystem.persistence.DataAccessStub;
 
-/**
- * Created by dinghanji on 2017-05-30.
- */
 
 public class AccessBook {
-    //private DataAccessStub dataAccess;
-    private DataAccess dataAccess;///////////////////////////////////////////////////////////////
+    private DataAccess dataAccess;
 
     public AccessBook()
     {
-        dataAccess = Service.getDataAccess(Main.dbName);////////////////////////////////////
-        //dataAccess = (DataAccessStub) Service.getDataAccess(Main.dbName);
+        dataAccess = Service.getDataAccess(Main.dbName);
     }
 
+    /*******************************
+     * get the book list from database
+     ******************************/
     public ArrayList<Book> getBookList()
     {
         return dataAccess.getBookList();
     }
 
+    /*******************************
+     * search the book by the given book title, return the book
+     ******************************/
     public Book searchBook(String newName)
     {
         ArrayList<Book> books = dataAccess.getBookList();
@@ -47,6 +42,10 @@ public class AccessBook {
         return found;
     }
 
+    /*******************************
+     * search the book by the given string, if the book tile contain the given string,
+     * put it in to a list an return it.
+     ******************************/
     public ArrayList<Book> searchBookContain(String newname)
     {
         ArrayList<Book> books = dataAccess.getBookList();
@@ -62,36 +61,10 @@ public class AccessBook {
         return found;
     }
 
-    public ArrayList<Book> sortBookByNameUp(String byThis)
-    {
-        //to sort the book list
-        
-        ArrayList<Book> books = dataAccess.getBookList();
-        ArrayList<Book> sort = new ArrayList<Book>();
-        ArrayList<Integer> temp = new ArrayList<Integer>();
 
-        Log.d("aaaaaa","----------");
-        if (books!=null)
-        {
-            if(byThis.equals("BookName"))
-            {
-               Log.d("bbbbbbbbbb","!!!!!!!!!1");
-
-                for(int i=0; i< books.size(); i++) {
-
-                    temp.add(books.get(i).compareName(books.get(0)));
-                }
-
-            }
-
-
-        }
-
-
-
-        return sort;
-    }
-
+    /*******************************
+     * search the book by the given category, return a list of books
+     ******************************/
     public ArrayList<Book> searchBookCategory(String newCategory)
     {
         ArrayList<Book> books = dataAccess.getBookList();
@@ -106,11 +79,17 @@ public class AccessBook {
         return founds;
     }
 
+    /*******************************
+     * add a new book to the database
+     ******************************/
     public boolean addBook(Book book)
     {
         return dataAccess.addBook(book);
     }
 
+    /*******************************
+     * update book information
+     ******************************/
     public void editBook(Book old, Book book)
     {
         if(book != null)
@@ -122,15 +101,5 @@ public class AccessBook {
             }
         }
     }
-
-    /*public String printAllBooks()
-    {
-        return dataAccess.printAllBooks();
-    }
-
-    public String printBooksInCategory(String newCategory)
-    {
-        return dataAccess.printBooksInCategory(newCategory);
-    }*/
 
 }

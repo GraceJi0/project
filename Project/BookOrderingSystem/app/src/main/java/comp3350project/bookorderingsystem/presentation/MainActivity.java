@@ -59,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
         MyAccount();
     }
 
+    /*******************************
+     * check if the user has already log in, if not, hide the search and category button
+     ******************************/
     public void checkLogStatus()
     {
         if(accountName.compareTo("")==0)
@@ -82,16 +85,7 @@ public class MainActivity extends AppCompatActivity {
             showSignIn.setVisibility(View.GONE);
         }
     }
-   /* publick void onResume()
-    {
-        super.onResume();
-        Log.d("------","onResume");
 
-                Intent init = new Intent(MainActivity.this,
-                        ManagerMainActivity.class);
-                init.putExtra("name", accountName);
-                startActivity(init);
-    }*/
 
     public void logOut()
     {
@@ -201,10 +195,6 @@ public class MainActivity extends AppCompatActivity {
                    signinButton.setOnClickListener(new View.OnClickListener() {
                        public void onClick(View view)
                        {
-                           /*if(signinAccount.getText().toString().compareTo("1")==0 &&signinPassword.getText().toString().compareTo("1")==0 )
-                           {
-                               managerLogin();
-                           }*/
                            if (!signinAccount.getText().toString().isEmpty() &&
                                    !signinPassword.getText().toString().isEmpty())
                            {

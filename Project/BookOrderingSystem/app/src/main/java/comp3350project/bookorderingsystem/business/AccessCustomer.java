@@ -1,7 +1,5 @@
 package comp3350project.bookorderingsystem.business;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 
 import comp3350project.bookorderingsystem.application.Main;
@@ -9,35 +7,35 @@ import comp3350project.bookorderingsystem.application.Service;
 import comp3350project.bookorderingsystem.objects.Book;
 import comp3350project.bookorderingsystem.objects.Customer;
 import comp3350project.bookorderingsystem.persistence.DataAccess;
-import comp3350project.bookorderingsystem.persistence.DataAccessStub;
 
-/**
- * Created by dinghanji on 2017-05-29.
- */
+
 
 public class AccessCustomer
 {
-    //private DataAccessStub dataAccess;
-    private DataAccess dataAccess;////////////////////////////////////////////////////////////////////
+    private DataAccess dataAccess;
 
     public AccessCustomer()
     {
-        //dataAccess = (DataAccessStub) Service.getDataAccess(Main.dbName);
-        dataAccess = (DataAccess) Service.getDataAccess(Main.dbName);/////////////////////////////////////////////////
+        dataAccess = (DataAccess) Service.getDataAccess(Main.dbName);
     }
 
+    /*******************************
+     * add a customer to database
+     ******************************/
     public boolean addCustomer(Customer newCustomer)
     {
         return dataAccess.addCustomer(newCustomer);
     }
 
+    /*******************************
+     * get customer list from database
+     ******************************/
     public ArrayList<Customer> getCustomerList(){return dataAccess.getCustomerList();}
 
-    public double OrderAmount(Customer newCustomer)
-    {
-        return newCustomer.getOrderAmount();
-    }
 
+    /*******************************
+     * check if the account exit in the database
+     ******************************/
     public boolean checkAccount(String account)
     {
         boolean result=false;
@@ -52,6 +50,9 @@ public class AccessCustomer
         return result;
     }
 
+    /*******************************
+     * check if the account exit in the database
+     ******************************/
     public String[] getCustomerAccount()
     {
         ArrayList<Customer> customerList = getCustomerList();
@@ -63,6 +64,9 @@ public class AccessCustomer
         return  allCustomerAccount;
     }
 
+    /*******************************
+     * add to book to customer's cart
+     ******************************/
     public void addToCart(String customerName, Book book)
     {
         ArrayList<Customer> customerList = getCustomerList();
@@ -84,6 +88,9 @@ public class AccessCustomer
         }
     }
 
+    /*******************************
+     * delete a book from customer's cart
+     ******************************/
     public void deleteFromCart(String customerName, Book book)
     {
         ArrayList<Customer> customerList = getCustomerList();
@@ -105,6 +112,9 @@ public class AccessCustomer
         }
     }
 
+    /*******************************
+     * delete a book from customer's wish list
+     ******************************/
     public void deleteFromWishList(String customerName, Book book)
     {
         ArrayList<Customer> customerList = getCustomerList();
@@ -126,6 +136,9 @@ public class AccessCustomer
         }
     }
 
+    /*******************************
+     * add a book to customer's wish list
+     ******************************/
     public void addToWishList(String customerName, Book book)
     {
         ArrayList<Customer> customerList = getCustomerList();
@@ -147,6 +160,9 @@ public class AccessCustomer
         }
     }
 
+    /*******************************
+     * get the customer's cart by the given customer name
+     ******************************/
     public ArrayList<Book> getCustomerCart(String customerName)
     {
         ArrayList<Customer> customerList = getCustomerList();
@@ -167,6 +183,9 @@ public class AccessCustomer
         return customer.getCart();
     }
 
+    /*******************************
+     * get the customer's wish list by the given customer name
+     ******************************/
     public ArrayList<Book> getCustomerWishList(String customerName)
     {
         ArrayList<Customer> customerList = getCustomerList();
@@ -187,6 +206,11 @@ public class AccessCustomer
         return customer.getWishList();
     }
 
+    /*******************************
+     * check the account infromation when the user log in, if the account's
+     * password doesn't match the password in database, return 0, if the account name
+     * and password are correct, return 1
+     ******************************/
     public int verifyCustomer(String accountName,String accountPassword)
     {
         int verify = -1;
@@ -205,7 +229,6 @@ public class AccessCustomer
                     break;
                 }
             }
-            //Log.d("------",customer.getName());
             index++;
         }
         return verify;

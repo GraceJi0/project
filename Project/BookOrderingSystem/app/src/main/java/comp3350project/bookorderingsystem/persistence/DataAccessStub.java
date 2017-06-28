@@ -8,9 +8,6 @@ import comp3350project.bookorderingsystem.application.Main;
 import comp3350project.bookorderingsystem.objects.Book;
 import comp3350project.bookorderingsystem.objects.Customer;
 
-/**
- * Created by dinghanji on 2017-05-29.
- */
 
 public class DataAccessStub implements DataAccess
 {
@@ -128,29 +125,6 @@ public class DataAccessStub implements DataAccess
             return false;
         }
     }
-/*
-    public boolean updateCustomer(Customer theCustomer)
-    {
-        return true;///////////////////////////////////////////////////
-    }
-
-    public boolean deleteCustomer(Customer newCustomer)
-    {
-        int index;
-
-        index = customerList.indexOf(newCustomer);
-        if (index >= 0)
-        {
-            customerList.remove(index);
-            return true;
-        }
-        else
-        {
-            System.out.println("delete customer error: customer not exist");
-            return false;
-        }
-    }*/
-
 
     public ArrayList<Book> getBookList()
     {
@@ -227,9 +201,4 @@ public class DataAccessStub implements DataAccess
     {
         return true;
     }
-
-   /* public boolean deleteBook(Book theBook)
-    {
-        return true;
-    }*/
 }

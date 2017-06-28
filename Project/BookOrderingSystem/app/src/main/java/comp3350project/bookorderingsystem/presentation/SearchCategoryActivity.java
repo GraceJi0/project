@@ -8,9 +8,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
-
 import comp3350project.bookorderingsystem.R;
 import comp3350project.bookorderingsystem.business.AccessBook;
 import comp3350project.bookorderingsystem.objects.Book;
@@ -37,6 +35,9 @@ public class SearchCategoryActivity extends AppCompatActivity {
         logOut();
     }
 
+    /*******************************************************
+     set the log out button
+     ********************************************************/
     public void logOut()
     {
         Button showLogOut=(Button)findViewById(R.id.logOutButton);
@@ -55,6 +56,9 @@ public class SearchCategoryActivity extends AppCompatActivity {
         });
     }
 
+    /*******************************************************
+     when click on a category button, display the corresponding book list
+     ********************************************************/
     public void setCategoryButton(final AccessBook accessBook)
     {
         //set fiction button
@@ -139,6 +143,9 @@ public class SearchCategoryActivity extends AppCompatActivity {
         });
     }
 
+    /*******************************************************
+     set the list view for the given book list
+     ********************************************************/
     public void setListView(final ArrayList<Book> booksList)
     {
         BookAdapter adapter = new BookAdapter(SearchCategoryActivity.this,
@@ -161,6 +168,9 @@ public class SearchCategoryActivity extends AppCompatActivity {
         });
     }
 
+    /*******************************************************
+     when click on a my account button, go to the my account page
+     ********************************************************/
     public void setAccountButton()
     {
         Button myAccount = (Button)findViewById(R.id.myAccountButton);

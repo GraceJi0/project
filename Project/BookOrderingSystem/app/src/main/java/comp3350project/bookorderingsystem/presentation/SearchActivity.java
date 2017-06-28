@@ -3,26 +3,15 @@ package comp3350project.bookorderingsystem.presentation;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.ArrayAdapter;
 import android.view.View;
-import android.view.ViewGroup;
-
-import android.view.MenuItem;
-import android.view.Menu;
-
 import comp3350project.bookorderingsystem.business.AccessBook;
-import comp3350project.bookorderingsystem.persistence.DataAccessStub;
 import comp3350project.bookorderingsystem.objects.Book;
 import comp3350project.bookorderingsystem.R;
-
 import java.util.ArrayList;
-
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -31,7 +20,6 @@ public class SearchActivity extends AppCompatActivity {
     private ListView listView;
     private String accountName;
     private AccessBook accessBook;
-    //public final static String EXTRA_MESSAGE = "comp3010_group10.bookordering.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -49,10 +37,11 @@ public class SearchActivity extends AppCompatActivity {
         setSearchButton();
         setMyAccountButton();
         logOut();
-
-
     }
 
+    /*******************************************************
+     set log out button
+     ********************************************************/
     public void logOut()
     {
         Button showLogOut=(Button)findViewById(R.id.logOutButton);
@@ -71,6 +60,10 @@ public class SearchActivity extends AppCompatActivity {
         });
     }
 
+    /*******************************************************
+     do the search activity.
+     display the book list
+     ********************************************************/
     public void doSearch(String searchKey)
     {
         ArrayList<Book> found = accessBook.searchBookContain(searchKey);
@@ -88,6 +81,11 @@ public class SearchActivity extends AppCompatActivity {
             setListView(found);
         }
     }
+
+    /*******************************************************
+     when click on search button, search the book title by the given string.
+     if no result found, display all books.
+     ********************************************************/
     public  void setSearchButton()
     {
         //set seatch button
@@ -108,6 +106,9 @@ public class SearchActivity extends AppCompatActivity {
 
 
 
+    /*******************************************************
+     set the listView for the given book list
+     ********************************************************/
     public void setListView(final ArrayList<Book> bookList)
     {
         //set books' listView
@@ -132,6 +133,9 @@ public class SearchActivity extends AppCompatActivity {
         });
     }
 
+    /*******************************************************
+     when click on my account button, go to the my account page
+     ********************************************************/
     public void setMyAccountButton()
     {
         Button myAccount = (Button) findViewById(R.id.MyAccountButton);

@@ -51,7 +51,13 @@ team member to review it before merge to Master branch.
 —————————————iteration 2————————————
 2017/06/13 
 	first meeting
-	selected big user story for iteration 2,  “user signup&login”, “manager interface and account”, “add to cart and wish list” 
+	selected big user story for iteration 2
+		1. WishList
+		2. Manage book information
+		3. Add a book into cart
+		4. Manage stock
+		5. Create an account
+
 	created developer tasks
 
 	assign team members to five main tasks:
@@ -63,13 +69,30 @@ team member to review it before merge to Master branch.
 
 2017/06/16
 	2nd metting
-	manager account and UI created
+	manager account and UI design
+	data structure design
+	coding style design
 	start working on HSQL
-	discover the  
+	
 	
 2017/06/17
 	found bug: 1) customer cannot add a book to cart from wish list
+		   2）delete a book from cart but books in wishlist were deteled at the same time.
+	define issues and debuging
+	discover the reasons of marks deduction of Iteration 1
 2017/06/20
-2017/06/21
+	redesign the user interface
+	The system will ask for sign in at the begining
+	(account name and password is in the readme.txt file)
+
+	found bug: cannot save a book which was edited.
+	
 2017/06/27
-I 017/06/28
+	complete the functionality of system
+	
+2017/06/28
+	clean up dead code
+	solve all known bugs
+	testing 
+	clear the files and codeing structure
+	

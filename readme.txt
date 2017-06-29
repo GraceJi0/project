@@ -13,6 +13,12 @@ Jianwen Chen (7749375)
 
 
 Iteration2.zip contains all project files, readme.txt and log.txt
+The manager ACCOUNT NAME: dmb001 
+		password: 0000
+The customer¡¯s account can be created by user 
+		Or account name: asdf
+			Password: 1234
+
 
 The User stories we planned for this iteration:
 1. WishList

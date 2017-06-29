@@ -13,7 +13,6 @@ SET WRITE_DELAY 20
 SET SCHEMA PUBLIC
 
 /*insert data for books into the database*/
-/*insert into book values('The Orphan''s Tale: A Novel', ' Pam Jenoff', 'A powerful novel of friendship set in a traveling circus during World War II ', 10.49, 'Fiction', 1, 1)hide this*/
 insert into book values('The German Girl: A Novel', 'Armando Lucas Correa', 'A stunningly ambitious and beautiful novel.', 29.50, 'Fiction', 2, 2)
 insert into book values('Ginny Moon: A Novel', 'Benjamin Ludwig', '"A brilliant debut." —Graeme Simsion, New York Times bestselling author of The Rosie Project', 30.45, 'Fiction', 4, 3)
 insert into book values('Neonatal Resuscitation', 'Gary M Weiner', 'Powerful resource for interactive, simulation-based teaching and learning.', 82.32, 'TextBooks', 5, 4)

@@ -153,9 +153,33 @@ Jianwen Chen (7749375)
 Iteration2.zip contains all project files, readme.txt and log.txt
 
 
+
+
+The package major source code files of our project includes:
+
+
+comp3350project.bookorderingsystem folder:
+
+application folder: Main.java, Service.java
+business folder: AccessBook.java and AccessCustomer.java
+objects folder: Book.java , Customer.java, Picture.java
+persistence folder: DataAccess.java, DataAccessStub.java, DataAccessObject.java, customerPersistence.java, bookPersistence.kava, customerPersistenceHSQL.java, bookPersistenceHSQL.java
+
+comp3350project.bookorderingsystem.tests folder:
+objects folder: TestBook.java, TestCustomer.java, TestPicture.java.
+Business folder: TestAccessBook.java, TestAccessCustomer.java
+
+
+AllTests.java and ExampleUnitTest.java
+
+
+
+
+
+
 The manager ACCOUNT NAME: dmb001 
 		password: 0000
-The customer°Øs account can be created by user 
+The customer’s account can be created by user 
 		Or account name: asdf
 			Password: 1234
 

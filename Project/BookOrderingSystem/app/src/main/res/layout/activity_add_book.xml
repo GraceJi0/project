@@ -111,11 +111,12 @@
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="save"
-        android:textColor="@color/colorPrimary"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/categoryEditText"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="50dp" />
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="22dp"
+        android:text="save"
+        android:textColor="@color/colorPrimary" />
 
     <TextView
         android:textSize="20dp"
@@ -148,7 +149,9 @@
         android:layout_below="@+id/inStockEditText"
         android:layout_marginTop="35dp"
         android:text='Category: (category must choose one of "Fiction","TextBooks","Children and Young Adult","Comics and Graphic Novels","Magazines","Non-fiction","other")'
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:layout_alignRight="@+id/editTitle"
+        android:layout_alignEnd="@+id/editTitle" />
 
     <EditText
         android:id="@+id/categoryEditText"

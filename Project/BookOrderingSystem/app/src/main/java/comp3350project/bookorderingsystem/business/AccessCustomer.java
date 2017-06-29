@@ -55,6 +55,30 @@ public class AccessCustomer
         return  allCustomerAccount;
     }
 
+
+    /*******************************************************
+     get customer's cart
+     ********************************************************/
+    public List<Book> getCustomerCart(String customerName)
+    {
+        List<Customer> customerList = getCustomerList();
+        int index = 0;
+        Customer customer = null;
+        while(index < customerList.size())
+        {
+            customer = customerList.get(index);
+            if(customer.getName().equals(customerName))
+            {
+                break;
+            }
+            else
+            {
+                index++;
+            }
+        }
+        return customer.getCart();
+    }
+
     /*******************************************************
      add a book to customer's cart
      ********************************************************/
@@ -104,9 +128,9 @@ public class AccessCustomer
     }
 
     /*******************************************************
-     delete a book to customer's wish list
+     get customer's wish list
      ********************************************************/
-    public void deleteFromWishList(String customerName, Book book)
+    public List<Book> getCustomerWishList(String customerName)
     {
         List<Customer> customerList = getCustomerList();
         int index = 0;
@@ -116,8 +140,6 @@ public class AccessCustomer
             customer = customerList.get(index);
             if(customer.getName().equals(customerName))
             {
-                customer.deleteFromWishList(book);
-                dataAccess.deleteFromWishList(customer, book);
                 break;
             }
             else
@@ -125,6 +147,7 @@ public class AccessCustomer
                 index++;
             }
         }
+        return customer.getWishList();
     }
 
     /*******************************************************
@@ -152,9 +175,9 @@ public class AccessCustomer
     }
 
     /*******************************************************
-     get customer's cart
+     delete a book to customer's wish list
      ********************************************************/
-    public List<Book> getCustomerCart(String customerName)
+    public void deleteFromWishList(String customerName, Book book)
     {
         List<Customer> customerList = getCustomerList();
         int index = 0;
@@ -164,6 +187,8 @@ public class AccessCustomer
             customer = customerList.get(index);
             if(customer.getName().equals(customerName))
             {
+                customer.deleteFromWishList(book);
+                dataAccess.deleteFromWishList(customer, book);
                 break;
             }
             else
@@ -171,30 +196,6 @@ public class AccessCustomer
                 index++;
             }
         }
-        return customer.getCart();
-    }
-
-    /*******************************************************
-     get customer's wish list
-     ********************************************************/
-    public List<Book> getCustomerWishList(String customerName)
-    {
-        List<Customer> customerList = getCustomerList();
-        int index = 0;
-        Customer customer = null;
-        while(index < customerList.size())
-        {
-            customer = customerList.get(index);
-            if(customer.getName().equals(customerName))
-            {
-                break;
-            }
-            else
-            {
-                index++;
-            }
-        }
-        return customer.getWishList();
     }
 
     /*******************************************************

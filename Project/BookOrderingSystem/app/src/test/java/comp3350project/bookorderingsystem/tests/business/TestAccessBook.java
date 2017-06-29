@@ -11,33 +11,47 @@ import comp3350project.bookorderingsystem.persistence.DataAccessStub;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.List;
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
-public class TestAccessBook
-{
+public class TestAccessBook {
     Book tmp;    //the temp book
     AccessBook testAccess;
+    List<Book> testList;   //the temp list for the books
+    int number;   //number of items in the list
 
     private static String dbName = Main.dbName;
 
     @Before
-    public void setUp()
-    {
+    public void setUp() {
         //leave it blank
     }
 
     @Test
-    public void testAccessBook()
-    {
+    public void testAccessBook() {
 
         Service.closeDataAccess();
 
         System.out.println("\nStarting testAccessBook");
 
-        Service.createDataAccess(new DataAccessStub());
-
+        Service.createDataAccess(new DataAccessStub());   //the access connection
         testAccess = new AccessBook();
 
+        testInvalidBooks();
+        testGetBookList();
+        testValidBook();
+        testSearchBook();
+        testContain();
+        testCategory();
+
+        Service.closeDataAccess();
+
+        System.out.println("Finished testAccessBook");
+    }
+
+    public void testInvalidBooks() {
         assertTrue(!NullBook());
         assertTrue(!NullBookName());
         assertTrue(!EmptyBookName());
@@ -47,11 +61,36 @@ public class TestAccessBook
         assertTrue(!NullCategory());
         assertTrue(!EmptyCategory());
         assertTrue(!InvalidNumberInstock());
-        assertTrue(TrueBook());
+    }
 
-        Service.closeDataAccess();
+    public void testValidBook() {
+        assertTrue(TrueBook());   //the book which can be inserted into the DB successfully, 1 more book in the database now
+        number++;   //number of books increases by 1
+        assertTrue(number == testList.size());
+    }
 
-        System.out.println("Finished testAccessBook");
+    public void testGetBookList()
+    {
+        testList = (ArrayList)testAccess.getBookList();   //testing for the getBookList
+        number = testList.size();
+    }
+
+    public void testSearchBook()
+    {
+        Book theBook = testAccess.searchBook("Name");
+        assertNotNull(theBook);   //the book should be found
+    }
+
+    public void testContain()
+    {
+        testList = (ArrayList) testAccess.searchBookContain("Name");
+        assertTrue(1 == testList.size());   //only one book named "Name" in the database
+    }
+
+    public void testCategory()
+    {
+        testList = (ArrayList) testAccess.searchBookCategory("free");
+        assertTrue(1 == testList.size());   //only one book is in the category "free"
     }
 
     public boolean NullBook()   //should return false
@@ -113,5 +152,4 @@ public class TestAccessBook
         tmp = new Book("Name", "Author", "Info", 1.0, "free", 1, 1);   //a right book
         return testAccess.addBook(tmp);
     }
-
 }

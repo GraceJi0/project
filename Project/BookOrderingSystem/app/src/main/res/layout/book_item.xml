@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent">
 
         <TextView
             android:id="@+id/bookAuthorText"
@@ -14,7 +16,8 @@
             android:text="TextView"
             android:layout_below="@+id/bookNameText"
             android:layout_alignLeft="@+id/bookNameText"
-            android:layout_alignStart="@+id/bookNameText" />
+            android:layout_alignStart="@+id/bookNameText"
+            tools:ignore="HardcodedText" />
 
         <ImageView
             android:id="@+id/bookImageView"
@@ -22,7 +25,8 @@
             android:layout_height="50dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_alignTop="@+id/bookNameText" />
+            android:layout_alignTop="@+id/bookNameText"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:textSize="20dp"
@@ -36,7 +40,8 @@
             android:layout_toRightOf="@+id/bookImageView"
             android:layout_toEndOf="@+id/bookImageView"
             android:layout_marginLeft="21dp"
-            android:layout_marginStart="21dp" />
+            android:layout_marginStart="21dp"
+            tools:ignore="HardcodedText,SpUsage" />
 
         <TextView
             android:id="@+id/bookPriceText"
@@ -46,7 +51,8 @@
             android:textColor="#cc3910"
             android:layout_below="@+id/bookAuthorText"
             android:layout_alignLeft="@+id/bookAuthorText"
-            android:layout_alignStart="@+id/bookAuthorText" />
+            android:layout_alignStart="@+id/bookAuthorText"
+            tools:ignore="HardcodedText" />
     </RelativeLayout>
 
 </LinearLayout>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <Button
@@ -12,7 +13,8 @@
         android:layout_marginEnd="35dp"
         android:layout_marginRight="35dp"
         android:layout_marginTop="16dp"
-        android:text="log out" />
+        android:text="log out"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/welcomeText"
@@ -25,7 +27,8 @@
         android:layout_marginStart="78dp"
         android:layout_marginTop="138dp"
         android:text="Welcome!"
-        android:textSize="40dp" />
+        android:textSize="40dp"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <TextView
         android:textSize="40dp"
@@ -36,7 +39,8 @@
         android:layout_alignBaseline="@+id/welcomeText"
         android:layout_alignBottom="@+id/welcomeText"
         android:layout_toLeftOf="@+id/logOutButton"
-        android:layout_toStartOf="@+id/logOutButton" />
+        android:layout_toStartOf="@+id/logOutButton"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <Button
         android:textColor="@color/colorPrimary"
@@ -47,7 +51,8 @@
         android:text="view all customers"
         android:layout_marginTop="222dp"
         android:layout_below="@+id/welcomeManagerText"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:textColor="@color/colorPrimary"
@@ -58,7 +63,8 @@
         android:layout_below="@+id/viewCustomerButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="73dp"
-        android:text="view all books" />
+        android:text="view all books"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:textColor="#e7a311"
@@ -68,5 +74,6 @@
         android:layout_height="wrap_content"
         android:text="--------start from here to manage the system------"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        tools:ignore="HardcodedText,SpUsage" />
 </RelativeLayout>

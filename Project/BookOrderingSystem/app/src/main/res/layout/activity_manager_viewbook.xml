@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <Button
@@ -12,7 +13,8 @@
         android:text="log out"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:textSize="25dp"
@@ -24,7 +26,8 @@
         android:text="All books:"
         android:layout_alignBottom="@+id/logOutButton"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <ListView
         android:id="@+id/bookList"
@@ -54,7 +57,8 @@
         android:layout_alignBottom="@+id/searchByManager"
         android:layout_alignEnd="@+id/bookList"
         android:layout_alignRight="@+id/bookList"
-        android:text="Search" />
+        android:text="Search"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/searchResultText"
@@ -73,6 +77,7 @@
         android:layout_above="@+id/searchByManager"
         android:layout_alignEnd="@+id/searchByManager"
         android:layout_alignRight="@+id/searchByManager"
-        android:text="ADD A NEW BOOK" />
+        android:text="ADD A NEW BOOK"
+        tools:ignore="HardcodedText" />
 
 </RelativeLayout>

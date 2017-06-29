@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <ImageView
@@ -13,7 +14,8 @@
         android:visibility="visible"
         android:layout_below="@+id/editTitle"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:textSize="25dp"
@@ -24,7 +26,8 @@
         android:layout_marginTop="33dp"
         android:text="-----------------book information-----------------"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <EditText
         android:id="@+id/nameEditText"
@@ -37,7 +40,8 @@
         android:layout_marginRight="34dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        tools:ignore="SpUsage" />
 
     <TextView
         android:id="@+id/textView2"
@@ -47,7 +51,8 @@
         android:layout_alignStart="@+id/nameEditText"
         android:layout_alignTop="@+id/bookPicture"
         android:text="Title:"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <TextView
         android:textSize="20dp"
@@ -58,7 +63,8 @@
         android:layout_alignStart="@+id/nameEditText"
         android:layout_below="@+id/nameEditText"
         android:layout_marginTop="23dp"
-        android:text="Author:" />
+        android:text="Author:"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <EditText
         android:id="@+id/authorEditText"
@@ -81,7 +87,8 @@
         android:layout_alignStart="@+id/authorEditText"
         android:layout_below="@+id/authorEditText"
         android:layout_marginTop="27dp"
-        android:text="Price:" />
+        android:text="Price:"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <EditText
         android:id="@+id/priceEdixText"
@@ -104,7 +111,8 @@
         android:text="Description:"
         android:layout_below="@+id/bookPicture"
         android:layout_alignLeft="@+id/bookPicture"
-        android:layout_alignStart="@+id/bookPicture" />
+        android:layout_alignStart="@+id/bookPicture"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <EditText
         android:id="@+id/decriptionEditText"
@@ -125,7 +133,8 @@
         android:text="save"
         android:layout_marginTop="57dp"
         android:layout_below="@+id/inStockEditText"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:textSize="20dp"
@@ -136,7 +145,8 @@
         android:layout_alignStart="@+id/decriptionEditText"
         android:layout_below="@+id/decriptionEditText"
         android:layout_marginTop="28dp"
-        android:text="In stock:" />
+        android:text="In stock:"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <EditText
         android:id="@+id/inStockEditText"
@@ -157,7 +167,8 @@
         android:layout_below="@+id/bookPicture"
         android:layout_alignLeft="@+id/bookPicture"
         android:layout_alignStart="@+id/bookPicture"
-        android:layout_marginTop="57dp" />
+        android:layout_marginTop="57dp"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <EditText
         android:id="@+id/categoryEditText"

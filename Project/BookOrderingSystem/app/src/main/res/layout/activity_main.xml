@@ -86,7 +86,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="15dp" />
+        android:layout_marginTop="15dp"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/MyAccountButton2"
@@ -97,6 +98,7 @@
         android:layout_alignBaseline="@+id/logOutButton2"
         android:layout_alignBottom="@+id/logOutButton2"
         android:layout_toLeftOf="@+id/logOutButton2"
-        android:layout_toStartOf="@+id/logOutButton2" />
+        android:layout_toStartOf="@+id/logOutButton2"
+        tools:ignore="HardcodedText" />
 
 </RelativeLayout>

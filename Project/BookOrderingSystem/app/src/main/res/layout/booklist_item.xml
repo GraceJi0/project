@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
 
@@ -20,7 +21,8 @@
             android:layout_toEndOf="@+id/bookImageView"
             android:layout_toRightOf="@+id/bookImageView"
             android:text="TextView"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            tools:ignore="HardcodedText,SpUsage" />
 
         <ImageView
             android:id="@+id/bookImageView"
@@ -30,7 +32,8 @@
             android:layout_marginStart="66dp"
             android:layout_alignTop="@+id/bookNameText"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/bookAuthorText"
@@ -39,7 +42,8 @@
             android:layout_alignLeft="@+id/bookNameText"
             android:layout_alignStart="@+id/bookNameText"
             android:layout_below="@+id/bookNameText"
-            android:text="TextView" />
+            android:text="TextView"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/bookPriceText"
@@ -49,7 +53,8 @@
             android:layout_alignStart="@+id/bookAuthorText"
             android:layout_below="@+id/bookAuthorText"
             android:text="TextView"
-            android:textColor="#cc3910" />
+            android:textColor="#cc3910"
+            tools:ignore="HardcodedText" />
     </RelativeLayout>
 
     <CheckBox

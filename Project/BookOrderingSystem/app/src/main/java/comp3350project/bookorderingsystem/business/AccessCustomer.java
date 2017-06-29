@@ -24,6 +24,9 @@ public class AccessCustomer
     public List<Customer> getCustomerList(){return dataAccess.getCustomerList();}
 
 
+    /*******************************************************
+     check if the account exit in the database
+     ********************************************************/
     public boolean checkAccount(String account)
     {
         boolean result=false;
@@ -38,6 +41,9 @@ public class AccessCustomer
         return result;
     }
 
+    /*******************************************************
+     get all customer's account name and put them in to an array
+     ********************************************************/
     public String[] getCustomerAccount()
     {
         List<Customer> customerList = getCustomerList();
@@ -49,6 +55,9 @@ public class AccessCustomer
         return  allCustomerAccount;
     }
 
+    /*******************************************************
+     add a book to customer's cart
+     ********************************************************/
     public void addToCart(String customerName, Book book)
     {
         List<Customer> customerList = getCustomerList();
@@ -70,6 +79,9 @@ public class AccessCustomer
         }
     }
 
+    /*******************************************************
+     delete a book from customer's cart
+     ********************************************************/
     public void deleteFromCart(String customerName, Book book)
     {
         List<Customer> customerList = getCustomerList();
@@ -91,6 +103,9 @@ public class AccessCustomer
         }
     }
 
+    /*******************************************************
+     delete a book to customer's wish list
+     ********************************************************/
     public void deleteFromWishList(String customerName, Book book)
     {
         List<Customer> customerList = getCustomerList();
@@ -112,6 +127,9 @@ public class AccessCustomer
         }
     }
 
+    /*******************************************************
+     add a book to customer's wish list
+     ********************************************************/
     public void addToWishList(String customerName, Book book)
     {
         List<Customer> customerList = getCustomerList();
@@ -133,6 +151,9 @@ public class AccessCustomer
         }
     }
 
+    /*******************************************************
+     get customer's cart
+     ********************************************************/
     public List<Book> getCustomerCart(String customerName)
     {
         List<Customer> customerList = getCustomerList();
@@ -153,6 +174,9 @@ public class AccessCustomer
         return customer.getCart();
     }
 
+    /*******************************************************
+     get customer's wish list
+     ********************************************************/
     public List<Book> getCustomerWishList(String customerName)
     {
         List<Customer> customerList = getCustomerList();
@@ -173,6 +197,9 @@ public class AccessCustomer
         return customer.getWishList();
     }
 
+    /*******************************************************
+     check the user's account information when sign in
+     ********************************************************/
     public int verifyCustomer(String accountName,String accountPassword)
     {
         int verify = -1;

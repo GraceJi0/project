@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import comp3350project.bookorderingsystem.R;
 import comp3350project.bookorderingsystem.business.AccessBook;
 import comp3350project.bookorderingsystem.objects.Book;
@@ -65,11 +64,25 @@ public class AddBookActivity extends AppCompatActivity {
                 String bookDescription = description.getText().toString();
                 int bookInStock = Integer.parseInt(inStock.getText().toString());
                 String bookCategory = category.getText().toString();
-                Book book = new Book( bookName, bookAuthor, bookDescription, bookPrice, bookCategory,
-                        bookInStock, R.drawable.noimage);
-               accessBook.addBook(book);
-                Toast.makeText(AddBookActivity.this, "Successfully saved",
-                        Toast.LENGTH_SHORT).show();
+
+                if(bookCategory.equals("Fiction") || bookCategory.equals("TextBooks") ||
+                        bookCategory.equals("Children and Young Adult") ||
+                        bookCategory.equals("other") ||
+                        bookCategory.equals("Comics and Graphic Novels") ||
+                        bookCategory.equals("Magazines") || bookCategory.equals("Non-fiction"))
+                {
+                    Book book = new Book(bookName, bookAuthor, bookDescription, bookPrice, bookCategory,
+                            bookInStock, R.drawable.noimage);
+                    accessBook.addBook(book);
+                    Toast.makeText(AddBookActivity.this, "Successfully saved",
+                            Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(AddBookActivity.this, "category is not correct",
+                            Toast.LENGTH_SHORT).show();
+                    bookCategory = category.getText().toString();
+                }
             }
         });
     }

@@ -8,14 +8,10 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.view.View;
-<<<<<<< HEAD
 import android.view.ViewGroup;
 import java.util.List;
 import android.view.MenuItem;
 import android.view.Menu;
-
-=======
->>>>>>> fa387a19406f7f2c37c4e28665cda06bf5e2089a
 import comp3350project.bookorderingsystem.business.AccessBook;
 import comp3350project.bookorderingsystem.objects.Book;
 import comp3350project.bookorderingsystem.R;
@@ -45,35 +41,6 @@ public class SearchActivity extends AppCompatActivity {
         setSearchButton();
         setMyAccountButton();
         logOut();
-<<<<<<< HEAD
-
-        Spinner spinner = (Spinner) findViewById(R.id.selectSort);
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.sortArray, android.R.layout.simple_spinner_item);
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
-
-
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                List<Book> found = accessBook.sortBookByNameUp(parent.getItemAtPosition(position).toString());
-
-                Toast.makeText(getBaseContext(),parent.getItemAtPosition(position)+" selected",Toast.LENGTH_LONG).show();
-
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                Log.d("Nothing~~~~~~~~~`","here");
-            }
-        });
-=======
->>>>>>> fa387a19406f7f2c37c4e28665cda06bf5e2089a
     }
 
     /*******************************************************
@@ -142,15 +109,10 @@ public class SearchActivity extends AppCompatActivity {
     }
 
 
-
-<<<<<<< HEAD
-    public void setListView(final List<Book> bookList)
-=======
     /*******************************************************
      set the listView for the given book list
      ********************************************************/
-    public void setListView(final ArrayList<Book> bookList)
->>>>>>> fa387a19406f7f2c37c4e28665cda06bf5e2089a
+    public void setListView(final List<Book> bookList)
     {
         //set books' listView
         BookAdapter adapter = new BookAdapter(SearchActivity.this,

@@ -1,29 +1,19 @@
 package comp3350project.bookorderingsystem.business;
 
-import android.util.Log;
-
-import java.util.ArrayList;
 import java.util.List;
 import comp3350project.bookorderingsystem.application.Main;
 import comp3350project.bookorderingsystem.application.Service;
 import comp3350project.bookorderingsystem.objects.Book;
 import comp3350project.bookorderingsystem.objects.Customer;
 import comp3350project.bookorderingsystem.persistence.DataAccess;
-import comp3350project.bookorderingsystem.persistence.DataAccessStub;
-
-/**
- * Created by dinghanji on 2017-05-29.
- */
 
 public class AccessCustomer
 {
-    //private DataAccessStub dataAccess;
-    private DataAccess dataAccess;////////////////////////////////////////////////////////////////////
+    private DataAccess dataAccess;
 
     public AccessCustomer()
     {
-        //dataAccess = (DataAccessStub) Service.getDataAccess(Main.dbName);
-        dataAccess = (DataAccess) Service.getDataAccess(Main.dbName);/////////////////////////////////////////////////
+        dataAccess = (DataAccess) Service.getDataAccess(Main.dbName);
     }
 
     public boolean addCustomer(Customer newCustomer)
@@ -33,11 +23,10 @@ public class AccessCustomer
 
     public List<Customer> getCustomerList(){return dataAccess.getCustomerList();}
 
-    public double OrderAmount(Customer newCustomer)
-    {
-        return newCustomer.getOrderAmount();
-    }
 
+    /*******************************************************
+     check if the account exit in the database
+     ********************************************************/
     public boolean checkAccount(String account)
     {
         boolean result=false;
@@ -52,6 +41,9 @@ public class AccessCustomer
         return result;
     }
 
+    /*******************************************************
+     get all customer's account name and put them in to an array
+     ********************************************************/
     public String[] getCustomerAccount()
     {
         List<Customer> customerList = getCustomerList();
@@ -63,6 +55,9 @@ public class AccessCustomer
         return  allCustomerAccount;
     }
 
+    /*******************************************************
+     add a book to customer's cart
+     ********************************************************/
     public void addToCart(String customerName, Book book)
     {
         List<Customer> customerList = getCustomerList();
@@ -84,6 +79,9 @@ public class AccessCustomer
         }
     }
 
+    /*******************************************************
+     delete a book from customer's cart
+     ********************************************************/
     public void deleteFromCart(String customerName, Book book)
     {
         List<Customer> customerList = getCustomerList();
@@ -105,6 +103,9 @@ public class AccessCustomer
         }
     }
 
+    /*******************************************************
+     delete a book to customer's wish list
+     ********************************************************/
     public void deleteFromWishList(String customerName, Book book)
     {
         List<Customer> customerList = getCustomerList();
@@ -126,6 +127,9 @@ public class AccessCustomer
         }
     }
 
+    /*******************************************************
+     add a book to customer's wish list
+     ********************************************************/
     public void addToWishList(String customerName, Book book)
     {
         List<Customer> customerList = getCustomerList();
@@ -147,7 +151,10 @@ public class AccessCustomer
         }
     }
 
-    public ArrayList<Book> getCustomerCart(String customerName)
+    /*******************************************************
+     get customer's cart
+     ********************************************************/
+    public List<Book> getCustomerCart(String customerName)
     {
         List<Customer> customerList = getCustomerList();
         int index = 0;
@@ -167,7 +174,10 @@ public class AccessCustomer
         return customer.getCart();
     }
 
-    public ArrayList<Book> getCustomerWishList(String customerName)
+    /*******************************************************
+     get customer's wish list
+     ********************************************************/
+    public List<Book> getCustomerWishList(String customerName)
     {
         List<Customer> customerList = getCustomerList();
         int index = 0;
@@ -187,6 +197,9 @@ public class AccessCustomer
         return customer.getWishList();
     }
 
+    /*******************************************************
+     check the user's account information when sign in
+     ********************************************************/
     public int verifyCustomer(String accountName,String accountPassword)
     {
         int verify = -1;
@@ -205,7 +218,6 @@ public class AccessCustomer
                     break;
                 }
             }
-            //Log.d("------",customer.getName());
             index++;
         }
         return verify;

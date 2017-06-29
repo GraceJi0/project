@@ -9,8 +9,6 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 import java.util.List;
-import java.util.ArrayList;
-
 import comp3350project.bookorderingsystem.R;
 import comp3350project.bookorderingsystem.business.AccessCustomer;
 import comp3350project.bookorderingsystem.objects.Customer;

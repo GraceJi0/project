@@ -7,15 +7,19 @@ import comp3350project.bookorderingsystem.R;
 import comp3350project.bookorderingsystem.application.Main;
 import comp3350project.bookorderingsystem.objects.Book;
 import comp3350project.bookorderingsystem.objects.Customer;
+import comp3350project.bookorderingsystem.persistence.bookPersistence;
+import comp3350project.bookorderingsystem.persistence.customerPersistence;
 
 
 public class DataAccessStub implements DataAccess
 {
+    bookPersistence BookPersistence=new bookPersistence();
+    customerPersistence CustomerPersistence=new customerPersistence();
     private String dbName;
     private String dbType = "stub";
 
-    private ArrayList<Book> bookList;
-    private ArrayList<Customer> customerList;
+    private List<Book> bookList;
+    private List<Customer> customerList;
 
     public DataAccessStub(String dbName)
     {
@@ -81,124 +85,126 @@ public class DataAccessStub implements DataAccess
         System.out.println("Closed " +dbType +" database " +dbName);
     }
 
-    public ArrayList<Customer> getCustomerList(){
-        return customerList;
+    public List<Customer> getCustomerList(){
+        return CustomerPersistence.getCustomerList(customerList);
     }
 
     public boolean addToCart(Customer customerName, Book bookName)
     {
-        return true;
+        return CustomerPersistence.addToCart();
     }
 
     public boolean deleteFromCart(Customer customer, Book book)
     {
-        return true;
+        return CustomerPersistence.deleteFromCart();
     }
 
     public boolean addToWishList(Customer customer, Book book)
     {
-        return true;
+        return CustomerPersistence.addToWishList();
     }
 
     public boolean deleteFromWishList(Customer customer, Book book)
     {
-        return true;
+        return CustomerPersistence.deleteFromWishList();
     }
 
     public boolean addCustomer(Customer newCustomer)
     {
-        if(newCustomer != null)
-        {
-            if (newCustomer.getName() != null && newCustomer.getName() != "") {
-                customerList.add(newCustomer);
-                return true;
-            }
-            else
-            {
-                System.out.println("add customer error: information error");
-                return false;
-            }
-        }
-        else
-        {
-            System.out.println("add customer error: invalid customer ");
-            return false;
-        }
+        return CustomerPersistence.addCustomer(newCustomer,customerList);
+//        if(newCustomer != null)
+//        {
+//            if (newCustomer.getName() != null && newCustomer.getName() != "") {
+//                customerList.add(newCustomer);
+//                return true;
+//            }
+//            else
+//            {
+//                System.out.println("add customer error: information error");
+//                return false;
+//            }
+//        }
+//        else
+//        {
+//            System.out.println("add customer error: invalid customer ");
+//            return false;
+//        }
     }
 
-    public ArrayList<Book> getBookList()
+    public List<Book> getBookList()
     {
-        return bookList;
+        return BookPersistence.getBookList(bookList);
     }
 
     public boolean addBook(Book newBook)
     {
-        boolean find = false;
-        if(newBook != null)
-        {
-            if(newBook.getName() != null && newBook.getName() != "")
-            {
-                if(newBook.getBookAuthor() != null && newBook.getBookAuthor() != "")
-                {
-                    if(newBook.getBookPrice() >= 0)
-                    {
-                        if(newBook.getNumberInStock() >= 0)
-                        {
-                            if (newBook.getCategory() != null && newBook.getCategory() != "")
-                            {
-                                for (int i = 0; i < bookList.size(); i++) {
-                                    Book check = bookList.get(i);
-                                    if (check.compareName(newBook) == 0)    //if the book already exists
-                                    {
-                                        find = true;    //the book is found
-                                        check.setNumberInStock(check.getNumberInStock() + 1); //increase the number of book in stock by 1
-                                    }
-                                }
-                                if (find == false)   //this is a new book
-                                {
-                                    bookList.add(newBook);
-                                }
-                                return true;
-                            }
-                            else
-                            {
-                                System.out.println("add book error: invalid book category");
-                                return false;
-                            }
-                        }
-                        else
-                        {
-                            System.out.println("add book error: number instock cannot less than 0");
-                            return false;
-                        }
-                    }
-                    else
-                    {
-                        System.out.println("add book error: invalid price");
-                        return false;
-                    }
-                }
-                else
-                {
-                    System.out.println("add book error: invalid author");
-                    return false;
-                }
-            }
-            else
-            {
-                System.out.println("add book error: invalid name");
-                return false;
-            }
-        }
-        else
-        {
-            System.out.println("add book error: invalid book");
-            return false;
-        }
+        return BookPersistence.addBook(newBook, bookList);
+//        boolean find = false;
+//        if(newBook != null)
+//        {
+//            if(newBook.getName() != null && newBook.getName() != "")
+//            {
+//                if(newBook.getBookAuthor() != null && newBook.getBookAuthor() != "")
+//                {
+//                    if(newBook.getBookPrice() >= 0)
+//                    {
+//                        if(newBook.getNumberInStock() >= 0)
+//                        {
+//                            if (newBook.getCategory() != null && newBook.getCategory() != "")
+//                            {
+//                                for (int i = 0; i < bookList.size(); i++) {
+//                                    Book check = bookList.get(i);
+//                                    if (check.compareName(newBook) == 0)    //if the book already exists
+//                                    {
+//                                        find = true;    //the book is found
+//                                        check.setNumberInStock(check.getNumberInStock() + 1); //increase the number of book in stock by 1
+//                                    }
+//                                }
+//                                if (find == false)   //this is a new book
+//                                {
+//                                    bookList.add(newBook);
+//                                }
+//                                return true;
+//                            }
+//                            else
+//                            {
+//                                System.out.println("add book error: invalid book category");
+//                                return false;
+//                            }
+//                        }
+//                        else
+//                        {
+//                            System.out.println("add book error: number instock cannot less than 0");
+//                            return false;
+//                        }
+//                    }
+//                    else
+//                    {
+//                        System.out.println("add book error: invalid price");
+//                        return false;
+//                    }
+//                }
+//                else
+//                {
+//                    System.out.println("add book error: invalid author");
+//                    return false;
+//                }
+//            }
+//            else
+//            {
+//                System.out.println("add book error: invalid name");
+//                return false;
+//            }
+//        }
+//        else
+//        {
+//            System.out.println("add book error: invalid book");
+//            return false;
+//        }
     }
 
     public boolean updateBook(Book old, Book theBook)
     {
-        return true;
+        return BookPersistence.updateBook();
     }
 }

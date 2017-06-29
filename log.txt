@@ -54,8 +54,8 @@ team member to review it before merge to Master branch.
 	selected big user story for iteration 2,  “user signup&login”, “manager interface and account”, “add to cart and wish list” 
 	created developer tasks
 
-	assign team members to tasks:
-	 1) HSQL database
+	assign team members to five main tasks:
+	1) replace stub with real SQL database(HSQL database)
 	2) manager account and UI, include view and edit book list and customer list 
 	3) customer sign in and sign up
 	4) “my account” UI, include shopping cart and wish list
@@ -65,6 +65,8 @@ team member to review it before merge to Master branch.
 	2nd metting
 	manager account and UI created
 	start working on HSQL
+	discover the  
+	
 2017/06/17
 	found bug: 1) customer cannot add a book to cart from wish list
 2017/06/20

@@ -11,61 +11,74 @@ Dinghan Ji (7797141)
 Xinyu Li (7768642)
 Jianwen Chen (7749375)
 
-iteration1.zip file contains our project file and log.txt
+
+Iteration2.zip contains all project files, readme.txt and log.txt
+
+The User stories we planned for this iteration:
+1. WishList
+2. Manage book information
+3. Add a book into cart
+4. Manage stock
+5. Create an account
+
 
 
 Developer tasks:
 
-The big user story we choose to finish in this iteration is “Search a book” and ”View book’s information”.
-
-1. crate basic classes/objects: (1 hr)
-	-Book class
-	-Customer class
-2. create database (4 hr)
-	- make sure to link database so that other class/object can access data
-3. crate business class (access database) (1 hr)
-	-AccessBook class
-	-AccessCustomer class  
-4. design UI 
-	-main page, include search bar, search button, category button, account button, display logo image (3 hr)
-	-search result page, get a list of book from database that contain the keyword (3 hr, can be worked with search activity part)
-	-book detail page, include image, title, author, price, and customer review. (3 hr)
-5. main activity
-	-code part, search method, access data from DB (3 hr)
-	-UI part, search bar, buttons ( 3 hr)
-6. search activity (2 hr)
-	-display search result
-	-another search bar
-	-link search result to the book detail page
-7. view book activity (4 hr)
-	-display book’s detail information 
-	-add image
+1. Create HSQL database 
+	-Customers
+	-Books
+  1) create sql(.script)files (5 hr)
+  2) create dataAccessObject (5 hr)
+  3) replease stub database (15 hr)
+  	for: -customer
+  	     -Books
+2. Design UI
+	- Sign up interface (1 hr)
+	- Sign in interface (1 hr)
+	- Update main page (1 hr)
+	- Account interface (1 hr)
+	- Cart interface (3 hr)	
+	- Wishlist interface (2 hr)
+	- Manager interface 
+		1) edit/view books (2 hr)
+		2) edit/view customer (1 hr)
+	- Category interface (1 hr)
 	
-8. test of Book class, Customer class, AccessBook class and AccessCustomer class (2 hr)
+3. Update main activity (2 hr)
+	- code part, sign in & sign up
+	- UI part, sign in & sign up dialog
+4. AddBook activity (3 hr)
+        - add new book to database
+5. EditBook activity (2 hr)
+        -edit book information
+        -save edited book information
+6. ManagerMain Activity (1 hr)
+        -create buttons linked customerlist and booklist
+7. ManagerViewBooks Activity (1 hr)
+        -display book list
+8. ManagerViewCustomer Activity (1 hr)
+        -display customer list
+9. Account Activity  (4 hr)
+	-display books added to cart
+	-display books added to wishlist
+	-allow deletion and seletion
+10. Set up sign in status (3 hr)
+
+11. Testing 	(3 hr)
+	classes
+	objects
+	methods
+	
 
 
-
-
-
-The package major source code files of our project includes:
-
-
-comp3350project.bookorderingsystem folder:
-application folder: Main.java, Service.java
-business folder: AccessBook.java and AccessCustomer.java
-objects folder: Book.java and Customer.java
-persistence folder: DataAccessStub.java
-
-comp3350project.bookorderingsystem.tests folder:
-objects folder: BookTest.java, CustomerTest.java
-ExampleUnitTest.java
-
-
-log.txt locates inside the zip file
+Git clone: https://github.com/RedRect/Android_BookOrdering.git
 repository location: git@github.com:RedRect/Android_BookOrdering.git
+Location of log.txt : Android_BookOrdering/log.txt
 
-The major feature of our project includes search books by entering keyword (locate in the main of the GUI), a list of search result that includes the title, author and price for each book (locate in the search result page). A book page can be accessed by clicking the search result that contain more detail about this book. Customer has option to add this book to cart or wish list (also locate in the book detail page).
+The major change in main page is that user need to log in before viewing the list of books.
+The issues that we were not able to resolve in this iteration are : 
+	1. The big story "sort" need to sort the list of books in different order, but we could not let the system sort the searched result.
+	2. We couldn't upload a picture as the cover for this book when adding a new book to the database.
 
-
-
-
+	

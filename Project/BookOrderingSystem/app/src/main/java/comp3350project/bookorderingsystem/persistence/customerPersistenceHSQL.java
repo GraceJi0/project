@@ -1,22 +1,13 @@
 package comp3350project.bookorderingsystem.persistence;
 
-import android.app.ExpandableListActivity;
-
-import java.sql.Array;
 import java.sql.Statement;
-import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.DriverManager;
 import java.sql.SQLWarning;
-import java.sql.DatabaseMetaData;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.media.Image;
-import comp3350project.bookorderingsystem.R;
 import comp3350project.bookorderingsystem.objects.Book;
 import comp3350project.bookorderingsystem.objects.Customer;
-import comp3350project.bookorderingsystem.objects.Picture;
 
 import comp3350project.bookorderingsystem.business.AccessBook;
 /**
@@ -36,13 +27,10 @@ public class customerPersistenceHSQL {
             cmdString = "select * from customer";
             rs2 = st1.executeQuery(cmdString);
 
-            System.out.println("%%%%%%trying to get the customer list");
             while(rs2.next())
             {
                 String name = rs2.getString("name");  //name of the customer
                 String pwd = rs2.getString("password");  //password
-
-                System.out.println("in the getCustomerList, name now is: "+name);
 
                 Customer theCustomer = new Customer(name, pwd);  //a customer is find and ready to store
 
@@ -118,15 +106,6 @@ public class customerPersistenceHSQL {
                     result = true;
                     warn = checkWarning(st1, updateCount);
 
-
-                    cmdString = "select * from customer";
-                    rs2 = st1.executeQuery(cmdString);
-                    System.out.println("######################################now is "+customer.getName());
-                    while(rs2.next())
-                    {
-                        System.out.println(rs2.getString("name"));
-                    }
-
                 } catch (Exception e) {
                     warn = processSQLError(e);
                     result = false;
@@ -142,7 +121,7 @@ public class customerPersistenceHSQL {
 
     public boolean deleteFromCart(Customer customer, Book book, String cmdString, Statement st1, ResultSet rs3,  boolean result , int updateCount, String warn)
     {
-        if (validCustomer(customer))
+        if (validCustomer(customer))  //customer and book must be valid for deleting a book from a customer cart
         {
             if (validBook(book)) {
                 String where;
@@ -195,7 +174,7 @@ public class customerPersistenceHSQL {
 
     public boolean addToWishList(Customer customer, Book book, String cmdString, Statement st1,  boolean result , int updateCount, String warn)
     {
-        if (validCustomer(customer)) //add only when the customer is valid
+        if (validCustomer(customer))   //customer must be valid for adding a book to wishlist
         {
             if (validBook(book)) {
                 String values;
@@ -223,7 +202,7 @@ public class customerPersistenceHSQL {
 
     public boolean deleteFromWishList(Customer customer, Book book, String cmdString, Statement st1, boolean result , int updateCount, String warn)
     {
-        if (validCustomer(customer))
+        if (validCustomer(customer))   //customer and book must be valid for deleting a book from a customer wishlist
         {
             if (validBook(book)) {
                 String where;
@@ -267,7 +246,6 @@ public class customerPersistenceHSQL {
 
     public boolean addCustomer(Customer newCustomer, String cmdString, Statement st1, boolean result , int updateCount, String warn)
     {
-        System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$adding customer, name: "+newCustomer.getName());
         if (validCustomer(newCustomer)) //add only when the customer is valid
         {
             String values;

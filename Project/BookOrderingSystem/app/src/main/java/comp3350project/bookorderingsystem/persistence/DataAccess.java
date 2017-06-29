@@ -1,39 +1,31 @@
 package comp3350project.bookorderingsystem.persistence;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import comp3350project.bookorderingsystem.R;
-import comp3350project.bookorderingsystem.application.Main;
 import comp3350project.bookorderingsystem.objects.Book;
 import comp3350project.bookorderingsystem.objects.Customer;
 
-public interface DataAccess
+public interface DataAccess   //shows the function of the DB
 {
-	void open(String string);
+    void open(String string);   //turn on the connection to the database and do some preparation
 
-	void close();
+    void close();    //close the DB
 
-    List<Customer> getCustomerList();
+    List<Customer> getCustomerList();   //get all customers from the DB, form as a list
 
-    boolean addToCart(Customer customer, Book book);
-    boolean deleteFromCart(Customer customer, Book book);
+    boolean addToCart(Customer customer, Book book);   //add the "book" to the "customer"'s cart
 
-    boolean addToWishList(Customer customer, Book book);
-    boolean deleteFromWishList(Customer customer, Book book);
+    boolean deleteFromCart(Customer customer, Book book);   //delete the "book" from the cart of the "customer"
 
-    boolean addCustomer(Customer newCustomer);
+    boolean addToWishList(Customer customer, Book book);   //add the "book" to the "customer"'s wishlist
 
-   /* boolean updateCustomer(Customer theCustomer);
+    boolean deleteFromWishList(Customer customer, Book book);  //delete the "book" from the wishlist of the "customer"
 
-    boolean deleteCustomer(Customer theCustomer);*/
+    boolean addCustomer(Customer newCustomer);   //add a new customer to the DB
 
-    List<Book> getBookList();
+    List<Book> getBookList();   //get all books from the DB, form as a list
 
-    boolean addBook(Book newBook);
+    boolean addBook(Book newBook);   //add a new book to the DB
 
-    boolean updateBook(Book old,Book theBook);  //old represents the object contains old data, theBook object contains the new data
-
-   /* boolean deleteBook(Book theBook);*/
-
+    boolean updateBook(Book old, Book theBook);  //old represents the object contains old data, theBook object contains the new data, update the old
 }

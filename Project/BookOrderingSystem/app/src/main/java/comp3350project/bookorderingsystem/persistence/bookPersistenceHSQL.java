@@ -1,11 +1,7 @@
 package comp3350project.bookorderingsystem.persistence;
-import java.sql.Array;
 import java.sql.Statement;
-import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.DriverManager;
 import java.sql.SQLWarning;
-import java.sql.DatabaseMetaData;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,10 +19,10 @@ public class bookPersistenceHSQL {
 
     private List<Picture> ImageList;
 
-   public bookPersistenceHSQL()
+   public bookPersistenceHSQL()   //the constructor
    {
        ImageList = new ArrayList<Picture>();
-       initialImageList();
+       initialImageList();   //initalize the image ilst, which stores the pictures of the books in the DB
    }
 
     public List<Book> getBookList(String cmdString, Statement st3, ResultSet rs5, String warn )
@@ -46,7 +42,7 @@ public class bookPersistenceHSQL {
 
         try
         {
-            while(rs5.next())
+            while(rs5.next())   //get the book one by one
             {
                 String name = rs5.getString("name");
                 String author = rs5.getString("author");
@@ -65,8 +61,8 @@ public class bookPersistenceHSQL {
                     }
                 }
 
-                Book theBook = new Book(name, author, info, price, category, instock, picture);
-                bookList.add(theBook);
+                Book theBook = new Book(name, author, info, price, category, instock, picture);   //create the book object
+                bookList.add(theBook);   //store to the search book result before returning the list
             }
         }
         catch(Exception e)
@@ -80,15 +76,15 @@ public class bookPersistenceHSQL {
     {
         if(theBook != null)
         {
-            if ((theBook.getName() != null) && (!theBook.getName().equals("")))
+            if ((theBook.getName() != null) && (!theBook.getName().equals("")))   //there must have something in the name
             {
-                if ((theBook.getBookAuthor() != null) && (!theBook.getBookAuthor().equals("")))
+                if ((theBook.getBookAuthor() != null) && (!theBook.getBookAuthor().equals("")))   //must have author
                 {
-                    if (theBook.getBookPrice() >= 0)
+                    if (theBook.getBookPrice() >= 0)   //price can never be less than 0
                     {
-                        if (theBook.getNumberInStock() >= 0)
+                        if (theBook.getNumberInStock() >= 0)   //number in stock cannot less than 0
                         {
-                            if ((theBook.getCategory() != null) && (!theBook.getCategory().equals("")))
+                            if ((theBook.getCategory() != null) && (!theBook.getCategory().equals("")))   //must have a category
                             {
                                 return true;
                             }
@@ -113,7 +109,7 @@ public class bookPersistenceHSQL {
 
     public boolean addBook(Book newBook, String warn, String cmdString, Statement st1, ResultSet rs5, int updateCount, boolean result)//tested, no problem
     {
-        if(validBook(newBook))
+        if(validBook(newBook))   //check book validation before adding it
         {
             String values;
 
@@ -126,10 +122,8 @@ public class bookPersistenceHSQL {
                         + ", '" + newBook.getCategory()
                         + "', " + newBook.getNumberInStock()
                         + ", " + newBook.getImageID();
-                cmdString = "Insert into book " + " Values(" + values + ")";
-                System.out.println((st1 == null));//////////////////////////////////////////////////////
-                updateCount = st1.executeUpdate(cmdString);
-                //System.out.println(cmdString);/////////////////////////////////////////////////////////
+                cmdString = "Insert into book " + " Values(" + values + ")";   //insert a new book into the book table
+                updateCount = st1.executeUpdate(cmdString);   //execute the command
                 warn = checkWarning(st1, updateCount);
                 result = true;
             } catch (Exception e) {
@@ -144,7 +138,7 @@ public class bookPersistenceHSQL {
 
     public boolean updateBook(Book old, Book theBook,String warn, String cmdString, Statement st1, int updateCount, boolean result)
     {
-        if(validBook(theBook))
+        if(validBook(theBook))   //check validation of a book before updating it
         {
             String values = "";
             String where = ("name='"+old.getName()+ "';");
@@ -152,7 +146,7 @@ public class bookPersistenceHSQL {
 
             warn = null;
             try
-            {
+            {   //content to be modified
                 if(!theBook.getName().equals(old.getName()))
                 {
                     values += ("name='" + theBook.getName() + "'");
@@ -204,8 +198,6 @@ public class bookPersistenceHSQL {
                     pre = 1;
                 }
                 cmdString = "UPDATE book\n " + "SET " + values + " \n WHERE " + where;
-
-                System.out.println(cmdString + "in DataAccessObject###################################################################");
 
                 updateCount = st1.executeUpdate(cmdString);
                 warn = checkWarning(st1, updateCount);

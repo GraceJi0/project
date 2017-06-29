@@ -31,14 +31,17 @@ The User stories we planned for this iteration:
 
 Developer tasks:
 
-1. Create HSQL database 
-	-Customers
-	-Books
-  1) create sql(.script)files (5 hr)
-  2) create dataAccessObject (5 hr)
-  3) replease stub database (15 hr)
-  	for: -customer
-  	     -Books
+1. Create HSQL database, include these tables:
+	-customer, for storing all information of customers
+	-book, for storing all information of the books
+	-cart, records name of customers and their carts
+	-wishlist, records name of customers and their wishlists
+  1) create sql(.script)files (1 hr)
+  2) create DataAccessObject (8 hr)
+  3) split the DataAccessObject (1hr)
+	-customer
+	-book
+
 2. Design UI
 	- Sign up interface (1 hr)
 	- Sign in interface (1 hr)
@@ -72,9 +75,13 @@ Developer tasks:
 10. Set up sign in status (3 hr)
 
 11. Testing 	(3 hr)
-	classes
-	objects
-	methods
+	objects:
+		customer
+		book
+		picture
+	business:
+		AccessCustomer
+		AccessBook
 	
 
 

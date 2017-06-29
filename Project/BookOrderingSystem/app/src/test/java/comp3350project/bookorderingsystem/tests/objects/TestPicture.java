@@ -14,7 +14,7 @@ public class TestPicture
     @Before
     public void setUp()
     {
-
+        //leave it blank
     }
 
     @Test

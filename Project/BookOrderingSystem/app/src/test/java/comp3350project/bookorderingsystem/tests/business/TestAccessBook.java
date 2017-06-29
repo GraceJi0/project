@@ -23,7 +23,7 @@ public class TestAccessBook
     @Before
     public void setUp()
     {
-
+        //leave it blank
     }
 
     @Test

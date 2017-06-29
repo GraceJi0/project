@@ -26,40 +26,48 @@ public class Customer
         return customerName;
     }
 
+    public void setPassword(String newPwd)
+    {
+        password = newPwd;
+    }
+    public String getPassword()
+    {
+        return password;
+    }
+
     public void setCardNumber(String newNumber)
     {
         cardNumber = newNumber;
     }
-
-    public String getPassword() {return password;}
+    public String getCardNumber(){return cardNumber;}
 
     public void setEmail(String newEmail)
     {
         email = newEmail;
+    }
+    public String getEmail()
+    {
+        return email;
     }
 
     public void setAddress(String newAddress)
     {
         address = newAddress;
     }
-
-    public List<Book> getCart(){return customerCart;}
-
-    public List<Book> getWishList(){return customerWishList;}
+    public String getAddress(){return address;}
 
     public void setCart(ArrayList<Book> theList)
     {
         customerCart = new ArrayList<>(theList);
     }
-
+    public List<Book> getCart(){return customerCart;}
+    /*******************************
+     * delete the given book from customer's cart
+     ******************************/
     public void addToCart(Book newBook)
     {
         customerCart.add(newBook);
     }
-
-    /*******************************
-     * delete the given book from customer's cart
-     ******************************/
     public void deleteFromCart(Book newBook)
     {
         int index;
@@ -78,7 +86,7 @@ public class Customer
     {
         customerWishList = new ArrayList<>(theList);
     }
-
+    public List<Book> getWishList(){return customerWishList;}
     /*******************************
      * add the given book to customer's wish list
      ******************************/
@@ -98,7 +106,6 @@ public class Customer
             customerWishList.add(newBook);
         }
     }
-
     /*******************************
      * delete the given book from customer's wish list
      ******************************/

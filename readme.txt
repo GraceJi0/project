@@ -13,11 +13,25 @@ Jianwen Chen (7749375)
 
 
 Iteration2.zip contains all project files, readme.txt and log.txt
+
+
 The manager ACCOUNT NAME: dmb001 
 		password: 0000
 The customer¡¯s account can be created by user 
 		Or account name: asdf
 			Password: 1234
+
+
+Git clone: https://github.com/RedRect/Android_BookOrdering.git
+repository location: git@github.com:RedRect/Android_BookOrdering.git
+Location of log.txt : Android_BookOrdering/log.txt
+
+
+The major change in main page is that user need to log in before viewing the list of books.
+
+The issues that we were not able to resolve in this iteration are : 
+	1. The big story "sort" need to sort the list of books in different order, but we could not let the system sort the searched result.
+	2. We couldn't upload a picture as the cover for this book when adding a new book to the database.
 
 
 The User stories we planned for this iteration:
@@ -85,13 +99,6 @@ Developer tasks:
 	
 
 
-Git clone: https://github.com/RedRect/Android_BookOrdering.git
-repository location: git@github.com:RedRect/Android_BookOrdering.git
-Location of log.txt : Android_BookOrdering/log.txt
 
-The major change in main page is that user need to log in before viewing the list of books.
-The issues that we were not able to resolve in this iteration are : 
-	1. The big story "sort" need to sort the list of books in different order, but we could not let the system sort the searched result.
-	2. We couldn't upload a picture as the cover for this book when adding a new book to the database.
 
 	

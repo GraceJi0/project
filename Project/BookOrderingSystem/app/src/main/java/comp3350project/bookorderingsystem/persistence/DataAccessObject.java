@@ -35,8 +35,6 @@ public class DataAccessObject implements DataAccess
 		this.dbName = dbName;
 	}
 
-
-
 	public void open(String dbPath)
 	{
 		String url;

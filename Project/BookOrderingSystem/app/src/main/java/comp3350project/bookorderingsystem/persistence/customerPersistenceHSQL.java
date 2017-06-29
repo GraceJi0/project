@@ -34,6 +34,7 @@ public class customerPersistenceHSQL {
 
                 Customer theCustomer = new Customer(name, pwd);  //a customer is find and ready to store
 
+                //check if there is any other variable, which is not required: cardnumber, email and address
                 String cardnumber = rs2.getString("cardnumber");
                 if(cardnumber.equals(""))
                     theCustomer.setCardNumber(cardnumber);

@@ -7,6 +7,7 @@ import comp3350project.bookorderingsystem.R;
 import comp3350project.bookorderingsystem.application.Main;
 import comp3350project.bookorderingsystem.objects.Book;
 import comp3350project.bookorderingsystem.objects.Customer;
+import comp3350project.bookorderingsystem.objects.Order;
 
 public class DataAccessStub implements DataAccess
 {
@@ -17,6 +18,7 @@ public class DataAccessStub implements DataAccess
 
     private List<Book> bookList;
     private List<Customer> customerList;
+    private List<Order> allOrder;
 
     public DataAccessStub(String dbName)
     {
@@ -32,7 +34,7 @@ public class DataAccessStub implements DataAccess
     {
         bookList = new ArrayList<Book>();
         customerList=new ArrayList<Customer>();
-
+        allOrder = new ArrayList<Order>();
         //insert a series of data into the DB as initial datas
         //the Books
         addBook(new Book("The Orphan's Tale: A Novel", " Pam Jenoff",
@@ -127,5 +129,10 @@ public class DataAccessStub implements DataAccess
     public boolean updateBook(Book old, Book theBook)
     {
         return BookPersistence.updateBook();
+    }
+
+    public int getAllOrderSize()
+    {
+        return allOrder.size();
     }
 }

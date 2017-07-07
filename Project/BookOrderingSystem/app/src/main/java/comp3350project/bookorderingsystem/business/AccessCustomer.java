@@ -5,6 +5,7 @@ import comp3350project.bookorderingsystem.application.Main;
 import comp3350project.bookorderingsystem.application.Service;
 import comp3350project.bookorderingsystem.objects.Book;
 import comp3350project.bookorderingsystem.objects.Customer;
+import comp3350project.bookorderingsystem.objects.Order;
 import comp3350project.bookorderingsystem.persistence.DataAccess;
 
 public class AccessCustomer
@@ -223,4 +224,37 @@ public class AccessCustomer
         }
         return verify;
     }
+
+
+    public int addOrder(String accountName)
+    {
+        List<Customer> customers = getCustomerList();
+        List<Book> cart;
+        List<Order> orderList;
+        for(int i = 0; i < customers.size(); i++)
+        {
+            Customer customer = customers.get(i);
+            if(customer.getName().equals(accountName))
+            {
+                cart = customer.getCart();
+                orderList = customer.getOrderList();
+                //int orderNum = 0;
+               // Order newOrder = new Order(orderNum, cart, accountName, int newPrice);
+            }
+        }
+        return 0;
+    }
+
+
+    /*public void deleteOrder(String accountName)
+    {
+        List<Customer> customers = getCustomerList();
+        for(int i = 0; i < customers.size(); i++)
+        {
+            if(customers.get(i).getName().equals(accountName))
+            {
+
+            }
+        }
+    }*/
 }

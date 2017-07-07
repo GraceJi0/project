@@ -12,6 +12,7 @@ public class Customer
     private String cardNumber;
     private String email;
     private String address;
+    private ArrayList<Order> orderList;
 
     public Customer(String newName,String newPassword)
     {
@@ -19,6 +20,7 @@ public class Customer
         password = newPassword;
         customerCart = new ArrayList<Book>();
         customerWishList = new ArrayList<Book>();
+        orderList = new ArrayList<Order>();
     }
 
     public String getName()
@@ -106,6 +108,7 @@ public class Customer
             customerWishList.add(newBook);
         }
     }
+
     /*******************************
      * delete the given book from customer's wish list
      ******************************/
@@ -120,5 +123,34 @@ public class Customer
         }
     }
 
+    /*******************************
+     * add an order to the order list
+     ******************************/
+    public void addOrder(Order newOrder)
+    {
+        orderList.add(newOrder);
+    }
+
+    /*public void deleteOrder(Order newOrder)
+    {
+        for(int i = 0; i < orderList.size(); i++)
+        {
+            Order order = orderList.get(i);
+            if(order.getOrderNumber() == newOrder.getOrderNumber())
+            {
+                orderList.remove(i);
+            }
+        }
+    }*/
+
+    /*******************************
+     * add an order to the order list
+     ******************************/
+    public List<Order> getOrderList()
+    {
+        return orderList;
+    }
+
+    //public double
 }
 

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/logOutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginTop="19dp"
+        android:text="log out" />
+
+    <Button
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/myAccountButton"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/logOutButton"
+        android:layout_toLeftOf="@+id/logOutButton"
+        android:layout_toStartOf="@+id/logOutButton"
+        android:text="my account" />
+
+    <Button
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/fictionBut"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/nonFictionBut"
+        android:layout_alignBottom="@+id/nonFictionBut"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="36dp"
+        android:layout_marginStart="36dp"
+        android:text="fiction" />
+
+    <Button
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/textBookBut"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextBooks"
+        android:layout_alignBaseline="@+id/nonFictionBut"
+        android:layout_alignBottom="@+id/nonFictionBut"
+        android:layout_toRightOf="@+id/otherBut"
+        android:layout_toEndOf="@+id/otherBut" />
+
+    <Button
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/nonFictionBut"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Non-fiction"
+        android:layout_below="@+id/myAccountButton"
+        android:layout_alignLeft="@+id/fictionBut"
+        android:layout_alignStart="@+id/fictionBut"
+        android:layout_marginTop="18dp" />
+
+    <Button
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/magazinebut"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Magazines"
+        android:layout_alignBaseline="@+id/textBookBut"
+        android:layout_alignBottom="@+id/textBookBut"
+        android:layout_alignRight="@+id/logOutButton"
+        android:layout_alignEnd="@+id/logOutButton" />
+
+    <Button
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/otherBut"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="other"
+        android:layout_below="@+id/textBookBut"
+        android:layout_toRightOf="@+id/childrenbBut"
+        android:layout_toEndOf="@+id/childrenbBut" />
+
+    <Button
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/childrenbBut"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Children and Young Adult"
+        android:layout_alignBaseline="@+id/otherBut"
+        android:layout_alignBottom="@+id/otherBut"
+        android:layout_alignLeft="@+id/fictionBut"
+        android:layout_alignStart="@+id/fictionBut" />
+
+    <Button
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/comicsBut"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignBottom="@+id/otherBut"
+        android:layout_alignEnd="@+id/magazinebut"
+        android:layout_alignRight="@+id/magazinebut"
+        android:text="Comics and Graphic Novels" />
+
+    <ListView
+        android:id="@+id/booklist"
+        android:layout_width="540dp"
+        android:layout_height="480dp"
+        android:layout_marginTop="49dp"
+        android:layout_below="@+id/childrenbBut"
+        android:layout_alignLeft="@+id/childrenbBut"
+        android:layout_alignStart="@+id/childrenbBut" />
+
+    <Button
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/allBut"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="all"
+        android:layout_above="@+id/otherBut"
+        android:layout_alignRight="@+id/childrenbBut"
+        android:layout_alignEnd="@+id/childrenbBut" />
+</RelativeLayout>

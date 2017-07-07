@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:textSize="25sp"
+        android:textColor="#e7a311"
+        android:id="@+id/editTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="33dp"
+        android:text="@string/add_a_new_book"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/nameEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_below="@+id/textView2"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="title"
+        android:textSize="20sp"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editTitle"
+        android:layout_alignStart="@+id/editTitle"
+        android:layout_below="@+id/editTitle"
+        android:layout_marginTop="20dp"
+        android:text="Title:"
+        android:textSize="20sp"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:textSize="20sp"
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:text="Author:"
+        android:layout_below="@+id/nameEditText"
+        android:layout_alignLeft="@+id/nameEditText"
+        android:layout_alignStart="@+id/nameEditText"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/authorEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/nameEditText"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignRight="@+id/nameEditText"
+        android:layout_alignStart="@+id/textView3"
+        android:layout_below="@+id/textView3"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="author"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:textSize="20sp"
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/authorEditText"
+        android:layout_alignStart="@+id/authorEditText"
+        android:layout_below="@+id/authorEditText"
+        android:layout_marginTop="27dp"
+        android:text="Price:"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/priceEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/authorEditText"
+        android:layout_alignLeft="@+id/textView4"
+        android:layout_alignRight="@+id/authorEditText"
+        android:layout_alignStart="@+id/textView4"
+        android:layout_below="@+id/textView4"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="0.0"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:textSize="20sp"
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description:"
+        android:layout_below="@+id/priceEditText"
+        android:layout_alignLeft="@+id/decriptionEditText"
+        android:layout_alignStart="@+id/decriptionEditText"
+        android:layout_marginTop="23dp"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/decriptionEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editTitle"
+        android:layout_alignStart="@+id/editTitle"
+        android:layout_below="@+id/textView5"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="description"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/saveNewButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/categoryEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="22dp"
+        android:text="save"
+        android:textColor="@color/colorPrimary"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:textSize="20sp"
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/decriptionEditText"
+        android:layout_alignStart="@+id/decriptionEditText"
+        android:layout_below="@+id/decriptionEditText"
+        android:layout_marginTop="28dp"
+        android:text="In stock:"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/inStockEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView6"
+        android:layout_alignStart="@+id/textView6"
+        android:layout_below="@+id/textView6"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="0"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/inStockEditText"
+        android:layout_alignStart="@+id/inStockEditText"
+        android:layout_below="@+id/inStockEditText"
+        android:layout_marginTop="35dp"
+        android:text='Category: (category must choose one of "Fiction","TextBooks","Children and Young Adult","Comics and Graphic Novels","Magazines","Non-fiction","other")'
+        android:textSize="20sp"
+        android:layout_alignRight="@+id/editTitle"
+        android:layout_alignEnd="@+id/editTitle"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/categoryEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/inStockEditText"
+        android:layout_alignRight="@+id/inStockEditText"
+        android:layout_below="@+id/textView7"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="category"
+        tools:ignore="HardcodedText" />
+
+</RelativeLayout>

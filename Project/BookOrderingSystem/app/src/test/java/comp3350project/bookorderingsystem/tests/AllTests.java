@@ -1,38 +1,28 @@
 package comp3350project.bookorderingsystem.tests;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import comp3350project.bookorderingsystem.tests.objects.BookTest;
-import comp3350project.bookorderingsystem.tests.objects.CustomerTest;
-import comp3350project.bookorderingsystem.tests.business.AccessBookTest;
-import comp3350project.bookorderingsystem.tests.business.AccessCustomerTest;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
 
-import comp3350project.bookorderingsystem.application.Service;
+import comp3350project.bookorderingsystem.tests.objects.TestBook;
+import comp3350project.bookorderingsystem.tests.objects.TestCustomer;
+import comp3350project.bookorderingsystem.tests.objects.TestPicture;
+
+import comp3350project.bookorderingsystem.tests.business.TestAccessBook;
+import comp3350project.bookorderingsystem.tests.business.TestAccessCustomer;
+
+@RunWith(Suite.class)
+@Suite.SuiteClasses({
+        //test objects
+        TestBook.class,
+        TestCustomer.class,
+        TestPicture.class,
+
+        //test business
+        TestAccessBook.class,
+        TestAccessCustomer.class
+})
 
 public class AllTests
 {
-	public static TestSuite suite;
-
-    public static Test suite()
-    {
-        Service temp = new Service();
-        temp.createDataAccess("temp");
-
-        suite = new TestSuite("All tests");
-        testObjects();
-        testBusiness();
-        return suite;
-    }
-
-    private static void testObjects()
-    {
-        suite.addTestSuite(BookTest.class);
-        suite.addTestSuite(CustomerTest.class);
-    }
-
-    private static void testBusiness()
-    {
-        suite.addTestSuite(AccessBookTest.class);
-        suite.addTestSuite(AccessCustomerTest.class);
-    }
+    //remain class empty
 }

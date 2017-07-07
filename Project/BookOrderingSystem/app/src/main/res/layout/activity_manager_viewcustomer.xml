@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/logOutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="51dp"
+        android:layout_marginRight="51dp"
+        android:layout_marginTop="25dp"
+        android:text="log out" />
+
+    <TextView
+        android:textSize="25dp"
+        android:id="@+id/customerTitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/logOutButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="48dp"
+        android:layout_marginStart="48dp"
+        android:text="All customers account:" />
+
+    <ListView
+        android:id="@+id/customerList"
+        android:layout_width="500dp"
+        android:layout_height="600dp"
+        android:layout_below="@+id/logOutButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="57dp" />
+
+</RelativeLayout>

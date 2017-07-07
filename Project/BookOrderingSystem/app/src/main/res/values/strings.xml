@@ -7,5 +7,16 @@
     <string name="signupBut">Sign up</string>
     <string name="signinbut">sign in</string>
     <string name="defultTextView">TextView</string>
+    <string name="login">login</string>
+    <string name="add_a_new_book">-----------------add a new book-----------------</string>
+
+    <string-array name="sortArray">
+            <item> Sort</item>
+            <item>BookName</item>
+            <item>AuthorName</item>
+            <item>Price Low</item>
+            <item>Price High</item>
+
+        </string-array>
 
 </resources>

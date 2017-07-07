@@ -47,3 +47,52 @@ team member to review it before merge to Master branch.
 	solution for the search bug: use contain() method.
 	solution for display wrong book issue: use different book arraylist
 	finish the coding part, readme.txt, log.txt, and architecture sketch.
+
+—————————————iteration 2————————————
+2017/06/13 
+	first meeting
+	selected big user story for iteration 2
+		1. WishList
+		2. Manage book information
+		3. Add a book into cart
+		4. Manage stock
+		5. Create an account
+
+	created developer tasks
+
+	assign team members to five main tasks:
+	1) replace stub with real SQL database(HSQL database)
+	2) manager account and UI, include view and edit book list and customer list 
+	3) customer sign in and sign up
+	4) “my account” UI, include shopping cart and wish list
+	5) implement book category
+
+2017/06/16
+	2nd metting
+	manager account and UI design
+	data structure design
+	coding style design
+	start working on HSQL
+	
+	
+2017/06/17
+	found bug: 1) customer cannot add a book to cart from wish list
+		   2）delete a book from cart but books in wishlist were deteled at the same time.
+	define issues and debuging
+	discover the reasons of marks deduction of Iteration 1
+2017/06/20
+	redesign the user interface
+	The system will ask for sign in at the begining
+	(account name and password is in the readme.txt file)
+
+	found bug: cannot save a book which was edited.
+	
+2017/06/27
+	complete the functionality of system
+	
+2017/06/28
+	clean up dead code
+	solve all known bugs
+	testing 
+	clear the files and codeing structure
+	

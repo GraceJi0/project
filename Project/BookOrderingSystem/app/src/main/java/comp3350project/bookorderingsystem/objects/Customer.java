@@ -1,23 +1,22 @@
 package comp3350project.bookorderingsystem.objects;
 
 import java.util.ArrayList;
-
-/**
- * Created by dinghanji on 2017-05-29.
- */
+import java.util.List;
 
 public class Customer
 {
     private String customerName;
     private ArrayList<Book> customerCart;
     private ArrayList<Book> customerWishList;
+    private String password;
     private String cardNumber;
     private String email;
     private String address;
 
-    public Customer(String newName)
+    public Customer(String newName,String newPassword)
     {
         customerName = newName;
+        password = newPassword;
         customerCart = new ArrayList<Book>();
         customerWishList = new ArrayList<Book>();
     }
@@ -27,41 +26,48 @@ public class Customer
         return customerName;
     }
 
-    public String getCardNumber()
+    public void setPassword(String newPwd)
     {
-        return cardNumber;
+        password = newPwd;
+    }
+    public String getPassword()
+    {
+        return password;
     }
 
     public void setCardNumber(String newNumber)
     {
         cardNumber = newNumber;
     }
-
-    public String getEmail()
-    {
-        return email;
-    }
+    public String getCardNumber(){return cardNumber;}
 
     public void setEmail(String newEmail)
     {
         email = newEmail;
     }
-
-    public String getAddress()
+    public String getEmail()
     {
-        return address;
+        return email;
     }
 
     public void setAddress(String newAddress)
     {
         address = newAddress;
     }
+    public String getAddress(){return address;}
 
+    public void setCart(ArrayList<Book> theList)
+    {
+        customerCart = new ArrayList<>(theList);
+    }
+    public List<Book> getCart(){return customerCart;}
+    /*******************************
+     * delete the given book from customer's cart
+     ******************************/
     public void addToCart(Book newBook)
     {
         customerCart.add(newBook);
     }
-
     public void deleteFromCart(Book newBook)
     {
         int index;
@@ -73,11 +79,36 @@ public class Customer
         }
     }
 
+    /*******************************
+     * set the customer's wish list
+     ******************************/
+    public void setWishList(ArrayList<Book> theList)
+    {
+        customerWishList = new ArrayList<>(theList);
+    }
+    public List<Book> getWishList(){return customerWishList;}
+    /*******************************
+     * add the given book to customer's wish list
+     ******************************/
     public void addToWishList(Book newBook)
     {
-        customerWishList.add(newBook);
+        boolean found = false;
+        for(int i = 0; i < customerWishList.size(); i++)
+        {
+            if(customerWishList.get(i).getName().equals(newBook.getName()))
+            {
+                //if there is duplicate
+                found = true;
+            }
+        }
+        if(found == false)
+        {
+            customerWishList.add(newBook);
+        }
     }
-
+    /*******************************
+     * delete the given book from customer's wish list
+     ******************************/
     public void deleteFromWishList(Book newBook)
     {
         int index;
@@ -87,17 +118,6 @@ public class Customer
         {
             customerWishList.remove(index);
         }
-    }
-
-    public double getOrderAmount()
-    {
-        double total = 0.0;
-        for(int i = 0; i < customerCart.size(); i++)
-        {
-            total += customerCart.get(i).getBookPrice();
-        }
-        total += total * 0.13;
-        return total;
     }
 
 }

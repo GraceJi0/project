@@ -225,12 +225,16 @@ public class AccessCustomer
         return verify;
     }
 
-
-    public int addOrder(String accountName)
+    /*****************************************
+     * use accountName to find the customer, create a new order, and add it to customer's orderList
+     * the order number is the number of all orders in database + 1;
+     *****************************************/
+    public Order addOrder(String accountName)
     {
         List<Customer> customers = getCustomerList();
         List<Book> cart;
         List<Order> orderList;
+        Order newOrder = null;
         for(int i = 0; i < customers.size(); i++)
         {
             Customer customer = customers.get(i);
@@ -238,11 +242,13 @@ public class AccessCustomer
             {
                 cart = customer.getCart();
                 orderList = customer.getOrderList();
-                //int orderNum = 0;
-               // Order newOrder = new Order(orderNum, cart, accountName, int newPrice);
+                int orderNumber = dataAccess.getAllOrderSize()+1;
+                double amount = customer.getTotalAmount();
+                newOrder = new Order(orderNumber, cart, accountName, amount);
+                orderList.add(newOrder);
             }
         }
-        return 0;
+        return newOrder;
     }
 
 

@@ -11,8 +11,8 @@ public class Order {
     private int orderNumber;
     private List<Book> cartBooks;
     private String customerName;
-    private int price;
-    public Order(int newOrderNumber, List newCartBooks, String newCustomerName, int newPrice)
+    private double price;
+    public Order(int newOrderNumber, List newCartBooks, String newCustomerName, double newPrice)
     {
         orderNumber=newOrderNumber;
         cartBooks=newCartBooks;
@@ -34,7 +34,7 @@ public class Order {
         return cartBooks;
     }
 
-    public int getPrice()
+    public double getPrice()
     {
         return price;
     }

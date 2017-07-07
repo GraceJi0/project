@@ -131,8 +131,19 @@ public class DataAccessStub implements DataAccess
         return BookPersistence.updateBook();
     }
 
+    /*******************************
+     * get the size of database's order list size
+     *****************************/
     public int getAllOrderSize()
     {
         return allOrder.size();
+    }
+
+    /****************
+     * add a new order to the database's order list
+     *********************/
+    public void addOrder(Order newOrder)
+    {
+        allOrder.add(newOrder);
     }
 }

@@ -151,6 +151,15 @@ public class Customer
         return orderList;
     }
 
-    //public double
+    public double getTotalAmount()
+    {
+        double total = 0;
+        for(int i = 0 ; i < customerCart.size(); i++)
+        {
+            total += customerCart.get(i).getBookPrice();
+        }
+        total += total * 0.13;
+        return total;
+    }
 }
 

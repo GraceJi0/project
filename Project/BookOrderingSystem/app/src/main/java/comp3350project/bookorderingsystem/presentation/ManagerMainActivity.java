@@ -69,6 +69,19 @@ public class ManagerMainActivity extends AppCompatActivity
                 startActivity(i);
             }
         });
+
+        //set view boder button
+        Button viewOrder = (Button)findViewById(R.id.viewOrderButton);
+        viewOrder.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent i = new Intent(ManagerMainActivity.this, ManagerViewOrdersActivity.class);
+                i.putExtra("name", accountName);
+                startActivity(i);
+            }
+        });
     }
 
     /*******************************************************

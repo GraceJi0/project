@@ -61,7 +61,7 @@ public class MyAccountActivity extends AppCompatActivity
         checkout.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view)
             {
-                Intent intent=new Intent(MyAccountActivity.this, CheckOutActivity.class);
+                Intent intent= new Intent(MyAccountActivity.this,CheckOutActivity.class);
                 intent.putExtra("name",accountName );
                 startActivity(intent);
             }

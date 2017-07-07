@@ -15,24 +15,21 @@ import java.util.List;
 import comp3350project.bookorderingsystem.R;
 import comp3350project.bookorderingsystem.business.AccessCustomer;
 import comp3350project.bookorderingsystem.objects.Book;
-
 /**
- * Created by lee on 2017/7/2.
+ * Created by lee on 2017/7/7.
  */
 
 public class CheckOutActivity extends AppCompatActivity{
-    private String accountName;
-    private ArrayList<Book> bookList;
-    private ListView cartListView;
-    private ListView wishListListView;
-    private AccessCustomer accessCustomer;
-    protected void onCreate(Bundle savedInstanceState) {
+    String accountName;
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout);
 
         Intent intent = getIntent();
         accountName = intent.getStringExtra("name");
 
-        accessCustomer = new AccessCustomer();
+        
     }
 }

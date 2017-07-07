@@ -151,6 +151,9 @@ public class Customer
         return orderList;
     }
 
+    /**********************************
+     * get total amount of books in customer's cart
+     ***********************************/
     public double getTotalAmount()
     {
         double total = 0;
@@ -160,6 +163,11 @@ public class Customer
         }
         total += total * 0.13;
         return total;
+    }
+
+    public void deleteAllInCart()
+    {
+        customerCart = null;
     }
 }
 

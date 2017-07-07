@@ -228,6 +228,7 @@ public class AccessCustomer
     /*****************************************
      * use accountName to find the customer, create a new order, and add it to customer's orderList
      * the order number is the number of all orders in database + 1;
+     * after add all books from cart to order list, delete all books in cart.
      *****************************************/
     public Order addOrder(String accountName)
     {
@@ -246,21 +247,10 @@ public class AccessCustomer
                 double amount = customer.getTotalAmount();
                 newOrder = new Order(orderNumber, cart, accountName, amount);
                 orderList.add(newOrder);
+                customer.deleteAllInCart();
             }
         }
         return newOrder;
     }
 
-
-    /*public void deleteOrder(String accountName)
-    {
-        List<Customer> customers = getCustomerList();
-        for(int i = 0; i < customers.size(); i++)
-        {
-            if(customers.get(i).getName().equals(accountName))
-            {
-
-            }
-        }
-    }*/
 }

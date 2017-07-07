@@ -159,6 +159,7 @@ public class DataAccessObject implements DataAccess
 
 		return result;
 	}
+	public int getAllOrderSize() {return 0;}
 }
 
 

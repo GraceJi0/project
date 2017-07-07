@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:textSize="30dp"
+        android:id="@+id/oderText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Order#"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="19dp" />
+
+    <TextView
+        android:id="@+id/orderNumberText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/oderText"
+        android:layout_marginLeft="21dp"
+        android:layout_marginStart="21dp"
+        android:layout_toEndOf="@+id/oderText"
+        android:layout_toRightOf="@+id/oderText"
+        android:text="TextView"
+        android:textSize="30dp" />
+
+    <TextView
+        android:textSize="30dp"
+        android:id="@+id/customerNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/orderNumberText"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="137dp"
+        android:layout_marginRight="137dp"
+        android:text="TextView" />
+</RelativeLayout>

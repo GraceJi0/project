@@ -2,4 +2,36 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
+    <TextView
+        android:textSize="20dp"
+        android:id="@+id/allOrdersText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="39dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="53dp"
+        android:text="All orders:"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ListView
+        android:layout_width="520dp"
+        android:layout_height="650dp"
+        android:layout_alignLeft="@+id/allOrdersText"
+        android:layout_alignStart="@+id/allOrdersText"
+        android:layout_below="@+id/allOrdersText"
+        android:layout_marginTop="37dp"
+        android:id="@+id/listView" />
+
+    <Button
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/logOutButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/listView"
+        android:layout_alignEnd="@+id/listView"
+        android:layout_alignRight="@+id/listView"
+        android:text="log out" />
 </RelativeLayout>

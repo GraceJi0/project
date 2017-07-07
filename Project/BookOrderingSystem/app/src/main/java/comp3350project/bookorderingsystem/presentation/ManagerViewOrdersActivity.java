@@ -42,17 +42,19 @@ public class ManagerViewOrdersActivity extends AppCompatActivity
         orderListView.setAdapter(adapter);
 
         //set order list clickable
-        orderListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        orderListView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+            {
                 Order order = orderList.get(position);
-                int orderNumber = order.getOrderNumber();
+                String orderNumber = Integer.toString(order.getOrderNumber());
 
-                //go to the edit book information page
+                //go to the order details information page.
                 Intent intent = new Intent(ManagerViewOrdersActivity.this, ManagerViewOrderDetailActivity.class);
-                /*String[] message = {bookName,accountName};
-                intent.putExtra("name and view", message);
-                startActivity(intent);*/
+                String[] message = {orderNumber,accountName};
+                intent.putExtra("name and view order", message);
+                startActivity(intent);
             }
         });
     }

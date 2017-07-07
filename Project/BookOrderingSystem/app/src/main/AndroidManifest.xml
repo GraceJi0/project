@@ -31,6 +31,7 @@
         <activity android:name=".presentation.MyAccountActivity"></activity>
         <activity android:name=".presentation.AddBookActivity"></activity>
         <activity android:name=".presentation.ManagerViewOrdersActivity"></activity>
+        <activity android:name=".presentation.ManagerViewOrderDetailActivity"></activity>
     </application>
 
 </manifest>

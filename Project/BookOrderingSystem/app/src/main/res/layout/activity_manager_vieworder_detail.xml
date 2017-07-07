@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:textSize="30dp"
+        android:id="@+id/orderTitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="117dp"
+        android:layout_marginStart="117dp"
+        android:layout_marginTop="80dp"
+        android:text="Order#"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/booksInOrder"
+        android:layout_alignStart="@+id/booksInOrder" />
+
+    <TextView
+        android:textSize="30dp"
+        android:id="@+id/orderNumberText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/orderTitleText"
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_toEndOf="@+id/orderTitleText"
+        android:layout_toRightOf="@+id/orderTitleText"
+        android:text="TextView" />
+
+    <ListView
+        android:id="@+id/booksInOrder"
+        android:layout_width="500dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="21dp"
+        android:layout_below="@+id/orderTitleText"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:textSize="30dp"
+        android:id="@+id/customerTitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        android:text="Customer:"
+        android:layout_below="@+id/booksInOrder"
+        android:layout_alignLeft="@+id/orderTitleText"
+        android:layout_alignStart="@+id/orderTitleText" />
+
+    <TextView
+        android:textSize="30dp"
+        android:id="@+id/customerNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_alignBaseline="@+id/customerTitleText"
+        android:layout_alignBottom="@+id/customerTitleText"
+        android:layout_toRightOf="@+id/customerTitleText"
+        android:layout_toEndOf="@+id/customerTitleText" />
+
+    <Button
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/processButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginRight="33dp"
+        android:text="process" />
+</RelativeLayout>

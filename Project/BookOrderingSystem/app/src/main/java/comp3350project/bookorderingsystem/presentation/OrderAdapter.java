@@ -13,16 +13,17 @@ import java.util.List;
 import comp3350project.bookorderingsystem.R;
 import comp3350project.bookorderingsystem.objects.Book;
 import comp3350project.bookorderingsystem.objects.Customer;
+import comp3350project.bookorderingsystem.objects.Order;
 
 /**
  * Created by dinghanji on 2017-07-07.
  */
 
-public class OrderAdapter extends ArrayAdapter<Customer>
+public class OrderAdapter extends ArrayAdapter<Order>
 {
     private int resourceId;
 
-    public OrderAdapter(Context context, int textViewResourceId, List<Customer> objects)
+    public OrderAdapter(Context context, int textViewResourceId, List<Order> objects)
     {
         super(context, textViewResourceId,objects);
         resourceId = textViewResourceId;
@@ -31,16 +32,12 @@ public class OrderAdapter extends ArrayAdapter<Customer>
     @Override
     public View getView(int position, View converView, ViewGroup parent)
     {
-        Customer customer = getItem(position);
+        Order order = getItem(position);
         View view = LayoutInflater.from(getContext()).inflate(resourceId,parent,false);
-        //ImageView bookImage = (ImageView) view.findViewById(R.id.bookImageView);
-        TextView order = (TextView) view.findViewById(R.id.orderNumberText);
+        TextView orderNum = (TextView) view.findViewById(R.id.orderNumberText);
         TextView customerName = (TextView) view.findViewById(R.id.customerNameText);
-        //TextView bookPrice = (TextView) view.findViewById(R.id.bookPriceText);
-        //bookImage.setImageResource(book.getImageID());
-        customerName.setText(customer.getName());
-        //bookAuthor.setText("by: "+book.getBookAuthor());
-        //bookPrice.setText("$"+Double.toString(book.getBookPrice()));
+        orderNum.setText(order.getOrderNumber());
+        customerName.setText(order.getCustomerName());
         return view;
     }
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import comp3350project.bookorderingsystem.objects.Book;
 import comp3350project.bookorderingsystem.objects.Customer;
+import comp3350project.bookorderingsystem.objects.Order;
 
 public interface DataAccess   //shows the function of the DB
 {
@@ -30,4 +31,6 @@ public interface DataAccess   //shows the function of the DB
     boolean updateBook(Book old, Book theBook);  //old represents the object contains old data, theBook object contains the new data, update the old
 
     public int getAllOrderSize();
+
+    public List<Order> getAllOrder();
 }

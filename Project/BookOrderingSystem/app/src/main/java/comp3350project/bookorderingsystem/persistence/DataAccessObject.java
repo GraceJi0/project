@@ -10,6 +10,7 @@ import java.util.List;
 
 import comp3350project.bookorderingsystem.objects.Book;
 import comp3350project.bookorderingsystem.objects.Customer;
+import comp3350project.bookorderingsystem.objects.Order;
 
 public class DataAccessObject implements DataAccess
 {
@@ -160,6 +161,8 @@ public class DataAccessObject implements DataAccess
 		return result;
 	}
 	public int getAllOrderSize() {return 0;}
+
+	public List<Order> getAllOrder(){return null;};
 }
 
 

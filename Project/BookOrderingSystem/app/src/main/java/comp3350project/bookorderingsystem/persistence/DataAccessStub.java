@@ -146,4 +146,9 @@ public class DataAccessStub implements DataAccess
     {
         allOrder.add(newOrder);
     }
+
+    public List<Order> getAllOrder()
+    {
+        return allOrder;
+    }
 }

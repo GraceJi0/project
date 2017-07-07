@@ -20,6 +20,19 @@
                 android:text="log out"
                 tools:ignore="HardcodedText" />
 
+    <Button
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/checkout"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CHECK OUT"
+        android:layout_marginRight="150dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignBottom="@+id/logOutButton"
+        tools:ignore="HardcodedText" />
+
+
     <TextView
                 android:id="@+id/accountText"
                 android:layout_width="wrap_content"

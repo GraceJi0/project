@@ -12,7 +12,7 @@ create memory table cart(customerName varchar(20) not null, bookName varchar(100
 
 /*the orders, first record the order number, then add details into the database*/
 /*first one only contains the orders number and name of the customers who made the orders*/
-create memory table orders(number integer not null primary key, customerName varchar(20) not null, price float not null, constraint constraint7 foreign key(customerName) references customer(name))
+create memory table orders(number integer not null primary key, customerName varchar(20) not null, price float not null, state varchar(10) not null, constraint constraint7 foreign key(customerName) references customer(name))
 /*second one contains orders number and all books in to that order*/
 create memory table orderDetails(number integer not null, bookName varchar(100) not null, constraint constraint8 primary key(number, bookName), constraint constraint9 foreign key(number) references orders(number), constraint constraint10 foreign key(bookName) references book(name))
 

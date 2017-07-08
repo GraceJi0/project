@@ -181,7 +181,7 @@ public class Customer
 
     public void deleteAllInCart()
     {
-        customerCart = null;
+        customerCart = new ArrayList<Book>();
     }
 }
 

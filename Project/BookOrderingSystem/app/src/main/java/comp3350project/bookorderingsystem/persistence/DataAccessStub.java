@@ -141,7 +141,7 @@ public class DataAccessStub implements DataAccess
 
 
     public int getAllOrderSize(){return -1;}
-    public List<Order> getOrderList(){return null;}
+    public List<Order> getOrderList(){return allOrder;}
     public boolean addOrder(Order order){return true;}
-    public boolean updataOrderState(Order order){return true;}
+    public boolean updateOrderState(Order order){return true;}
 }

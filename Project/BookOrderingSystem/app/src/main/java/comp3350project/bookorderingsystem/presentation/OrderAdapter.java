@@ -1,6 +1,7 @@
 package comp3350project.bookorderingsystem.presentation;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,7 +37,7 @@ public class OrderAdapter extends ArrayAdapter<Order>
         View view = LayoutInflater.from(getContext()).inflate(resourceId,parent,false);
         TextView orderNum = (TextView) view.findViewById(R.id.orderNumberText);
         TextView customerName = (TextView) view.findViewById(R.id.customerAccountText);
-        orderNum.setText(order.getOrderNumber());
+        orderNum.setText(Integer.toString(order.getOrderNumber()));
         customerName.setText(order.getCustomerName());
         return view;
     }

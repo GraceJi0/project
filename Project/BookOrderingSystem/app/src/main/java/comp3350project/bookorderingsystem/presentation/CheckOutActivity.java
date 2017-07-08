@@ -37,6 +37,25 @@ public class CheckOutActivity extends AppCompatActivity
         editPaymentInformation();
         setTextView();
         viewPrice();
+        logOut();
+    }
+
+    public void logOut()
+    {
+        Button showLogOut=(Button)findViewById(R.id.logOutButton);
+        showLogOut.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View view)
+            {
+                accountName="";;
+                Intent intent = new Intent(CheckOutActivity.this, MainActivity.class);
+                intent.putExtra("name",accountName );
+                startActivity(intent);
+                Toast.makeText(CheckOutActivity.this,
+                        "Log out successful",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     public void setTextView()

@@ -47,15 +47,15 @@
         android:layout_alignStart="@+id/orderTitleText" />
 
     <TextView
-        android:textSize="30dp"
-        android:id="@+id/customerNameText"
+        android:id="@+id/customerAccountText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
         android:layout_alignBaseline="@+id/customerTitleText"
         android:layout_alignBottom="@+id/customerTitleText"
+        android:layout_toEndOf="@+id/customerTitleText"
         android:layout_toRightOf="@+id/customerTitleText"
-        android:layout_toEndOf="@+id/customerTitleText" />
+        android:text="TextView"
+        android:textSize="30dp" />
 
     <Button
         android:textColor="@color/colorPrimary"
@@ -87,11 +87,11 @@
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Email:"
+        android:layout_below="@+id/textView16"
         android:layout_alignLeft="@+id/orderBooks"
-        android:layout_alignStart="@+id/orderBooks"
-        android:layout_below="@+id/customerTitleText"
-        android:layout_marginTop="33dp"
-        android:text="Email:" />
+        android:layout_alignStart="@+id/orderBooks" />
 
     <TextView
         android:textSize="25dp"
@@ -109,21 +109,21 @@
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Address:"
+        android:layout_below="@+id/textView13"
         android:layout_alignLeft="@+id/textView13"
         android:layout_alignStart="@+id/textView13"
-        android:layout_below="@+id/textView13"
-        android:layout_marginTop="56dp"
-        android:text="Address:" />
+        android:layout_marginTop="27dp" />
 
     <TextView
         android:id="@+id/emailText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/textView13"
-        android:layout_toEndOf="@+id/textView12"
-        android:layout_toRightOf="@+id/textView12"
         android:text="TextView"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:layout_above="@+id/textView13"
+        android:layout_toRightOf="@+id/textView12"
+        android:layout_toEndOf="@+id/textView12" />
 
     <TextView
         android:id="@+id/cardNumberText"
@@ -146,4 +146,25 @@
         android:layout_toRightOf="@+id/textView14"
         android:text="TextView"
         android:textSize="25dp" />
+
+    <TextView
+        android:textSize="25dp"
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name:"
+        android:layout_below="@+id/customerTitleText"
+        android:layout_alignLeft="@+id/textView12"
+        android:layout_alignStart="@+id/textView12"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:textSize="25dp"
+        android:id="@+id/customerNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView16"
+        android:layout_toEndOf="@+id/textView16"
+        android:layout_toRightOf="@+id/textView16"
+        android:text="TextView" />
 </RelativeLayout>

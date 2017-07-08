@@ -24,4 +24,20 @@ public class AccessOrder
     {
         return dataAccess.getAllOrder();
     }
+
+    public Order findTheOrder(int orderNumber)
+    {
+        List<Order> orderList = getAllOrder();
+        Order found = null;
+        Order theOrder = null;
+        for(int i = 0; i < orderList.size(); i++)
+        {
+            theOrder = orderList.get(i);
+            if(orderNumber == theOrder.getOrderNumber())
+            {
+                found =  theOrder;
+            }
+        }
+        return found;
+    }
 }

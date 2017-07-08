@@ -4,13 +4,14 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.List;
 
 import comp3350project.bookorderingsystem.R;
 import comp3350project.bookorderingsystem.business.AccessOrder;
-import comp3350project.bookorderingsystem.objects.Book;
 import comp3350project.bookorderingsystem.objects.Order;
 
 public class ManagerViewOrdersActivity extends AppCompatActivity
@@ -30,7 +31,7 @@ public class ManagerViewOrdersActivity extends AppCompatActivity
         orderList = accessOrder.getAllOrder();
 
         setOrderListView(orderList);
-        //logOut();
+        logOut();
     }
 
     public void setOrderListView(final List<Order> orderList)
@@ -55,6 +56,27 @@ public class ManagerViewOrdersActivity extends AppCompatActivity
                 String[] message = {orderNumber,accountName};
                 intent.putExtra("name and view order", message);
                 startActivity(intent);
+            }
+        });
+    }
+
+    /*******************************************************
+     set log out button
+     ********************************************************/
+    public void logOut()
+    {
+        Button showLogOut=(Button)findViewById(R.id.logOutButton);
+        showLogOut.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View view)
+            {
+                accountName="";
+                Intent intent = new Intent(ManagerViewOrdersActivity.this, MainActivity.class);
+                intent.putExtra("name",accountName );
+                startActivity(intent);
+                Toast.makeText(ManagerViewOrdersActivity.this,
+                        "Log out successful",
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }

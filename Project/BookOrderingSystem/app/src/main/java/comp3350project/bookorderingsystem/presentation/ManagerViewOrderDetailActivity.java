@@ -3,16 +3,23 @@ package comp3350project.bookorderingsystem.presentation;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
 import comp3350project.bookorderingsystem.R;
+import comp3350project.bookorderingsystem.business.AccessCustomer;
 import comp3350project.bookorderingsystem.business.AccessOrder;
+import comp3350project.bookorderingsystem.objects.Book;
+import comp3350project.bookorderingsystem.objects.Customer;
 import comp3350project.bookorderingsystem.objects.Order;
 
-/**
- * Created by dinghanji on 2017-07-07.
- */
 
 public class ManagerViewOrderDetailActivity extends AppCompatActivity
 {
@@ -30,28 +37,89 @@ public class ManagerViewOrderDetailActivity extends AppCompatActivity
 
         int orderNumber = Integer.parseInt(message[0]);
 
+        AccessCustomer accessCustomer = new AccessCustomer();
         AccessOrder accessOrder = new AccessOrder();
-        List<Order> orderList = accessOrder.getAllOrder();
-        order = findTheOrder(orderNumber,orderList);
+        order = accessOrder.findTheOrder(orderNumber);
+        List<Book> bookList = order.getCartBooks();
+        String customerName = order.getCustomerName();
+        Customer customer =  accessCustomer.findCustomer(customerName);
 
-        //logOut();
+        setBookListView(bookList);
+        setTextView(orderNumber, order.getCustomerName());
+        setCustomerInfromation(customer);
+        logOut();
     }
 
-    public Order findTheOrder(int orderNumber, List<Order> orderList)
+    /***********************
+     * set list view for books that currently in this order.
+     ********************/
+    public void setBookListView(final List<Book> bookList)
     {
-        Order found = null;
-        Order theOrder = null;
-        for(int i = 0; i < orderList.size(); i++)
-        {
-            theOrder = orderList.get(i);
-            if(orderNumber == theOrder.getOrderNumber())
-            {
-                found =  theOrder;
+        //set books' listView
+        BookAdapter adapter = new BookAdapter(ManagerViewOrderDetailActivity.this,
+                R.layout.book_item,bookList);
+        ListView listView = (ListView) findViewById(R.id.orderBooks);
+        listView.setAdapter(adapter);
+
+        //set bookList clickable
+        /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Book book = bookList.get(position);
+                String bookName = book.getName();
+
+                //go to the edit book information page
+                Intent intent = new Intent(SearchActivity.this, ViewBookActivity.class);
+                String[] message = {bookName,accountName};
+                intent.putExtra("name and view", message);
+                startActivity(intent);
             }
-        }
-        return found;
+        });*/
     }
 
+    /***********************
+     * set text view for customer name and order number.
+     ********************/
+    public void setTextView(int orderNumber, String customerName)
+    {
+        TextView orderNumberText = (TextView)findViewById(R.id.orderNumberText);
+        orderNumberText.setText(Integer.toString(orderNumber));
 
+        TextView customerNameText = (TextView)findViewById(R.id.customerNameText);
+        customerNameText.setText(customerName);
+    }
+
+    /*******************************************************
+     * set log out button
+     ********************************************************/
+    public void logOut()
+    {
+        Button showLogOut=(Button)findViewById(R.id.logOutButton);
+        showLogOut.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View view)
+            {
+                accountName="";
+                Intent intent = new Intent(ManagerViewOrderDetailActivity.this, MainActivity.class);
+                intent.putExtra("name",accountName );
+                startActivity(intent);
+                Toast.makeText(ManagerViewOrderDetailActivity.this,
+                        "Log out successful",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void setCustomerInfromation(Customer customer)
+    {
+        TextView emailText = (TextView)findViewById(R.id.emailText);
+        emailText.setText(customer.getEmail());
+
+        TextView cardNumberText = (TextView)findViewById(R.id.cardNumberText);
+        cardNumberText.setText(customer.getCardNumber());
+
+        TextView addressText = (TextView)findViewById(R.id.addressText);
+        addressText.setText(customer.getAddress());
+    }
 }
 

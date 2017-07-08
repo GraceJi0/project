@@ -253,4 +253,20 @@ public class AccessCustomer
         return newOrder;
     }
 
+    public Customer findCustomer(String customerName)
+    {
+        Customer found = null;
+        List<Customer> customerList = getCustomerList();
+        Customer customer = null;
+        for(int i = 0; i < customerList.size(); i++)
+        {
+            customer = customerList.get(i);
+            if(customer.getName().equals(customerName))
+            {
+                found = customer;
+            }
+        }
+        return found;
+    }
+
 }

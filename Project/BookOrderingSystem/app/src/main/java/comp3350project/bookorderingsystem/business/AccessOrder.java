@@ -22,7 +22,7 @@ public class AccessOrder
 
     public List<Order> getAllOrder()
     {
-        return dataAccess.getAllOrder();
+        return dataAccess.getOrderList();
     }
 
     /***************************

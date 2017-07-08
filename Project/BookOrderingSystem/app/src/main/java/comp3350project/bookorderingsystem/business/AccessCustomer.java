@@ -252,7 +252,7 @@ public class AccessCustomer
             {
                 orderList = customer.getOrderList();
                 orderList.add(newOrder);
-               // customer.deleteAllInCart();
+                customer.deleteAllInCart();
             }
         }
         return newOrder;

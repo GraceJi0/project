@@ -56,21 +56,6 @@ public class ManagerViewOrderDetailActivity extends AppCompatActivity
                 R.layout.book_item,bookList);
         ListView listView = (ListView) findViewById(R.id.orderBooks);
         listView.setAdapter(adapter);
-
-        /*//set bookList clickable
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Book book = bookList.get(position);
-                String bookName = book.getName();
-
-                //go to the edit book information page
-                Intent intent = new Intent(SearchActivity.this, ViewBookActivity.class);
-                String[] message = {bookName,accountName};
-                intent.putExtra("name and view", message);
-                startActivity(intent);
-            }
-        });*/
     }
 
     /***********************

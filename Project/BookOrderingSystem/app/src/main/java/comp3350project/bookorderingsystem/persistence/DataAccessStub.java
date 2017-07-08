@@ -134,14 +134,14 @@ public class DataAccessStub implements DataAccess
     /*******************************
      * get the size of database's order list size
      *****************************/
-    public int getAllOrderSize()
-    {
-        return allOrder.size();
-    }
+//    public int getAllOrderSize()
+//    {
+//        return allOrder.size();
+//    }
 
 
-    public List<Order> getAllOrder()
-    {
-        return allOrder;
-    }
+    public int getAllOrderSize(){return -1;}
+    public List<Order> getOrderList(){return null;}
+    public boolean addOrder(Order order){return true;}
+    public boolean updataOrderState(Order order){return true;}
 }

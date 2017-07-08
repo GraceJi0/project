@@ -16,7 +16,7 @@ public class DataAccessObject implements DataAccess
 {
 	private bookPersistenceHSQL BookPersistence;
 	private customerPersistenceHSQL CustomerPersistence;
-
+	private orderPersistenceHSQL OrderPersistence;
 	private Statement st1, st2, st3;
 	private Connection c1;
 	private ResultSet rs2, rs3, rs4, rs5;
@@ -160,9 +160,12 @@ public class DataAccessObject implements DataAccess
 
 		return result;
 	}
-	public int getAllOrderSize() {return 0;}
 
-	public List<Order> getAllOrder(){return null;};
+
+	public int getAllOrderSize(){return -1;}
+	public List<Order> getOrderList() {return null;}
+	public boolean addOrder(Order order){return true;}
+	public boolean updataOrderState(Order order){return true;}
 }
 
 

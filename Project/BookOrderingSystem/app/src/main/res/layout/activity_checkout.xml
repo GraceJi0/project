@@ -9,13 +9,178 @@
 
 
     <TextView
-        android:textSize="40dp"
-        android:id="@+id/textView10"
+        android:textSize="30dp"
+        android:layout_marginLeft="39dp"
+        android:id="@+id/textViewCart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="View My Cart"
-        android:layout_marginTop="80dp"
+        android:layout_below= "@+id/cardNumberEditText"
         tools:ignore="HardcodedText,SpUsage" />
+
+    <ListView
+        android:id="@+id/cartList"
+        android:layout_width="530dp"
+        android:layout_height="240dp"
+        android:layout_below="@+id/textViewCart"
+        android:layout_alignLeft="@+id/textViewCart"
+        android:layout_alignStart="@+id/textViewCart" />
+
+    <TextView
+        android:id="@+id/accountText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="39dp"
+        android:layout_marginStart="39dp"
+        android:text="TextView"
+        android:textSize="40dp"
+        android:layout_alignBottom="@+id/logOutButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        tools:ignore="HardcodedText,SpUsage" />
+
+    <TextView
+        android:id="@+id/priceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="39dp"
+        android:layout_marginStart="39dp"
+        android:text="TextView"
+        android:textSize="30dp"
+        android:layout_below="@+id/cartList"
+        tools:ignore="HardcodedText,SpUsage" />
+
+    <TextView
+        android:id="@+id/paymentText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="39dp"
+        android:layout_marginStart="39dp"
+        android:text="Payment Information"
+        android:textSize="30dp"
+        android:layout_below="@+id/accountText"
+        tools:ignore="HardcodedText,SpUsage" />
+
+    <TextView
+        android:id="@+id/nameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="39dp"
+        android:layout_marginStart="39dp"
+        android:text="Name:"
+        android:textSize="20dp"
+        android:layout_below="@+id/paymentText"
+        tools:ignore="HardcodedText,SpUsage"
+        />
+
+    <EditText
+        android:id="@+id/nameEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="39dp"
+        android:layout_marginStart="39dp"
+        android:ems="18"
+        android:inputType="textPersonName"
+        android:textSize="20dp"
+        tools:ignore="SpUsage"
+        android:layout_below="@+id/nameText" />
+
+    <TextView
+        android:id="@+id/emailText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="39dp"
+        android:layout_marginStart="39dp"
+        android:text="Email:"
+        android:textSize="20dp"
+        android:layout_below="@+id/nameEditText"
+        android:layout_marginTop="10dp"
+        tools:ignore="HardcodedText,SpUsage"
+        />
+
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="39dp"
+        android:layout_marginStart="39dp"
+        android:ems="18"
+        android:inputType="textPersonName"
+        android:textSize="20dp"
+        tools:ignore="SpUsage"
+        android:layout_below="@+id/emailText" />
+
+    <TextView
+        android:id="@+id/addressText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="39dp"
+        android:layout_marginStart="39dp"
+        android:text="Address:"
+        android:textSize="20dp"
+        android:layout_below="@+id/emailEditText"
+        android:layout_marginTop="10dp"
+        tools:ignore="HardcodedText,SpUsage"
+        />
+
+    <EditText
+        android:id="@+id/addressEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="39dp"
+        android:layout_marginStart="39dp"
+        android:ems="18"
+        android:inputType="textPersonName"
+        android:textSize="20dp"
+        tools:ignore="SpUsage"
+        android:layout_below="@+id/addressText"
+        />
+
+    <TextView
+        android:id="@+id/cardNumberText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="39dp"
+        android:layout_marginStart="39dp"
+        android:text="Card Number:"
+        android:textSize="20dp"
+        android:layout_below="@+id/addressEditText"
+        android:layout_marginTop="10dp"
+        tools:ignore="HardcodedText,SpUsage"/>
+
+    <EditText
+        android:id="@+id/cardNumberEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="39dp"
+        android:layout_marginStart="39dp"
+        android:ems="18"
+        android:inputType="textPersonName"
+        android:textSize="20dp"
+        tools:ignore="SpUsage"
+        android:layout_below="@+id/cardNumberText"
+        />
+
+
+
+
+
+
+
+    <Button
+        android:id="@+id/logOutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="27dp"
+        android:layout_marginRight="27dp"
+        android:layout_marginTop="18dp"
+        android:text="log out"
+        tools:ignore="HardcodedText" />
+
+
 
 </RelativeLayout>
 

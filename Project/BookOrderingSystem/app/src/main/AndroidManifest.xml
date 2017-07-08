@@ -32,6 +32,7 @@
         <activity android:name=".presentation.AddBookActivity"></activity>
         <activity android:name=".presentation.ManagerViewOrdersActivity"></activity>
         <activity android:name=".presentation.ManagerViewOrderDetailActivity"></activity>
+        <activity android:name=".presentation.CheckOutActivity"></activity>
     </application>
 
 </manifest>

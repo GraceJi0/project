@@ -12,6 +12,7 @@ public class Customer
     private String cardNumber;
     private String email;
     private String address;
+    private String RealName;
     private ArrayList<Order> orderList;
 
     public Customer(String newName,String newPassword)
@@ -21,6 +22,17 @@ public class Customer
         customerCart = new ArrayList<Book>();
         customerWishList = new ArrayList<Book>();
         orderList = new ArrayList<Order>();
+        RealName="";
+    }
+
+    public String getRealName()
+    {
+        return RealName;
+    }
+
+    public void setRealName(String newRealName)
+    {
+        RealName=newRealName;
     }
 
     public String getName()
@@ -162,6 +174,8 @@ public class Customer
             total += customerCart.get(i).getBookPrice();
         }
         total += total * 0.13;
+        long l = Math.round(total * 100);
+        total= l / 100.0;
         return total;
     }
 

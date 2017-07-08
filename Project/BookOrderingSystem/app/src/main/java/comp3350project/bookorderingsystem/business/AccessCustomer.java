@@ -79,6 +79,17 @@ public class AccessCustomer
         }
         return customer.getCart();
     }
+    /*******************************************************
+     get total price of customer's cart
+     ********************************************************/
+
+    public double getTotalPrice(String customerName)
+    {
+        double result;
+        Customer newCustomer=findCustomer(customerName);
+        result= newCustomer.getTotalAmount();
+        return result;
+    }
 
     /*******************************************************
      add a book to customer's cart

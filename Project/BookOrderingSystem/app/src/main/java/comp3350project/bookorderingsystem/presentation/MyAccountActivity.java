@@ -37,8 +37,8 @@ public class MyAccountActivity extends AppCompatActivity
         setTextView();
         setCartListView(accessCustomer.getCustomerCart(accountName));
         setWishListListView(accessCustomer.getCustomerWishList(accountName));
-        logOut();
         checkOut();
+        logOut();
     }
 
     @Override
@@ -61,9 +61,9 @@ public class MyAccountActivity extends AppCompatActivity
         checkout.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view)
             {
-                Intent intent= new Intent(MyAccountActivity.this,CheckOutActivity.class);
-                intent.putExtra("name",accountName );
-                startActivity(intent);
+                Intent i = new Intent(MyAccountActivity.this, CheckOutActivity.class);
+                i.putExtra("name", accountName);
+                startActivity(i);
             }
         });
     }

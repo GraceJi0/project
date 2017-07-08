@@ -47,12 +47,12 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/nameEditText"
-        android:layout_alignStart="@+id/nameEditText"
-        android:layout_alignTop="@+id/bookPicture"
         android:text="Title:"
         android:textSize="20dp"
-        tools:ignore="HardcodedText,SpUsage" />
+        tools:ignore="HardcodedText,SpUsage"
+        android:layout_alignTop="@+id/bookPicture"
+        android:layout_alignLeft="@+id/nameEditText"
+        android:layout_alignStart="@+id/nameEditText" />
 
     <TextView
         android:textSize="20dp"

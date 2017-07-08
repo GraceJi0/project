@@ -16,7 +16,10 @@ import comp3350project.bookorderingsystem.objects.Order;
 public class orderPersistenceHSQL {
     public List<Order> getOrderList(String cmdString, Statement st1, ResultSet rs2, String warn )
     {
-        return null;
+        List<Order> orders = new ArrayList<Order>();   //all orders
+
+
+        return orders;
     }
     public boolean addOrder(Order order, String warn, String cmdString, Statement st1, ResultSet rs5, int updateCount, boolean result)
     {

@@ -34,6 +34,6 @@ public interface DataAccess   //shows the function of the DB
 
     List<Order> getOrderList();
     boolean addOrder(Order order);
-    boolean updataOrderState(Order order);
+    boolean updateOrderState(Order order);
 
 }

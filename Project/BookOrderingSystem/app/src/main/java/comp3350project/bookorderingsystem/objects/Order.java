@@ -12,6 +12,8 @@ public class Order {
     private List<Book> cartBooks;
     private String customerName;
     private double price;
+    private String state;   //state of the order
+
     public Order(int newOrderNumber, List newCartBooks, String newCustomerName, double newPrice)
     {
         orderNumber=newOrderNumber;

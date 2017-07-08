@@ -67,7 +67,7 @@ public class ManagerViewOrderDetailActivity extends AppCompatActivity
         orderNumberText.setText(Integer.toString(orderNumber));
 
         TextView customerNameText = (TextView)findViewById(R.id.customerAccountText);
-        customerNameText.setText(accountName);
+        customerNameText.setText(customerName);
     }
 
     /*******************************************************
@@ -97,7 +97,7 @@ public class ManagerViewOrderDetailActivity extends AppCompatActivity
     public void setCustomerInfromation(Customer customer)
     {
         TextView nameText = (TextView)findViewById(R.id.customerNameText);
-        nameText.setText(customer.getName());
+        nameText.setText(customer.getRealName());
 
         TextView emailText = (TextView)findViewById(R.id.emailText);
         emailText.setText(customer.getEmail());

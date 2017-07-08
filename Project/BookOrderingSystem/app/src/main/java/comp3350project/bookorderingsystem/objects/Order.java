@@ -3,10 +3,6 @@ package comp3350project.bookorderingsystem.objects;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by lee on 2017/7/7.
- */
-
 public class Order {
     private String waitingState = "Waiting";
     private String deliveredState = "Delivered";
@@ -53,4 +49,5 @@ public class Order {
         else if(newState.equals("Received"))
             state = receivedState;
     }
+    //public boolean
 }

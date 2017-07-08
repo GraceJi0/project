@@ -106,7 +106,8 @@ public class CheckOutActivity extends AppCompatActivity
                             "please fill payment information",
                             Toast.LENGTH_SHORT).show();
                 }
-                else {
+                else
+                {
                     customer.setRealName(name.getText().toString());
                     customer.setEmail(email.getText().toString());
                     customer.setAddress(address.getText().toString());
@@ -118,7 +119,6 @@ public class CheckOutActivity extends AppCompatActivity
                     Toast.makeText(CheckOutActivity.this,
                             "check out successful",
                             Toast.LENGTH_SHORT).show();
-
                 }
             }
         });

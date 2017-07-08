@@ -16,10 +16,6 @@ import comp3350project.bookorderingsystem.objects.Book;
 import comp3350project.bookorderingsystem.objects.Customer;
 import comp3350project.bookorderingsystem.objects.Order;
 
-/**
- * Created by dinghanji on 2017-07-07.
- */
-
 public class OrderAdapter extends ArrayAdapter<Order>
 {
     private int resourceId;

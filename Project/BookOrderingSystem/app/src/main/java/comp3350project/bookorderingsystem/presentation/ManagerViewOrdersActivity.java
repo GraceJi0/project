@@ -34,6 +34,9 @@ public class ManagerViewOrdersActivity extends AppCompatActivity
         logOut();
     }
 
+    /**********************
+     * set the list view for all orders in database, display the order number and customer.
+     ******************************/
     public void setOrderListView(final List<Order> orderList)
     {
         //set orders' listView

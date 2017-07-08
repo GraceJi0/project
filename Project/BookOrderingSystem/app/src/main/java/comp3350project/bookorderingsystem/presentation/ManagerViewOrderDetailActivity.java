@@ -8,11 +8,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
-
 import java.util.List;
-
 import comp3350project.bookorderingsystem.R;
 import comp3350project.bookorderingsystem.business.AccessCustomer;
 import comp3350project.bookorderingsystem.business.AccessOrder;
@@ -61,8 +57,8 @@ public class ManagerViewOrderDetailActivity extends AppCompatActivity
         ListView listView = (ListView) findViewById(R.id.orderBooks);
         listView.setAdapter(adapter);
 
-        //set bookList clickable
-        /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*//set bookList clickable
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Book book = bookList.get(position);
@@ -110,6 +106,9 @@ public class ManagerViewOrderDetailActivity extends AppCompatActivity
         });
     }
 
+    /*******************
+     * set text view for customer's personal infromation
+     *********************/
     public void setCustomerInfromation(Customer customer)
     {
         TextView emailText = (TextView)findViewById(R.id.emailText);

@@ -25,6 +25,9 @@ public class AccessOrder
         return dataAccess.getAllOrder();
     }
 
+    /***************************
+     * find the order by te given order numeber
+     ***************************/
     public Order findTheOrder(int orderNumber)
     {
         List<Order> orderList = getAllOrder();

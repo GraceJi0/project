@@ -43,4 +43,13 @@ public class AccessOrder
         }
         return found;
     }
+
+    /****************
+     * add a new order to the database's order list
+     *********************/
+    public void addOrder(Order newOrder)
+    {
+        List<Order> allOrder = getAllOrder();
+        allOrder.add(newOrder);
+    }
 }

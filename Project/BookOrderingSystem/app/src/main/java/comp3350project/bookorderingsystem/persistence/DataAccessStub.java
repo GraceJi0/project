@@ -139,13 +139,7 @@ public class DataAccessStub implements DataAccess
         return allOrder.size();
     }
 
-    /****************
-     * add a new order to the database's order list
-     *********************/
-    public void addOrder(Order newOrder)
-    {
-        allOrder.add(newOrder);
-    }
+
 
     public List<Order> getAllOrder()
     {

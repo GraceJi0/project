@@ -35,7 +35,7 @@ public class OrderAdapter extends ArrayAdapter<Order>
         Order order = getItem(position);
         View view = LayoutInflater.from(getContext()).inflate(resourceId,parent,false);
         TextView orderNum = (TextView) view.findViewById(R.id.orderNumberText);
-        TextView customerName = (TextView) view.findViewById(R.id.customerNameText);
+        TextView customerName = (TextView) view.findViewById(R.id.customerAccountText);
         orderNum.setText(order.getOrderNumber());
         customerName.setText(order.getCustomerName());
         return view;

@@ -26,8 +26,7 @@
         android:textSize="30dp" />
 
     <TextView
-        android:textSize="30dp"
-        android:id="@+id/customerNameText"
+        android:id="@+id/customerAccountText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/orderNumberText"
@@ -35,5 +34,6 @@
         android:layout_alignParentRight="true"
         android:layout_marginEnd="137dp"
         android:layout_marginRight="137dp"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textSize="30dp" />
 </RelativeLayout>

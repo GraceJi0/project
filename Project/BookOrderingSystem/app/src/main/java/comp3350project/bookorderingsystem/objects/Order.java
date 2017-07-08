@@ -14,7 +14,7 @@ public class Order {
 
     private int orderNumber;
     private List<Book> cartBooks;
-    private String customerName;
+    private String accountName;
     private double price;
     private String state;   //state of the order
 
@@ -22,13 +22,13 @@ public class Order {
     {
         orderNumber=newOrderNumber;
         cartBooks=newCartBooks;
-        customerName=newCustomerName;
+        accountName=newCustomerName;
         price=newPrice;
         state = waitingState;
     }
-    public String getCustomerName()
+    public String getAccountName()
     {
-        return customerName;
+        return accountName;
     }
 
     public int getOrderNumber()

@@ -37,11 +37,11 @@ public class ManagerViewOrderDetailActivity extends AppCompatActivity
         AccessOrder accessOrder = new AccessOrder();
         order = accessOrder.findTheOrder(orderNumber);
         List<Book> bookList = order.getCartBooks();
-        String customerName = order.getCustomerName();
-        Customer customer =  accessCustomer.findCustomer(customerName);
+        String accountName = order.getAccountName();
+        Customer customer =  accessCustomer.findCustomer(accountName);
 
         setBookListView(bookList);
-        setTextView(orderNumber, order.getCustomerName());
+        setTextView(orderNumber, order.getAccountName());
         setCustomerInfromation(customer);
         logOut();
     }
@@ -67,7 +67,7 @@ public class ManagerViewOrderDetailActivity extends AppCompatActivity
         orderNumberText.setText(Integer.toString(orderNumber));
 
         TextView customerNameText = (TextView)findViewById(R.id.customerAccountText);
-        customerNameText.setText(customerName);
+        customerNameText.setText(accountName);
     }
 
     /*******************************************************

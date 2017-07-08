@@ -38,7 +38,7 @@ public class OrderAdapter extends ArrayAdapter<Order>
         TextView orderNum = (TextView) view.findViewById(R.id.orderNumberText);
         TextView customerName = (TextView) view.findViewById(R.id.customerAccountText);
         orderNum.setText(Integer.toString(order.getOrderNumber()));
-        customerName.setText(order.getCustomerName());
+        customerName.setText(order.getAccountName());
         return view;
     }
 }

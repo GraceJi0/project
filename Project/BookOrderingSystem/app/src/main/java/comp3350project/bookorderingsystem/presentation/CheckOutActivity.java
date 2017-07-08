@@ -24,8 +24,8 @@ public class CheckOutActivity extends AppCompatActivity
     String accountName;
     private ListView cartListView;
     private AccessCustomer accessCustomer;
-    private AccessOrder accessOrder;
     private Customer customer;
+    AccessOrder accessOrder;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -34,7 +34,7 @@ public class CheckOutActivity extends AppCompatActivity
 
         Intent intent = getIntent();
         accountName = intent.getStringExtra("name");
-        accessOrder = new AccessOrder();
+        AccessOrder accessOrder = new AccessOrder();
         accessCustomer = new AccessCustomer();
         customer=accessCustomer.findCustomer(accountName);
         setCartListView(accessCustomer.getCustomerCart(accountName));
@@ -110,7 +110,7 @@ public class CheckOutActivity extends AppCompatActivity
                     customer.setEmail(email.getText().toString());
                     customer.setAddress(address.getText().toString());
                     customer.setCardNumber(cardNumber.getText().toString());
-                    addnewOrder(customer.getRealName());
+                    addnewOrder(name.getText().toString());
                     Intent intent = new Intent(CheckOutActivity.this, MyAccountActivity.class);
                     intent.putExtra("name",accountName );
                     startActivity(intent);

@@ -14,14 +14,17 @@ import java.util.List;
 
 import comp3350project.bookorderingsystem.R;
 import comp3350project.bookorderingsystem.business.AccessCustomer;
+import comp3350project.bookorderingsystem.business.AccessOrder;
 import comp3350project.bookorderingsystem.objects.Book;
 import comp3350project.bookorderingsystem.objects.Customer;
+import comp3350project.bookorderingsystem.objects.Order;
 
 public class CheckOutActivity extends AppCompatActivity
 {
     String accountName;
     private ListView cartListView;
     private AccessCustomer accessCustomer;
+    private AccessOrder accessOrder;
     private Customer customer;
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -31,6 +34,7 @@ public class CheckOutActivity extends AppCompatActivity
 
         Intent intent = getIntent();
         accountName = intent.getStringExtra("name");
+        accessOrder = new AccessOrder();
         accessCustomer = new AccessCustomer();
         customer=accessCustomer.findCustomer(accountName);
         setCartListView(accessCustomer.getCustomerCart(accountName));
@@ -57,7 +61,15 @@ public class CheckOutActivity extends AppCompatActivity
             }
         });
     }
-
+    public void addnewOrder(String name)
+    {
+        int orderNumber;
+        Order newOrder;
+        orderNumber=accessOrder.orderSize();
+        newOrder= new Order(orderNumber,accessCustomer.getCustomerCart(accountName),name,accessCustomer.getTotalPrice(accountName));
+        accessOrder.addOrder(newOrder);
+        accessCustomer.addOrder(accountName,newOrder);
+    }
     public void setTextView()
     {
         TextView account = (TextView)findViewById(R.id.accountText);
@@ -87,10 +99,26 @@ public class CheckOutActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                customer.setRealName(name.getText().toString());
-                customer.setEmail(email.getText().toString());
-                customer.setAddress(address.getText().toString());
-                customer.setCardNumber(cardNumber.getText().toString());
+                if(name.getText().toString().compareTo("")==0 ||email.getText().toString().compareTo("")==0 || address.getText().toString().compareTo("")==0||cardNumber.getText().toString().compareTo("")==0)
+                {
+                    Toast.makeText(CheckOutActivity.this,
+                            "please fill payment information",
+                            Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    customer.setRealName(name.getText().toString());
+                    customer.setEmail(email.getText().toString());
+                    customer.setAddress(address.getText().toString());
+                    customer.setCardNumber(cardNumber.getText().toString());
+                    addnewOrder(customer.getRealName());
+                    Intent intent = new Intent(CheckOutActivity.this, MyAccountActivity.class);
+                    intent.putExtra("name",accountName );
+                    startActivity(intent);
+                    Toast.makeText(CheckOutActivity.this,
+                            "check out successful",
+                            Toast.LENGTH_SHORT).show();
+
+                }
             }
         });
 

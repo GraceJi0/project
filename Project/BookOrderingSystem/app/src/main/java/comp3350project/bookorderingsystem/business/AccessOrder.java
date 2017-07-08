@@ -52,4 +52,12 @@ public class AccessOrder
         List<Order> allOrder = getAllOrder();
         allOrder.add(newOrder);
     }
+
+    public int orderSize()
+    {
+        int result;
+        List<Order> allOrder = getAllOrder();
+        result=allOrder.size()+1;
+        return result;
+    }
 }

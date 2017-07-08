@@ -180,6 +180,19 @@
         android:text="log out"
         tools:ignore="HardcodedText" />
 
+    <Button
+        android:id="@+id/checkbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:width="200dp"
+        android:height="30dp"
+        android:text="Check Out"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/priceText"
+        android:layout_centerHorizontal="true" />
+
 
 
 </RelativeLayout>

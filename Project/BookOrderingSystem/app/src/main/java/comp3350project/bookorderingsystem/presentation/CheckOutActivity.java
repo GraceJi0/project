@@ -4,9 +4,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -53,8 +55,28 @@ public class CheckOutActivity extends AppCompatActivity
         address.setText(customer.getAddress());
         EditText cardNumber = (EditText) findViewById(R.id.cardNumberEditText);
         cardNumber.setText(customer.getCardNumber());
+        setButton(name,email,address, cardNumber);
     }
-    
+
+    public void setButton(final EditText name, final EditText email, final EditText address,
+                          final EditText cardNumber)
+    {
+        //set save button
+        Button checkOut = (Button)findViewById(R.id.checkbutton);
+        checkOut.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                customer.setRealName(name.getText().toString());
+                customer.setEmail(email.getText().toString());
+                customer.setAddress(address.getText().toString());
+                customer.setCardNumber(cardNumber.getText().toString());
+            }
+        });
+
+    }
+
     public void setCartListView(final List<Book> bookList)
     {
         //view bookList

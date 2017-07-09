@@ -39,6 +39,7 @@ public class MyAccountActivity extends AppCompatActivity
         setWishListListView(accessCustomer.getCustomerWishList(accountName));
         checkOut();
         logOut();
+        viewOrder();
     }
 
     @Override
@@ -66,6 +67,21 @@ public class MyAccountActivity extends AppCompatActivity
                 startActivity(i);
             }
         });
+    }
+
+    public void viewOrder()
+    {
+        Button viewOrders=(Button)findViewById(R.id.viewOrderButton);
+        viewOrders.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View view)
+            {
+                Intent intent = new Intent(MyAccountActivity.this, CustomerOrderActivity.class);
+                intent.putExtra("name",accountName );
+                startActivity(intent);
+            }
+        });
+
     }
 
     /*******************************************************

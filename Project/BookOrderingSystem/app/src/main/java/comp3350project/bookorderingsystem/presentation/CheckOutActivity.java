@@ -15,6 +15,7 @@ import java.util.List;
 import comp3350project.bookorderingsystem.R;
 import comp3350project.bookorderingsystem.business.AccessCustomer;
 import comp3350project.bookorderingsystem.business.AccessOrder;
+import comp3350project.bookorderingsystem.business.AccessBook;
 import comp3350project.bookorderingsystem.objects.Book;
 import comp3350project.bookorderingsystem.objects.Customer;
 import comp3350project.bookorderingsystem.objects.Order;
@@ -24,7 +25,7 @@ public class CheckOutActivity extends AppCompatActivity
     String accountName;
     private ListView cartListView;
     private AccessCustomer accessCustomer;
-    private Customer customer;
+    private AccessBook accessBook;
     private AccessOrder accessOrder;
     private Order order;
     @Override
@@ -36,8 +37,9 @@ public class CheckOutActivity extends AppCompatActivity
         Intent intent = getIntent();
         accountName = intent.getStringExtra("name");
         accessOrder = new AccessOrder();
+        accessBook=new AccessBook();
         accessCustomer = new AccessCustomer();
-        customer=accessCustomer.findCustomer(accountName);
+       // customer=accessCustomer.findCustomer(accountName);
         setCartListView(accessCustomer.getCustomerCart(accountName));
         editPaymentInformation();
         setTextView();
@@ -62,6 +64,7 @@ public class CheckOutActivity extends AppCompatActivity
             }
         });
     }
+
     public void addnewOrder( String customerName, String cardNumber, String email, String address)
     {
         int orderNumber;
@@ -85,9 +88,11 @@ public class CheckOutActivity extends AppCompatActivity
         setButton(name,email,address, cardNumber);
     }
 
-   /* public boolean checkStock()
+    /*public boolean checkStock()
     {
         List<Book> bookList =accessCustomer.getCustomerCart(accountName);
+        while()
+
     }*/
 
     public void setButton(final EditText name, final EditText email, final EditText address,

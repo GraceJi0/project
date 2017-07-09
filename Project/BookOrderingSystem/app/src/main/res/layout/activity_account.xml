@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="CHECK OUT"
-        android:layout_marginRight="150dp"
+        android:layout_marginRight="127dp"
         android:layout_alignParentRight="true"
         android:layout_alignBottom="@+id/logOutButton"
         tools:ignore="HardcodedText" />
@@ -65,12 +65,25 @@
 
     <Button
         android:textColor="@color/colorPrimary"
+        android:id="@+id/viewOrderButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="VIEW ORDER"
+        tools:ignore="HardcodedText"
+        android:layout_alignBaseline="@+id/checkout"
+        android:layout_alignBottom="@+id/checkout"
+        android:layout_toLeftOf="@+id/checkout"
+        android:layout_toStartOf="@+id/checkout" />
+
+    <Button
+        android:textColor="@color/colorPrimary"
         android:id="@+id/delete1But"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="delete"
-        android:layout_marginTop="69dp"
+        android:layout_marginTop="30dp"
         android:layout_below="@+id/logOutButton"
         android:layout_alignRight="@+id/cartList"
         android:layout_alignEnd="@+id/cartList"
@@ -94,10 +107,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="View My Cart"
-        android:layout_above="@+id/cartList"
+        tools:ignore="HardcodedText,SpUsage"
+        android:layout_alignTop="@+id/delete1But"
         android:layout_alignLeft="@+id/cartList"
-        android:layout_alignStart="@+id/cartList"
-        tools:ignore="HardcodedText,SpUsage" />
+        android:layout_alignStart="@+id/cartList" />
 
     <TextView
         android:textSize="40dp"

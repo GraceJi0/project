@@ -50,6 +50,10 @@ public class Order {
         return cartBooks;
     }
 
+    public void setCustomerName(String customerName){this.customerName = customerName;}
+    public void setCardNumber(String cardNumber){this.cardNumber = cardNumber;}
+    public void setEmail(String email){this.email = email;}
+    public void setAddress(String address){this.address = address;}
     public void setState(String newState)
     {
         /*if(newState.equals("Delivered"))

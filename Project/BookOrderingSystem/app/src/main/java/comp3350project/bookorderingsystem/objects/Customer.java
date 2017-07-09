@@ -21,6 +21,14 @@ public class Customer
         orderList = new ArrayList<Order>();
     }
 
+    //************** getter and setter for account name and password, but the account name is not allowed to be modified
+    public String getName() {return accountName;}
+    public String getPassword(){return password;}
+    public void setPassword(String newPwd){password = newPwd;}
+
+
+
+    //************** belows are the lists: Cart, Wishlist, Order
     public void setCart(ArrayList<Book> theList)
     {
         customerCart = new ArrayList<>(theList);
@@ -32,16 +40,6 @@ public class Customer
     public void addToCart(Book newBook)
     {
         customerCart.add(newBook);
-    }
-
-    public String getName()
-    {
-        return accountName;
-    }
-
-    public String getPassword()
-    {
-        return password;
     }
     public void deleteFromCart(Book newBook)
     {
@@ -57,6 +55,8 @@ public class Customer
     {
         customerCart = new ArrayList<Book>();
     }
+
+
     /*******************************
      * set the customer's wish list
      ******************************/
@@ -105,7 +105,6 @@ public class Customer
     {
         orderList.add(newOrder);
     }
-
     /*public void deleteOrder(Order newOrder)
     {
         for(int i = 0; i < orderList.size(); i++)
@@ -141,6 +140,5 @@ public class Customer
         total= l / 100.0;
         return total;
     }
-
 }
 

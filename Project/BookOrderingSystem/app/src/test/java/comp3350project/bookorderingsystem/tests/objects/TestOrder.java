@@ -105,7 +105,7 @@ public class TestOrder
         assertTrue(address.equals(newOrder.getAddress()));
         String newAddress = "U of M";
         newOrder.setAddress(newAddress);
-        assertTrue(address.equals(newOrder.getAddress()));
+        assertTrue(newAddress.equals(newOrder.getAddress()));
     }
 
     public void testPrice(double price)

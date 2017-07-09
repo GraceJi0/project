@@ -241,21 +241,9 @@ public class AccessCustomer
      * the order number is the number of all orders in database + 1;
      * after add all books from cart to order list, delete all books in cart.
      *****************************************/
-    public Order addOrder(String accountName,Order newOrder)
+    public boolean addOrder(String accountName,Order newOrder)
     {
-        List<Customer> customers = getCustomerList();
-        List<Order> orderList;
-        for(int i = 0; i < customers.size(); i++)
-        {
-            Customer customer = customers.get(i);
-            if(customer.getName().equals(accountName))
-            {
-                orderList = customer.getOrderList();
-                orderList.add(newOrder);
-                customer.deleteAllInCart();
-            }
-        }
-        return newOrder;
+        return dataAccess.addOrder(newOrder);
     }
 
     public Customer findCustomer(String customerName)

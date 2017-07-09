@@ -10,6 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import comp3350project.bookorderingsystem.R;
@@ -27,6 +28,7 @@ public class CheckOutActivity extends AppCompatActivity
     private AccessCustomer accessCustomer;
     private AccessBook accessBook;
     private AccessOrder accessOrder;
+    private List<Book> bookList;
     private Order order;
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -39,6 +41,7 @@ public class CheckOutActivity extends AppCompatActivity
         accessOrder = new AccessOrder();
         accessBook=new AccessBook();
         accessCustomer = new AccessCustomer();
+        bookList=accessBook.getBookList();
        // customer=accessCustomer.findCustomer(accountName);
         setCartListView(accessCustomer.getCustomerCart(accountName));
         editPaymentInformation();
@@ -88,12 +91,50 @@ public class CheckOutActivity extends AppCompatActivity
         setButton(name,email,address, cardNumber);
     }
 
-    /*public boolean checkStock()
+    public Boolean checkStock()
     {
-        List<Book> bookList =accessCustomer.getCustomerCart(accountName);
-        while()
+        boolean enoughStock=true;
+        List<Book> cartList =accessCustomer.getCustomerCart(accountName);
+        List<Book> temp1 = new ArrayList<Book>();
+        int i=0;
+        for(i=0;i<bookList.size();i++)
+        {
+            Book newBook=new Book(bookList.get(i).getName(),bookList.get(i).getBookAuthor(),bookList.get(i).getBookInformation(), bookList.get(i).getBookPrice(),
+                    bookList.get(i).getCategory(),bookList.get(i).getNumberInStock(),bookList.get(i).getImageID());
+            temp1.add(newBook);
+        }
+        i=0;
+        while(enoughStock && i<cartList.size()) {
+                String tempName = cartList.get(i).getName();
+                for (int j = 0; j < temp1.size(); j++) {
+                    Book tempBook = temp1.get(j);
+                    if (tempBook.getName().equals(tempName)) {
+                        int newStock = tempBook.getNumberInStock() - 1;
+                        if (newStock < 0) {
+                            enoughStock = false;
+                        } else {
+                            tempBook.setNumberInStock(newStock);
+                        }
+                    }
+                }
+            i++;
+        }
 
-    }*/
+            if (enoughStock) {
+                for (i = 0; i < cartList.size(); i++) {
+                    String tempName = cartList.get(i).getName();
+                    for (int j = 0; j < bookList.size(); j++) {
+                        Book tempBook = bookList.get(j);
+                        if (tempBook.getName().equals(tempName)) {
+                            int newStock = tempBook.getNumberInStock() - 1;
+                            tempBook.setNumberInStock(newStock);
+                        }
+                    }
+                }
+            }
+            return enoughStock;
+        }
+
 
     public void setButton(final EditText name, final EditText email, final EditText address,
                           final EditText cardNumber)
@@ -109,6 +150,12 @@ public class CheckOutActivity extends AppCompatActivity
                 {
                     Toast.makeText(CheckOutActivity.this,
                             "please fill payment information",
+                            Toast.LENGTH_SHORT).show();
+                }
+                else if(!checkStock())
+                {
+                    Toast.makeText(CheckOutActivity.this,
+                            "not enough stock",
                             Toast.LENGTH_SHORT).show();
                 }
                 else

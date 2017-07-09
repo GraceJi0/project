@@ -87,7 +87,7 @@
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="20dp"
         android:text="Email:"
         android:layout_below="@+id/textView16"
         android:layout_alignLeft="@+id/orderBooks"
@@ -98,7 +98,7 @@
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="42dp"
+        android:layout_marginTop="21dp"
         android:text="Card Number:"
         android:layout_below="@+id/textView12"
         android:layout_alignLeft="@+id/textView12"
@@ -110,10 +110,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Address:"
+        android:layout_marginTop="18dp"
         android:layout_below="@+id/textView13"
         android:layout_alignLeft="@+id/textView13"
-        android:layout_alignStart="@+id/textView13"
-        android:layout_marginTop="27dp" />
+        android:layout_alignStart="@+id/textView13" />
 
     <TextView
         android:id="@+id/emailText"
@@ -166,5 +166,26 @@
         android:layout_alignBottom="@+id/textView16"
         android:layout_toEndOf="@+id/textView16"
         android:layout_toRightOf="@+id/textView16"
+        android:text="TextView" />
+
+    <TextView
+        android:textSize="25dp"
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/deliverButton"
+        android:layout_alignLeft="@+id/textView14"
+        android:layout_alignStart="@+id/textView14"
+        android:layout_marginBottom="15dp"
+        android:text="Total Amount:" />
+
+    <TextView
+        android:textSize="25dp"
+        android:id="@+id/totalAmountText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView15"
+        android:layout_toEndOf="@+id/textView15"
+        android:layout_toRightOf="@+id/textView15"
         android:text="TextView" />
 </RelativeLayout>

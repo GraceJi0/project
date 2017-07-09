@@ -109,6 +109,9 @@ public class ManagerViewOrderDetailActivity extends AppCompatActivity
 
         TextView addressText = (TextView)findViewById(R.id.addressText);
         addressText.setText(order.getAddress());
+
+        TextView totalAmount = (TextView)findViewById(R.id.totalAmountText);
+        totalAmount.setText(Double.toString(order.getPrice()));
     }
 
     public void setDeliverButton()

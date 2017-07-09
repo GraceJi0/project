@@ -15,6 +15,7 @@ import java.util.List;
 import comp3350project.bookorderingsystem.R;
 import comp3350project.bookorderingsystem.business.AccessCustomer;
 import comp3350project.bookorderingsystem.objects.Book;
+import comp3350project.bookorderingsystem.objects.Customer;
 
 
 public class MyAccountActivity extends AppCompatActivity
@@ -24,6 +25,9 @@ public class MyAccountActivity extends AppCompatActivity
     private ListView cartListView;
     private ListView wishListListView;
     private AccessCustomer accessCustomer;
+    private Customer customer;
+    private Button viewOrders;
+    private Button checkout;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -32,8 +36,8 @@ public class MyAccountActivity extends AppCompatActivity
 
         Intent intent = getIntent();
         accountName = intent.getStringExtra("name");
-
         accessCustomer = new AccessCustomer();
+        customer=accessCustomer.findCustomer(accountName);
         setTextView();
         setCartListView(accessCustomer.getCustomerCart(accountName));
         setWishListListView(accessCustomer.getCustomerWishList(accountName));
@@ -58,27 +62,43 @@ public class MyAccountActivity extends AppCompatActivity
 
     public void checkOut()
     {
-        Button checkout=(Button)findViewById(R.id.checkout);
+        checkout=(Button)findViewById(R.id.checkout);
         checkout.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view)
             {
-                Intent i = new Intent(MyAccountActivity.this, CheckOutActivity.class);
-                i.putExtra("name", accountName);
-                startActivity(i);
+                if(customer.getCart().size()==0)
+                {
+                    Toast.makeText(MyAccountActivity.this,
+                            "your cart is empty!!",
+                            Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Intent i = new Intent(MyAccountActivity.this, CheckOutActivity.class);
+                    i.putExtra("name", accountName);
+                    startActivity(i);
+                }
             }
         });
     }
 
     public void viewOrder()
     {
-        Button viewOrders=(Button)findViewById(R.id.viewOrderButton);
+        viewOrders=(Button)findViewById(R.id.viewOrderButton);
         viewOrders.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View view)
             {
-                Intent intent = new Intent(MyAccountActivity.this, CustomerOrderActivity.class);
-                intent.putExtra("name",accountName );
-                startActivity(intent);
+                if(customer.getOrderList().size()==0)
+                {
+                    Toast.makeText(MyAccountActivity.this,
+                            "You don't have any orders",
+                            Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Intent intent = new Intent(MyAccountActivity.this, CustomerOrderActivity.class);
+                    intent.putExtra("name", accountName);
+                    startActivity(intent);
+                }
             }
         });
 
@@ -203,4 +223,6 @@ public class MyAccountActivity extends AppCompatActivity
             }
         });
     }
+
+
 }

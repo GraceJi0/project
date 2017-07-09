@@ -16,13 +16,14 @@ import comp3350project.bookorderingsystem.business.AccessBook;
 
 public class customerPersistenceHSQL {
     public customerPersistenceHSQL() {}
+
     public List<Customer> getCustomerList(String cmdString, Statement st1, ResultSet rs2, String warn )
     {
         ArrayList<Customer>customerList = new ArrayList<Customer>();   //initialize a new list to store the customers
         ArrayList<Book>wishlist = new ArrayList<Book>();   //the wish list of one customer
         ArrayList<Book>cart = new ArrayList<Book>();   //the cart of one customer
 
-        /*try
+        try
         {
             cmdString = "select * from customer";
             rs2 = st1.executeQuery(cmdString);
@@ -33,19 +34,6 @@ public class customerPersistenceHSQL {
                 String pwd = rs2.getString("password");  //password
 
                 Customer theCustomer = new Customer(name, pwd);  //a customer is find and ready to store
-
-                //check if there is any other variable, which is not required: cardnumber, email and address
-                String cardnumber = rs2.getString("cardnumber");
-                if(cardnumber.equals(""))
-                    theCustomer.setCardNumber(cardnumber);
-
-                String email = rs2.getString("email");
-                if(email.equals(""))
-                    theCustomer.setEmail(email);
-
-                String address = rs2.getString("address");
-                if(address.equals(""))
-                    theCustomer.setAddress(address);
 
                 //the wishlist and the cart
 
@@ -61,7 +49,7 @@ public class customerPersistenceHSQL {
         catch(Exception e)
         {
             warn = processSQLError(e);
-        }*/
+        }
         return customerList;
     }
 

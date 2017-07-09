@@ -20,6 +20,10 @@ public class orderPersistenceHSQL
 {
     public List<Order> getOrderList(String cmdString, Statement st4, Statement st5, ResultSet rs4, ResultSet rs5, String warn )
     {
+
+        System.out.println("in the orderPersisntece @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");////////////////////////////////////////////////////////////////
+
+
         AccessBook accessBook = new AccessBook();
         String where = "";
 
@@ -46,6 +50,9 @@ public class orderPersistenceHSQL
                 orderNumber = rs4.getInt("number");
                 where = " where number=" + orderNumber;
                 cmdString = "select * from orderDetails" + where;
+
+                System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+cmdString);////////////////////////////////////////////////////////////////
+
                 try
                 {
                     rs5 = st5.executeQuery(cmdString);

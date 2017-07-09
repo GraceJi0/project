@@ -33,6 +33,6 @@ public interface DataAccess   //shows the function of the DB
     int getAllOrderSize();
     List<Order> getOrderList();
     boolean addOrder(Order order);
-    boolean updateOrderState(Order order, String newState);
+    boolean updateOrderState(Order order);
 
 }

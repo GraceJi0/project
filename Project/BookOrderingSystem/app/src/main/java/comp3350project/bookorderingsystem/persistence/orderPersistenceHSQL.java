@@ -20,10 +20,6 @@ public class orderPersistenceHSQL
 {
     public List<Order> getOrderList(String cmdString, Statement st4, Statement st5, ResultSet rs4, ResultSet rs5, String warn )
     {
-
-        System.out.println("in the orderPersisntece @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");////////////////////////////////////////////////////////////////
-
-
         AccessBook accessBook = new AccessBook();
         String where = "";
 
@@ -50,8 +46,6 @@ public class orderPersistenceHSQL
                 orderNumber = rs4.getInt("number");
                 where = " where number=" + orderNumber;
                 cmdString = "select * from orderDetails" + where;
-
-                System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+cmdString);////////////////////////////////////////////////////////////////
 
                 try
                 {
@@ -154,20 +148,26 @@ public class orderPersistenceHSQL
         return result;
     }
 
-    public boolean updateOrderState(Order order,String newState, String warn, String cmdString, Statement st1, int updateCount, boolean result)
+    public boolean updateOrderState(Order order, String warn, String cmdString, Statement st1, int updateCount, boolean result)
     {
         String values = "";
         String where = ("number='"+order.getOrderNumber()+ "';");
         warn = null;
 
-        try {   //content to be modified
-            values="state= '"+newState+"' ";
+        try
+        {   //content to be modified
+            values="state='Delivered'";
 
             cmdString = "UPDATE orders\n " + "SET " + values + " \n WHERE " + where;
+
+            System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+cmdString);/////////////////////////////////////////////////////////
+
             updateCount = st1.executeUpdate(cmdString);
             warn = checkWarning(st1, updateCount);
             result=true;
-        }catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             warn = processSQLError(e);
             result=false;
         }

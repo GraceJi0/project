@@ -17,7 +17,7 @@ public class orderPersistence {
     {
         return true;
     }
-    public boolean updataOrderState(Order order)
+    public boolean updateOrderState(Order order)
     {
         return true;
     }

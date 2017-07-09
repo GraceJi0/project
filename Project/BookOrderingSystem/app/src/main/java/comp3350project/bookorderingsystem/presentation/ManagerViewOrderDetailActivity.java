@@ -109,7 +109,7 @@ public class ManagerViewOrderDetailActivity extends AppCompatActivity
         addressText.setText(order.getAddress());
 
         TextView totalAmount = (TextView)findViewById(R.id.totalAmountText);
-        totalAmount.setText(" CND$"+Double.toString(order.getPrice()));
+        totalAmount.setText(" CAD$"+Double.toString(order.getPrice()));
     }
 
     /*****************
@@ -151,6 +151,5 @@ public class ManagerViewOrderDetailActivity extends AppCompatActivity
             deliver.setVisibility(View.VISIBLE);
         }
     }
-
 }
 

@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
+
 import java.util.List;
 import comp3350project.bookorderingsystem.R;
 import comp3350project.bookorderingsystem.business.AccessCustomer;
@@ -110,5 +113,8 @@ public class CustomerViewOrderDetailActivity extends AppCompatActivity {
 
         TextView addressText = (TextView)findViewById(R.id.addressText);
         addressText.setText(order.getAddress());
+
+        TextView totalAmount = (TextView)findViewById(R.id.totalAmountText);
+        totalAmount.setText(" CAD$"+Double.toString(order.getPrice()));
     }
 }

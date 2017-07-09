@@ -42,6 +42,7 @@ public class ManagerViewOrderDetailActivity extends AppCompatActivity
         //String accountName = order.getAccountName();
         //Customer customer =  accessCustomer.findCustomer(accountName);
 
+        checkDeliverStatus();
         setBookListView(bookList);
         setTextView(orderNumber, order.getAccountName());
         setCustomerInfromation();

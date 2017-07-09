@@ -49,7 +49,7 @@ public class CustomerOrderActivity extends AppCompatActivity {
         orderListView.setAdapter(adapter);
 
         //set order list clickable
-      /* orderListView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+      orderListView.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
@@ -58,11 +58,11 @@ public class CustomerOrderActivity extends AppCompatActivity {
                 String orderNumber = Integer.toString(order.getOrderNumber());
 
                 //go to the order details information page.
-                Intent intent = new Intent(CustomerOrderActivity.this, ManagerViewOrderDetailActivity.class);
+                Intent intent = new Intent(CustomerOrderActivity.this, CustomerViewOrderDetailActivity.class);
                 String[] message = {orderNumber,accountName};
                 intent.putExtra("name and view order", message);
                 startActivity(intent);
             }
-        });*/
+        });
     }
 }

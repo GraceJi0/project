@@ -42,13 +42,13 @@ public class ManagerViewOrderDetailActivity extends AppCompatActivity
         List<Book> bookList = order.getCartBooks();
         //String accountName = order.getAccountName();
         //Customer customer =  accessCustomer.findCustomer(accountName);
-
-
+        deliver = (Button)findViewById(R.id.deliverButton);
+        checkDeliverStatus();
         setBookListView(bookList);
         setTextView(orderNumber, order.getAccountName());
         setCustomerInfromation();
         setDeliverButton();
-        checkDeliverStatus();
+
         logOut();
     }
 
@@ -120,8 +120,6 @@ public class ManagerViewOrderDetailActivity extends AppCompatActivity
 
     public void setDeliverButton()
     {
-        Log.d("************----",order.getState());
-        deliver = (Button)findViewById(R.id.deliverButton);
         deliver.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View view)
@@ -131,7 +129,6 @@ public class ManagerViewOrderDetailActivity extends AppCompatActivity
                     Toast.makeText(ManagerViewOrderDetailActivity.this,
                             "Delivered successful.",
                             Toast.LENGTH_SHORT).show();
-                    Log.d("************",order.getState());
                     checkDeliverStatus();
                 }
                 else

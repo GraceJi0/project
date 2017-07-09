@@ -15,9 +15,8 @@ import comp3350project.bookorderingsystem.objects.Book;
 
 
 //*******************************************************
-//override adapter class for display books' information in listView
-//include book's name, author and price
-//the view for each book is book_item.xml
+//override adapter class for display orders' information in listView
+//the view for each order is order_item.xml
 //*********************************************************
 public class BookAdapter extends ArrayAdapter<Book>
 {

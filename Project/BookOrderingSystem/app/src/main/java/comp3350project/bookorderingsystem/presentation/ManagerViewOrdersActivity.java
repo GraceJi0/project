@@ -7,9 +7,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import java.util.List;
-
 import comp3350project.bookorderingsystem.R;
 import comp3350project.bookorderingsystem.business.AccessOrder;
 import comp3350project.bookorderingsystem.objects.Order;

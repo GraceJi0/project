@@ -159,9 +159,6 @@ public class orderPersistenceHSQL
             values="state='Delivered'";
 
             cmdString = "UPDATE orders\n " + "SET " + values + " \n WHERE " + where;
-
-            System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+cmdString);/////////////////////////////////////////////////////////
-
             updateCount = st1.executeUpdate(cmdString);
             warn = checkWarning(st1, updateCount);
             result=true;

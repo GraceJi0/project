@@ -63,13 +63,6 @@ public class AccessOrder
 
     public boolean updateOrderState(Order order)
     {
-        boolean updateResult = false;
-        Order theOrder = findTheOrder(order.getOrderNumber());
-        if(theOrder.getState().equals("Waiting"))
-        {
-            updateResult = true;
-            theOrder.setState("Delivered");
-        }
-        return updateResult;
+        return dataAccess.updateOrderState(order);
     }
 }

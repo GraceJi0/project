@@ -31,9 +31,8 @@ public interface DataAccess   //shows the function of the DB
     boolean updateBook(Book old, Book theBook);  //old represents the object contains old data, theBook object contains the new data, update the old
 
     int getAllOrderSize();
-
     List<Order> getOrderList();
     boolean addOrder(Order order);
-    boolean updateOrderState(Order order);
+    boolean updateOrderState(Order order, String newState);
 
 }

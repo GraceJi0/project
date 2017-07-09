@@ -30,10 +30,6 @@ public class TestCustomer
         testObject();
         testName();
         testPassword();
-		testCardNumber();
-        testEmail();
-        testAddress();
-
 
         ArrayList<Book> temp = new ArrayList<Book>();   //temp list of book
         Book book1 = new Book("Name1", "Author1", "Info1", 11.0, "free1", 11,1);
@@ -68,30 +64,6 @@ public class TestCustomer
         String tempPwd = "hello";   //the temp password
         theCus.setPassword(tempPwd);
         assertTrue(tempPwd.equals(theCus.getPassword()));
-    }
-
-    public void testCardNumber()
-    {
-        //setter and getter method for card number
-        String card = "1234563350";    //the temp card number
-        theCus.setCardNumber(card);
-        assertTrue(card.equals(theCus.getCardNumber()));
-    }
-
-    public void testEmail()
-    {
-        //setter and getter method for email
-        String tempE = "hello@myumanitoba.ca";
-        theCus.setEmail(tempE);
-        assertTrue(tempE.equals(theCus.getEmail()));
-    }
-
-    public void testAddress()
-    {
-        //setter and getter method for address
-        String address = "U of M";
-        theCus.setAddress(address);
-        assertTrue(address.equals(theCus.getAddress()));
     }
 
     public void testCart(ArrayList<Book> temp, int number, Book newBook)   //the temp list and number of book inside

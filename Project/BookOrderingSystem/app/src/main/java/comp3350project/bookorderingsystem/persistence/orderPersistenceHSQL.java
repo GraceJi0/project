@@ -147,7 +147,30 @@ public class orderPersistenceHSQL
 
         return result;
     }
+    public boolean deleteFromCart(Order order, String warn, String cmdString, Statement st1, int updateCount)
+    {   boolean result;
+        if (validOrder(order))  //customer and book must be valid for deleting a book from a customer cart
+        {
+                String where;
 
+                warn = null;
+                try
+                {
+                    where = "where customerName='" + order.getAccountName() + "'";
+                    cmdString = "delete from cart " + where;
+                    updateCount = st1.executeUpdate(cmdString);
+                    result = true;
+                    warn = checkWarning(st1, updateCount);
+                } catch (Exception e) {
+                    warn = processSQLError(e);
+                    result = false;
+                }
+            }
+            else
+                result = false;
+
+        return result;
+    }
     public boolean updateOrderState(Order order, String warn, String cmdString, Statement st1, int updateCount, boolean result)
     {
         String values = "";

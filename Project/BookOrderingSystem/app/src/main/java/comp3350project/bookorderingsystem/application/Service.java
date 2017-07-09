@@ -1,7 +1,7 @@
 package comp3350project.bookorderingsystem.application;
 
 import comp3350project.bookorderingsystem.persistence.DataAccess;
-//import comp3350project.bookorderingsystem.persistence.DataAccessObject;
+import comp3350project.bookorderingsystem.persistence.DataAccessObject;
 import comp3350project.bookorderingsystem.persistence.DataAccessStub;
 
 public class Service
@@ -12,8 +12,8 @@ public class Service
     {
         if(dataAccessService == null)
         {
-            //dataAccessService = new DataAccessObject(dbName);
-            dataAccessService = new DataAccessStub(dbName);
+            dataAccessService = new DataAccessObject(dbName);
+            //dataAccessService = new DataAccessStub(dbName);
             dataAccessService.open(Main.getDBPathName());
         }
         return dataAccessService;

@@ -69,7 +69,7 @@ public class CheckOutActivity extends AppCompatActivity
     {
         int orderNumber;
         orderNumber=accessOrder.orderSize();
-        order=new Order(orderNumber,accessCustomer.getCustomerCart(accountName),accountName,customerName,cardNumber,email,address,accessCustomer.getTotalPrice(accountName),"Received");
+        order=new Order(orderNumber,accessCustomer.getCustomerCart(accountName),accountName,customerName,cardNumber,email,address,accessCustomer.getTotalPrice(accountName),"Waiting");
         accessOrder.addOrder(order);
         accessCustomer.addOrder(accountName,order);
     }

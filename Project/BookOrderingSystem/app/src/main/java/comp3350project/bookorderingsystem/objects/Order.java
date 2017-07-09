@@ -10,7 +10,7 @@ import java.util.List;
 public class Order {
     private String waitingState = "Waiting";
     private String deliveredState = "Delivered";
-    private String receivedState = "Received";
+    //private String receivedState = "Received";
 
     private int number;
     private String accountName;
@@ -52,10 +52,14 @@ public class Order {
 
     public void setState(String newState)
     {
-        if(newState.equals("Delivered"))
+        /*if(newState.equals("Delivered"))
             state = deliveredState;
         else if(newState.equals("Received"))
             state = receivedState;
+        else
+            state = waitingState;*/
+        if(newState.equals("Delivered"))
+            state = deliveredState;
         else
             state = waitingState;
     }

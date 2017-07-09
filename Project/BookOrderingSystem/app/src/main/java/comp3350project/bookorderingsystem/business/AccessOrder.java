@@ -60,4 +60,16 @@ public class AccessOrder
         result=allOrder.size()+1;
         return result;
     }
+
+    public boolean updateOrderState(Order order)
+    {
+        boolean updateResult = false;
+        Order theOrder = findTheOrder(order.getOrderNumber());
+        if(theOrder.getState().equals("Waiting"))
+        {
+            updateResult = true;
+            theOrder.setState("Delivered");
+        }
+        return updateResult;
+    }
 }

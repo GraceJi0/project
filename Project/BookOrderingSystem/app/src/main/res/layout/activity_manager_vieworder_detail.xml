@@ -58,8 +58,7 @@
         android:textSize="30dp" />
 
     <Button
-        android:textColor="@color/colorPrimary"
-        android:id="@+id/processButton"
+        android:id="@+id/deliverButton"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -69,7 +68,8 @@
         android:layout_marginBottom="15dp"
         android:layout_marginEnd="33dp"
         android:layout_marginRight="33dp"
-        android:text="process" />
+        android:text="deliver"
+        android:textColor="@color/colorPrimary" />
 
     <Button
         android:textColor="@color/colorPrimary"
@@ -78,8 +78,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/orderNumberText"
-        android:layout_alignLeft="@+id/processButton"
-        android:layout_alignStart="@+id/processButton"
+        android:layout_alignLeft="@+id/deliverButton"
+        android:layout_alignStart="@+id/deliverButton"
         android:text="log out" />
 
     <TextView

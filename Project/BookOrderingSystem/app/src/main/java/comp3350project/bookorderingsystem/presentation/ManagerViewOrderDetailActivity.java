@@ -20,6 +20,7 @@ import comp3350project.bookorderingsystem.objects.Order;
 public class ManagerViewOrderDetailActivity extends AppCompatActivity
 {
     String accountName;
+    AccessOrder accessOrder;
     Order order;
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -34,15 +35,16 @@ public class ManagerViewOrderDetailActivity extends AppCompatActivity
         int orderNumber = Integer.parseInt(message[0]);
 
         AccessCustomer accessCustomer = new AccessCustomer();
-        AccessOrder accessOrder = new AccessOrder();
+        accessOrder = new AccessOrder();
         order = accessOrder.findTheOrder(orderNumber);
         List<Book> bookList = order.getCartBooks();
-        String accountName = order.getAccountName();
-        Customer customer =  accessCustomer.findCustomer(accountName);
+        //String accountName = order.getAccountName();
+        //Customer customer =  accessCustomer.findCustomer(accountName);
 
         setBookListView(bookList);
         setTextView(orderNumber, order.getAccountName());
         setCustomerInfromation();
+        setDeliverButton();
         logOut();
     }
 
@@ -107,6 +109,29 @@ public class ManagerViewOrderDetailActivity extends AppCompatActivity
 
         TextView addressText = (TextView)findViewById(R.id.addressText);
         addressText.setText(order.getAddress());
+    }
+
+    public void setDeliverButton()
+    {
+        Button deliver = (Button)findViewById(R.id.deliverButton);
+        deliver.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View view)
+            {
+                if(accessOrder.updateOrderState(order))
+                {
+                    Toast.makeText(ManagerViewOrderDetailActivity.this,
+                            "Delivered successful.",
+                            Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(ManagerViewOrderDetailActivity.this,
+                            "Order has already been delivered.",
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 }
 

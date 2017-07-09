@@ -17,7 +17,7 @@ public class DataAccessObject implements DataAccess
 	private bookPersistenceHSQL BookPersistence;
 	private customerPersistenceHSQL CustomerPersistence;
 	private orderPersistenceHSQL OrderPersistence;
-	private Statement st1, st2, st3, st4;
+	private Statement st1, st2, st3, st4, st5;
 	private Connection c1;
 	private ResultSet rs2, rs3, rs4, rs5;
 
@@ -52,7 +52,7 @@ public class DataAccessObject implements DataAccess
 			st2 = c1.createStatement();
 			st3 = c1.createStatement();
 			st4 = c1.createStatement();
-
+			st5 = c1.createStatement();
 		}
 		catch (Exception e)
 		{
@@ -162,8 +162,8 @@ public class DataAccessObject implements DataAccess
 	}
 
 
-	public int getAllOrderSize(){return OrderPersistence.getAllOrderSize(cmdString,st1,rs2,warn);}
-	public List<Order> getOrderList() {return null;}
+	public int getAllOrderSize(){return OrderPersistence.getAllOrderSize(cmdString, st2, st3, rs2, rs3, warn);}
+	public List<Order> getOrderList(){return OrderPersistence.getOrderList(cmdString, st4, st5, rs4, rs5, warn);}
 	public boolean addOrder(Order order){return true;}
 	public boolean updateOrderState(Order order, String newState) {return OrderPersistence.updateOrderState(order, newState, warn, cmdString, st1, updateCount, result);}
 }

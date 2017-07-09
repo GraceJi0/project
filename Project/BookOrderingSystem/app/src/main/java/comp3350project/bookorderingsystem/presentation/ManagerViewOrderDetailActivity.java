@@ -22,6 +22,7 @@ public class ManagerViewOrderDetailActivity extends AppCompatActivity
     String accountName;
     AccessOrder accessOrder;
     Order order;
+    Button deliver;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -111,12 +112,12 @@ public class ManagerViewOrderDetailActivity extends AppCompatActivity
         addressText.setText(order.getAddress());
 
         TextView totalAmount = (TextView)findViewById(R.id.totalAmountText);
-        totalAmount.setText(Double.toString(order.getPrice()));
+        totalAmount.setText(" CND$"+Double.toString(order.getPrice()));
     }
 
     public void setDeliverButton()
     {
-        Button deliver = (Button)findViewById(R.id.deliverButton);
+        deliver = (Button)findViewById(R.id.deliverButton);
         deliver.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View view)
@@ -136,5 +137,18 @@ public class ManagerViewOrderDetailActivity extends AppCompatActivity
             }
         });
     }
+
+    public void checkDeliverStatus()
+    {
+        if(order.getState().equals("Delivered"))
+        {
+            deliver.setVisibility(View.GONE);
+        }
+        else
+        {
+            deliver.setVisibility(View.VISIBLE);
+        }
+    }
+
 }
 

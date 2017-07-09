@@ -98,12 +98,12 @@ public class orderPersistenceHSQL
 
     }
 
-    public boolean addOrder(Order order, String warn, String cmdString, Statement st1, ResultSet rs5, int updateCount, boolean result)
+    public boolean addOrder(Order order, String warn, String cmdString, Statement st1, int updateCount)
     {
+        boolean result;
         if(validOrder(order))
         {
             String values;
-            warn = null;
 
             try{
                 values = "'" + order.getOrderNumber()
@@ -115,12 +115,10 @@ public class orderPersistenceHSQL
                         + "', '" + order.getPrice()
                         +"', 'Waiting'";
 
-
                 cmdString = "Insert into orders " + " Values(" + values + ")";   //insert a new book into the book table
 
                 updateCount = st1.executeUpdate(cmdString);   //execute the command
                 warn = checkWarning(st1, updateCount);
-
 
                 String detail;
                 List<Book>cartBooks = order.getCartBooks();   //get all books in the order
@@ -135,15 +133,16 @@ public class orderPersistenceHSQL
 
                 }
                 result = true;
-            }catch (Exception e) {
+            }
+            catch (Exception e)
+            {
                 warn = processSQLError(e);
                 result = false;
             }
 
-        }else
-        { result = false;}
-
-
+        }
+        else
+            result = false;
 
         return result;
     }

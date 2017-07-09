@@ -162,10 +162,10 @@ public class DataAccessObject implements DataAccess
 	}
 
 
-	public int getAllOrderSize(){return -1;}
+	public int getAllOrderSize(){return OrderPersistence.getAllOrderSize(cmdString,st1,rs2,warn);}
 	public List<Order> getOrderList() {return null;}
 	public boolean addOrder(Order order){return true;}
-	public boolean updateOrderState(Order order){return true;}
+	public boolean updateOrderState(Order order, String newState) {return OrderPersistence.updateOrderState(order, newState, warn, cmdString, st1, updateCount, result);}
 }
 
 

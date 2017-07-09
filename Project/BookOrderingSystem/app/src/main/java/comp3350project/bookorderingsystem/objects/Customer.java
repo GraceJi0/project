@@ -5,70 +5,21 @@ import java.util.List;
 
 public class Customer
 {
-    private String customerName;
+    private String accountName;
+    private String password;
+
     private ArrayList<Book> customerCart;
     private ArrayList<Book> customerWishList;
-    private String password;
-    private String cardNumber;
-    private String email;
-    private String address;
-    private String RealName;
     private ArrayList<Order> orderList;
 
-    public Customer(String newName,String newPassword)
+    public Customer(String accountName,String newPassword)
     {
-        customerName = newName;
+        this.accountName = accountName;
         password = newPassword;
         customerCart = new ArrayList<Book>();
         customerWishList = new ArrayList<Book>();
         orderList = new ArrayList<Order>();
-        RealName="";
     }
-
-    public String getRealName()
-    {
-        return RealName;
-    }
-
-    public void setRealName(String newRealName)
-    {
-        RealName=newRealName;
-    }
-
-    public String getName()
-    {
-        return customerName;
-    }
-
-    public void setPassword(String newPwd)
-    {
-        password = newPwd;
-    }
-    public String getPassword()
-    {
-        return password;
-    }
-
-    public void setCardNumber(String newNumber)
-    {
-        cardNumber = newNumber;
-    }
-    public String getCardNumber(){return cardNumber;}
-
-    public void setEmail(String newEmail)
-    {
-        email = newEmail;
-    }
-    public String getEmail()
-    {
-        return email;
-    }
-
-    public void setAddress(String newAddress)
-    {
-        address = newAddress;
-    }
-    public String getAddress(){return address;}
 
     public void setCart(ArrayList<Book> theList)
     {
@@ -82,6 +33,16 @@ public class Customer
     {
         customerCart.add(newBook);
     }
+
+    public String getName()
+    {
+        return accountName;
+    }
+
+    public String getPassword()
+    {
+        return password;
+    }
     public void deleteFromCart(Book newBook)
     {
         int index;
@@ -92,7 +53,10 @@ public class Customer
             customerCart.remove(index);
         }
     }
-
+    public void deleteAllInCart()
+    {
+        customerCart = new ArrayList<Book>();
+    }
     /*******************************
      * set the customer's wish list
      ******************************/
@@ -120,7 +84,6 @@ public class Customer
             customerWishList.add(newBook);
         }
     }
-
     /*******************************
      * delete the given book from customer's wish list
      ******************************/
@@ -179,9 +142,5 @@ public class Customer
         return total;
     }
 
-    public void deleteAllInCart()
-    {
-        customerCart = new ArrayList<Book>();
-    }
 }
 

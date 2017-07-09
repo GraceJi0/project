@@ -26,6 +26,7 @@ public class CheckOutActivity extends AppCompatActivity
     private AccessCustomer accessCustomer;
     private Customer customer;
     private AccessOrder accessOrder;
+    private Order order;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -61,15 +62,13 @@ public class CheckOutActivity extends AppCompatActivity
             }
         });
     }
-    public void addnewOrder(String name)
+    public void addnewOrder( String customerName, String cardNumber, String email, String address)
     {
         int orderNumber;
-        Order newOrder;
         orderNumber=accessOrder.orderSize();
-        newOrder= new Order(orderNumber,accessCustomer.getCustomerCart(accountName),accountName,
-                accessCustomer.getTotalPrice(accountName));
-        accessOrder.addOrder(newOrder);
-        accessCustomer.addOrder(accountName,newOrder);
+        order=new Order(orderNumber,accessCustomer.getCustomerCart(accountName),accountName,customerName,cardNumber,email,address,accessCustomer.getTotalPrice(accountName),"Received");
+        accessOrder.addOrder(order);
+        accessCustomer.addOrder(accountName,order);
     }
     public void setTextView()
     {
@@ -80,15 +79,16 @@ public class CheckOutActivity extends AppCompatActivity
     public void editPaymentInformation()
     {
         EditText name = (EditText) findViewById(R.id.nameEditText);
-        name.setText(customer.getRealName());
         EditText email = (EditText) findViewById(R.id.emailEditText);
-        email.setText(customer.getEmail());
         EditText address = (EditText) findViewById(R.id.addressEditText);
-        address.setText(customer.getAddress());
         EditText cardNumber = (EditText) findViewById(R.id.cardNumberEditText);
-        cardNumber.setText(customer.getCardNumber());
         setButton(name,email,address, cardNumber);
     }
+
+   /* public boolean checkStock()
+    {
+        List<Book> bookList =accessCustomer.getCustomerCart(accountName);
+    }*/
 
     public void setButton(final EditText name, final EditText email, final EditText address,
                           final EditText cardNumber)
@@ -108,11 +108,7 @@ public class CheckOutActivity extends AppCompatActivity
                 }
                 else
                 {
-                    customer.setRealName(name.getText().toString());
-                    customer.setEmail(email.getText().toString());
-                    customer.setAddress(address.getText().toString());
-                    customer.setCardNumber(cardNumber.getText().toString());
-                    addnewOrder(name.getText().toString());
+                    addnewOrder(name.getText().toString(),cardNumber.getText().toString(),email.getText().toString(),address.getText().toString());
                     Intent intent = new Intent(CheckOutActivity.this, MyAccountActivity.class);
                     intent.putExtra("name",accountName );
                     startActivity(intent);
@@ -147,6 +143,8 @@ public class CheckOutActivity extends AppCompatActivity
             }
         });
     }
+
+
     public void viewPrice()
     {
         TextView price = (TextView)findViewById(R.id.priceText);

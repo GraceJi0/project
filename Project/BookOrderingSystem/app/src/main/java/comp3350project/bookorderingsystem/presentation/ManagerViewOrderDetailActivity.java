@@ -42,7 +42,7 @@ public class ManagerViewOrderDetailActivity extends AppCompatActivity
 
         setBookListView(bookList);
         setTextView(orderNumber, order.getAccountName());
-        setCustomerInfromation(customer);
+        setCustomerInfromation();
         logOut();
     }
 
@@ -94,19 +94,19 @@ public class ManagerViewOrderDetailActivity extends AppCompatActivity
     /*******************
      * set text view for customer's personal infromation
      *********************/
-    public void setCustomerInfromation(Customer customer)
+    public void setCustomerInfromation()
     {
         TextView nameText = (TextView)findViewById(R.id.customerNameText);
-        nameText.setText(customer.getRealName());
+        nameText.setText(order.getCustomerName());
 
         TextView emailText = (TextView)findViewById(R.id.emailText);
-        emailText.setText(customer.getEmail());
+        emailText.setText(order.getEmail());
 
         TextView cardNumberText = (TextView)findViewById(R.id.cardNumberText);
-        cardNumberText.setText(customer.getCardNumber());
+        cardNumberText.setText(order.getCardNumber());
 
         TextView addressText = (TextView)findViewById(R.id.addressText);
-        addressText.setText(customer.getAddress());
+        addressText.setText(order.getAddress());
     }
 }
 

@@ -22,7 +22,7 @@ public class customerPersistenceHSQL {
         ArrayList<Book>wishlist = new ArrayList<Book>();   //the wish list of one customer
         ArrayList<Book>cart = new ArrayList<Book>();   //the cart of one customer
 
-        try
+        /*try
         {
             cmdString = "select * from customer";
             rs2 = st1.executeQuery(cmdString);
@@ -61,7 +61,7 @@ public class customerPersistenceHSQL {
         catch(Exception e)
         {
             warn = processSQLError(e);
-        }
+        }*/
         return customerList;
     }
 

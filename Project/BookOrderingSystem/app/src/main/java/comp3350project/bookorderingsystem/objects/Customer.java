@@ -10,7 +10,7 @@ public class Customer
 
     private ArrayList<Book> customerCart;
     private ArrayList<Book> customerWishList;
-    private ArrayList<Order> orderList;
+    private List<Order> orderList;
 
     public Customer(String accountName,String newPassword)
     {
@@ -103,6 +103,7 @@ public class Customer
      ******************************/
     public void addOrder(Order newOrder)
     {
+        System.out.println("@@@@@@@@@@@@@@@@adding an order");
         orderList.add(newOrder);
     }
     /*public void deleteOrder(Order newOrder)
@@ -123,6 +124,10 @@ public class Customer
     public List<Order> getOrderList()
     {
         return orderList;
+    }
+    public void setOrder(List<Order> orders)
+    {
+        this.orderList = orders;
     }
 
     /**********************************

@@ -111,6 +111,11 @@ public class DataAccessStub implements DataAccess
         return CustomerPersistence.deleteFromWishList();
     }
 
+    public List<Order> getOrder(Customer customer)
+    {
+        return CustomerPersistence.getOrder(customer);
+    }
+
     public boolean addCustomer(Customer newCustomer)
     {
         return CustomerPersistence.addCustomer(newCustomer,customerList);
@@ -144,4 +149,5 @@ public class DataAccessStub implements DataAccess
     public List<Order> getOrderList(){return allOrder;}
     public boolean addOrder(Order order){return true;}
     public boolean updateOrderState(Order order){return true;}
+    public boolean deleteFromCart(Order order){return true;}
 }

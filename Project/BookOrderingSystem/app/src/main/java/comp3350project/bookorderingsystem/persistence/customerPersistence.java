@@ -7,6 +7,7 @@ import comp3350project.bookorderingsystem.R;
 import comp3350project.bookorderingsystem.application.Main;
 import comp3350project.bookorderingsystem.objects.Book;
 import comp3350project.bookorderingsystem.objects.Customer;
+import comp3350project.bookorderingsystem.objects.Order;
 /**
  * Created by rico on 2017-06-28.
  */
@@ -38,6 +39,8 @@ public class customerPersistence {
     {
         return true;
     }
+
+    public List<Order> getOrder(Customer customer){return null;}
 
     public boolean addCustomer(Customer newCustomer,List<Customer> customerList)
     {

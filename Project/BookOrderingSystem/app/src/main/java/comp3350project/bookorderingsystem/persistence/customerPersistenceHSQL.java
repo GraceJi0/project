@@ -6,6 +6,7 @@ import java.sql.SQLWarning;
 import java.util.ArrayList;
 import java.util.List;
 
+import comp3350project.bookorderingsystem.objects.Order;
 import comp3350project.bookorderingsystem.objects.Book;
 import comp3350project.bookorderingsystem.objects.Customer;
 
@@ -22,6 +23,7 @@ public class customerPersistenceHSQL {
         ArrayList<Customer>customerList = new ArrayList<Customer>();   //initialize a new list to store the customers
         ArrayList<Book>wishlist = new ArrayList<Book>();   //the wish list of one customer
         ArrayList<Book>cart = new ArrayList<Book>();   //the cart of one customer
+        List<Order>orders = new ArrayList<Order>();
 
         try
         {
@@ -43,6 +45,9 @@ public class customerPersistenceHSQL {
                 cart = getCart(theCustomer,cmdString,st1,rs2,warn);
                 theCustomer.setCart(cart);
 
+                orders = getOrder(theCustomer, cmdString, st1, rs2, warn);
+                theCustomer.setOrder(orders);
+
                 customerList.add(theCustomer);
             }
         }
@@ -51,6 +56,36 @@ public class customerPersistenceHSQL {
             warn = processSQLError(e);
         }
         return customerList;
+    }
+
+    public List<Order> getOrder(Customer theCustomer, String cmdString, Statement st1, ResultSet rs2, String warn)
+    {
+        ArrayList<Order> theList = new ArrayList<Order>();
+        String name = theCustomer.getName();
+        try
+        {
+            cmdString = ("select * from orders where accountName='"+name+"'");  //get the orders
+            rs2 = st1.executeQuery(cmdString);
+            while (rs2.next())  //get the cart (the book name)
+            {
+                List<Book> books = new ArrayList<Book>();
+
+                int orderNumber = rs2.getInt("number");   //the orderName
+                String customerName = rs2.getString("customerName");   //the customer name
+                String cardNumber = rs2.getString("cardNumber");
+                String email = rs2.getString("email");
+                String address = rs2.getString("address");
+                double price = rs2.getDouble("price");
+                String state = rs2.getString("state");
+                Order theOrder = new Order(orderNumber, books, name, customerName, cardNumber, email, address, price, state);
+                theList.add(theOrder);
+            }
+        }
+        catch(Exception e)
+        {
+            warn = processSQLError(e);
+        }
+        return theList;
     }
 
     public ArrayList<Book> getCart(Customer theCustomer, String cmdString, Statement st2, ResultSet rs3, String warn)

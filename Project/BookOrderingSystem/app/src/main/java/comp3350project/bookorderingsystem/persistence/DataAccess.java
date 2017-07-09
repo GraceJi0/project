@@ -22,6 +22,8 @@ public interface DataAccess   //shows the function of the DB
 
     boolean deleteFromWishList(Customer customer, Book book);  //delete the "book" from the wishlist of the "customer"
 
+    List<Order> getOrder(Customer customer);
+
     boolean addCustomer(Customer newCustomer);   //add a new customer to the DB
 
     List<Book> getBookList();   //get all books from the DB, form as a list
@@ -34,5 +36,5 @@ public interface DataAccess   //shows the function of the DB
     List<Order> getOrderList();
     boolean addOrder(Order order);
     boolean updateOrderState(Order order);
-
+    boolean deleteFromCart(Order order);   //delete from cart once the order is made
 }

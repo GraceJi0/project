@@ -107,6 +107,11 @@ public class DataAccessObject implements DataAccess
 		return CustomerPersistence.deleteFromWishList(customer, book, cmdString, st1, result , updateCount, warn);
 	}
 
+	public List<Order> getOrder(Customer customer)
+	{
+		return CustomerPersistence.getOrder(customer, cmdString, st2, rs3, warn);
+	}
+
 	public boolean addCustomer(Customer newCustomer)
 	{
 		return CustomerPersistence.addCustomer(newCustomer, cmdString, st1, result , updateCount, warn);
@@ -167,6 +172,7 @@ public class DataAccessObject implements DataAccess
 	public List<Order> getOrderList(){return OrderPersistence.getOrderList(cmdString, st4, st5, rs4, rs5, warn);}
 	public boolean addOrder(Order order){return OrderPersistence.addOrder(order, warn, cmdString, st1, updateCount);}
 	public boolean updateOrderState(Order order) {return OrderPersistence.updateOrderState(order, warn, cmdString, st1, updateCount, result);}
+	public boolean deleteFromCart(Order order){return OrderPersistence.deleteFromCart(order, warn, cmdString, st1, updateCount);}
 }
 
 

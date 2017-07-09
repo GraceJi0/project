@@ -45,7 +45,7 @@ public class ManagerViewOrderDetailActivity extends AppCompatActivity
         deliver = (Button)findViewById(R.id.deliverButton);
         checkDeliverStatus();
         setBookListView(bookList);
-        setTextView(orderNumber, order.getAccountName());
+        setTitleTextView(orderNumber, order.getAccountName());
         setCustomerInfromation();
         setDeliverButton();
 
@@ -67,7 +67,7 @@ public class ManagerViewOrderDetailActivity extends AppCompatActivity
     /***********************
      * set text view for customer name and order number.
      ********************/
-    public void setTextView(int orderNumber, String customerName)
+    public void setTitleTextView(int orderNumber, String customerName)
     {
         TextView orderNumberText = (TextView)findViewById(R.id.orderNumberText);
         orderNumberText.setText(Integer.toString(orderNumber));

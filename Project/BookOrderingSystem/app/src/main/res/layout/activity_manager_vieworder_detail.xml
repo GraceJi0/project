@@ -64,10 +64,10 @@
         android:layout_height="wrap_content"
         android:text="deliver"
         android:textColor="@color/colorPrimary"
-        android:layout_marginTop="23dp"
         android:layout_below="@+id/textView15"
-        android:layout_toRightOf="@+id/addressText"
-        android:layout_toEndOf="@+id/addressText" />
+        android:layout_toRightOf="@+id/orderTitleText"
+        android:layout_toEndOf="@+id/orderTitleText"
+        android:layout_marginTop="45dp" />
 
     <Button
         android:textColor="@color/colorPrimary"

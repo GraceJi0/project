@@ -103,7 +103,6 @@ public class Customer
      ******************************/
     public void addOrder(Order newOrder)
     {
-        System.out.println("@@@@@@@@@@@@@@@@adding an order");
         orderList.add(newOrder);
     }
     /*public void deleteOrder(Order newOrder)

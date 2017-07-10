@@ -10,6 +10,7 @@ import comp3350project.bookorderingsystem.tests.objects.TestOrder;
 
 import comp3350project.bookorderingsystem.tests.business.TestAccessBook;
 import comp3350project.bookorderingsystem.tests.business.TestAccessCustomer;
+import comp3350project.bookorderingsystem.tests.business.TestAccessOrder;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
@@ -21,7 +22,8 @@ import comp3350project.bookorderingsystem.tests.business.TestAccessCustomer;
 
         //test business
         TestAccessBook.class,
-        TestAccessCustomer.class
+        TestAccessCustomer.class,
+        TestAccessOrder.class
 })
 
 public class AllTests

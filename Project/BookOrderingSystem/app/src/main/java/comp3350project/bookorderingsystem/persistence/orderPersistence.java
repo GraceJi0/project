@@ -19,6 +19,7 @@ public class orderPersistence {
     }
     public boolean updateOrderState(Order order)
     {
+        order.setState("Delivered");
         return true;
     }
     public int getAllOrderSize()

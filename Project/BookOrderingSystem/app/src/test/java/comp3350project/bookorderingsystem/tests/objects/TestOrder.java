@@ -5,6 +5,7 @@ import comp3350project.bookorderingsystem.objects.Customer;
 import comp3350project.bookorderingsystem.objects.Book;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -14,6 +15,7 @@ import static org.junit.Assert.*;
 public class TestOrder
 {
     Order newOrder;
+    Customer theCus;
 
     @Before
 	public void setUp()
@@ -22,11 +24,11 @@ public class TestOrder
 	}
 
 	@Test
-	public void testCustomer()
+	public void testOrder()
 	{
 		System.out.println("\nStarting testOrder");
 
-		Customer theCus = new Customer("3350", "default");   //create a new Customer object with account name and password
+		theCus = new Customer("3350", "default");   //create a new Customer object with account name and password
         //assume this customer is making an order
 
         int number = 3350;   //the temp order number
@@ -57,6 +59,7 @@ public class TestOrder
         testAddress(address);
         testPrice(price);
         testState(state);
+        testGetCartBooks();
 
 		System.out.println("Finished testOrder");
 	}
@@ -120,5 +123,11 @@ public class TestOrder
         assertTrue(state.equals(newOrder.getState()));
         newOrder.setState("Delivered");
         assertTrue("Delivered".equals(newOrder.getState()));
+    }
+
+    public void testGetCartBooks()
+    {
+        List<Book> AllBooks = newOrder.getCartBooks();   //get the cart books, which should contain 3 books
+        assertTrue(AllBooks.size() == 3);
     }
 }

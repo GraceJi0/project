@@ -135,7 +135,7 @@ public class DataAccessStub implements DataAccess
 
     public boolean updateBook(Book old, Book theBook)
     {
-        return BookPersistence.updateBook();
+        return BookPersistence.updateBook(old, theBook, bookList);
     }
 
     /*******************************

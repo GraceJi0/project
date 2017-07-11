@@ -86,8 +86,18 @@ public class bookPersistence {
             return false;
         }
     }
-    public boolean updateBook()
+    public boolean updateBook(Book old, Book newBook, List<Book>bookList)
     {
-        return true;
+        int i;
+        for(i = 0; i<bookList.size(); i++)
+        {
+            if(bookList.get(i).getName().equals(old.getName()));
+            {
+                bookList.remove(i);   //reomve the old book with old information
+                bookList.add(newBook);   //put the new information into the system
+                return true;
+            }
+        }
+        return false;
     }
 }

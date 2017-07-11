@@ -45,6 +45,7 @@ public class TestAccessBook {
         testSearchBook();
         testContain();
         testCategory();
+        testEditBook();
 
         Service.closeDataAccess();
 
@@ -91,6 +92,23 @@ public class TestAccessBook {
     {
         testList = (ArrayList) testAccess.searchBookCategory("free");
         assertTrue(1 == testList.size());   //only one book is in the category "free"
+    }
+
+    public void testEditBook()
+    {
+        tmp = new Book("theName", "Author", "Info", 1.0, "free", 1, 1);   //a right book
+        testAccess.addBook(tmp);
+        Book newInfo = new Book("theName", "Author1", "Info1", 2.0, "free1", 2, 2);
+        testAccess.editBook(tmp, newInfo);   //update all information except the book name
+        Book theBook = testAccess.searchBook("theName");   //search for the book
+
+        //check if all infos updated correctly
+        assertTrue(theBook.getBookAuthor().equals("Author1"));
+        assertTrue(theBook.getBookInformation().equals("Info1"));
+        assertTrue(theBook.getBookPrice() == 2.0);
+        assertTrue(theBook.getCategory().equals("free1"));
+        assertTrue(theBook.getNumberInStock() == 2);
+        assertTrue(theBook.getImageID() == 2);
     }
 
     public boolean NullBook()   //should return false
@@ -147,7 +165,7 @@ public class TestAccessBook {
         return testAccess.addBook(tmp);
     }
 
-    public boolean TrueBook()   //should return true
+    public boolean TrueBook()   //should return true, this is the test for addBook()
     {
         tmp = new Book("Name", "Author", "Info", 1.0, "free", 1, 1);   //a right book
         return testAccess.addBook(tmp);

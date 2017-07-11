@@ -95,6 +95,11 @@ public class TestCustomer
         theCus.deleteFromCart(newBook);
         number--;
         assertTrue(number == theCus.getCart().size());   //number of books in cart = 3
+
+        theCus.deleteAllInCart();   //test deleteAllInCart(), delete all books in the cart
+        assertTrue(0 == theCus.getCart().size());   //size shouble be 0 since all books in cart deleted
+
+        theCus.setCart(cart);   //set the cart again for testOrder
     }
 
     public void testWishlist(ArrayList<Book> temp, int number, Book newBook)   //the temp list and number of book inside

@@ -52,7 +52,7 @@ public class AccessBook {
         if(books!=null)
         {
             for (int i = 0; i < books.size(); i++) {
-                if (books.get(i).getName().contains(newname)) {
+                if (books.get(i).getName().toLowerCase().contains(newname.toLowerCase())){
                     found.add(books.get(i));
                 }
             }

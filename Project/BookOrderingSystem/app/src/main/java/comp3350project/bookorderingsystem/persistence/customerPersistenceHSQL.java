@@ -277,7 +277,7 @@ public class customerPersistenceHSQL {
             warn = null;
             try
             {
-                values = "'" + newCustomer.getName() + "', '" +newCustomer.getPassword()+"', '', '', ''";  //initial customer card number to be -1(no number)
+                values = "'" + newCustomer.getName() + "', '" +newCustomer.getPassword()+"'";  //initial customer card number to be -1(no number)
                 cmdString = "insert into customer " + " values(" + values + ")";
                 updateCount = st1.executeUpdate(cmdString);
                 result = true;

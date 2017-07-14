@@ -94,46 +94,39 @@ public class CheckOutActivity extends AppCompatActivity
     public Boolean checkStock()
     {
         boolean enoughStock=true;
-        List<Book> cartList =accessCustomer.getCustomerCart(accountName);
-        List<Book> temp1 = new ArrayList<Book>();
+        List<Book> cartList=accessCustomer.getCustomerCart(accountName);
         int i=0;
-        for(i=0;i<bookList.size();i++)
+        Book book;
+        while(i<cartList.size() && enoughStock==true)
         {
-            Book newBook=new Book(bookList.get(i).getName(),bookList.get(i).getBookAuthor(),bookList.get(i).getBookInformation(), bookList.get(i).getBookPrice(),
-                    bookList.get(i).getCategory(),bookList.get(i).getNumberInStock(),bookList.get(i).getImageID());
-            temp1.add(newBook);
-        }
-        i=0;
-        while(enoughStock && i<cartList.size()) {
-                String tempName = cartList.get(i).getName();
-                for (int j = 0; j < temp1.size(); j++) {
-                    Book tempBook = temp1.get(j);
-                    if (tempBook.getName().equals(tempName)) {
-                        int newStock = tempBook.getNumberInStock() - 1;
-                        if (newStock < 0) {
-                            enoughStock = false;
-                        } else {
-                            tempBook.setNumberInStock(newStock);
-                        }
-                    }
-                }
+            if(cartList.get(i).checkStock()==false)
+            {
+                enoughStock = false;
+                Toast.makeText(CheckOutActivity.this,
+                        "Sorry,"+cartList.get(i).getName()+" is sold out",
+                        Toast.LENGTH_SHORT).show();
+            }
             i++;
         }
+        return enoughStock;
+    }
 
-            if (enoughStock) {
-                for (i = 0; i < cartList.size(); i++) {
-                    String tempName = cartList.get(i).getName();
-                    for (int j = 0; j < bookList.size(); j++) {
-                        Book tempBook = bookList.get(j);
-                        if (tempBook.getName().equals(tempName)) {
-                            int newStock = tempBook.getNumberInStock() - 1;
-                            tempBook.setNumberInStock(newStock);
-                        }
-                    }
-                }
-            }
-            return enoughStock;
+    public void reduceStock()
+    {
+        Book newBook;
+        Book oldBook;
+        List<Book> cartList=accessCustomer.getCustomerCart(accountName);
+        for (int i = 0; i < cartList.size(); i++)
+        {
+            String bookName = cartList.get(i).getName();
+            newBook=accessBook.searchBook(bookName);
+            oldBook=accessBook.searchBook(bookName);
+            newBook.reduceStock();
+            accessBook.editBook(oldBook, newBook);
         }
+    }
+
+
 
 
     public void setButton(final EditText name, final EditText email, final EditText address,
@@ -160,6 +153,7 @@ public class CheckOutActivity extends AppCompatActivity
                 }
                 else
                 {
+                    reduceStock();
                     addnewOrder(name.getText().toString(),cardNumber.getText().toString(),email.getText().toString(),address.getText().toString());
                     Intent intent = new Intent(CheckOutActivity.this, MyAccountActivity.class);
                     intent.putExtra("name",accountName );

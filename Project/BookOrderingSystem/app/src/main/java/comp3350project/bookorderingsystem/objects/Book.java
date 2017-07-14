@@ -53,6 +53,9 @@ public class Book
         bookInformation = newBookInformation;
     }
 
+
+
+
     public double getBookPrice()
     {
         return bookPrice;
@@ -91,4 +94,24 @@ public class Book
     }
 
     public int getImageID(){return  imageID;}
+
+    public Boolean checkStock()
+    {
+        Boolean result;
+        if(numberInStock>0)
+        {
+            result=true;
+        }
+        else
+        {
+            result=false;
+        }
+        return result;
+    }
+
+    public void reduceStock()
+    {
+        numberInStock=numberInStock-1;
+    }
+
 }

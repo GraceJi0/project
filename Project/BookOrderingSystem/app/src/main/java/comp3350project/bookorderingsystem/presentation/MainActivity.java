@@ -161,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
                                     "please ensure passwords are same",
                                     Toast.LENGTH_SHORT).show();
                         }
-                        else if(accessCustomer.checkAccount(signupAccount.getText().toString()))
+                        else if(checkNewAccount(signupAccount.getText().toString())==false)
                         {
                             Toast.makeText(MainActivity.this,
                                     "Account already exist",
@@ -291,6 +291,23 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(init);
             }
         });
+    }
+
+    public Boolean checkNewAccount(String newAccountName)
+    {
+        Boolean result=true;
+        if(accessCustomer.checkAccount(newAccountName))
+        {
+            result=false;
+        }
+        else if(newAccountName.length()>=3)
+        {
+            if(newAccountName.charAt(0)=='d' && newAccountName.charAt(1)=='m' && newAccountName.charAt(2)=='b')
+            {
+                result=false;
+            }
+        }
+        return result;
     }
 
     private void copyDatabaseToDevice() {

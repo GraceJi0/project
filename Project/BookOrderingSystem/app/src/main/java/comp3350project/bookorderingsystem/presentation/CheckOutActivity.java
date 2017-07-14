@@ -94,6 +94,38 @@ public class CheckOutActivity extends AppCompatActivity
     public Boolean checkStock()
     {
         boolean enoughStock=true;
+        List<Book> cartList=accessCustomer.getCustomerCart(accountName);
+        int i=0;
+        Book book;
+        while(i<cartList.size() && enoughStock==true)
+        {
+            if(cartList.get(i).checkStock()==false)
+            {
+                enoughStock = false;
+                Toast.makeText(CheckOutActivity.this,
+                        "Sorry,"+cartList.get(i).getName()+" is sold out",
+                        Toast.LENGTH_SHORT).show();
+            }
+            i++;
+        }
+        return enoughStock;
+    }
+
+    public void reduceStock()
+    {
+        Book newBook;
+        List<Book> cartList=accessCustomer.getCustomerCart(accountName);
+        for (int i = 0; i < cartList.size(); i++)
+        {
+            String bookName = cartList.get(i).getName();
+            newBook=accessBook.searchBook(bookName);
+            newBook.reduceStock();
+        }
+    }
+
+    /*public Boolean checkStock()
+    {
+        boolean enoughStock=true;
         List<Book> cartList =accessCustomer.getCustomerCart(accountName);
         List<Book> temp1 = new ArrayList<Book>();
         int i=0;
@@ -133,7 +165,7 @@ public class CheckOutActivity extends AppCompatActivity
                 }
             }
             return enoughStock;
-        }
+        }*/
 
 
     public void setButton(final EditText name, final EditText email, final EditText address,
@@ -160,6 +192,7 @@ public class CheckOutActivity extends AppCompatActivity
                 }
                 else
                 {
+                    reduceStock();
                     addnewOrder(name.getText().toString(),cardNumber.getText().toString(),email.getText().toString(),address.getText().toString());
                     Intent intent = new Intent(CheckOutActivity.this, MyAccountActivity.class);
                     intent.putExtra("name",accountName );

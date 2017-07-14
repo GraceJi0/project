@@ -114,58 +114,19 @@ public class CheckOutActivity extends AppCompatActivity
     public void reduceStock()
     {
         Book newBook;
+        Book oldBook;
         List<Book> cartList=accessCustomer.getCustomerCart(accountName);
         for (int i = 0; i < cartList.size(); i++)
         {
             String bookName = cartList.get(i).getName();
             newBook=accessBook.searchBook(bookName);
+            oldBook=accessBook.searchBook(bookName);
             newBook.reduceStock();
+            accessBook.editBook(oldBook, newBook);
         }
     }
 
-    /*public Boolean checkStock()
-    {
-        boolean enoughStock=true;
-        List<Book> cartList =accessCustomer.getCustomerCart(accountName);
-        List<Book> temp1 = new ArrayList<Book>();
-        int i=0;
-        for(i=0;i<bookList.size();i++)
-        {
-            Book newBook=new Book(bookList.get(i).getName(),bookList.get(i).getBookAuthor(),bookList.get(i).getBookInformation(), bookList.get(i).getBookPrice(),
-                    bookList.get(i).getCategory(),bookList.get(i).getNumberInStock(),bookList.get(i).getImageID());
-            temp1.add(newBook);
-        }
-        i=0;
-        while(enoughStock && i<cartList.size()) {
-                String tempName = cartList.get(i).getName();
-                for (int j = 0; j < temp1.size(); j++) {
-                    Book tempBook = temp1.get(j);
-                    if (tempBook.getName().equals(tempName)) {
-                        int newStock = tempBook.getNumberInStock() - 1;
-                        if (newStock < 0) {
-                            enoughStock = false;
-                        } else {
-                            tempBook.setNumberInStock(newStock);
-                        }
-                    }
-                }
-            i++;
-        }
 
-            if (enoughStock) {
-                for (i = 0; i < cartList.size(); i++) {
-                    String tempName = cartList.get(i).getName();
-                    for (int j = 0; j < bookList.size(); j++) {
-                        Book tempBook = bookList.get(j);
-                        if (tempBook.getName().equals(tempName)) {
-                            int newStock = tempBook.getNumberInStock() - 1;
-                            tempBook.setNumberInStock(newStock);
-                        }
-                    }
-                }
-            }
-            return enoughStock;
-        }*/
 
 
     public void setButton(final EditText name, final EditText email, final EditText address,

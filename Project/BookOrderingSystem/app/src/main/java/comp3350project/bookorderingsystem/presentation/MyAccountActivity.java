@@ -66,6 +66,7 @@ public class MyAccountActivity extends AppCompatActivity
         checkout.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view)
             {
+                customer=accessCustomer.findCustomer(accountName);
                 if(customer.getCart().size()==0)
                 {
                     Toast.makeText(MyAccountActivity.this,

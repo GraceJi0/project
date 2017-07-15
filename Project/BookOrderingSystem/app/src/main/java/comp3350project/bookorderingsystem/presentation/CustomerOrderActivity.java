@@ -36,7 +36,31 @@ public class CustomerOrderActivity extends AppCompatActivity {
         customer=accessCustomer.findCustomer(accountName);
         List<Order> orderList=customer.getOrderList();
         setOrderListView(orderList);
+        logOut();
     }
+
+
+    /*******************************************************
+     * set log out button
+     ********************************************************/
+    public void logOut()
+    {
+        Button showLogOut=(Button)findViewById(R.id.logOutButton);
+        showLogOut.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View view)
+            {
+                accountName="";
+                Intent intent = new Intent(CustomerOrderActivity.this, MainActivity.class);
+                intent.putExtra("name",accountName );
+                startActivity(intent);
+                Toast.makeText(CustomerOrderActivity.this,
+                        "Log out successful",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
     /**********************
      * set the list view for all orders in database, display the order number and customer.
      ******************************/

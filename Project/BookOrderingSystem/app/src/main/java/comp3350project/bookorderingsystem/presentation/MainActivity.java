@@ -149,36 +149,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     public void onClick(View view)
                     {
-                        if(signupAccount.getText().toString().isEmpty() || signupPassword.getText().toString().isEmpty())
-                        {
-                            Toast.makeText(MainActivity.this,
-                                    "please fill account or password",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                        else if(signupRetypePassword.getText().toString().compareTo(signupPassword.getText().toString())!=0)
-                        {
-                            Toast.makeText(MainActivity.this,
-                                    "please ensure passwords are same",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                        else if(checkNewAccount(signupAccount.getText().toString())==false)
-                        {
-                            Toast.makeText(MainActivity.this,
-                                    "Account already exist",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                        else
-                        {
-                            Signupdialog.dismiss();
-                            Toast.makeText(MainActivity.this,
-                                    "Sign up successful",
-                                    Toast.LENGTH_SHORT).show();
-                            onResume();
-                            Customer newCus=new Customer(signupAccount.getText().toString(),signupPassword.getText().toString());
-                            accessCustomer.addCustomer(newCus);
-                            accountName=signupAccount.getText().toString();
-                            checkLogStatus();
-                        }
+                        checkSignupInformaiton(signupAccount.getText().toString(),signupPassword.getText().toString(),signupRetypePassword.getText().toString());
                     }
                 });
                 logupBuilder.setView(signupView);
@@ -187,6 +158,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
     /*******************************************************
      when user sign in, check if the account information match the account in database,
@@ -206,44 +179,8 @@ public class MainActivity extends AppCompatActivity {
                    signinButton.setOnClickListener(new View.OnClickListener() {
                        public void onClick(View view)
                        {
-                           if (!signinAccount.getText().toString().isEmpty() &&
-                                   !signinPassword.getText().toString().isEmpty())
-                           {
-                               String account = signinAccount.getText().toString();
-                               String password = signinPassword.getText().toString();
-                               int verify = accessCustomer.verifyCustomer(account,password);
-                               if(verify == 1)
-                               {
-                                   //close the dialog
-                                   Logindialog.dismiss();
-                                   accountName = account;
-                                   Toast.makeText(MainActivity.this, "Login successful",
-                                           Toast.LENGTH_SHORT).show();
-                                   checkLogStatus();
-                                   if(accountName.length() >= 3) {
-                                       if (accountName.substring(0, 3).equals("dmb")) {
-                                           managerLogin();
-                                       }
-                                   }
-                               }
-                               else
-                               {
-                                   if(verify == -1)
-                                   {
-                                       Toast.makeText(MainActivity.this, "account doesn't exist",
-                                               Toast.LENGTH_SHORT).show();
-                                   }
-                                   else
-                                   {
-                                       Toast.makeText(MainActivity.this, "incorrect password",
-                                               Toast.LENGTH_SHORT).show();
-                                   }
-                               }
-                           } else {
-                               Toast.makeText(MainActivity.this,
-                                       "please fill account or password",
-                                       Toast.LENGTH_SHORT).show();
-                           }
+                           checkSigninInformation(signinAccount.getText().toString(),signinPassword.getText().toString());
+
                        }
                    });
                loginBuilder.setView(signinView);
@@ -252,6 +189,10 @@ public class MainActivity extends AppCompatActivity {
            }
        });
    }
+
+
+
+
 
     /*******************************************************
      *when user click search button, to the the search page.
@@ -293,6 +234,89 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
+    /*******************************************************
+     signup information match database
+     ********************************************************/
+    public void checkSignupInformaiton(String account,String password,String retypePassword)
+    {
+        if(account.isEmpty() || password.isEmpty())
+        {
+            Toast.makeText(MainActivity.this,
+                    "please fill account or password",
+                    Toast.LENGTH_SHORT).show();
+        }
+        else if(password.compareTo(retypePassword)!=0)
+        {
+            Toast.makeText(MainActivity.this,
+                    "please ensure passwords are same",
+                    Toast.LENGTH_SHORT).show();
+        }
+        else if(checkNewAccount(account)==false)
+        {
+            Toast.makeText(MainActivity.this,
+                    "Account already exist",
+                    Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            Signupdialog.dismiss();
+            Toast.makeText(MainActivity.this,
+                    "Sign up successful",
+                    Toast.LENGTH_SHORT).show();
+            onResume();
+            Customer newCus=new Customer(account,password);
+            accessCustomer.addCustomer(newCus);
+            accountName=account;
+            checkLogStatus();
+        }
+    }
+
+    /*******************************************************
+       signin information match database
+     ********************************************************/
+    public void checkSigninInformation(String account,String password)
+    {
+        if (!account.isEmpty() && !password.isEmpty())
+        {
+            int verify = accessCustomer.verifyCustomer(account,password);
+            if(verify == 1)
+            {
+                //close the dialog
+                Logindialog.dismiss();
+                accountName = account;
+                Toast.makeText(MainActivity.this, "Login successful",
+                        Toast.LENGTH_SHORT).show();
+                checkLogStatus();
+                if(accountName.length() >= 3) {
+                    if (accountName.substring(0, 3).equals("dmb")) {
+                        managerLogin();
+                    }
+                }
+            }
+            else
+            {
+                if(verify == -1)
+                {
+                    Toast.makeText(MainActivity.this, "account doesn't exist",
+                            Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(MainActivity.this, "incorrect password",
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+        } else {
+            Toast.makeText(MainActivity.this,
+                    "please fill account or password",
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    /*******************************************************
+     customer's account can not begin with "dmb"
+     ********************************************************/
     public Boolean checkNewAccount(String newAccountName)
     {
         Boolean result=true;

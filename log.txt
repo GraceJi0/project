@@ -127,7 +127,12 @@ team member to review it before merge to Master branch.
 	
 	
 2017/07/14
+	solving the problems from iteration 2
+		-add builder to objects
+		-solving case sensitive 
+	separate objects, cart and wishList are now separate classes
 	
+2017/07/17
+	last meeting before hand in
 	
-2017/07/18
 

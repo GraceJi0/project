@@ -288,7 +288,6 @@ Location of log.txt : Android_BookOrdering/log.txt
 
 The package major source code files of our project includes:
 
-
 comp3350project.bookorderingsystem folder:
 
 application folder: Main.java, Service.java

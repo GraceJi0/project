@@ -135,6 +135,7 @@ team member to review it before merge to Master branch.
 2017/07/17
 	last meeting before hand in
 	working on testing part
-	Create our own exception types for persistence  layer
+	Create our own exception class for persistence  layer and presentation layer
+	so that the presentation layer knows how to tell the user what has failed in validation.
 	
 

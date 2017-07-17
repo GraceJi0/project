@@ -309,10 +309,10 @@ The issues that we were not able to resolve in this iteration are :
 	change the user story "view tracking information" to "Manager manage orders"
 	New big user story:
 
-	|                                   Manager manage orders						|
-	|  -As a manager, i want to be able to manage orders that customer placed.	|
-	|															|
-	|	Priority: high									cost: 3days	|
+|                                   Manager manage orders						|
+|  -As a manager, i want to be able to manage orders that customer placed.				|
+|													|
+|	Priority: high									cost: 3days	|
 
 The User stories we planned for this iteration:
 1. Check out
@@ -338,7 +338,7 @@ Developer tasks:
 	-case-sensitive	(0.5 hr)
 	-violate the single-responsibility principle (2 hr)
 	-lack of unit test (see testing part)
-	- don’t allow customer register account name start with “dmb”(0.5 hr) 
+	- don’t allow customer register account name start with “dmb?0.5 hr) 
 5. persistence layer
 	-add orders table in .script file (2 hr)
 	-create order function on HSQL and dataAccessObject (3 hr)

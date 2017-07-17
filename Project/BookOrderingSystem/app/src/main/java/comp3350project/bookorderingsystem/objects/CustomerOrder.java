@@ -1,20 +1,12 @@
 package comp3350project.bookorderingsystem.objects;
-
-import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by dinghanji on 2017-07-14.
- */
-
 public class CustomerOrder {
-    private String customerName;
     private List<Order> customerOrderList;
 
-    public CustomerOrder(String newName)
+    public CustomerOrder( )
     {
-        customerName = newName;
         customerOrderList = new ArrayList<Order>();
     }
 

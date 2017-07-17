@@ -6,12 +6,10 @@ import java.util.List;
 
 public class WishList
 {
-    private String customerName;
     private ArrayList<Book> customerWishList;
 
-    public WishList(String newName)
+    public WishList()
     {
-        customerName = newName;
         customerWishList = new ArrayList<Book>();
     }
 

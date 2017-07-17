@@ -5,12 +5,10 @@ import java.util.List;
 
 public class Cart
 {
-    private String customerName;
     ArrayList<Book> customerCart;
 
-    public Cart(String newName)
+    public Cart()
     {
-        customerName = newName;
         customerCart = new ArrayList<Book>();
     }
 

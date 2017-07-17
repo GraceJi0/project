@@ -236,7 +236,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     /*******************************************************
-     signup information match database
+     signup information check
      ********************************************************/
     public void checkSignupInformaiton(String account,String password,String retypePassword)
     {

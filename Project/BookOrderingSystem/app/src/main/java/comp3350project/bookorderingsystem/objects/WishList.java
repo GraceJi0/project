@@ -17,7 +17,7 @@ public class WishList
 
     /////////////////////////////////////
     //set the customer's wish list
-    // ///////////////////////////////////
+    /////////////////////////////////////
     public void setWishList(ArrayList<Book> theList)
     {
         customerWishList = new ArrayList<>(theList);
@@ -28,9 +28,9 @@ public class WishList
      *******************/
     public List<Book> getWishList(){return customerWishList;}
 
-    // ///////////////////////////////////
+    /////////////////////////////////////
     //add the given book to customer's wish list
-    //  ///////////////////////////////////
+    /////////////////////////////////////
     public void addToWishList(Book newBook)
     {
         boolean found = false;

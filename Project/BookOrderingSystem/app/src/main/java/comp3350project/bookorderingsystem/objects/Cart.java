@@ -49,9 +49,9 @@ public class Cart
         }
     }
 
-    /***************
+    /*************************
      * clear the cart
-     ***************/
+     ************************/
     public void deleteAllInCart()
     {
         customerCart = new ArrayList<Book>();

@@ -33,7 +33,7 @@ tasks:
 
 
 
-The big user story we choose to finish in this iteration is “Search a book” and ”View book’s information”.
+The big user story we choose to finish in this iteration is “Search a book?and ”View book’s information?
 
 
 
@@ -179,7 +179,7 @@ AllTests.java and ExampleUnitTest.java
 
 The manager ACCOUNT NAME: dmb001 
 		password: 0000
-The customerÕs account can be created by user 
+The customer's account can be created by user 
 		Or account name: asdf
 			Password: 1234
 
@@ -263,4 +263,79 @@ Developer tasks:
 
 
 
+
+
+******************************************************************************************************************************* README.txt
+Iteration 3
+
+Project topic: Book ordering System
+
+Group Number: 10
+Team member:
+Ruopu Zhang (7723669)
+Junjie Lin (7780545)
+Dinghan Ji (7797141)
+Xinyu Li (7768642)
+Jianwen Chen (7749375)
+
+
+Iteration3.zip contains all project files, readme.txt and log.txt
+
+
+
+
+The package major source code files of our project includes:
+
+
+comp3350project.bookorderingsystem folder:
+
+application folder: Main.java, Service.java
+business folder: AccessBook.java and AccessCustomer.java
+objects folder: Book.java , Customer.java, Picture.java
+persistence folder: DataAccess.java, DataAccessStub.java, DataAccessObject.java, customerPersistence.java, bookPersistence.kava, customerPersistenceHSQL.java, bookPersistenceHSQL.java
+
+comp3350project.bookorderingsystem.tests folder:
+objects folder: TestBook.java, TestCustomer.java, TestPicture.java.
+Business folder: TestAccessBook.java, TestAccessCustomer.java
+
+
+AllTests.java and ExampleUnitTest.java
+
+
+Changing to our big user stories:
+	change the user story "view tracking information" to "Manager manage orders"
+	
+	|  Manager manage orders							|
+	|  -As a manager, i want to be able to manage orders that customer placed.	|
+	|										|
+	|	Priority: high			cost: 3days				|
+
+The User stories we planned for this iteration:
+1. Check out
+2. Manager manage orders
+
+
+Developer tasks:
+1.  UI
+	-customer check out UI (3 hr)
+	-customer view order list UI (1 hr)
+	-customer view order detail UI(1 hr)
+	-manager view order list UI (2 hr)
+	-manager view order detail UI(1 hr)
+2. check stock
+	-no enough books error checking while checkout(1 hr)
+	-update stock of the book from database after customer submitted an order(2 hr)
+	
+3. business layer
+	-Creat access order
+	-update access book 
+	-update access customer
+4. Fix bug from iteration 2
+	-case-sensitive	(0.5 hr)
+	-violate the single-responsibility principle (2 hr)
+	-lack of unit test
+5. persistence layer
+	-add orders table in .script file (2 hr)
+	-create order function on HSQL and dataAccessObject (3 hr)
+	-update previous persistence layer (1 hr)
 	

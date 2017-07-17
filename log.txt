@@ -96,3 +96,38 @@ team member to review it before merge to Master branch.
 	testing 
 	clear the files and codeing structure
 	
+
+—————————————iteration 3————————————
+2017/06/30
+	make change to one big user story
+	decide big user story for iteration 3:
+		-check out
+		-manager manage orders
+	
+	created developer tasks
+	Assign tasks to menbers
+	
+2017/07/07
+	UI design for customer check out progress 
+	UI design for manager manageing requests
+	
+	
+2017/07/09
+	start to work on business layer
+	and design the persistence layer of order
+	and how
+	
+2017/07/11
+	walk through Iteration 2 feedback
+	reconstruct the data access
+			create the order table
+			fix bugs appeared
+				- check stock
+				-case-sensitive
+	
+	
+2017/07/14
+	
+	
+2017/07/18
+

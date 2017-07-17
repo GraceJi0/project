@@ -18,9 +18,9 @@ Team member:
 
 	Dinghan Ji (7797141)
 	
-Xinyu Li (7768642)
+	Xinyu Li (7768642)
 	
-Jianwen Chen (7749375)
+	Jianwen Chen (7749375)
 
 
 
@@ -344,5 +344,5 @@ Developer tasks:
 	-create order function on HSQL and dataAccessObject (3 hr)
 	-update previous persistence layer (1 hr)
 6. Testing 
-	-new object/method testing 
-	-due to the changes of pervious objects, testing part need to be edited 
+	-new object/method testing (5 hr)
+	-due to the changes of pervious objects, testing part need to be edited (2 hr)

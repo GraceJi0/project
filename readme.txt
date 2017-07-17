@@ -289,7 +289,6 @@ Location of log.txt : Android_BookOrdering/log.txt
 The package major source code files of our project includes:
 
 comp3350project.bookorderingsystem folder:
-
 application folder: Main.java, Service.java
 business folder: AccessBook.java, AccessCustomer.java and AccessOrder.java
 objects folder: Book.java , Customer.java, Picture.java, Cart.java, CustomerOrder.java,  Order.java, WishList.java
@@ -299,17 +298,21 @@ comp3350project.bookorderingsystem.tests folder:
 objects folder: TestBook.java, TestCustomer.java, TestPicture.java., TestOrder.java
 Business folder: TestAccessBook.java, TestAccessCustomer.java, TestAccessOrder.java
 
-
 AllTests.java and ExampleUnitTest.java
 
+The issues that we were not able to resolve in this iteration are : 
+	1. When customer filling order information, system don’t check if address, card number, and email are valid
+	2. We couldn't upload a picture as the cover for this book when adding a new book to the database.
 
-Changing to our big user stories:
+
+***************Changing to our big user stories:
 	change the user story "view tracking information" to "Manager manage orders"
-	
-	|  Manager manage orders							|
+	New big user story:
+
+	|                                   Manager manage orders						|
 	|  -As a manager, i want to be able to manage orders that customer placed.	|
-	|										|
-	|	Priority: high			cost: 3days				|
+	|															|
+	|	Priority: high									cost: 3days	|
 
 The User stories we planned for this iteration:
 1. Check out
@@ -328,15 +331,18 @@ Developer tasks:
 	-update stock of the book from database after customer submitted an order(2 hr)
 	
 3. business layer
-	-Create access order
-	-update access book 
-	-update access customer
+	-Create access order (0.5 hr)
+	-update access book  (1 hr)
+	-update access customer (1 hr)
 4. Fix bug from iteration 2
 	-case-sensitive	(0.5 hr)
 	-violate the single-responsibility principle (2 hr)
-	-lack of unit test
+	-lack of unit test (see testing part)
+	- don’t allow customer register account name start with “dmb”(0.5 hr) 
 5. persistence layer
 	-add orders table in .script file (2 hr)
 	-create order function on HSQL and dataAccessObject (3 hr)
 	-update previous persistence layer (1 hr)
-	
+6. Testing 
+	-new object/method testing 
+	-due to the changes of pervious objects, testing part need to be edited 

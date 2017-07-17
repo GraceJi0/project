@@ -1,7 +1,8 @@
 *****************************************************************************************************************************************************
 README.txt
 Iteration 1
-
+
+
 
 
 
@@ -292,7 +293,7 @@ comp3350project.bookorderingsystem folder:
 application folder: Main.java, Service.java
 business folder: AccessBook.java, AccessCustomer.java and AccessOrder.java
 objects folder: Book.java , Customer.java, Picture.java, Cart.java, CustomerOrder.java,  Order.java, WishList.java
-persistence folder: DataAccess.java, DataAccessStub.java, DataAccessObject.java, customerPersistence.java, bookPersistence.kava, customerPersistenceHSQL.java, bookPersistenceHSQL.java, orderPersistence.java, orderPersistenceHSQL.java
+persistence folder: DataAccess.java, DataAccessStub.java, DataAccessObject.java, customerPersistence.java, bookPersistence.java, customerPersistenceHSQL.java, bookPersistenceHSQL.java, orderPersistence.java, orderPersistenceHSQL.java
 
 comp3350project.bookorderingsystem.tests folder:
 objects folder: TestBook.java, TestCustomer.java, TestPicture.java., TestOrder.java
@@ -309,10 +310,10 @@ The issues that we were not able to resolve in this iteration are :
 	change the user story "view tracking information" to "Manager manage orders"
 	New big user story:
 
-|                                   Manager manage orders						|
-|  -As a manager, i want to be able to manage orders that customer placed.				|
-|													|
-|	Priority: high									cost: 3days	|
+|                  Manager manage orders					|
+|  -As a manager, I want to be able to manage orders that customer placed.											|
+|												|
+|	Priority: high						    cost: 3days	|
 
 The User stories we planned for this iteration:
 1. Check out
@@ -338,7 +339,7 @@ Developer tasks:
 	-case-sensitive	(0.5 hr)
 	-violate the single-responsibility principle (2 hr)
 	-lack of unit test (see testing part)
-	- don’t allow customer register account name start with “dmb?0.5 hr) 
+	- donít allow customer register account name start with “dmb?0.5 hr) 
 5. persistence layer
 	-add orders table in .script file (2 hr)
 	-create order function on HSQL and dataAccessObject (3 hr)

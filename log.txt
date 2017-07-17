@@ -134,5 +134,7 @@ team member to review it before merge to Master branch.
 	
 2017/07/17
 	last meeting before hand in
+	working on testing part
+	Create our own exception types for persistence  layer
 	
 

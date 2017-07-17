@@ -38,6 +38,7 @@ public class TestBook
 		testCategory(temp);
 		testCmpName(temp);
 		testImageID();
+		testStock();
 
 		System.out.println("Finished testBook");
 	}
@@ -102,5 +103,17 @@ public class TestBook
 	{
 		//test getImageID
 		assertTrue(1 == theBook.getImageID());
+	}
+
+	public void testStock()
+	{
+		Book test = new Book("Test", "Author", "Info", 1.0, "free", 1,1);   //create a new book to test stock
+
+		//first test checkStock()
+		assertTrue(test.checkStock());   //the book should be in stock
+
+		//check reduceStock()
+		test.reduceStock();
+		assertTrue(!test.checkStock());   //the book now should not be in stock
 	}
 }

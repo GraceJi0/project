@@ -11,6 +11,8 @@ import static org.junit.Assert.*;
 
 public class TestPicture
 {
+    Picture thePic;
+
     @Before
     public void setUp()
     {
@@ -20,13 +22,13 @@ public class TestPicture
     @Test
     public void testPicture()
     {
-        Picture thePic;
-
         System.out.println("\nStarting testPicture");
 
         int tempPid = 0;    //set the temp id to 0
         int tempPicture = R.drawable.noimage;   //set the temp picture to no image
         thePic = new Picture(tempPid, tempPicture); //create the test object
+
+        testObject();
 
         assertNotNull(thePic);  //the Picture Object should be created correctly
         assertTrue(tempPid == thePic.getPID()); //test the getter method
@@ -37,5 +39,10 @@ public class TestPicture
         assertTrue(tempPicture == thePic.getPicture());
 
         System.out.println("Finished testPicture");
+    }
+
+    public void testObject()
+    {
+        assertNotNull(thePic);
     }
 }

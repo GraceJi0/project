@@ -22,7 +22,12 @@ public class WishList
     {
         customerWishList = new ArrayList<>(theList);
     }
+
+    /************
+     * get the current wish list
+     *******************/
     public List<Book> getWishList(){return customerWishList;}
+
     // ///////////////////////////////////
     //add the given book to customer's wish list
     //  ///////////////////////////////////
@@ -42,6 +47,7 @@ public class WishList
             customerWishList.add(newBook);
         }
     }
+
     // ///////////////////////////////////
     //delete the given book from customer's wish list
     //  ///////////////////////////////////
@@ -55,6 +61,4 @@ public class WishList
             customerWishList.remove(index);
         }
     }
-
-
 }

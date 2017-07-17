@@ -27,13 +27,17 @@ public class CustomerOrder {
     }
 
 
-    /// ///////////////////////////////////
-    // add an order to the order list
-    // ///////////////////////////////////
+    /***************
+    get the order list
+     *****************/
     public List<Order> getOrderList()
     {
         return customerOrderList;
     }
+
+    /**************
+     * set the order list to the given list
+     *********************/
     public void setOrder(List<Order> orders)
     {
         this.customerOrderList = orders;

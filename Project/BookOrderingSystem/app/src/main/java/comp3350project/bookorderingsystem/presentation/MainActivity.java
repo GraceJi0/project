@@ -145,11 +145,19 @@ public class MainActivity extends AppCompatActivity {
                 final EditText signupRetypePassword=(EditText) signupView.findViewById(R.id.signup_retype_password);
                 Button signupButton=(Button) signupView.findViewById(R.id.signup_button);
 
+
                 signupButton.setOnClickListener(new View.OnClickListener()
                 {
                     public void onClick(View view)
                     {
-                        checkSignupInformaiton(signupAccount.getText().toString(),signupPassword.getText().toString(),signupRetypePassword.getText().toString());
+                        try {
+                            checkSignupInformaiton(signupAccount.getText().toString(), signupPassword.getText().toString(), signupRetypePassword.getText().toString());
+                        }catch(signUpInException e)
+                        {
+                            Toast.makeText(MainActivity.this,
+                                    e.getMsg(),
+                                    Toast.LENGTH_SHORT).show();
+                        }
                     }
                 });
                 logupBuilder.setView(signupView);
@@ -179,8 +187,14 @@ public class MainActivity extends AppCompatActivity {
                    signinButton.setOnClickListener(new View.OnClickListener() {
                        public void onClick(View view)
                        {
-                           checkSigninInformation(signinAccount.getText().toString(),signinPassword.getText().toString());
-
+                           try {
+                               checkSigninInformation(signinAccount.getText().toString(), signinPassword.getText().toString());
+                           }catch(signUpInException e)
+                           {
+                               Toast.makeText(MainActivity.this,
+                                       e.getMsg(),
+                                       Toast.LENGTH_SHORT).show();
+                           }
                        }
                    });
                loginBuilder.setView(signinView);
@@ -238,25 +252,25 @@ public class MainActivity extends AppCompatActivity {
     /*******************************************************
      signup information match database
      ********************************************************/
-    public void checkSignupInformaiton(String account,String password,String retypePassword)
-    {
+    public void checkSignupInformaiton(String account,String password,String retypePassword) throws signUpInException
+    {   signUpInException e = new signUpInException();
         if(account.isEmpty() || password.isEmpty())
         {
-            Toast.makeText(MainActivity.this,
-                    "please fill account or password",
-                    Toast.LENGTH_SHORT).show();
+
+            e.setMsg("please fill account or password");
+            throw e;
+
         }
         else if(password.compareTo(retypePassword)!=0)
         {
-            Toast.makeText(MainActivity.this,
-                    "please ensure passwords are same",
-                    Toast.LENGTH_SHORT).show();
+            e.setMsg("please ensure passwords are same");
+            throw e;
+
         }
         else if(checkNewAccount(account)==false)
         {
-            Toast.makeText(MainActivity.this,
-                    "Account already exist",
-                    Toast.LENGTH_SHORT).show();
+            e.setMsg("Account already exist");
+            throw e;
         }
         else
         {
@@ -269,14 +283,15 @@ public class MainActivity extends AppCompatActivity {
             accessCustomer.addCustomer(newCus);
             accountName=account;
             checkLogStatus();
+
         }
     }
 
     /*******************************************************
        signin information match database
      ********************************************************/
-    public void checkSigninInformation(String account,String password)
-    {
+    public void checkSigninInformation(String account,String password)throws signUpInException
+    {   signUpInException e = new signUpInException();
         if (!account.isEmpty() && !password.isEmpty())
         {
             int verify = accessCustomer.verifyCustomer(account,password);
@@ -298,19 +313,21 @@ public class MainActivity extends AppCompatActivity {
             {
                 if(verify == -1)
                 {
-                    Toast.makeText(MainActivity.this, "account doesn't exist",
-                            Toast.LENGTH_SHORT).show();
+
+                    e.setMsg("account doesn't exist");
+                    throw e;
                 }
                 else
                 {
-                    Toast.makeText(MainActivity.this, "incorrect password",
-                            Toast.LENGTH_SHORT).show();
+
+                    e.setMsg("incorrect password");
+                    throw e;
                 }
             }
         } else {
-            Toast.makeText(MainActivity.this,
-                    "please fill account or password",
-                    Toast.LENGTH_SHORT).show();
+
+            e.setMsg( "please fill account or password");
+            throw e;
         }
     }
 
@@ -385,4 +402,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+}
+
+class signUpInException extends Exception {
+    String msg;
+    String getMsg() {
+        return msg;
+    }
+    void setMsg(String msg) {
+        this.msg = msg;
+    }
 }

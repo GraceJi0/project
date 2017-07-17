@@ -86,15 +86,16 @@ public class orderPersistenceHSQL
 
     public boolean validOrder(Order order)
     {
-        if(order!=null)
-        {
-            if(order.getOrderNumber()>0)
-            {
-                if(order.getCartBooks()!=null)
-                    if(order.getAccountName()!=null)
-                        return true;
+        try {
+            if (order != null) {
+                if (order.getOrderNumber() > 0) {
+                    if (order.getCartBooks() != null)
+                        if (order.getAccountName() != null)
+                            return true;
+                }
             }
-        }
+        }catch(Exception e)
+        {   validDataError(e);}
         return false;
 
     }
@@ -227,7 +228,18 @@ public class orderPersistenceHSQL
 
     public String processSQLError(Exception e)
     {
-        String result = "*** SQL Error: " + e.getMessage();
+        String result = "***ORDER SQL Error: " + e.getMessage();
+
+        // Remember, this will NOT be seen by the user!
+        e.printStackTrace();
+
+        return result;
+    }
+
+
+    public String validDataError(Exception e)
+    {
+        String result = "***Order valid Data Error: " + e.getMessage();
 
         // Remember, this will NOT be seen by the user!
         e.printStackTrace();

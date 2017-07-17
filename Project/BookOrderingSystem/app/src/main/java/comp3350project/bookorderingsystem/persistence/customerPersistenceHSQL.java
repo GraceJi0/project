@@ -254,17 +254,21 @@ public class customerPersistenceHSQL {
 
     public boolean validCustomer(Customer theCustomer)
     {
-        if(theCustomer != null)  //customer cannot be null
-        {
-            String name = theCustomer.getName();  //get the name
-            if ((!name.equals("")) && (!name.equals(" ")))
+        try {
+            if (theCustomer != null)  //customer cannot be null
             {
-                return true;
+                String name = theCustomer.getName();  //get the name
+                if ((!name.equals("")) && (!name.equals(" "))) {
+                    return true;
+                }
+//            else
+//                return false;  //the name cannot be empty
             }
-            else
-                return false;  //the name cannot be empty
         }
-        else
+        catch(Exception e)
+        {
+            validDataError(e);
+        }
             return false;
     }
 
@@ -294,36 +298,30 @@ public class customerPersistenceHSQL {
 
     public boolean validBook(Book theBook)  //check if a book is valid
     {
-        if(theBook != null)
-        {
-            if ((theBook.getName() != null) && (!theBook.getName().equals("")))
-            {
-                if ((theBook.getBookAuthor() != null) && (!theBook.getBookAuthor().equals("")))
-                {
-                    if (theBook.getBookPrice() >= 0)
-                    {
-                        if (theBook.getNumberInStock() >= 0)
-                        {
-                            if ((theBook.getCategory() != null) && (!theBook.getCategory().equals("")))
-                            {
-                                return true;
+        try {
+            if (theBook != null) {
+                if ((theBook.getName() != null) && (!theBook.getName().equals(""))) {
+                    if ((theBook.getBookAuthor() != null) && (!theBook.getBookAuthor().equals(""))) {
+                        if (theBook.getBookPrice() >= 0) {
+                            if (theBook.getNumberInStock() >= 0) {
+                                if ((theBook.getCategory() != null) && (!theBook.getCategory().equals(""))) {
+                                    return true;
+                                }
+
                             }
-                            else
-                                return false;
+
                         }
-                        else
-                            return false;
+
                     }
-                    else
-                        return false;
+
                 }
-                else
-                    return false;
+
             }
-            else
-                return false;
         }
-        else
+        catch(Exception e)
+        {
+            validDataError(e);
+        }
             return false;
     }
 
@@ -346,14 +344,22 @@ public class customerPersistenceHSQL {
         }
         if (updateCount != 1)
         {
-            result = "Tuple not inserted correctly.";
+            result = "CUSTOMER Tuple not inserted correctly.";
         }
         return result;
     }
+    public String validDataError(Exception e)
+    {
+        String result = "*** CUSTOMER valid DataError Error: " + e.getMessage();
 
+        // Remember, this will NOT be seen by the user!
+        e.printStackTrace();
+
+        return result;
+    }
     public String processSQLError(Exception e)
     {
-        String result = "*** SQL Error: " + e.getMessage();
+        String result = "*** CUSTOMER SQL Error: " + e.getMessage();
 
         // Remember, this will NOT be seen by the user!
         e.printStackTrace();

@@ -74,36 +74,36 @@ public class bookPersistenceHSQL {
 
     public boolean validBook(Book theBook)  //check if a book is valid
     {
-        if(theBook != null)
-        {
-            if ((theBook.getName() != null) && (!theBook.getName().equals("")))   //there must have something in the name
-            {
-                if ((theBook.getBookAuthor() != null) && (!theBook.getBookAuthor().equals("")))   //must have author
+        try {
+            if (theBook != null) {
+                if ((theBook.getName() != null) && (!theBook.getName().equals("")))   //there must have something in the name
                 {
-                    if (theBook.getBookPrice() >= 0)   //price can never be less than 0
+                    if ((theBook.getBookAuthor() != null) && (!theBook.getBookAuthor().equals("")))   //must have author
                     {
-                        if (theBook.getNumberInStock() >= 0)   //number in stock cannot less than 0
+                        if (theBook.getBookPrice() >= 0)   //price can never be less than 0
                         {
-                            if ((theBook.getCategory() != null) && (!theBook.getCategory().equals("")))   //must have a category
+                            if (theBook.getNumberInStock() >= 0)   //number in stock cannot less than 0
                             {
-                                return true;
+                                if ((theBook.getCategory() != null) && (!theBook.getCategory().equals("")))   //must have a category
+                                {
+                                    return true;
+                                }
+
                             }
-                            else
-                                return false;
+
                         }
-                        else
-                            return false;
+
                     }
-                    else
-                        return false;
+
                 }
-                else
-                    return false;
+
             }
-            else
-                return false;
         }
-        else
+        catch(Exception e)
+        {
+            validDataError(e);
+
+        }
             return false;
     }
 
@@ -245,14 +245,24 @@ public class bookPersistenceHSQL {
         }
         if (updateCount != 1)
         {
-            result = "Tuple not inserted correctly.";
+            result = "BOOK Tuple not inserted correctly.";
         }
         return result;
     }
 
+
+    public String validDataError(Exception e)
+    {
+        String result = "*** BOOK  valid Data Error: " + e.getMessage();
+
+        // Remember, this will NOT be seen by the user!
+        e.printStackTrace();
+
+        return result;
+    }
     public String processSQLError(Exception e)
     {
-        String result = "*** SQL Error: " + e.getMessage();
+        String result = "*** BOOK  SQL Error: " + e.getMessage();
 
         // Remember, this will NOT be seen by the user!
         e.printStackTrace();

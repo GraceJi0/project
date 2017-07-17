@@ -14,19 +14,30 @@ public class Cart
         customerCart = new ArrayList<Book>();
     }
 
-    //************** belows are the lists: Cart, Wishlist, Order
+    /*****************
+     * set the cart to the given list
+     *****************/
     public void setCart(ArrayList<Book> theList)
     {
         customerCart = new ArrayList<>(theList);
     }
+
+    /*******************
+     * get the current cart list
+     ***********************/
     public List<Book> getCart(){return customerCart;}
-    ///////////////////////////////////
-    // delete the given book from customer's cart
-    ///////////////////////////////////
+
+    /************
+     * add a book to the cart
+     **********************/
     public void addToCart(Book newBook)
     {
         customerCart.add(newBook);
     }
+
+    ///////////////////////////////////
+    // delete the given book from customer's cart
+    ///////////////////////////////////
     public void deleteFromCart(Book newBook)
     {
         int index;
@@ -37,6 +48,10 @@ public class Cart
             customerCart.remove(index);
         }
     }
+
+    /***************
+     * clear the cart
+     ***************/
     public void deleteAllInCart()
     {
         customerCart = new ArrayList<Book>();

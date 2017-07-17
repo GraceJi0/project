@@ -281,7 +281,9 @@ Jianwen Chen (7749375)
 
 Iteration3.zip contains all project files, readme.txt and log.txt
 
-
+Git clone: https://github.com/RedRect/Android_BookOrdering.git
+repository location: git@github.com:RedRect/Android_BookOrdering.git
+Location of log.txt : Android_BookOrdering/log.txt
 
 
 The package major source code files of our project includes:
@@ -290,13 +292,13 @@ The package major source code files of our project includes:
 comp3350project.bookorderingsystem folder:
 
 application folder: Main.java, Service.java
-business folder: AccessBook.java and AccessCustomer.java
-objects folder: Book.java , Customer.java, Picture.java
-persistence folder: DataAccess.java, DataAccessStub.java, DataAccessObject.java, customerPersistence.java, bookPersistence.kava, customerPersistenceHSQL.java, bookPersistenceHSQL.java
+business folder: AccessBook.java, AccessCustomer.java and AccessOrder.java
+objects folder: Book.java , Customer.java, Picture.java, Cart.java, CustomerOrder.java,  Order.java, WishList.java
+persistence folder: DataAccess.java, DataAccessStub.java, DataAccessObject.java, customerPersistence.java, bookPersistence.kava, customerPersistenceHSQL.java, bookPersistenceHSQL.java, orderPersistence.java, orderPersistenceHSQL.java
 
 comp3350project.bookorderingsystem.tests folder:
-objects folder: TestBook.java, TestCustomer.java, TestPicture.java.
-Business folder: TestAccessBook.java, TestAccessCustomer.java
+objects folder: TestBook.java, TestCustomer.java, TestPicture.java., TestOrder.java
+Business folder: TestAccessBook.java, TestAccessCustomer.java, TestAccessOrder.java
 
 
 AllTests.java and ExampleUnitTest.java
@@ -327,7 +329,7 @@ Developer tasks:
 	-update stock of the book from database after customer submitted an order(2 hr)
 	
 3. business layer
-	-Creat access order
+	-Create access order
 	-update access book 
 	-update access customer
 4. Fix bug from iteration 2

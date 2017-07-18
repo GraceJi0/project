@@ -138,18 +138,24 @@ public class DataAccessStub implements DataAccess
         return BookPersistence.updateBook(old, theBook, bookList);
     }
 
-    /*******************************
-     * get the size of database's order list size
-     *****************************/
-//    public int getAllOrderSize()
-//    {
-//        return allOrder.size();
-//    }
-
-
-    public int getAllOrderSize(){return -1;}
-    public List<Order> getOrderList(){return allOrder;}
-    public boolean addOrder(Order order){return true;}
-    public boolean updateOrderState(Order order){return OrderPersistence.updateOrderState(order);}
-    public boolean deleteFromCart(Order order){return true;}
+    public int getAllOrderSize()
+    {
+        return -1;
+    }
+    public List<Order> getOrderList()
+    {
+        return allOrder;
+    }
+    public boolean addOrder(Order order)
+    {
+        return true;
+    }
+    public boolean updateOrderState(Order order)
+    {
+        return OrderPersistence.updateOrderState(order);
+    }
+    public boolean deleteFromCart(Order order)
+    {
+        return true;
+    }
 }

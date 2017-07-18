@@ -22,7 +22,7 @@ public interface DataAccess   //shows the function of the DB
 
     boolean deleteFromWishList(Customer customer, Book book);  //delete the "book" from the wishlist of the "customer"
 
-    List<Order> getOrder(Customer customer);
+    List<Order> getOrder(Customer customer); //get the order list for a given customer
 
     boolean addCustomer(Customer newCustomer);   //add a new customer to the DB
 
@@ -32,9 +32,13 @@ public interface DataAccess   //shows the function of the DB
 
     boolean updateBook(Book old, Book theBook);  //old represents the object contains old data, theBook object contains the new data, update the old
 
-    int getAllOrderSize();
-    List<Order> getOrderList();
-    boolean addOrder(Order order);
-    boolean updateOrderState(Order order);
+    int getAllOrderSize();//get the size of current order list from DB
+
+    List<Order> getOrderList();//get all orders from the DB, form as a list
+
+    boolean addOrder(Order order);//add a new order
+
+    boolean updateOrderState(Order order);//update the state of given order
+
     boolean deleteFromCart(Order order);   //delete from cart once the order is made
 }

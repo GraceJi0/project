@@ -77,6 +77,8 @@ public class DataAccessObject implements DataAccess
 		System.out.println("Closed " +dbType +" database " +dbName);
 	}
 
+	//call the following method from HSQL files
+
 	public List<Customer> getCustomerList()
 	{
 		return CustomerPersistence.getCustomerList(cmdString, st1, rs2, warn);
@@ -167,12 +169,30 @@ public class DataAccessObject implements DataAccess
 		return result;
 	}
 
+	public int getAllOrderSize()
+	{
+		return OrderPersistence.getAllOrderSize(cmdString, st2, st3, rs2, rs3, warn);
+	}
 
-	public int getAllOrderSize(){return OrderPersistence.getAllOrderSize(cmdString, st2, st3, rs2, rs3, warn);}
-	public List<Order> getOrderList(){return OrderPersistence.getOrderList(cmdString, st4, st5, rs4, rs5, warn);}
-	public boolean addOrder(Order order){return OrderPersistence.addOrder(order, warn, cmdString, st1, updateCount);}
-	public boolean updateOrderState(Order order) {return OrderPersistence.updateOrderState(order, warn, cmdString, st1, updateCount, result);}
-	public boolean deleteFromCart(Order order){return OrderPersistence.deleteFromCart(order, warn, cmdString, st1, updateCount);}
+	public List<Order> getOrderList()
+	{
+		return OrderPersistence.getOrderList(cmdString, st4, st5, rs4, rs5, warn);
+	}
+
+	public boolean addOrder(Order order)
+	{
+		return OrderPersistence.addOrder(order, warn, cmdString, st1, updateCount);
+	}
+
+	public boolean updateOrderState(Order order)
+	{
+		return OrderPersistence.updateOrderState(order, warn, cmdString, st1, updateCount, result);
+	}
+
+	public boolean deleteFromCart(Order order)
+	{
+		return OrderPersistence.deleteFromCart(order, warn, cmdString, st1, updateCount);
+	}
 }
 
 

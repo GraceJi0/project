@@ -1,7 +1,6 @@
 package comp3350project.bookorderingsystem.tests.business;
 
 import comp3350project.bookorderingsystem.application.Service;
-import comp3350project.bookorderingsystem.application.Main;
 
 import comp3350project.bookorderingsystem.business.AccessBook;
 import comp3350project.bookorderingsystem.objects.Book;
@@ -21,8 +20,6 @@ public class TestAccessBook {
     AccessBook testAccess;
     List<Book> testList;   //the temp list for the books
     int number;   //number of items in the list
-
-    private static String dbName = Main.dbName;
 
     @Before
     public void setUp() {
@@ -74,24 +71,28 @@ public class TestAccessBook {
     {
         testList = (ArrayList)testAccess.getBookList();   //testing for the getBookList
         number = testList.size();
+        assertTrue(number == 9);   //9 books were in the database
     }
 
     public void testSearchBook()
     {
         Book theBook = testAccess.searchBook("Name");
         assertNotNull(theBook);   //the book should be found
+        assertTrue(theBook.getName().equals("Name"));   //make sure the result is correct
     }
 
     public void testContain()
     {
         testList = (ArrayList) testAccess.searchBookContain("Name");
         assertTrue(1 == testList.size());   //only one book named "Name" in the database
+        assertTrue(testList.get(0).getName().equals("Name"));   //make sure the result is correct
     }
 
     public void testCategory()
     {
         testList = (ArrayList) testAccess.searchBookCategory("free");
         assertTrue(1 == testList.size());   //only one book is in the category "free"
+        assertTrue(testList.get(0).getCategory().equals("free"));   //make sure the result is correct
     }
 
     public void testEditBook()

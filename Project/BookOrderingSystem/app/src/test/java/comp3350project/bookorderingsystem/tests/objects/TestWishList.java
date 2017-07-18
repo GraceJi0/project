@@ -33,7 +33,7 @@ public class TestWishList
 		String password = "default";
 
 		theCus = new Customer(customerName, password);   //create a new customer for testing
-		theWishList = new WishList(customerName);   //intialize the wishlist for this customer
+		theWishList = new WishList();   //intialize the wishlist for this customer
 
 		testObject();
 		testTheWishList();

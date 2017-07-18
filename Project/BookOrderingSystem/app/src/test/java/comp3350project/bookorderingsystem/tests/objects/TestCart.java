@@ -29,7 +29,7 @@ public class TestCart {
 		String customerName = "testCart";
 		String password = "default";
 		theCus = new Customer(customerName, password);   //create a new customer for testing
-		theCart = new Cart(customerName);   //intialize the cart for this customer
+		theCart = new Cart();   //intialize the cart for this customer
 
 		testObject();
 		testTheCart();   //test the setCart and getCart

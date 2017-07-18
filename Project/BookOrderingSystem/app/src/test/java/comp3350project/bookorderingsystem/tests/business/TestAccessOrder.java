@@ -27,8 +27,6 @@ public class TestAccessOrder {
     AccessCustomer accessCustomer;
     AccessOrder accessOrder;
 
-    private static String dbName = Main.dbName;
-
     private List<Book> tempCart;   //temp list of book, assume this is the customer's cart
     private Customer tempCus;
     private Order tempOrder;
@@ -89,6 +87,7 @@ public class TestAccessOrder {
     public void testGetAllOrder()
     {
         allOrders = accessOrder.getAllOrder();   //get all order from the database
+        assertNotNull(allOrders);   //one order is already added
     }
 
     public void testOrderSize()

@@ -34,7 +34,7 @@ public class TestCustomerOrder
 		String customerName = "testCart";
 		String password = "default";
 		theCus = new Customer(customerName, password);   //create a new customer for testing
-		testOrder = new CustomerOrder(theCus.getName());   //create the object
+		testOrder = new CustomerOrder();   //create the object
 
 		testObject();
 		makeOrder();   //make a temp order first

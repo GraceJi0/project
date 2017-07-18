@@ -10,7 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import comp3350project.bookorderingsystem.R;
@@ -18,7 +18,6 @@ import comp3350project.bookorderingsystem.business.AccessCustomer;
 import comp3350project.bookorderingsystem.business.AccessOrder;
 import comp3350project.bookorderingsystem.business.AccessBook;
 import comp3350project.bookorderingsystem.objects.Book;
-import comp3350project.bookorderingsystem.objects.Customer;
 import comp3350project.bookorderingsystem.objects.Order;
 
 public class CheckOutActivity extends AppCompatActivity

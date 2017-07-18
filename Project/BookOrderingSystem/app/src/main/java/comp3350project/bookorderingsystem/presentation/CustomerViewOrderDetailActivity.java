@@ -9,19 +9,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
 import comp3350project.bookorderingsystem.R;
 import comp3350project.bookorderingsystem.business.AccessCustomer;
 import comp3350project.bookorderingsystem.business.AccessOrder;
 import comp3350project.bookorderingsystem.objects.Book;
-import comp3350project.bookorderingsystem.objects.Customer;
 import comp3350project.bookorderingsystem.objects.Order;
-
-/**
- * Created by lee on 2017/7/9.
- */
 
 public class CustomerViewOrderDetailActivity extends AppCompatActivity {
     String accountName;

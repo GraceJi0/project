@@ -52,7 +52,9 @@ public class AccessOrder
         List<Order> allOrder = getAllOrder();
         allOrder.add(newOrder);
     }
-
+    /****************
+     * return the size of order
+     *********************/
     public int orderSize()
     {
         int result;
@@ -60,7 +62,9 @@ public class AccessOrder
         result=allOrder.size()+1;
         return result;
     }
-
+    /****************
+     * update the order with a new one
+     *********************/
     public boolean updateOrderState(Order order)
     {
         return dataAccess.updateOrderState(order);

@@ -262,7 +262,11 @@ public class AccessCustomer
             }
         }
     }
-
+    /*****************************************
+     * use customer's name to find the customer
+     * and get all orders of the customer by method getoOrderList()
+     *
+     *****************************************/
     public List<Order>getCustomerOrder(String customerName)
     {
         List<Customer> customerList = getCustomerList();
@@ -283,6 +287,11 @@ public class AccessCustomer
         return customer.getOrderList();
     }
 
+
+    /*****************************************
+     * use customer's name to find the customer
+     *return this customer if found
+     *****************************************/
     public Customer findCustomer(String customerName)
     {
         Customer found = null;

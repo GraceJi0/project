@@ -88,6 +88,9 @@ public class AccessBook {
     }
 
 
+    /*******************************************************
+     renew a book to database by replease it with a new book
+     ********************************************************/
     public void editBook(Book old, Book book)
     {
         if(book != null)

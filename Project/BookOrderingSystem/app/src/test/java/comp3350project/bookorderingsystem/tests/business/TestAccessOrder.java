@@ -1,7 +1,6 @@
 package comp3350project.bookorderingsystem.tests.business;
 
 import comp3350project.bookorderingsystem.application.Service;
-import comp3350project.bookorderingsystem.application.Main;
 
 import comp3350project.bookorderingsystem.business.AccessBook;
 import comp3350project.bookorderingsystem.business.AccessCustomer;

@@ -302,7 +302,7 @@ Business folder: TestAccessBook.java, TestAccessCustomer.java, TestAccessOrder.j
 AllTests.java and ExampleUnitTest.java
 
 The issues that we were not able to resolve in this iteration are : 
-	1. When customer filling order information, system don’t check if address, card number, and email are valid
+	1. When customer filling order information, system don't check if address, card number, and email are valid
 	2. We couldn't upload a picture as the cover for this book when adding a new book to the database.
 
 
@@ -312,7 +312,7 @@ The issues that we were not able to resolve in this iteration are :
 
 |                  Manager manage orders					|
 |  -As a manager, I want to be able to manage orders that customer placed.											|
-|												|
+|										|
 |	Priority: high						    cost: 3days	|
 
 The User stories we planned for this iteration:
@@ -339,7 +339,7 @@ Developer tasks:
 	-case-sensitive	(0.5 hr)
 	-violate the single-responsibility principle (2 hr)
 	-lack of unit test (see testing part)
-	- donít allow customer register account name start with “dmb?0.5 hr) 
+	- don't allow customer register account name start with dmb (0.5 hr) 
 5. persistence layer
 	-add orders table in .script file (2 hr)
 	-create order function on HSQL and dataAccessObject (3 hr)

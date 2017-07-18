@@ -1,12 +1,10 @@
 package comp3350project.bookorderingsystem.business;
-import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 import comp3350project.bookorderingsystem.application.Main;
 import comp3350project.bookorderingsystem.application.Service;
 import comp3350project.bookorderingsystem.objects.Book;
 import comp3350project.bookorderingsystem.persistence.DataAccess;
-import comp3350project.bookorderingsystem.persistence.DataAccessStub;
 
 
 public class AccessBook {

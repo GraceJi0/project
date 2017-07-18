@@ -7,10 +7,6 @@ import comp3350project.bookorderingsystem.application.Service;
 import comp3350project.bookorderingsystem.objects.Order;
 import comp3350project.bookorderingsystem.persistence.DataAccess;
 
-/**
- * Created by dinghanji on 2017-07-07.
- */
-
 public class AccessOrder
 {
     private DataAccess dataAccess;

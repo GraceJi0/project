@@ -56,7 +56,7 @@ public class Cart
     }
 
     //**********************************
-    // get total amount of books in customer's cart
+    // get total amount of books in customer's cart, also calculate the tax
     //***********************************
     public double getTotalAmount()
     {
@@ -65,10 +65,9 @@ public class Cart
         {
             total += customerCart.get(i).getBookPrice();
         }
-        total += total * 0.13;
+        total += total * 0.13;   //add the tax
         long l = Math.round(total * 100);
         total= l / 100.0;
         return total;
     }
-
 }

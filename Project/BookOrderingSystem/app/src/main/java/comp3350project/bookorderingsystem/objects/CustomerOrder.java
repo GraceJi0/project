@@ -18,7 +18,6 @@ public class CustomerOrder {
         customerOrderList.add(newOrder);
     }
 
-
     /***************
     get the order list
      *****************/
@@ -34,5 +33,4 @@ public class CustomerOrder {
     {
         this.customerOrderList = orders;
     }
-
 }

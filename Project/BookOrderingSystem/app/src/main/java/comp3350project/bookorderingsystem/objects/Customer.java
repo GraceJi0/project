@@ -26,8 +26,6 @@ public class Customer
     public String getPassword(){return password;}
     public void setPassword(String newPwd){password = newPwd;}
 
-
-
     public void setCart(ArrayList<Book> theList)
     {
         customerCart.setCart(theList);

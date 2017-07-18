@@ -15,12 +15,12 @@ public class Picture{
         return pid;
     }
 
-    public int getPicture()  ///return the pciture
+    public int getPicture()  ///return the picture
     {
         return picture;
     }
 
-    public void setPicture(int picture)
+    public void setPicture(int picture)   //set a picture for a book
     {
         this.picture = picture;
     }

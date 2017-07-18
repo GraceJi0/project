@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <TextView
@@ -13,7 +14,8 @@
         android:text="Order#"
         android:layout_alignParentTop="true"
         android:layout_alignLeft="@+id/orderBooks"
-        android:layout_alignStart="@+id/orderBooks" />
+        android:layout_alignStart="@+id/orderBooks"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <TextView
         android:textSize="30dp"
@@ -25,7 +27,8 @@
         android:layout_marginStart="30dp"
         android:layout_toEndOf="@+id/orderTitleText"
         android:layout_toRightOf="@+id/orderTitleText"
-        android:text="TextView" />
+        android:text="TextView"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <ListView
         android:id="@+id/orderBooks"
@@ -36,7 +39,7 @@
         android:layout_centerHorizontal="true" />
 
     <TextView
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:id="@+id/customerTitleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -44,7 +47,8 @@
         android:text="Customer:"
         android:layout_below="@+id/orderBooks"
         android:layout_alignLeft="@+id/orderTitleText"
-        android:layout_alignStart="@+id/orderTitleText" />
+        android:layout_alignStart="@+id/orderTitleText"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/customerAccountText"
@@ -55,7 +59,8 @@
         android:layout_toEndOf="@+id/customerTitleText"
         android:layout_toRightOf="@+id/customerTitleText"
         android:text="TextView"
-        android:textSize="30dp" />
+        android:textSize="30sp"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/deliverButton"
@@ -67,7 +72,8 @@
         android:layout_below="@+id/textView15"
         android:layout_toRightOf="@+id/orderTitleText"
         android:layout_toEndOf="@+id/orderTitleText"
-        android:layout_marginTop="45dp" />
+        android:layout_marginTop="45dp"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:textColor="@color/colorPrimary"
@@ -78,58 +84,64 @@
         android:text="log out"
         android:layout_above="@+id/orderNumberText"
         android:layout_alignRight="@+id/orderBooks"
-        android:layout_alignEnd="@+id/orderBooks" />
+        android:layout_alignEnd="@+id/orderBooks"
+        tools:ignore="HardcodedText" />
 
     <TextView
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Email:"
         android:layout_below="@+id/textView16"
         android:layout_alignLeft="@+id/orderBooks"
-        android:layout_alignStart="@+id/orderBooks" />
+        android:layout_alignStart="@+id/orderBooks"
+        tools:ignore="HardcodedText" />
 
     <TextView
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Card Number:"
         android:layout_alignLeft="@+id/textView12"
         android:layout_alignStart="@+id/textView12"
-        android:layout_below="@+id/textView12" />
+        android:layout_below="@+id/textView12"
+        tools:ignore="HardcodedText" />
 
     <TextView
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Address:"
         android:layout_below="@+id/textView13"
         android:layout_alignLeft="@+id/textView13"
-        android:layout_alignStart="@+id/textView13" />
+        android:layout_alignStart="@+id/textView13"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/emailText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:layout_above="@+id/textView13"
         android:layout_toRightOf="@+id/textView12"
-        android:layout_toEndOf="@+id/textView12" />
+        android:layout_toEndOf="@+id/textView12"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/cardNumberText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:layout_alignBaseline="@+id/textView13"
         android:layout_alignBottom="@+id/textView13"
         android:layout_toRightOf="@+id/textView13"
-        android:layout_toEndOf="@+id/textView13" />
+        android:layout_toEndOf="@+id/textView13"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/addressText"
@@ -140,10 +152,11 @@
         android:layout_toEndOf="@+id/textView14"
         android:layout_toRightOf="@+id/textView14"
         android:text="TextView"
-        android:textSize="25dp" />
+        android:textSize="25sp"
+        tools:ignore="HardcodedText" />
 
     <TextView
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -151,35 +164,39 @@
         android:layout_below="@+id/customerTitleText"
         android:layout_alignLeft="@+id/textView12"
         android:layout_alignStart="@+id/textView12"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="20dp"
+        tools:ignore="HardcodedText" />
 
     <TextView
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:id="@+id/customerNameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/textView16"
         android:layout_toEndOf="@+id/textView16"
         android:layout_toRightOf="@+id/textView16"
-        android:text="TextView" />
+        android:text="TextView"
+        tools:ignore="HardcodedText" />
 
     <TextView
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Total Amount:"
         android:layout_below="@+id/textView14"
         android:layout_alignLeft="@+id/textView14"
-        android:layout_alignStart="@+id/textView14" />
+        android:layout_alignStart="@+id/textView14"
+        tools:ignore="HardcodedText" />
 
     <TextView
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:id="@+id/totalAmountText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textView15"
         android:layout_toEndOf="@+id/textView15"
         android:layout_toRightOf="@+id/textView15"
-        android:text="TextView" />
+        android:text="TextView"
+        tools:ignore="HardcodedText" />
 </RelativeLayout>

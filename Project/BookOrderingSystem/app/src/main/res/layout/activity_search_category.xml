@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <Button
@@ -14,7 +15,8 @@
         android:layout_marginEnd="18dp"
         android:layout_marginRight="18dp"
         android:layout_marginTop="19dp"
-        android:text="log out" />
+        android:text="log out"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:textColor="@color/colorPrimary"
@@ -25,7 +27,8 @@
         android:layout_alignTop="@+id/logOutButton"
         android:layout_toLeftOf="@+id/logOutButton"
         android:layout_toStartOf="@+id/logOutButton"
-        android:text="my account" />
+        android:text="my account"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:textColor="@color/colorPrimary"
@@ -39,7 +42,8 @@
         android:layout_alignParentStart="true"
         android:layout_marginLeft="36dp"
         android:layout_marginStart="36dp"
-        android:text="fiction" />
+        android:text="fiction"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/textBookBut"
@@ -51,7 +55,8 @@
         android:layout_alignBaseline="@+id/nonFictionBut"
         android:layout_alignBottom="@+id/nonFictionBut"
         android:layout_toLeftOf="@+id/magazinebut"
-        android:layout_toStartOf="@+id/magazinebut" />
+        android:layout_toStartOf="@+id/magazinebut"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:textColor="@color/colorPrimary"
@@ -63,7 +68,8 @@
         android:layout_below="@+id/myAccountButton"
         android:layout_alignLeft="@+id/fictionBut"
         android:layout_alignStart="@+id/fictionBut"
-        android:layout_marginTop="18dp" />
+        android:layout_marginTop="18dp"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:textColor="@color/colorPrimary"
@@ -75,7 +81,8 @@
         android:layout_alignBaseline="@+id/textBookBut"
         android:layout_alignBottom="@+id/textBookBut"
         android:layout_alignRight="@+id/logOutButton"
-        android:layout_alignEnd="@+id/logOutButton" />
+        android:layout_alignEnd="@+id/logOutButton"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:textColor="@color/colorPrimary"
@@ -87,7 +94,8 @@
         android:text="other"
         android:layout_below="@+id/textBookBut"
         android:layout_toRightOf="@+id/childrenbBut"
-        android:layout_toEndOf="@+id/childrenbBut" />
+        android:layout_toEndOf="@+id/childrenbBut"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:textColor="@color/colorPrimary"
@@ -99,7 +107,8 @@
         android:layout_alignBaseline="@+id/otherBut"
         android:layout_alignBottom="@+id/otherBut"
         android:layout_alignLeft="@+id/fictionBut"
-        android:layout_alignStart="@+id/fictionBut" />
+        android:layout_alignStart="@+id/fictionBut"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:textColor="@color/colorPrimary"
@@ -111,7 +120,8 @@
         android:layout_alignBottom="@+id/otherBut"
         android:layout_alignEnd="@+id/magazinebut"
         android:layout_alignRight="@+id/magazinebut"
-        android:text="Comics and Graphic Novels" />
+        android:text="Comics and Graphic Novels"
+        tools:ignore="HardcodedText" />
 
     <ListView
         android:id="@+id/booklist"
@@ -131,5 +141,6 @@
         android:text="all"
         android:layout_above="@+id/otherBut"
         android:layout_alignRight="@+id/childrenbBut"
-        android:layout_alignEnd="@+id/childrenbBut" />
+        android:layout_alignEnd="@+id/childrenbBut"
+        tools:ignore="HardcodedText" />
 </RelativeLayout>

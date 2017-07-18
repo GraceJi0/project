@@ -56,12 +56,6 @@ public class Order {
     public void setAddress(String address){this.address = address;}
     public void setState(String newState)
     {
-        /*if(newState.equals("Delivered"))
-            state = deliveredState;
-        else if(newState.equals("Received"))
-            state = receivedState;
-        else
-            state = waitingState;*/
         if(newState.equals("Delivered"))
             state = deliveredState;
         else
